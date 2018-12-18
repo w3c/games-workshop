@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      [DRAFT] W3C Workshop on Web Games
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="header">
+      <p>
+        <a href="https://www.w3.org/"><img alt="W3C" src=
+        "https://www.w3.org/Icons/w3c_home" height="48" width="72"></a>
+      </p>
+      <h1 id="top" class="todo">
+        [DRAFT] W3C Workshop on Web Games
+      </h1>
+      <p class="todo">
+        ??? ??-??, 2019; City, Country
+      </p>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a class="active-tab">Call for Participation</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box" id="dates">
+      <h2 class="footnote">
+        Important Dates
+      </h2>
+      <dl class=todo>
+        <dt>TBD</dt>
+        <dd>
+          Registration deadline
+        </dd>
+        <dt>TBD</dt>
+        <dd>
+          Acceptance notification
+        </dd>
+        <dt>TBD</dt>
+        <dd>
+          <a href="#position-statements">Position statements</a> deadline
+        </dd>
+        <dt>TBD</dt>
+        <dd>
+          Program announced
+        </dd>
+        <dt>TBD</dt>
+        <dd>
+          Workshop
+        </dd>
+      </dl>
+    </aside>
+    <aside class="box" id="submit">
+      <h2 class="footnote">
+        Registration and Position Statements
+      </h2>
+      <p>
+        Fill out the <a class=todo>registration
+        form</a> or submit a <a href="#position-statements">position
+        statement</a>.
+      </p>
+    </aside>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p class="todo">
+        W3C gratefully acknowledges @@ for hosting this workshop.
+      </p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <p>See <a href="sponsorship.html">Sponsorship package info</a>. Contact Alan Bird &lt;<a href="mailto:abird@w3.org">abird@w3.org</a>&gt; if you are interested in sponsoring this event.</p>
+    </aside>
+    <main id="main" class="main">
+      <section id="home">
+        <p class="todo">
+          This is an <b>unofficial draft</b> call for participation to an <b>unconfirmed</b> W3C Workshop on Web Games.
+        </p>
+        <section id="intro">
+          <h2 id="goals">
+            What is the purpose of this workshop?
+          </h2>
+          <p>The primary goal of the workshop is to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers <b>to assess the readiness of the Open Web Platform for games</b>.</p>
+          <p>The secondary goals of the workshop are as follows:</p>
+          <ul>
+            <li>Understand how games can leverage the power of the Web as a social platform for discovery and sharing (e.g. through live streaming);</li>
+            <li>Understand how browser-based interactions fit within games;</li>
+            <li>Identify business constraints and technical gaps for distributing games on the Web;</li>
+            <li>Evaluate the opportunities for standardization of APIs and formats that would ease the development of games on the Web.</li>
+          </ul>
+          <p>We won't just be listening to presentations. We will be actively participating in breakout session and working discussions covering <a href="#topics">topics identified as relevant to the participants</a>.</p>
+        </section>
+        <section>
+          <h2 id="topics">
+            Which topics will be covered?
+          </h2>
+          <ul>
+            <li>How can game developers <b>render stunning 3D graphics in real-time</b> on the Web? What are high-priority features that a Web GPU API should expose? Under what timeline should such features be developed for the Web platform not to fall behind?</li>
+            <li>The Web platform has limited support for <b>multithreading operations</b> through Workers. How can games efficiently spread CPU intensive operations across CPU cores while maintaining complex hierarchical structures such as <em>octrees</em>?</li>
+            <li>What <b>additional WebAssembly features</b> would make the Web a better <b>build target</b> for game engines that use high-level programming languages such as C++/C#/Rust? How to create efficient and easy to debug games on the Web?</li>
+            <li>Similarly, is there a need to provide <b>WebAssembly hooks to Web APIs</b> to ease integration with hardware inputs/outputs exposed on the Web and create hybrid WebAssembly/JavaScript game engines?</li>
+            <li>What improvements to Web technologies are needed for <b>cloud gaming</b>?</li>
+            <li>Can usual <b>game monetization schemes</b> (game purchase, in-game microtransactions, subscriptions, ads) be used in Web games, especially in games that need to run offline? How can Web games leverage <b>blockchain</b> technologies for virtual assets management?</li>
+            <li>How to <b>protect game assets</b> from Devtools exploration and extraction?</li>
+            <li>How to expose <b>accessible semantics</b>, part of the Web's DNA, when most games plug into low-level input/output APIs and act as an opaque box?</li>
+          </ul>
+
+          <section>
+            <h3>References</h3>
+            <ul>
+              <li><a href="https://www.babylonjs.com/">babylon.JS</a></li>
+              <li><a href="https://https://webassembly.org/">WebAssembly</a></li>
+              <li><a href="https://w3c.github.io/web-roadmaps/games/">Games on the Web Roadmap</a></li>
+              <li><a href="https://www.w3.org/community/games">Games Community Group</a></li>
+              <li><a href="https://www.w3.org/2011/09/games/">Report on the W3C Workshop on HTML.next for Games</a>. September 2011.</li>
+              <li><a href="https://www.w3.org/TR/2018/WD-webrtc-nv-use-cases-20181211/#multipartygame">Multiparty online game with voice communications</a> use case for WebRTC Next Version. 11 December 2018.</li>
+              <li><a href="https://forum.babylonjs.com/t/hide-or-block-the-download-of-source-3d-object/207">Hide or block the download of source 3D object</a>. Question on babylon.JS forum. 12 December 2018.</li>
+              <li><a href="https://blog.parsecgaming.com/game-streaming-tech-in-the-browser-with-parsec-5b70d0f359bc">A Look at Game Streaming Tech in the Browser</a>. 15 October 2018.</li>
+              <li><a href="https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/">WebAssembly's post-MVP future: A cartoon skill tree</a> by Lin Clarke, Till Schneidereit, Luke Wagner. Mozilla hacks. 22 October 2018</li>
+              <li><a href="https://blogs.unity3d.com/2018/08/15/webassembly-is-here/">WebAssembly is here!</a> by Marco Trivellato. Unity Blog. 15 August 2018.</li>
+              <li><a href="https://github.com/nondebug/webhid/blob/master/EXPLAINER.md">WebHID Explainer</a></li>
+            </ul>
+          </section>
+
+          <p>
+            Please <a href=
+            "https://github.com/w3c/games-workshop/">submit a pull request or raise an issue on GitHub</a> to suggest further workshop topics. You may also email François Daoust &lt;<a href="mailto:fd@w3.org">fd@w3.org</a>&gt;.
+          </p>
+
+        </section>
+        <section>
+          <h2 id="attendance">
+            How can I attend?
+          </h2>
+          <p>Attendance is <b>free</b> for all invited participants and is open to the public, whether or not W3C members.</p>
+          <p>If you wish to express interest in attending, please fill out the <span class="todo">registration form</span>. We want to fill the room with people with practice experience with authoring and distributing games, and with people involved in relevant Web technologies and their standardization.</p>
+          <p>Because the venue can only accommodate so many people, you muse receive an acceptance email in order to attend. Also, be sure to keep an eye on <a href="#dates">these important dates</a>.</p>
+          <p>As an alternative to the registration form, you are encouraged to submit a topic in the form of a <a href="#position-statement">position statement</a>.</p>
+          <p>Our aim is to get a diversity of attendees from a variety of industries and communities, including:</p>
+          <ul>
+            <li>Game engines developers,</li>
+            <li>Game developers,</li>
+            <li>Game distributors,</li>
+            <li>Game devices manufacturers (e.g. gamepads, VR/AR headsets),</li>
+            <li>Experts in relevant technologies (e.g. WebGPU, WebAssembly, WebXR, WebRTC, Gamepad, Web Audio),</li>
+            <li>Experts in challenges and opportunities of games for people with disabilities,</li>
+            <li>Browser vendors.</li>
+          </ul>
+          <p>This workshop, as other W3C meetings, operates under its <a href="https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional Conduct</a>.</p>
+        </section>
+        <section>
+          <h2 id="position-statement">
+            How can I suggest a presentation?
+          </h2>
+
+          <p>This is a workshop, not a conference. Presentations will be short, with topics suggested by submissions and decided by the chairs and program committee. Our goal is to actively discuss topics, not to watch presentations.</p>
+
+          <p>In order to facilitate informed discussion, we encourage attended to read the accepted topics prior to attending the workshop.</p>
+
+          <p>If you wish to present on a topic, you can send us a position statement to the Program Committee at &lt;<span class="todo">@w3.org</span>&gt; by the deadline (see <a href="#dates">important dates</a>). Our <a href="#committee">program committee</a> will review the input provided, and select the most relevant topics and perspectives.</p>
+
+          <p>A good position statement should be a few paragraphs long and include:</p>
+          <ul>
+            <li>Your background on games and/or Web technologies;</li>
+            <li>Which topic you would like to lead discussion on;</li>
+            <li>Links to related supporting resources;</li>
+            <li>Optionally, other topics you think the workshop should cover.</li>
+          </ul>
+
+          <p>Position statements must be in English, preferably in HTML or plain-text format. Images should be included inline in HTML using base64-encoded data URIs. Yuo may include multiple topics, be we ask that each person submit only a single coherent position statement. The position statement and the input provided at registration time (e.g. bio, goals, interests) will be published and linked to from this workhop page.</p>
+        </section>
+        <section>
+          <h2 id="w3c">
+            What is W3C?
+          </h2>
+          <p>
+            W3C is a voluntary standards consortium that convenes companies and
+            communities to help structure productive discussions around existing
+            and emerging technologies, and offers a Royalty-Free patent framework
+            for Web Recommendations. We focus primarily on client-side (browser)
+            technologies, and also have a mature history of vocabulary (or
+            “ontology”) development. W3C develops work based on the priorities of
+            our members and our community.
+          </p>
+        </section>
+        <section>
+          <h2 id="program">
+            Program
+          </h2>
+          <h3 id="committee">
+            Program Committee
+          </h3>
+          <h4>
+            Chairs
+          </h4>
+          <ul>
+            <li class="todo">@@</li>
+          </ul>
+          <h4>
+            Committee
+          </h4>
+          <ul>
+            <li class="todo">@@</li>
+          </ul>
+        </section>
+        <section>
+          <h3 id="host-sponsors">
+            Host
+          </h3>
+          <p class="todo">@@</p>
+
+          <h3 id="sponsors">
+            Sponsors
+          </h3>
+          <section class="sponsors-section sponsors-section--platinum">
+            <h3 id="platinum-sidebar">
+              Platinum Sponsors
+            </h3>
+            <p class="todo">@@</p>
+          </section>
+          <section class="sponsors-section sponsors-section--silver">
+            <h3 id="silver-sidebar">
+              Silver Sponsors
+            </h3>
+            <p class="todo">@@</p>
+          </section>
+        </section>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard.
+      </p>
+      <p>
+        Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

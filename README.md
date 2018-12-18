@@ -1,2 +1,3 @@
-# games-workshop
-Draft for a possible workshop on Web games mid-2019
+# W3C Workshop on Web games
+
+Site for a possible W3C Workshp on Web Games
