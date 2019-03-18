@@ -8,7 +8,7 @@ Top section image
  background-image: url("https://www.w3.org/comm/assets/stock/shutterstock_1129928582-game-neon.jpg");
  background-repeat: no-repeat;
  background-size: cover;
- min-height: 370px;
+ min-height: 300px;
  color: white;
  position: relative;
 }
