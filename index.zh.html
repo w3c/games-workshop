@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>W3C Web 游戏技术研讨会</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="W3C Workshop on Web Games, June 27-28 2019 in #Seattle 🇺🇸 ">
+    <meta property="og:description" content="The primary goal of the workshop is to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games.">
+    <meta property="og:image" content="https://www.w3.org/comm/assets/stock/shutterstock_1129928582-game-neon-play-everywhere-300px.png">
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "https://www.w3.org/Icons/w3c_home" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Web 游戏技术研讨会
+          </h1>
+          <p>2019年6月27-28日 · 美国华盛顿州雷德蒙德市
+            <br/><a href="index.en.html">研讨会英文页面</a></p>
+        </div>
+        <img src="https://www.w3.org/comm/assets/stock/shutterstock_1129928582-game-neon-play-everywhere-300px.png" alt="" />
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a class="active-tab">欢迎注册参会</a> 
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box" id="dates">
+      <h2 class="footnote">
+        重要日期
+      </h2>
+      <dl>
+        <dt>2019年5月10日之前</dt>
+        <dd> 进行会议<a href="#attendance">注册</a>，发送<a href="#position-statement">立场声明</a></dd>
+        <dt class="todo">2019年5月24日</dt>
+        <dd class="todo">发布讨论话题及与会成员</dd>
+        <dt class="todo">2019年6月12日</dt>
+        <dd class="todo">发布会议最终议程</dd>
+        <dt>2019年6月27-28日</dt>
+        <dd>研讨会召开</dd>
+      </dl>
+    </aside>
+    <aside class="box" id="submit">
+      <h2 class="footnote">
+        会议注册及立场声明
+      </h2>
+      <p>
+        在线填写<a href="https://www.w3.org/2002/09/wbs/1/games-workshop/">注册表格</a>进行参会注册，进一步发送<a href="#position-statement">立场声明</a>来表达你对哪些已有话题感兴趣，或提议添加新的讨论话题。
+      </p>
+    </aside>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        会议承办方
+      </h2>
+      <p>W3C 衷心感谢微软公司承办本次会议！</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        会议赞助
+      </h2>
+      <p>欢迎了解本次研讨会的<a href="sponsorship.html">赞助方权益</a>。 如果您希望赞助本次会议，请联系 Alan Bird &lt;<a href="mailto:abird@w3.org">abird@w3.org</a>&gt; 或 Karen Myers &lt;<a href="mailto:karen@w3.org">karen@w3.org</a>&gt; 。</p>
+    </aside>
+    <main id="main" class="main">
+      <section id="home">
+        <section id="intro">
+          <h2 id="goals">
+            研讨会宗旨
+          </h2>
+          <p>研讨会旨在汇集众多浏览器供应商、游戏引擎厂商、游戏开发者、游戏发行方和设备生产商，通过游戏相关技术来进一步充实拓展开放 Web 平台，包括动作、休闲、第一人称射击（FPS）、多人在线战术竞技（MOBA）、大型多人在线角色扮演（MMORPG）、运动以及虚拟/增强现实（VR/AR）等多种类型的游戏。</p>
+          <p>研讨会目标:</p>
+          <ul>
+            <li>探讨游戏如何把 Web 作为一个分享社交平台实现游戏用户的发现与分享（如，通过直播）；</li>
+            <li>如何在游戏里实现浏览器相关的交互； </li>
+            <li>识别在 Web 中访问游戏时与无障碍和国际化相关的机制、最佳实现和技术壁垒； </li>
+            <li>识别在 Web 上进行游戏分发的商业壁垒和现有技术难点；</li>
+            <li>探索通过标准化接口和数据格式实现更高效 Web 游戏开发的可能性。</li>
+          </ul>
+          <p>我们鼓励与会者现场参会，同时我们更希望与会者可以积极参与到分组讨论中来，一起探讨<a href="#topics">由与会者提出的同各位与会成员相关的话题</a>。</p>
+        </section>
+        <section>
+          <h2 id="topics">
+            研讨会将涵盖哪些话题？
+          </h2>
+          <ul>
+            <li>
+              游戏开发者如何在 Web 上<b>实时渲染 Stunning 3D 图像</b>？现在到处都已支持 WebGL 1.0，大多数系统也支持 WebGL 2.0。同时还开发了新一代图形平台（Vulkan、Metal、Direct3D 12），并且 Web GPU 社区组开始为这些平台开发通用的 Web GPU API。AAA 级游戏需要哪些高优先级属性？在开发这些属性时应该遵循什么样进度才能不阻碍 Web 平台发展？</li>
+            
+            <li>如何用 workers 等 Web <b>多线程属性</b>支持高密度 CPU 操作和 octrees 等多层计算架构？如何有效利用<code>OffscreenCanvas</code> ？
+              对于跨平台重启 <code>SharedArrayBuffer</code>，让游戏可以在 workers 之间共享内存并利用线性一致操作来管理内存的计划如何？</li>
+              
+            <li>哪些<b>额外的 WebAssembly 属性</b>可以让 Web 对使用 ++/C#/Rust等高级语言的游戏引擎而言成为更好<b>目标编译平台</b>？如何在 Web 上创建高效且容易调试的游戏？</li>
+            <li> 在性能方面，哪些 WebAssembly、WebIDL 或 HTML 属性是必要的？硬件输出写入需要哪些新的 Web 接口去支持游戏引擎？ </li>
+
+            <li>针对<b>云游戏</b>，需要对 Web 流媒体技术进行哪些改进？</li>
+            <li>如何扩展<b>游戏输入 API</b>，检测游戏控制器上按键的具体位置，支持高级控制器功能（LED、震动、屏幕），以及游戏专用控制器的长尾（吉他、踏板、轮子、跳舞垫等）？游戏控制器上按钮的位置和/或标签是否存在国际化问题？</a>
+        
+          <li>如何使用/改进 Web 音频以及相关 API （WebRTC、WebXR） ，<b>在游戏中集成音乐/音效或轻松开发“音乐游戏”</b>？如何利用新的音频输入设备、VR耳机的空间扬声器？如何处理大量的声音样本，使用生成音乐，转移已有的音频引擎和重用现有的音频插件？</li>
+          
+          <li>哪些机制可能允许游戏开发者检测到 <b>Devtools 探测、提取或篡改游戏资源</b>（模型、代码逻辑）？是否可以保护游戏资源免受这些行为的影响？</li>
+
+          <li>Web 的一个关键优势是不需要安装应用程序，那么，如何<b>在后台加载并存储几百MB的游戏资源</b>，以确保从启动起就有一个流畅的用户体验？同样，如何最好地为离线执行打包和分发游戏？</li>
+
+            <li>即使代码需要插入不透明的低级输出/写入技术，开发人员还能利用哪些功能 &mdash;API、语义、渲染、处理、个性化、定制、互操作性&mdash; 等技术来<b>确保游戏的无障碍访问需求</b>？另外，是否有关于国际化方面的考虑？</li>
+
+          </ul>
+
+          <section>
+            <h3>参考资料</h3>
+            <ul lang="en">
+              <li><a href="https://www.babylonjs.com/">babylon.JS</a></li>
+              <li><a href="https://https://webassembly.org/">WebAssembly</a></li>
+              <li><a href="https://w3c.github.io/web-roadmaps/games/">Games on the Web Roadmap</a></li>
+              <li><a href="https://www.w3.org/community/games">Games Community Group</a></li>
+              <li><a href="https://www.w3.org/2011/09/games/">Report on the W3C Workshop on HTML.next for Games</a>. September 2011.</li>
+              <li><a href="https://www.khronos.org/webgl/">WebGL Overview</a>. Khronos Group.</li>
+              <li><a href="https://www.w3.org/community/gpu/">GPU for the Web Community Group</a></li>
+              <li><a href="https://html.spec.whatwg.org/multipage/canvas.html#the-offscreencanvas-interface">The <code>OffscreenCanvas</code> interface</a></li>
+              <li><a href="https://forum.babylonjs.com/t/hide-or-block-the-download-of-source-3d-object/207">Hide or block the download of source 3D object</a>. Question on babylon.JS forum. 12 December 2018.</li>
+              <li><a href="https://blog.parsecgaming.com/game-streaming-tech-in-the-browser-with-parsec-5b70d0f359bc">A Look at Game Streaming Tech in the Browser</a>. 15 October 2018.</li>
+              <li><a href="https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/">WebAssembly's post-MVP future: A cartoon skill tree</a> by Lin Clarke, Till Schneidereit, Luke Wagner. Mozilla hacks. 22 October 2018.</li>
+              <li><a href="https://discourse.wicg.io/t/human-interface-device-hid-api/3070">Human Interface Device (HID) API. September 2018.</a>
+              <li><a href="https://blogs.unity3d.com/2018/08/15/webassembly-is-here/">WebAssembly is here!</a> by Marco Trivellato. Unity Blog. 15 August 2018.</li>
+              <li><a href="https://www.w3.org/WAI/business-case/">The Business Case for Digital Accessibility</a></li>
+              <li><a href="http://gameaccessibilityguidelines.com/">Game accessibility guidelines</a></li>
+            </ul>
+          </section>
+
+          <p>
+            欢迎<a href=
+            "https://github.com/w3c/games-workshop/">在 GitHub 上为本次会议提交新的讨论话题</a>，或通过邮件直接联系本次研讨会负责人 François Daoust &lt;<a href="mailto:fd@w3.org">fd@w3.org</a>&gt;。
+          </p>
+
+        </section>
+        <section>
+          <h2 id="attendance">
+            如何参会？
+          </h2>
+          <p>本次研讨会<b>免费</b>对公众开放！</p>
+          <p>若您对本次研讨会话感兴趣，请在线填写并提交<a href="https://www.w3.org/2002/09/wbs/1/games-workshop/">会议注册表</a>。我们期待各位与会者，尤其是在游戏开发和分发方面有实际经验，或 Web 技术及标准化相关领域的业界同仁的到来！</p>
+
+          <p><b>提示</b>：在申请参会后，只有在收到来自我们的确认邮件，才视为注册成功并可现场参会。由于会议场地空间有限，我们会在一定程度上控制会议规模。请大家及时留意研讨会的重要时间节点。</a></p>
+
+    <p>除了进行会议注册之外，我们还鼓励大家提交<a href="#position-statement">立场声明</a>，为研讨会进一步提议更多话题供与会者现场讨论。</p>
+          <p>我们的目标是汇集来自不同行业及众多社区的参会者，包括但不限于：</p>
+          <ul>
+            <li>游戏引擎厂商</li>
+            <li>游戏开发者</li>
+            <li>游戏发行方</li>
+            <li>游戏设备生产方 (例如游戏手柄、VR/AR耳机等)</li>
+            <li>相关领域专家（例如 WebGPU、WebAssembly、WebXR、WebRTC、Gamepad、Web Audio)</li>
+            <li>了解与残疾人相关的游戏方面的机遇和挑战</li>
+            <li>浏览器供应商</li>
+          </ul>
+          <p>W3C 各类会议/活动，包括本次研讨会，均在<a href="https://www.w3.org/Consortium/cepc/">W3C 职业道德与行为准则</a>的基础上开展。</p>
+        </section>
+        <section>
+          <h2 id="position-statement">
+            如何为研讨会提议新话题？
+          </h2>
+
+          <p>区别于一般的会议，这是一次技术研讨会，目的在于对相关话题展开充分讨论，因此并不会有太长篇幅的个人演讲，讲者的分享将十分简洁，会上的话题由与会者提前提交并需经由研讨会项目委员会讨论决定。</p>
+
+          <p>为了促进高效讨论，我们鼓励与会者在参加研讨会之前了解已被接受的讨论话题。</p>
+
+          <p>如果与会者希望提议并分享某一话题，请在截止日期之前（<a href="#dates">重要时间节点</a>），向研讨会的项目委员会 &lt;<a href="mailto:team-games-submission@w3.org">team-games-submission@w3.org</a>&gt; 发送一份立场声明。我们的<a href="#committee">项目委员会</a>将审阅相关提议或意见，并选取与本次研讨会主题最相关的话题。</p>
+
+          <p>一份清晰的参会立场声明一般由以下内容构成：</p>
+          <ul>
+            <li>您在游戏或 Web 技术方面的背景介绍</li>
+            <li>您希望引导进行哪一话题的讨论</li>
+            <li>相关支撑资源/材料的链接</li>
+            <li>（可选）您认为研讨会还应涵盖哪些话题</li>
+          </ul>
+
+          <p>参会立场声明必须是英文的，最好是 HTML 或纯文本格式。如有图像，请提供base64编码的DataURI。您可以提议多个话题，不过我们希望每位与会者尽量提交一份立场声明，集中连贯地阐明不同话题。在注册有效期内提交的立场声明及反馈（个人简介、目标、感兴趣的话题等）将会公开发布在本研讨会页面上。</p>
+        </section>
+        <section>
+          <h2 id="w3c">
+            关于万维网联盟（World Wide Web Consortium，W3C）
+          </h2>
+          <p>W3C 是一个世界范围内开放的标准组织，汇集众多公司与社区成员共同围绕现有和新兴技术展开富有成效的讨论，其为 Web 标准设立了免版税的专利框架。W3C 主要关注客户端（浏览器）技术，并且拥有成熟的词汇表（或“本体”）开发历史。W3C 根据成员和社区输出的优先级开展相应标准化工作。</p>
+        </section>
+        <section>
+          <h2 id="program">
+            研讨会项目管理
+          </h2>
+          <h3 id="committee">
+            项目委员会
+          </h3>
+
+          <h4>研讨会主席</h4>
+          <ul>
+            <li><a href="https://twitter.com/deltakosh">David Catuhe</a>, <a href="https://www.microsoft.com/">Microsoft</a> &amp; <a href="https://www.babylonjs.com/">babylon.JS</a></li>
+          </ul>
+
+          <h4>委员会成员</h4>
+          <ul>
+            <li><a href="https://twitter.com/micbuffa">Michel Buffa</a>, <a href="http://univ-cotedazur.fr/en">Université Côte d'Azur</a></li>
+            <li><a href="https://twitter.com/tidoust">François Daoust</a>, <a href="https://www.w3.org/">W3C</a></li>
+            <li><a href="https://twitter.com/diekus">Diego Gonzalez</a>, <a href="https://samsunginter.net/">Samsung</a></li>
+            <li><a href="http://uk.linkedin.com/in/ianhamiltondc">Ian Hamilton</a>,  <a href="http://gameaccessibilityguidelines.com">Game Accessibility Guidelines</a> 的独立核心贡献者</li>
+            <li>Chris Hawkins, <a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://twitter.com/anssik">Anssi Kostiainen</a>, <a href="https://www.intel.com/">Intel</a></li>
+            <li>Anthony Laforge, <a href="https://www.google.com/">Google</a></li>
+            <li>Ariel Manzur, <a href="https://godotengine.org/">Godot</a></li>
+            <li><a href="https://twitter.com/kylealden">Kyle Pflug</a>, <a href="https://www.microsoft.com/">Microsoft</a></li>
+            <li><a href="https://twitter.com/neilt3d">Neil Trevett</a>, <a href="https://www.nvidia.com">NVIDIA</a> &amp; <a href="https://www.khronos.org/">Khronos Group</a></li>
+            <li><a href="https://twitter.com/luke_wagner">Luke Wagner</a>, <a href="https://www.mozilla.org/">Mozilla</a></li>
+            <li>Young Wang (<span lang="zh-Hans">王杨军</span>), <a href="https://www.tencent.com/">Tencent（腾讯）</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3 id="host-sponsors">
+            研讨会承办方
+          </h3>
+          <section>
+            <h4>Microsoft</h4>
+            <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="media/microsoft.svg" alt="Microsoft logo" width="300" /></a></p>
+          </section>
+        </section>
+    </main>
+    <footer class="footer" id="footer">
+      <p>W3C 是一个开放且包容的组织，专注于高效的讨论以及富有成效的行动。我们的<a href=
+        "https://www.w3.org/Consortium/cepc/">职业道德与行为准则（Code of Ethics and Professional
+        Conduct）</a> 确保我们积极听取来自各方的意见与声音。
+      </p>
+      <p>
+        有关该研讨会的更多细节，欢迎联系 François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        对于以上研讨会页面内容的任何建议，例如修正拼写错误或添加具体话题等，欢迎通过 <a href="https://github.com/w3c/games-workshop/">GitHub</a> 提出，或邮件联系 François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;。
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
