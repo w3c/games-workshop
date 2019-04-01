@@ -668,22 +668,9 @@ ol ol { margin: 1.5rem;}
   font-style: italic;
 }
 
-#banner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+#banner h1 {
+  margin-bottom: 0;
 }
-
-#banner > div {
-  flex: 1 auto;
-}
-#banner > div p:first-child {
+#banner h1+p {
   margin-top: 0;
-}
-
-#banner > img {
-  width: 150px;
-  border-radius: 10px;
-  margin-bottom: 1em;
 }
