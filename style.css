@@ -444,7 +444,7 @@ dt.type {
   background-color: #c0d9af;
 }
 
-.type-panel {
+.type-workshop {
   background-color: #ffe4e1;
 }
 
@@ -673,4 +673,9 @@ ol ol { margin: 1.5rem;}
 }
 #banner h1+p {
   margin-top: 0;
+}
+
+button {
+  font-size: 75%;
+  padding: 0.3em;
 }

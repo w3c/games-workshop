@@ -28,5 +28,19 @@
             });
             el.insertBefore(a, el.firstChild);
         });
+
+        if (document.querySelector("[data-controls]")) {
+            document.querySelector("[data-controls]").setAttribute('style', '');
+            document.querySelector("[data-expand]").addEventListener("click", function () {
+                Array.prototype.forEach.call(document.querySelectorAll("details"), function (el) {
+                    el.open = true;
+                });
+            });
+            document.querySelector("[data-collapse]").addEventListener("click", function () {
+                Array.prototype.forEach.call(document.querySelectorAll("details"), function (el) {
+                    el.open = false;
+                });
+            });
+        }
     });
 })();

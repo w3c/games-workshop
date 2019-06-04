@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>W3C Workshop on Web Games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="W3C Workshop on Web Games, June 27-28 2019 in #Seattle 🇺🇸 ">
+    <meta property="og:description" content="The primary goal of the workshop is to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games.">
+    <meta property="og:image" content="https://www.w3.org/comm/assets/stock/shutterstock_1129928582-game-neon-play-everywhere-300px.png">
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "https://www.w3.org/Icons/w3c_home" height="48" width="72"></a>
+          </p>
+          <img src="media/background-sm.jpg" alt="" />
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a class="active-tab">Agenda</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <main id="main" class="main">
+      <h2 id="schedule">
+        Schedule
+      </h2>
+      <div data-controls style="display:none">
+        <button data-expand>Expand all sessions</button>
+        <button data-collapse>Collapse all sessions</button>
+      </div>
+      <h4 id="schedule-day-1">
+        Day 1: Thursday 27 June 2019
+      </h4>
+      <ol class="schedule">
+        <li class="no-details">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">08:00–08:30 <span>AM</span></span>
+                <span class="title">Registration</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li class="no-details">
+          <details>
+            <summary id="opening-remarks">
+              <span class="desc">
+                <span class="time">08:30–08:45 <span>AM</span></span>
+                <span class="title">Opening remarks by François Daoust (W3C)</span>
+                <span class="type type-plenary">plenary</span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li class="no-details">
+          <details>
+            <summary id="keynote">
+              <span class="desc">
+                <span class="time">08:45–09:00 <span>AM</span></span>
+                <span class="title">Keynote</span>
+                <span class="type type-plenary">plenary</span></span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="dev-needs">
+              <span class="desc">
+                <span class="time">09:00–09:45 <span>AM</span></span>
+                <span class="title">Feedback from web games developers</span>
+                <span class="type type-plenary">plenary</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Identify main priorities and major obstacles for game development on the Web
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                Instant Games developer feedback
+                <span>(Chris Hawkins, Facebook)</span>
+              </dd>
+              <dd>
+                An indie perspective on Web games
+                <span>(Andrzej Mazur, Enclave Games)</span>
+              </dd>
+              <dd>
+                Developing conceptual Art, interactive music videos, activations for partner organizations, and indie arcade games
+                <span>(Dan Moore, Squarespace)</span>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">09:45–10:15 <span>AM</span></span>
+                <span class="title">Break</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="runtime">
+              <span class="desc">
+                <span class="time">10:15–11:30 <span>AM</span></span>
+                <span class="title">The future of the web runtime for games</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Identify possible future updates for the web runtime that would improve the performances of running code on the web and further reduce the gap with native environments.<br/>
+                Discuss the status and evolution of cross-compilation for the Web.
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                Debugging tools
+                <span>(Björn Ritzl, KING)</span>
+              </dd>
+              <dd>
+                Enable fast and efficient threading on the web
+                <span>(David Catuhe, Microsoft)</span>
+              </dd>
+              <dd>
+                WebAssembly: status, Web IDL bindings, and roadmap
+                <span>(Luke Wagner, Mozilla)</span>
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="3D">
+              <span class="desc">
+                <span class="time">11:30–12:15 <span>PM</span></span>
+                <span class="title">3D rendering roadmap</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Review the recent evolution of 3D rendering on the web, identify priorities for games and discuss a suitable roadmap
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                WebGPU status & next steps
+                <span>(TBD)</span>
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">12:15–01:30 <span>PM</span></span>
+                <span class="title">Lunch</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="needs">
+              <span class="desc">
+                <span class="time">01:30–03:00 <span>PM</span></span>
+                <span class="title">Assessing needs: game engines, game platforms, users &amp; designers</span>
+                <span class="type type-workshop">workshop</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                One-hour session in smaller groups to gather needs from different perspectives, and map these needs to existing technologies and/or possible directions to explore, followed by a short report of group discussion in plenary.
+              </dd>
+              <dt>
+                Group 1: Game engines needs
+              </dt>
+              <dd>
+                Engineering multiple cross-platform game engines used in commercial games
+                <span>(Kris Johnson, Jampack Studio)</span>
+              </dd>
+              <dd>
+                WebGL trick in Pixi.js
+                <span>(Mathew Groves, Goodboy Digital)</span>
+              </dd>
+              <dd>
+                PlayCanvas & Snap Game platform
+                <span>(David Evans, PlayCanvas)</span>
+              </dd>
+              <dt>
+                Group 2: Game platforms needs
+              </dt>
+              <dd>
+                Shipping games powered by web technology
+                <span>(Nate Long, Hulu)</span>
+              </dd>
+              <dd>
+                Optimize the runtime for web gaming targeting mobile devices
+                <span>(Shouqun Liu, Xiaomi)</span>
+              </dd>
+              <dt>
+                Group 3: Users and designers needs
+              </dt>
+              <dd>
+                UX and Web Games – defining users and designers needs
+                <span>(Indira Knight, Royal College of Art)</span>
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                Each workshop group to provide its own meeting minutes
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">03:00–03:30 <span>PM</span></span>
+                <span class="title">Break</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="packaging">
+              <span class="desc">
+                <span class="time">03:30–04:15 <span>PM</span></span>
+                <span class="title">Packaging & Asset managements</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Identify mechanisms that games can leverage to load and store large game assets in the background
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                How to handle storage of game resources such as textures and sounds
+                <span>(Yuki Kuwabara, Drecom)</span>
+              </dd>
+              <dd>
+                Storage/Loading technologies to enhance games UX
+                <span>(Christian Rudnick, Softgames)</span>
+              </dd>
+              <dd>
+                Storage APIs
+                <span>(Andrew Sutherland, Mozilla)</span>
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="ux-a11y">
+              <span class="desc">
+                <span class="time">04:15–05:30 <span>PM</span></span>
+                <span class="title">Towards accessible games</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Explore accessibility needs in games, and identify possible hooks to be supported at the system level and/or within game engines to make games more accessible.
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                Turning on "accessible mode" for users with motor impairments
+                <span>(Luis Rodriguez, American Psychological Association)</span>
+              </dd>
+              <dd>
+                Adaptive Accessibility
+                <span>(Matthew Atkinson, The Paciello Group, LLC)</span>
+              </dd>
+            </dl>
+          </details>
+        </li>
+      </ol>
+      <h4 id="schedule-day-2">
+        Day 2: Friday 28 June 2019
+      </h4>
+      <ol class="schedule">
+        <li class="no-details">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">08:00–08:45 <span>AM</span></span>
+                <span class="title">Registration</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="audio">
+              <span class="desc">
+                <span class="time">08:45–10:00 <span>AM</span></span>
+                <span class="title">Audio & games</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Identify audio features to improve the integration music/sound effects in games.
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                Interoperability/Reusability of high level WebAudio components
+                <span>(Michel Buffa, Nice Sophia Antipolis University)</span>
+              </dd>
+              <dd>
+                Porting the Wwise sound engine to the Web
+                <span>(Philippe Milot, Audiokinetic)</span>
+              </dd>
+              <dd>
+                Better and faster audio I/O on the Web
+                <span>(Hongchan Choi, Google)</span>
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">10:00–10:30 <span>AM</span></span>
+                <span class="title">Break</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="cloud-gaming">
+              <span class="desc">
+                <span class="time">10:30–11:45 <span>PM</span></span>
+                <span class="title">Cloud gaming</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Explore challenges that pop up when games run in the cloud, including latency and streaming issues as well as ways to deal with the variety of game controllers that users may possess.
+              </dd>
+              <dt>
+                Talks
+              </dt>
+              <dd>
+                Advancing the Gamepad specification
+                <span>(Kelvin Yong, Sony)</span>
+              </dd>
+              <dd>
+                Reducing the latency of inputs on the Web
+                <span>(Navig Zolghadr, Google)</span>
+              </dd>
+              <dd>
+                WebCodecs & WebTransport
+                <span>(Peter Thatcher, Google)</span>
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="distribution">
+              <span class="desc">
+                <span class="time">11:45–12:30 <span>PM</span></span>
+                <span class="title">Diversity & localization</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Discuss diversity and localization challenges for games and identify possible guidelines, hooks and actions that could alleviate them.
+              </dd>
+              <dt>
+                Talk
+              </dt>
+              <dd>
+                Gender inclusiveness in localization
+                <span>(Gabriel Tutone, Keywords Studios)</span>
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">12:30–01:30 <span>PM</span></span>
+                <span class="title">Lunch</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="breakout-1">
+              <span class="desc">
+                <span class="time">01:30–02:30 <span>PM</span></span>
+                <span class="title">Breakout sessions</span>
+                <span class="type type-breakout">breakout</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Format
+              </dt>
+              <dd>
+                Open one-hour session for discussions in smaller groups on specific topics proposed by workshop participants. Please add your suggestion to "Proposed breakout sessions" (see "Getting ready for Web &amp; VR Workshop" mail in your inbox for instructions).
+              </dd>
+              <dt>
+                Session 1: More 3D controls
+              </dt>
+              <dd>
+                New HTML element to display a 3D scene
+                <span>(Yasushi Ando, Kabuku)</span>
+              </dd>
+              <dt>
+                Session 2: TBD
+              </dt>
+              <dd>
+                TBD
+              </dd>
+              <dt>
+                Session 3: TBD
+              </dt>
+              <dd>
+                TBD
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                Each breakout group to provide its own meeting minutes
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="breakout-2">
+              <span class="desc">
+                <span class="time">02:30–03:30 <span>PM</span></span>
+                <span class="title">Breakout sessions</span>
+                <span class="type type-breakout">breakout</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Format
+              </dt>
+              <dd>
+                Open one-hour session for discussions in smaller groups on specific topics proposed by workshop participants. Please add your suggestion to "Proposed breakout sessions" (see "Getting ready for Web &amp; VR Workshop" mail in your inbox for instructions).
+              </dd>
+              <dt>
+                Session 1: Distribution and monetization of games on the Web
+              </dt>
+              <dd>
+                Baidu Smart Game in Baidu App
+                <span>(Ping Wu, Baidu)</span>
+              <dd>
+                Needs of users and developers in the context of web game discovery and monetization
+                <span>(Tom Greenaway, Google)</span>
+              </dd>
+              <dt>
+                Session 2: TBD
+              </dt>
+              <dd>
+                TBD
+              </dd>
+              <dt>
+                Session 3: TBD
+              </dt>
+              <dd>
+                TBD
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                Each breakout group to provide its own meeting minutes
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details break">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">03:30–04:00 <span>PM</span></span>
+                <span class="title">Break</span>
+                <span class="type"></span>
+              </span>
+            </summary>
+          </details>
+        </li>
+        <li>
+          <details open>
+            <summary id="distribution">
+              <span class="desc">
+                <span class="time">04:00–04:50 <span>PM</span></span>
+                <span class="title">Next steps for standardization</span>
+                <span class="type type-lightning">discussion</span>
+              </span>
+            </summary>
+            <dl>
+              <dt>
+                Goals
+              </dt>
+              <dd>
+                Summarize workshop inputs and create an action plan for standardization.
+              </dd>
+              <dt>
+                Speakers
+              </dt>
+              <dd>
+                François Daoust, W3C
+              </dd>
+              <dt>
+                Scribe
+              </dt>
+              <dd>
+                TBD
+              </dd>
+            </dl>
+          </details>
+        </li>
+        <li class="no-details">
+          <details>
+            <summary>
+              <span class="desc">
+                <span class="time">04:50–05:00 <span>PM</span></span>
+                <span class="title">Closing remarks by François Daoust (W3C) and David Catuhe (Microsoft)</span>
+                <span class="type type-plenary">plenary</span>
+              </span>
+            </summary>
+          </details>
+        </li>
+      </ol>
+      <p>
+        (This schedule may change based on discussions with the program committee and participants)
+      </p>
+      <h2 id="instructions">
+        Instructions for participants
+      </h2>
+      <p>
+        The workshop will focus around several topics raised by participants in expressions of interest and position statements.
+        Each topic will be introduced by one or more short or lightning talk, and discussed among participants, possibly in smaller groups.
+        The goal of each discussion at the workshop is not to resolve the technical issues of the topic, but to determine its relevance and priority to standardization.
+      </p>
+      <h3 id="format">
+        Format
+      </h3>
+      <dl class="format">
+        <dt class="type type-plenary" id="plenary">
+          plenary
+        </dt>
+        <dd>
+          Plenary sessions introduce and summarize generic information relevant to all participants. Game-related topics raised during plenary sessions will be discussed in more details during other workshop sessions.
+        </dd>
+        <dt class="type type-lightning" id="lightning">
+          discussion
+        </dt>
+        <dd>
+          A typical discussion session (45-75 minutes) starts with a few talks by speakers nominated in advance.
+          Talks will either be short (&lt;15 minutes) or <em>very</em> short (<a href="https://en.wikipedia.org/wiki/Lightning_talk">lightning talks</a>). They will be followed by a discussion among participants to exchange ideas, assess priorities, and identify possible standardization actions.
+        </dd>
+        <dt class="type type-workshop" id="workshop">
+          workshop
+        </dt>
+        <dd>
+          Participants break into smaller groups and run a workshop-like exercise to create a map of needs and directions/solutions to address them. Each group will provide a written summary of their workshop session.
+        <dt class="type type-breakout" id="breakout">
+          breakout
+        </dt>
+        <dd>
+          Participants break into smaller breakout groups to discuss more specific topics over a period of maximum 60 minutes. The breakout session schedule is built collaboratively by the participants in the course of the workshop. Each group will provide a written summary of their breakout session.
+        </dd>
+      </dl>
+      <h3 id="tools">
+        Tools
+      </h3>
+      <h4 id="chat">
+        Chat
+      </h4>
+      <p>
+        We will take notes on IRC during the workshop:
+        <a href="irc://irc.w3.org:6665#games">irc.w3.org:6665#games</a> /
+        <a href="http://irc.w3.org/?channels=#games">IRC web client</a>
+      </p>
+      <h4 id="notes">
+        Meeting notes
+      </h4>
+      <p>
+        Meeting notes will be recorded on IRC during sessions. These notes will
+        be made public. A scribe will be nominated for each session, however
+        note-taking help from all the participants is very much welcome to
+        ensure correctness and completeness of the notes. We wish to make
+        note-taking a collaborative exercise at this workshop.
+      </p>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard.
+      </p>
+      <p>
+        Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
