@@ -1,0 +1,105 @@
+Self-Introduction
+====
+
+I'm a web developer at Kabuku Inc and my current project is to develop
+a 3D model viewer part in a collaborative manufacturing management
+software.
+
+Topic
+====
+
+In short, a new html element to display a 3D scene must be valuable.
+
+Background
+----
+
+With the advent of WebGL, 3D content was thought to become the first
+class citizen of the Web but it is not now. There are some promotion
+sites and ads using WebGL and they use it just to display a 3D scene.
+In other words, most of WebGL use-cases seem simple 3D viewers at this
+time and many WebGL developers develop a kind of 3D viewers similar to
+each other. IMHO, it's a waste of human-resource, time and network
+traffic.
+
+Solution
+----
+
+Introducing a new HTML element to display a 3D scene can reduce
+duplicated efforts of WebGL developers and have advantages as listed
+below:
+
+- 3D contents become true first class citizens of the Web.
+- Many developers can avoid developing similar feature sets of 3D viewers.
+- Non-professional people can easily build a website with 3D contents
+and VR experience.
+- Using JS APIs, the 3D viewer can be foundation for a casual game.
+- Conceivably, a browser can load 3D models into its built-in 3D
+viewer in cryptic way. (I mean, users cannot get a 3D model itself
+through DevTools or other.)
+
+Functionalities of the new HTML element
+----
+
+- Load and display a 3D model (probably written in glTF)
+- Control camera by a mouse and fingers
+- Show camera controls (for example, a viewcube) if required
+- Events
+  - Enter/Exit VR mode
+  - Hit test (optional)
+  - etc...
+- JS APIs
+  - Control a camera
+  - Invoke a registered animation
+  - Enter/Exit VR mode
+  - etc...
+
+Conceptual code
+----
+
+    <!--
+      `scene' tag is the root tag for a 3d viewer. `video' tag is used
+as a reference.
+      `controls' attribute directs to show a viewcube or any other controls.
+      `vrenabled` attribute directs to show an enter-vr button.
+    -->
+    <scene controls vrenabled width="300">
+      <source src="http://example.com/Monster_small.glb"
+type="model/gltf-binary" media="(min-width: 320px)">
+      <source src="http://example.com/Monster.gltf"
+type="model/gltf+json" media="(min-width: 640px)">
+      Message for unsupported browsers
+    </scene>
+
+    <script>
+    const scene = document.getElementsByTagName("scene")[0];
+    scene.addEventListener("hit", (evt) => {
+      // "monster" can be found in the `meshes' property of Monster.gltf.
+      if (evt.mesh.name === "monster") {
+        // "animation_9" can be found in the `animations' property of
+Monster.gltf.
+        scene.startAnimation("animation_9");
+      }
+    });
+    </script>
+
+The code displays a 3D viewer with a viewcube and a "Enter VR" button.
+A model to be rendered on the viewer depends on the screen size. When
+screen is small Monster_small.glb will be loaded and otherwise
+Monster.gltf will.
+
+A hit event listener is set on the scene tag. When a user taps a model
+in the viewer the event listener is invoked. If the name of the tapped
+model is "monster" the animation named "animation_9" will start.
+
+Note that all these tag names and JS APIs are just examples to
+facilitate our discussion. I don't stick with them at all.
+
+Refs
+====
+
+- https://www.khronos.org/gltf/
+- https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/Monster
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+
+--
+ANDO Yasushi

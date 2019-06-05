@@ -1,0 +1,23 @@
+[ Proposed Discussion Session ]
+ 
+Discuss the needs of users and developers in the context of web game discovery and monetization.
+ 
+[ Why? ]
+ 
+Modern web technologies (WASM, WebGL, etc) can already enable great games on the web but game developers don’t build for the web at the same quality or quantity levels as native platforms (iOS, Android, desktops) – why? The most common answers I hear from game developers is the lack of discoverability and monetization.
+ 
+If we can improve these areas, we can stimulate an open web games ecosystem.
+ 
+[ What? ]
+ 
+I propose we discuss ways that games can be better discovered and monetized.
+ 
+On Discovery:
+ 
+Standards for describing the genre of a web game (action, clicker, etc) and its requirements for play (i.e. online required, offline capable, touch controls required, keyboard and/or mouse, etc).
+ 
+On Monetization:
+ 
+UX guidelines for ad formats. What changes does the web need to support offline-capable ads? Rewarded ads?
+ 
+Plus, discussions around new payment or economic models that make more sense for web games.

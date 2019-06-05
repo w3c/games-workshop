@@ -1,0 +1,17 @@
+I'm Chromium input dev <https://www.chromium.org/teams/input-dev> TL and
+(co-)editor and collaborator on W3C input related specifications such
+as Pointer Events <https://www.w3.org/TR/pointerevents/> and Pointer Lock
+<https://www.w3.org/TR/pointerlock/>. We are in the process of
+standardizing a few APIs that will reduce the latency of input on the web
+that we believed might be particularly useful for the gaming use cases. I
+can present a bit on those APIs such as input for workers
+<https://github.com/NavidZ/input-for-workers> or pointerrawupdate
+<https://w3c.github.io/pointerevents/extension.html#the-pointerrawupdate-event>
+and lead some discussions around that.
+
+My main goal is to talk to interested partners to work with them during the
+standardization process and incorporate their feedback in both API design
+and Chromium implementation and hopefully have them as our early adopters.
+
+Cheers,
+Navid

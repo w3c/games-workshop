@@ -1,0 +1,47 @@
+*# Presenter:*
+
+Michel Buffa (Michel.BUFFA@univ-cotedazur.fr)
+
+Prof/Researcher at Université Côte d'Azur / France
+
+AC Rep
+
+In charge of a national research project involving WebAudio, co-creator of
+a proposal for a WebAudio plugin standard.
+
+
+
+*# Topic:*
+Discuss interoperability/reusability of high level WebAudio components
+(effects, instruments, procedural music engines, etc.) and their possible
+integration on Web Games, in particular when targeting low end devices.
+
+*# Position Statement:*
+
+
+
+With other researchers/developers we proposed a standard for WebAudio
+plugins, that supports different approaches: plugins written in JavaScript
+or compiled to WebAssembly from C/C++ or DSL such as FAUST. However, we
+encounter several limitations:
+
+
+   - Our plugins are identified by URIs and all the codes and assets are
+   dowloaded on the fly by host applications. This architecture, that mimics
+   what we have in the native world, makes caching of code and assets
+   difficult. PWA with our plugins is not possible.
+   - High audio latency on mobile implementations, making games that would
+   need to compute the pitch in real time impossible (karaoke, guitar games
+   etc.)
+   - No easy way to measure performances or memory/cpu usage due to
+   fingerprinting, while many games require adaptability, in particular when
+   running on low end devices.
+   - AudioWorklet performances: running games as PWA should allow to run
+   the AudioWorklet code in a higher priority thread than the one used for
+   regular web apps.
+
+*# Implementation ideas*
+
+   - Mainly: see how PWA games could grant privileges to get better
+   performances / get access to cpu / memory usage, could cache WebComponents
+   code downloaded on demand (not imported statically at loading time)

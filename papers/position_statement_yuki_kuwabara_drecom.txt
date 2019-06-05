@@ -1,0 +1,55 @@
+Position statement for W3C Workshop on Web Games
+
+
+Author: Yuki Kuwabara (Drecom Co., Ltd.)
+
+
+
+
+Background
+
+
+Drecom develops HTML5 game platform called Enza*.
+Enza provides HTML5 games that mainly targeted to browsers on mobile devices (iOS and Android).
+At the point of April, 1st, 2019, five titles are published on Enza.
+Those games are updated for long term with new features, characters and stories, so it is unlike casual games.
+In Japanese mobile game market, these kind of games are majority and most of the mobile game users are used to play that kind of games.
+
+
+
+
+Topic
+
+
+The games described as above usually have to handle tons of resources, such as textures and sounds.
+Most of the problems that I experienced are comes from the mismatch of this game design and web specification.
+In HTML5, there are some ways to store donwloaded resources but every solution is not the perfect one.
+Using local file storage is the most easiest way to solve this problem.
+Indexed DB provides the interface to storing resources to local storrage but it has problems with performance and data type.
+
+
+
+
+Expectation
+
+
+Through the HTML5 game development, I studied that controling caches via http header is the good way for keeping performance, and it can be retrieved as almost raw data.
+But it is very different from handling local storage, so I still need further investigation of cache controlling system that can be operated easily.
+
+
+On the other hand, FileSystem API may be helpful specification, but it has a sensitive matter about privacy.
+To clarifiy the current status of this API and privacy policy would be helpful to design future web friendly resource handling.
+
+
+
+
+* Reference:
+Enza - http://enza.fun
+mobile HTML5 game platform available only in Japan.
+Quality and volume of enza games can be seen in user’s walkthrough movies
+
+
+Idol Master
+https://www.youtube.com/watch?v=0yxCF85QqMg
+Dragon Ball
+https://www.youtube.com/watch?v=NgD8e-YiQG4

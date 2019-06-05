@@ -1,0 +1,9 @@
+Hello, This is Ping Wu from Baidu.
+I’d like to give a brief introduction of our work on Baidu Smart Game in Baidu App.
+
+Baidu Smart Game is a new kind of web game emerged in super apps like Baidu APP, which is developed with open front-end technology and run in a native rendering runtime, powered with optimized native rendering performance，the new web game has got wide acceptance and better user experience.
+
+I’d like to share some experience on the runtime design and implementation, optimization and benchmark work. Baidu Smart Game is enabled by Baidu AI and AR features, and these features help developers implement more creative ideas. Also we have experienced innovative approaches to distribute mobile games without installation by streaming game, precompiled WASM version, which help Baidu APP be a super container for both web and mobile.
+
+Thank,
+Ping

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8">
+    <title>W3C Workshop on Web Games Position Paper: Adaptive Accessibility</title>
+  </head>
+  <body>
+    <h1>W3C Workshop on Web Games Position Paper: Adaptive Accessibility</h1>
+
+    <p>This document summarises some ways in which we believe that game accessibility could be furthered on a technical level, complementing projects such as the <a href="#game-accessibility-guidelines">Game Accessibility Guidelines</a>. The key ideas of specificity of adaptations, and multimodality, come from a proposal for an <a href="#active-game-accessibility">Active Game Accessibility (AGA)</a> framework, as detailed below.</p>
+
+    <h2>Accessibility &amp; games</h2>
+    <p>The demands games put on users can be high; extremely complex input devices, control schemes that require a high degree of precision, timing and simultaneous action; ability to distinguish subtle differences in busy visual and audio information, having to juggle multiple complex goals and objectives, and so on.</p>
+    <p>But this isn't what makes games' relationship with accessibility unique. What makes it unique is that significant challenge is required. Remove all of these barriers and what you have left is no longer a game, and what the required challenge is varies entirely from game to game.</p>
+    <p>So there is no fixed bar of 'reasonably accessible', as what's reasonable is specific to each game. But this does not mean accessibility is not possible. There is a great deal that can be done to open games to a wider audience. Part of this landscape is support for assistive technologies (ATs).</p>
+
+    <h2>Integrating with existing assistive technologies</h2>
+    <p>We need to enable users' existing assistive technologies (ATs), such as screen-readers, screen magnifiers or specific input/output devices, to communicate with games/engines in much the same way as they do with browsers or other applications presently.</p>
+    <p>There's already a standard for denoting accessibility information in content and interfaces on the web&mdash;W3C's <a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (ARIA)</a>&mdash;and there are standard OS-level interfaces for assistive technologies (ATs) to communicate with applications (on Windows there is <a href="https://en.wikipedia.org/wiki/Microsoft_Active_Accessibility">Microsoft Active Accessibility (MSAA)</a> and <a href="https://en.wikipedia.org/wiki/Microsoft_UI_Automation">Microsoft UI Automation (UIA)</a>, for example).</p>
+    <p>To provide access to games, a standard API&mdash;or bridge to, or extension of, existing APIs such as ARIA&mdash;could be developed. It would function like MSAA does on Windows (and its equivalents on other platforms), providing a common interface for games and assistive technologies (ATs) to communicate.</p>
+
+    <h2>Specificity of adaptations and personalisation</h2>
+    <p>Games generally do not use operating system (OS) standard UI widgets and UX conventions, in order to present a particular game world that has its own look, feel and behaviour. Therefore, a major challenge is making the accessibility layer interoperable with as many games, game engines (middleware frameworks used by most games) and as many ATs, or adaptations, as possible. The adaptations themselves could be developed with a varying degree of specificity, as in the following examples:</p>
+    <ul>
+      <li><strong>General adaptations</strong> are completely separate from game/engine, for example: disabling haptic feedback, zoom, merging stereo channels into mono, parsing exposed UI text to assistive technologies (ATs) such as screen-readers, or built-in text-to-speech (TTS) features of the OS.</li>
+      <li><strong>Engine-specific adaptations</strong> built in to a specific framework, so are available to any game that runs on that engine. For example: the heavy lifting for common considerations such as button remapping and subtitle presentation, and others that are currently less common&mdash;though vital, and necessary for compliance with the <a href="https://www.fcc.gov/consumers/guides/21st-century-communications-and-video-accessibility-act-cvaa">21st Century Communications and Video Accessibility Act (CVAA)</a> (<a href="https://igda-gasig.org/additional-information/cvaa/">Summary of CVAA</a>)&mdash;such as scaleable UI and cross-platform support for text to speech – for platforms where screen-readers are used exposing the UI in a way that can be parsed, for platforms that rely on OS-level passive text to speech manually pushing text strings and metadata, and for platforms that have nothing, handling text-to-speech (TTS) at engine level.</li>
+      <li><strong>Game-specific adaptations</strong> are implemented at game level. These may be a universal design choice that affects all users, for example using symbol as well as colour, tutorials that teach through play, clear language, adequate default text size, simple controls, avoidance of common epilepsy triggers. Or they may be options, allowing players to tailor the experience to their own needs and preferences. Such as captioning, game speed, steer or aim assist, configurable button layout, ensuring UI supports either internal or external text to speech for players who want or need it.</li>
+    </ul>
+
+    <h3>What <em>are</em> assistive technologies, adaptations and personalisation?</h3>
+    <p>Assistive technologies could be traditional products such as screen-readers, screen-magnifiers, speech-to-text or physical hardware. But they could also be more minor adaptations, as implied above.</p>
+    <ul>
+      <li><strong>Adaptations</strong> range from existing "large-scale" assistive technologies (ATs) such as screen-readers (e.g. JAWS or NVDA) to new ones coded for specific engines, games, or platforms (e.g. <a href="https://support.xbox.com/en-US/xbox-one/ease-of-access/use-game-chat-transcription">game transcription</a>). Adaptations could even be OS settings such as zoom.</li>
+      <li>The game could effectively be adapted simply by attaching certain hardware (e.g. adaptive controller, larger screen); using certain software (e.g. mapping voice input to keys); playing in a certain environment and so on. Other adaptations could be brought in by the game or the OS when needed.</li>
+      <li>Settings for adaptations the user may have already indicated a preference for in the OS (contrast, text size, caption presentation, ...) should be reflected by the games—this is <strong>personalisation</strong>. The accessibility layer could inform the game/engine of these settings, so those the game supports can be enabled for the user. By <a href="#towards-capabilities">making personalisation across different devices use human capabilities as their basic units, they could be more portable than machine-/OS-specific settings</a>.</li>
+      <li>Further to this, the game could change <strong>parameters</strong> such as required accuracy levels and time limits in response to the sort of devices the user is able to use to interact with it.</li>
+    </ul>
+    <p>It should be noted that there are privacy implications involved in supporting specific hardware/software that is designed for people who may have certain disabilities, or is configured in a particular way. Presence or absence of certain hardware or software does not necessarily mean that the user has a specific disability (for example: someone using a screen-reader may have good sight, but find reading difficult&mdash;a common assumption is that someone using a screen-reader has a vision impairment). However, when the user allows personalisations to occur based on their system hardware, software or settings, some information is inherently revealed.</p>
+
+    <h3>Multimodality, parameters and game mechanics</h3>
+    <p>Another key part of the <a href="#active-game-accessibility">Active Game Accessibility (AGA)</a> proposal involves classifying the mechanics of games and, thus, high-level accessibility requirements and hooks that might be needed. There have been accessible versions of some sorts of games, such as card games and abstract board games like Chess, for some time. There are other mechanics, such as exploration, action, etc. that may involve more immersive content, or precise timing requirements. There are some limits to how far this kind of classification can be taken; new game mechanics and new methods of input and output are not uncommon, and the impact of design intent and the desired emotional experience is also a factor, but often games are composed of a mix of existing known styles that have certain functional requirements and accessibility implications.</p>
+    <p>Multimodality may be used to render some of these more accessibly, e.g. there could be an adaptation that converts the task of aiming from a visual one into an audible or haptic one, in order for it to be accessible to a wider range of gamers. Multimodality can also assist with situational/contextual impairments (or the player's rendering preferences).</p>
+    <p>We could also bring in appropriate sets of adaptations in different phases of play, as the game mechanics change. Further, people could be teamed-up based on their abilities.</p>
+
+    <h2>What is already possible?</h2>
+    <p>It is worth considering what can already be achieved with thoughtful content design, when following established best practice such as the <a href="#game-accessibility-guidelines">Game Accessibility Guidelines</a> and the W3C's <a href="#w3c-fast">Framework for Accessible Specification of Technologies (FAST)</a> and <a href="#w3c-maur">Media Accessibility User Requirements (MAUR)</a>, and <a href="https://accessible.games/accessible-player-experiences/">Accessible Player Experiences</a>.</p>
+    <p>The Framework for Accessible Specification of Technologies (FAST) advises creators of technical specifications how to ensure their technology meets the needs of user with disabilities. Whilst it focuses on UI and content the like of which are prevalent on the web, it may inform game UI accessibility and may be informed by the game experience.</p>
+    <p>The Media Accessibility User Requirements (MAUR) document presents the accessibility requirements users with disabilities have with respect to audio and video on the web, which relates to games also, and contains recommendations such as providing separate background music, sound effects and audio descriptions, so that they can be filtered out and adjusted independently.</p>
+    <p>The educational game <a href="https://pbskids.org/cyberchase/games/railway-hero">Railway Hero</a> (<a href="https://www.csun.edu/cod/conference/2019/sessions/index.php/public/presentations/view/1174">Building an Accessible Math Learning Game: The Railway Hero Case Study</a>) was developed with these best practices in mind, and references some of the research cited below, to provide features such as:</p>
+    <ul>
+      <li>Providing separate sound streams (as mentioned above).</li>
+      <li>Using keyboard control instead of drag-and-drop.</li>
+      <li>Self-voicing UI; audio description and captions for videos.</li>
+      <li>Allowing captions and audio description at the same time, for reinforcement.</li>
+      <li>Customisable text size and contrast within.</li>
+    </ul>
+    <p>Despite being not interfacing with existing assistive technologies (ATs) such as screen-readers (rather the game is self-voicing), features such as these can provide an accessible experience to many people, and demonstrate that thoughtful content design is key&mdash;however, much more can be possible if we are able to interface with gamers' existing assistive technologies (ATs), desired personalisations and favourite hardware, as discussed above.</p>
+
+    <h2>Getting from here to there</h2>
+    <p>The ideas presented above range from relatively low-hanging fruit to much larger efforts. How might we begin to implement them?</p>
+
+    <h3>Concrete beginnings</h3>
+    <ul>
+      <li>Would a good starting point be to concentrate on 21st Century Communications and Video Accessibility Act (CVAA) compliance and UI accessibility? If so, then would existing Accessible Rich Internet Applications (ARIA) roles and APIs be appropriate? It seems that fairly standard (for the web) issues of custom controls and things like pop-up dialogs and live regions, would apply. Given that ARIA is technology-agnostic, we may find that it can be made to work with non-HTML environments such as games via some sort of fairly simple engine-to-ARIA bridge—possibly via implementing the <a href="#accessibility-object-model">Accessibility Object Model</a>.</li>
+      <li>Would any extra roles/APIs would be needed for the extra information that games need to convey during gameplay?</li>
+    </ul>
+
+    <h3>Keeping things immersive, fair and fun</h3>
+    <ul>
+      <li>Immersion/fun: if the assistive technologies/adaptations are too obvious, this could detract from the gaming experience. For example, in some circumstances it may be better to use 3D audio effects to convey where something is in the “game universe” than to have a standard screen-reader announcement. To what extent does this apply to other areas such as text-to-speech? In some circumstances it may be desirable to have game console/event message be announced using an in-universe voice (e.g. GLaDOS rather than Eloquence). (This relates to the specificity of adaptations, as above.) In some circumstances it would not be desirable, impeding efficient navigation and so detracting from rather than supporting the experience.</li>
+      <li>Further, appropriate use of an accessible rendering for a given gamer will vary, depending on the person, game and situation: a quick-reaction scenario would not benefit from a precise and detailed textual or semantic description, but a game of Chess could. Games are, as above, intended to be a fun experience and selecting an appropriate rendering to provide enough information to allow someone to <em>enjoy</em> the experience is key.</li>
+      <li>How much information should be conveyed to disabled users? When working on AudioQuake (a project that made the first-person shooter Quake accessible to gamers with vision impairments), we originally conveyed more info than a sighted player might get, as we thought this could be helpful. Examples included warnings about enemies who may be off-screen. This confused people (as they couldn't reach those enemies) and in the end we took it out. We also only told people about obstacles that were directly in front of them—they don't need to know about walls to their left/right, only one in front of them—but we did also alert gamers to openings when they pop up either side of them, so they can explore. This also applies to text to speech; when UI navigation is a way in to the content rather than the content itself verbosity can be a real issue, the level of information communicated for documents and applications is not desirable for some users in some circumstances. Could level of verbosity be configurable?</li>
+    </ul>
+
+    <h3>Further scope</h3>
+    <ul>
+      <li>Could we create a framework for pairing users to adaptations and also users to other users, in the scenario of co-operative games, so that people with complementary abilities can work together?</li>
+      <li>How can we afford <a href="#level-description-language">access not just to the game, but also the surrounding modding and level development tools</a>? This is a key issue: people facing accessibility barriers must be afforded access to create content too.</li>
+    </ul>
+
+    <h2>Questions for discussion</h2>
+    <p>There seems to be a progression of questions, starting with low-hanging fruit and moving to more blue-sky exploration.</p>
+    <ul>
+      <li>Can existing accessibility or anticipated standards and APIs support the existing 21st Century Communications and Video Accessibility Act (CVAA) requirements?</li>
+      <li>How might existing assistive technologies (ATs) be integrated with engines so that this support can be realised?</li>
+      <li>What extra information do we need to enable certain games to be accessible that existing assistive technologies (ATs) are currently unable to accept? What types of games are there?</li>
+      <li>Does it make sense to add the ability to convey those types of information through the accessibility layer, or is it better to produce/highlight best practices for games to implement them in a more “in-keeping with the game world” style? Some—perhaps most—issues are better solved at the design/content/rendering level, with the help of the <a href="#game-accessibility-guidelines">Game Accessibility Guidelines</a>.</li>
+      <li>Could research into abstract games, particularly around presenting different “skins” to different players, be of help to us?</li>
+      <li>What adaptations for specific engines might be produced that could start assisting people quickly?</li>
+      <li>How can we make authoring and modding tools accessible?</li>
+    </ul>
+
+    <h2>Suggested outputs</h2>
+    <p>Some thoughts on possible output from the workshop:</p>
+    <ul>
+      <li>It seems that some of the work would need to be done as a technical effort like an MSAA layer, and maybe require the specification of additions to APIs or standards such as ARIA, and coding adaptations for specific engines/games. However other things, in order to remain immersive, would need to be handled in game design on a case-by-case basis, and that's where the <a href="#game-accessibility-guidelines">Game Accessibility Guidelines</a> would come in, as they provide guidance.</li>
+      <li>As with WCAG, perhaps there could be "Techniques" documents produced for fulfilling the guidelines in different types of games (be that genre, platform or I/O-device specific)? (The <a href="#game-accessibility-guidelines">Game Accessibility Guidelines</a> already does this to a degree via the best practice examples, but perhaps we could eventually produce some reference implementations/more detailed technical guidance on some of these techniques?)</li>
+    </ul>
+
+    <h2>Acknowledgements</h2>
+    <p><strong>Authoring, review, amendments and feedback:</strong> <a href="http://matatk.agrip.org.uk/">Matthew Tylee Atkinson</a> (The Paciello Group); <a href="https://twitter.com/ianhamilton_">Ian Hamilton</a>; <a href="https://www.w3.org/WAI/APA/">W3C Accessible Platform Architectures Working Group</a> and its <a href="https://www.w3.org/WAI/APA/task-forces/research-questions/">Research Questions Task Force</a> (<a href="https://lists.w3.org/Archives/Public/public-apa/2019Apr/0037.html">Main APA/RQTF discussion thread</a>); Joe Humbert and <a href="https://twitter.com/KitWessendorf">Kit Wessendorf</a> (The Paciello Group).</p>
+    <p>The key ideas of an MSAA/UIA-like layer, specificity of adaptations and the benefits of multimodality, were developed as part of the <a href="#active-game-accessibility">Active Game Accessibility (AGA) proposal</a>, led by Dominique Archambault and Klaus Miesenberger and their research groups.</p>
+
+    <h2>References</h2>
+    <ol>
+      <li>
+        <p id="game-accessibility-guidelines"><a href="http://gameaccessibilityguidelines.com/">Game Accessibility Guidelines</a></p>
+      </li>
+      <li>
+        <p id="active-game-accessibility"><a href="https://www.researchgate.net/publication/221217630_More_Than_Just_a_Game_Accessibility_in_Computer_Games">More Than Just a Game: Accessibility in Computer Games</a></p>
+      </li>
+      <li>
+        <p id="towards-capabilities"><a href="https://dspace.lboro.ac.uk/dspace-jspui/handle/2134/6519">Towards accessible interactions with pervasive interfaces, based on human capabilities</a></p>
+      </li>
+      <li>
+        <p id="w3c-fast">W3C's <a href="https://w3c.github.io/apa/fast/">Framework for Accessible Specification of Technologies (FAST)</a></p>
+      </li>
+      <li>
+        <p id="w3c-maur">W3C's <a href="http://w3c.github.io/apa/media-accessibility-reqs/">Media Accessibility User Requirements (MAUR)</a></p>
+      </li>
+      <li>
+        <p id="accessibility-object-model"><a href="https://github.com/WICG/aom">Accessibility Object Model</a></p>
+      </li>
+      <li>
+        <p id="level-description-language"><a href="https://dspace.lboro.ac.uk/dspace-jspui/handle/2134/4478">Proof-of-concept 3D level creation tool for blind gamers</a></p>
+      </li>
+    </ol>
+
+    <h2>Contributing literature</h2>
+    <p>This is a list of papers arising from the research groups that contributed to the development of the <a href="#active-game-accessibility">Active Game Accessibility (AGA)</a> proposals.</p>
+    <ul>
+      <li>Ossmann, R., Miesenberger, K.: Guidelines for the Development of Accessible Computer Games, in: Miesenberger, K., Karshmer, A., Klaus, J., Zagler, W. (Eds.): Computers Helping People with Special Needs, 10th International Conference, ICCHP 2006, Linz, Austria, July 11-13, 2006, Proceedings.</li>
+      <li>Ossmann, R., Archambault, D., Miesenberger, K.: Computer Game Accessibility: From Specific Games to Accessible Games, in: CGames 2006, University of Wolverhampton, 2006.</li>
+      <li>Ossmann, Roland, Miesenberger, Klaus and Archambault, Dominique, User profiles in computer games designed for all, in: Proceedings of CGames'07 (11th International Conference on Computer Games: AI, Animation, Mobile, Educational &amp; Serious Games), pages 144-148, La Rochelle, France, 2007.</li>
+      <li>Ossmann, R., Miesenberger, K., Archambault, D.: Tic Tac Toe - Mainstream Games Accessibility: Guidelines and Examples, in: Eizmendi, G. et al (ed.): Challenges for Assistive Technologies, 9<sup>th</sup> AAATE 07, pages 791-795, Amsterdam 2007</li>
+      <li>Ossmann, R., Miesenberger, K., Stoeger, B.: Usability Evaluation of Accessible Games: The Adaptation of the Heuristic Evaluation for Games Designed for All, in: Accessible Design in the Digital World (ADDW), new media, new technologies, new users, University of York, 2007.</li>
+      <li>Archambault, D., Ossmann, R., Gaudy, T. and Miesenberger, K.: <a href="https://www.researchgate.net/publication/228341389_Computer_games_and_visually_impaired_people">Computer Games and Visually Impaired People</a>, in: Upgrade, volume VIII, number 2, pages 11 pages, ISSN 1684-5285, 2007.</li>
+      <li>Archambault, D., Gaudy, T., Miesenberger, K., Natkin, S., Ossmann, R.: Towards generalised accessibility of computer games, in: Pang, M.: Edutainment 2008, Springer, 2008.</li>
+      <li>Miesenberger, K., Ossmann, R., Archambault, D., Searle, G., Holzinger, A.: More than Just a Game: Accessibility in Computer Games, in: Holzinger (e.d.): USAB 2008 - HCI &amp;Usability for Education and Work, Proceedings, Springer, Heidelberg.</li>
+      <li>Ossmann, R.; Nussbaum, G.; Parker S.; Archambault, D.; Miesenberger, K.: Bring the Users to the Games by the usage of the Assistive Technology Rapid Integration &amp; Construction Set, in: 1st Workshop on Game Accessibility: Xtreme Interaction Design (GAXID'11), online 2011: <a href="http://ga.fdg2011.org/papers.html">http://ga.fdg2011.org/papers.html</a>.</li>
+      <li>“Pyvox 2: an audio game accessible to visually impaired people playable without visual nor verbal instructions” Thomas Gaudy, Stéphane Natkin and Dominique Archambault — In: Z. Pan , A. Cheok, W. Mueller and A. El Rhalibi (Eds.). Transactions on Edutainment II, Springer LNCS 5660, 2009. pp 176-186.</li>
+      <li>“Playing audiogames without instructions for uses: To do without instruction leaflet or without language itself?” Thomas Gaudy, Stéphane Natkin and Dominique Archambault — In: Proceedings of CGAMES'06 Conference (9th International Conference on Computer Games: AI, Animation, Mobile, Educational &amp; Serious Games) in Dublin, Ireland, Nov 2006.</li>
+      <li>"Tampokme: a Multi-Users Audio Game Accessible to Visually and Motor Impaired People” Thomas Gaudy, Stéphane Natkin, Cécile Le Prado, Thierry Dilger and Dominique Archambault — In: Proceedings of CGames'07 (11th International Conference on Computer Games: AI, Animation, Mobile, Educational &amp; Serious Games), La Rochelle, France, 2007. — pp.73-78.</li>
+    </ul>
+  </body>
+</html>
+

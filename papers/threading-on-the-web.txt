@@ -1,0 +1,41 @@
+# Presenter:
+David Catuhe (davca@microsoft.com)
+Principal Software Developer Lead
+Babylon.js author and lead at Microsoft
+
+# Topic:
+Enable fast and efficient threading on the web
+
+# Position Statement:
+
+WebGL developers and more generally web developers who want to achieve fast performance on the web are limited by the way browsers allow us to leverage multiple Core/Threads.
+From a 3D engine standpoint, we would love to use the same kind of patterns used by the industry on native environment. Something like:
+
+  *   A thread for the UI
+  *   A thread for rendering (where we could leverage offscreen canvas)
+  *   A thread for frustum culling / animations / physics
+  *   A thread for AI
+
+But to be able to do so we need a way to share objects and not just Float32Arrays. A web developer (and furthermore a 3D engine) should be able to manipulate its scene graph in one thread and use it in another one fully leveraging multi Core/Threads that we can find in all devices nowadays.
+
+# Implementation idea #1
+One implementation could be to introduce a WebThread object which could have the following API:
+
+  *   WebThread.run(func): Will run a specific function on a new WebThread. This function should return an instance of a WebThread
+  *   webThread.wait(): Will block the current "thread" until webThread instance is done
+
+This implementation can reuse the Web Locks to manage shared access: https://developer.mozilla.org/en-US/docs/Web/API/Web_Locks_API
+
+# Implementation idea #2
+Other (and probably even better) implementation could just leverage promise. We could have a new PromiseThread which could work exactly like a promise with same API but with one difference. The code will be executed on a different thread.
+We (Babylon.js team) would prefer this approach as the code change could be minimal.
+
+# DOM access
+DOM is not thread safe so we could think about a few ways to deal with that constraints. We could do like XAML for instance where you can call `dispatcher.HasThreadAccess` to know if you are on the right thread to access UI elements. Browser vendor can then decide if they throw an error if an access is detected from another thread.
+
+# Why not using Web Workers
+Web Workers are not the solution because:
+
+  *   They cannot run a specific function from your current context
+  *   They cannot share objects (only ArrayBuffers). Transferable objects (https://html.spec.whatwg.org/multipage/structured-data.html#transferable-objects) do not help either as we could have thousands of obejcts to pass back and forth
+  *   They are a bit like Processes where we need Threads

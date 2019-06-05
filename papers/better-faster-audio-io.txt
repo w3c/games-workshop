@@ -1,0 +1,30 @@
+*# Presenter:*
+Hongchan Choi (hongchan@google.com)
+Senior Software Engineer, Google Chrome
+W3C Specification Co-Editor, Web Audio API
+
+*# Topic:*
+Better and Faster Audio I/O on Web
+
+*# API Proposal/Explainer:*
+https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md
+
+*# Position Statement:*
+Today, the web platform offers two different paths for audio: The
+HTMLAudioElement, which is significantly abstracted from the actual
+operation, and Web Audio API, a relatively high-level layer with a
+modular/graph-based architecture. While these worked well for their
+respective application domains, they also lacked features needed for game
+audio engines and professional audio applications.
+
+Audio Device Client addresses these problems by exposing low-level audio
+functionality to developers: configurable interface to audio hardware
+(callback buffer size, sample rate, I/O channels); a dedicated JS scope on
+a higher-priority thread (if permitted); better integration with WASM; and
+shared memory.
+
+With this new low-level API, it will be possible to support more demanding
+use cases like interactive 3D spatialization for VR/XR applications. This
+also provides a path for audio developers to bring large-scale game audio
+engines and professional audio applications to the web platform that were
+previously very difficult to do.

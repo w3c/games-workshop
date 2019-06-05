@@ -1,0 +1,17 @@
+UX and Web Games – defining users and designers needs
+
+The webs open nature means that it is an ideal platform for designers and academics to explore and research new interactions and new user experiences for web games. The use of web games can cross over multiple sectors including entertainment, education and health. What are the needs of the users in these different sectors? What should the user experience be like? What tools would help designers and researchers work with the web to advance the user experience in web games?
+
+This topic will examine UX and web games from the point of view of the user and the designer, and bring insights from both groups. By presenting research and examples of both groups wants and needs the goal of this topic is to explore and analyse current UX and design tools in web games, then create actions for moving forward.
+
+This topic is suggested by Hamza Oza and Indira Knight.
+
+Hamza Oza
+Hamza is a designer and engineer with a focus on human-related design. He completed his double masters in Innovation Design Engineering at the Royal College of Art and Imperial College London in 2018.
+
+Hamza is currently a research associate at the Royal College of Art in The Helen Hamlyn Centre for Design. He is working on the design and build of both a physical and a web based virtual exhibition exhibit exploring the relationship between hospital architecture, infection control and antimicrobial resistance.
+
+Indira Knight
+Indira is a Mozilla tech speaker and a research associate at The Helen Hamlyn Centre for Design, where she is working on the design of a VR therapy for psychosis. This has been delivered using people-centred design methods to make the therapy easily usable and highly engaging.
+
+She has a background in web development and is particularly interested in WebXR. In 2017, along with a co-organizer, she started the Web XR London meetup group and she regularly runs A-Frame workshops.

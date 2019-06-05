@@ -1,0 +1,29 @@
+We as the creators of the cross platform game engine and editor Defold have the following suggestions for talks at the W3C Workshop on Web Games:
+
+ 
+
+Debugging tools
+
+Our game engine has a core of C code with some additional Javascript glue that gets transpiled using Emscripten into an HTML5 target, optionally with WebAssembly enabled. The engine is modular and developers can add additional native code as well as Javascript code that gets included in the final game engine binary. We feel that there is a lack of good debugging tools when working with and debugging the combination of native C code, Emscripten and WebAssembly. Browsers have powerful developer consoles and debuggers but it basically stops with Javascript. We'd like to see tools that allows us to debug from the Javascript running in the browser all the way down to the underlying C code.
+
+ 
+
+We can't offer any solutions here but we'd happily to present the problems we're facing in more detail.
+
+ 
+
+ 
+
+Extending a cross platform game engine
+
+Our cross platform game engine has a core of C code with some additional native code per target platform. In the case of Android it's Java, in the case of iOS it's Objective C, for desktop targets it's C/C++ and on HTML5 it is Javascript. On top of this we provide a zero setup cloud build system where developers can add their own extensions containing native code and assets as well as remove parts of the engine core that they don't use. This allows us to create a custom game engine, purpose built for a specific platform or target, for example a version of the engine with support for Facebook Instant Games or a slim engine for use in Playable Ads.
+
+ 
+
+We'd happily present this solution in more detail, with additional focus on how it works for the HTML5 target.
+
+--
+Björn Ritzl
+Principal Engineer - Defold
+Product Owner - Defold
+King, Stockholm

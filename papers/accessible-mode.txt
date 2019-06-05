@@ -1,0 +1,6 @@
+Turning on “accessible mode” for users with motor impairments.
+
+1.  Conditions: cerebral palsy, neural-tube defects, muscle and joint conditions, trauma to head or spine and strain injuries all affect use of web games. Recognizing these motor impairments will help any development team empathize with users who need beyond normal focus, concentration and determination.
+2.  Beyond standard inputs and outputs. Turn off clicking something on the screen with a mouse pointer, specific key presses or exact touch targets. Don’t require holding devices such as mobile phone for too long to interact with web game.
+3.  Eliminate small, controlled movements.  Widen mouse over areas, don’t require selecting or right clicking text. Abandon time-based interactions to progress through web games and look for other mechanisms to provide cues.
+4.  Build voice capability into web game. This not only ceases to consider fine-motor control interactions with hands but opens up more opportunities for your web game as Voice User Interfaces are already a consumer expectation and is part of their life.
