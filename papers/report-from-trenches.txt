@@ -1,0 +1,38 @@
+Title
+-----
+Report from the trenches of an HTML5 game provider
+
+
+Contents
+--------
+Loading and storage
+• Loading time is one of the most critical elements of Games UX, and the principal reason players abandon games.
+• We intend to share our experience and challenges with optimization of game loading times.
+
+Piracy
+• We often find code and assets of our games copied and used by other developers.
+• We hope to share examples and ideas on possible solutions.
+
+Notifications
+• Notifications are a crucial mechanic to get players back to the game. It's common practice with native mobile games, but less common with web games.
+• Better support of Web Notifications & Push APIs, especially on mobile devices, can help improve player retention in web games.
+
+Detect a user across different browsers / Privacy
+• Enabling users to seamlessly switch browsers and devices while maintaining game progress and data can improve UX immensely. Can this be achieved without the extra friction of added registration/auth or server-side solutions?
+• If achievable, how can we protect the users' privacy?
+
+Offline play
+• A key advantage of native downloadable games over web games is the natural ability to play offline.
+• Offline play with web games is a possibility, but very daunting technically. Perhaps this can be improved?
+• Users need an easy way to access their offline games: at the moment, adding a website to the home screen is a complex task that most users might fail.
+
+Discoverability
+• It’s still difficult for games to get visibility and traffic.
+• Even after a player already played the game for the first time, it's still challenging to get back to the games he liked.
+Payments
+• The simplicity and immediacy of payments in native mobile games are driving ~$60B in revenues.
+• Can the Payment Request API make payments in web games as easy
+I hope this will help clarify our intentions.
+
+As this might be a lot of information for the description of a presentation, I'm also including a short description:
+SOFTGAMES is a leading developer and distributor of HTML5 Games. With over 10 years of experience and more than five hundred games developed, we've faced and keep facing multiple hurdles and challenges that likely trouble other web game developers as well: game loading time, offline play, piracy, monetization and discoverability. By sharing our challenges and experience, we look to provide more context from a games development perspective.
