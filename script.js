@@ -42,5 +42,17 @@
                 });
             });
         }
+
+        if (window.location.hash) {
+            if (window.location.hash === "#openall") {
+                document.querySelector("[data-expand]").click();
+            }
+            else {
+                var el = document.querySelector(window.location.hash);
+                if (el && el.parentNode && (el.parentNode.nodeName === 'DETAILS')) {
+                    el.parentNode.open = true;
+                }
+            }
+        }
     });
 })();

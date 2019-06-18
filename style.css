@@ -482,7 +482,7 @@ details[open] summary .desc:before {
   transform: rotate(90deg);
   position: relative;
   left: -2px;
-  top: 2px;
+  top: 5px;
 }
 
 .no-details details .desc:before {
@@ -682,4 +682,60 @@ button {
 
 a.statement {
   text-decoration: none;
+}
+
+ul.detailed {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.detailed li:not(.no-details) details summary {
+  color: #333;
+  cursor: pointer;
+}
+
+ul.detailed li:not(.no-details) details summary:before {
+  color: #333;
+  content: "▶";
+  display: inline-block;
+  height: 18px;
+  margin-right: 8px;
+  order: -2;
+  width: 18px;
+}
+
+ul.detailed details[open] summary {
+  text-decoration: underline;
+}
+
+ul.detailed li:not(.no-details) details[open] summary:before {
+  transform: rotate(90deg);
+  position: relative;
+  left: -2px;
+  top: 5px;
+}
+
+ul.detailed .no-details details[open] summary {
+  margin-bottom: 1em;
+}
+
+ul.detailed .no-details summary:before {
+  color: #333;
+  content: "⏹";
+  display: inline-block;
+  height: 18px;
+  margin-right: 8px;
+  order: -2;
+  width: 18px;
+}
+
+ul.detailed dl, ul.detailed ul {
+  margin-top: 0;
+}
+ul.detailed dt {
+  margin-top: 0.5em;
+}
+
+ul.detailed details {
+  opacity: 1;
 }
