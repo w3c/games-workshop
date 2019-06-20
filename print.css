@@ -1,0 +1,232 @@
+@media all {
+  @page {
+    margin: 0;
+  }
+
+  html {
+    position: relative;
+    background: none;
+    width: 8in;
+    margin: 0.25in;
+    padding: 0;
+  }
+
+  body {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  h1 {
+    background: none;
+    color: #111;
+  }
+
+  nav, aside {
+    display: none;
+  }
+
+  body,
+  article {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .main {
+    margin: 0;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  h3 {
+    border-top: thick solid #005a9c;
+    border-bottom: thick solid #005a9c;
+    color: #005a9c;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 0.25in;
+  }
+
+  header img[src='media/background-sm.jpg'] {
+    display: none;
+  }
+
+  header .w3c {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+  }
+
+  header h1 {
+    font-size: 3em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.7in;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
+  header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 2in;
+    width: 100%;
+    height: 8in;
+    background-color: black;
+    clip-path: polygon(0 60%, 50% 20%, 100% 0%, 100% 60%, 50% 80%, 0 100%);
+    z-index: -1;
+  }
+
+  header > div::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 2in;
+    width: 100%;
+    height: 8in;
+    background-image: url('media/background.jpg');
+    background-size: 180%;
+    background-position: center;
+    background-repeat: no-repeat;
+    clip-path: polygon(0% 0%, 100% 40%, 100% 100%, 0% 60%);
+  }
+
+  header .boxes h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: black;
+  }
+
+  header .boxes img {
+    display: inline;
+  }
+
+  header .boxes p {
+    margin-top: 0.5em;
+  }
+
+  header .host {
+    position: absolute;
+    top: 2.1in;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  header .sponsor {
+    position: absolute;
+    top: 9in;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  header .date {
+    position: absolute;
+    top: 2.8in;
+    right: 0.5in;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    width: 10rem;
+  }
+
+  header .location {
+    position: absolute;
+    top: 7.8in;
+    left: 0.5in;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    width: 10rem;
+  }
+
+  header .link {
+    position: absolute;
+    top: 9.8in;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+  }
+
+  header {
+    margin-bottom: 80rem;
+  }
+
+  article {
+    page-break-before: always;
+    font-size: 0.75em;
+  }
+
+  .lunch {
+    break-before: column;
+    margin-top: 0 !important;
+  }
+
+  ul, img, dl, details, summary {
+    break-inside: avoid-column;
+  }
+
+  .has-ref {
+    margin-left: 0;
+  }
+
+  #dates {
+    display: none;
+  }
+
+  *[data-controls] {
+    display: none;
+  }
+
+  #schedule {
+    display: none;
+  }
+
+  .schedule {
+    column-count: 2;
+    column-rule: thick solid #005a9c;
+    column-gap: 2rem;
+  }
+
+  .schedule details dl {
+    margin-left: 0;
+    box-shadow: none;
+  }
+
+  .schedule details summary .desc::before {
+    content: '';
+    width: 0;
+    margin-right: 0;
+  }
+
+  .schedule .scribe {
+    display: none;
+  }
+
+  .note {
+    display: none;
+  }
+
+  .footer {
+    margin-top: 3rem;
+    font-size: 0.7em;
+  }
+  .footer p {
+    margin: 0;
+  }
+}

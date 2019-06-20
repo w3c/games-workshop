@@ -419,7 +419,7 @@ summary .time span { font-size: 67%; }
   height: 100%;
   margin: 0 13px 0 0;
   order: -1;
-  min-width: 6em;
+  min-width: 6.4em;
 }
 
 .type:empty {
