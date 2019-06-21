@@ -96,7 +96,7 @@
     top: 2in;
     width: 7in;
     height: 8in;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: black;
     clip-path: polygon(50% 20%, 100% 0%, 100% 40%);
     z-index: -1;
   }
@@ -109,7 +109,7 @@
     top: 2in;
     width: 7in;
     height: 8in;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: black;
     clip-path: polygon(0 60%, 50% 80%, 0 100%);
     z-index: -1;
   }
