@@ -1,13 +1,13 @@
 @media all {
   @page {
-    margin: 0;
+    margin: 0.25in;
   }
 
   html {
     position: relative;
     background: none;
     width: 8in;
-    margin: 0.25in;
+    margin: 0;
     padding: 0;
   }
 
@@ -45,10 +45,24 @@
   h3 {
     border-top: thick solid #005a9c;
     border-bottom: thick solid #005a9c;
-    color: #005a9c;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
     margin-top: 0.25in;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em;
+    color: #005a9c;
+  }
+
+  h4 {
+    border-bottom: thin solid black;
+    padding-bottom: 0.3em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.3em;
+  }
+
+  h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.15em;
   }
 
   header img[src='media/background-sm.jpg'] {
@@ -63,7 +77,9 @@
   }
 
   header h1 {
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 3em;
+    font-weight: bold;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-align: center;
@@ -101,6 +117,7 @@
   }
 
   header .boxes h2 {
+    font-family: 'Source Sans Pro', sans-serif;
     margin-top: 0;
     margin-bottom: 0;
     color: black;
@@ -130,25 +147,26 @@
     text-align: center;
   }
 
-  header .date {
+  header .date,
+  header .location {
     position: absolute;
-    top: 2.8in;
-    right: 0.5in;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
     color: white;
     text-align: center;
-    font-size: 2em;
     text-transform: uppercase;
+  }
+
+  header .date {
+    top: 2.8in;
+    right: 0.5in;
     width: 10rem;
   }
 
   header .location {
-    position: absolute;
     top: 7.8in;
     left: 0.5in;
-    color: white;
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
     width: 10rem;
   }
 
@@ -157,10 +175,11 @@
     top: 9.8in;
     left: 0;
     width: 100%;
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5em;
     font-weight: bold;
     color: black;
+    text-align: center;
   }
 
   header {
@@ -183,6 +202,7 @@
 
   .has-ref {
     margin-left: 0;
+    padding-left: 0;
   }
 
   #dates {
@@ -218,12 +238,16 @@
     display: none;
   }
 
+  .schedule li + li {
+    margin-top: 0;
+  }
+
   .note {
     display: none;
   }
 
   .footer {
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-size: 0.7em;
   }
   .footer p {
