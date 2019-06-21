@@ -72,18 +72,18 @@
   header .w3c {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 120px;
+    left: 0.6in;
+    width: 100px;
   }
 
   header h1 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 3em;
-    font-weight: bold;
+    font-weight: 900;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 0.7in;
+    margin-top: 0.65in;
     margin-left: 5rem;
     margin-right: 5rem;
   }
@@ -92,12 +92,12 @@
     content: "";
     display: block;
     position: absolute;
-    left: 0;
+    left: 0.5in;
     top: 2in;
-    width: 100%;
+    width: 7in;
     height: 8in;
-    background-color: black;
-    clip-path: polygon(0 60%, 50% 20%, 100% 0%, 100% 60%, 50% 80%, 0 100%);
+    background-color: rgba(0, 0, 0, 0.7);
+    clip-path: polygon(50% 20%, 100% 0%, 100% 40%);
     z-index: -1;
   }
 
@@ -105,15 +105,29 @@
     content: "";
     display: block;
     position: absolute;
-    left: 0;
+    left: 0.5in;
     top: 2in;
-    width: 100%;
+    width: 7in;
     height: 8in;
-    background-image: url('media/background.jpg');
-    background-size: 180%;
-    background-position: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    clip-path: polygon(0 60%, 50% 80%, 0 100%);
+    z-index: -1;
+  }
+
+  header > div > div::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0.5in;
+    top: 2in;
+    width: 7in;
+    height: 8in;
+    background-image: url('media/webgames.png');
+    background-size: 178% 120%;
+    background-position: 58% 100%;
     background-repeat: no-repeat;
-    clip-path: polygon(0% 0%, 100% 40%, 100% 100%, 0% 60%);
+    clip-path: polygon(0% 0%, 50% 20%, 100% 0%, 100% 40%, 100% 100%, 50% 80%, 0% 100%);
+    z-index: -2;
   }
 
   header .boxes h2 {
@@ -128,7 +142,7 @@
   }
 
   header .boxes p {
-    margin-top: 0.5em;
+    margin-top: 0;
   }
 
   header .host {
@@ -141,7 +155,7 @@
 
   header .sponsor {
     position: absolute;
-    top: 9in;
+    top: 9.1in;
     left: 0;
     width: 100%;
     text-align: center;
@@ -151,28 +165,30 @@
   header .location {
     position: absolute;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
     color: white;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1em;
+    width: 12rem;
   }
 
   header .date {
-    top: 2.8in;
-    right: 0.5in;
-    width: 10rem;
+    top: 2.7in;
+    right: 0.7in;
   }
 
   header .location {
-    top: 7.8in;
-    left: 0.5in;
-    width: 10rem;
+    top: 7.7in;
+    left: 0.7in;
+    text-align: left;
   }
 
   header .link {
     position: absolute;
-    top: 9.8in;
+    top: 9.9in;
     left: 0;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -248,9 +264,18 @@
 
   .footer {
     margin-top: 4rem;
+    margin-bottom: 0;
     font-size: 0.7em;
   }
   .footer p {
     margin: 0;
+  }
+
+  .schedule span.title {
+    margin-left: 0;
+  }
+
+  .schedule .type {
+    margin-right: 8px;
   }
 }
