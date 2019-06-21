@@ -65,10 +65,6 @@
     font-size: 1.15em;
   }
 
-  header img[src='media/background-sm.jpg'] {
-    display: none;
-  }
-
   header .w3c {
     position: absolute;
     top: 0;
@@ -86,6 +82,10 @@
     margin-top: 0.65in;
     margin-left: 5rem;
     margin-right: 5rem;
+  }
+
+  header h1::before {
+   content: none !important;
   }
 
   header::after {
