@@ -1,0 +1,65 @@
+<h1>Size Matters</h1>
+<h2>How Loading is Losing You Players</h2>
+
+<hr>
+
+<strong>Slides:</strong> <a href="http://slides.po.ki/size-matters">http://slides.po.ki/size-matters</a><br/>
+<strong>Speaker:</strong> Kasper Mol (<a href="mailto:kasper@poki.com">kasper@poki.com</a>) (<a href="https://twitter.com/Kasper_Mol">@Kasper_Mol</a>)
+
+<hr>
+
+<h2>Introduction</h2>
+
+<p>Most people instinctively understand that (long) loading times are bad for a users' experience. But how bad is it exactly?</p>
+
+<h2>Exploring Loading Data</h2>
+
+<p>We took 174 of our games and offset their total Conversion To Play to their Initial Download Size. This allows us to chart a trend, giving us a good approximate of Conversion To Play for any given Initial Download Size</p>
+<p><i>Disclaimer: Early explorations and desktop only</i></p>
+<p>Average internet connection speeds differ a lot between markets, so we looked at specific markets individually.</p>
+<p>Starting with the United States, a game with an Initial Download Size of 10MB already corresponds to a Conversion To Play of about 0.8 (or 80%). This is worrysome as 10MB is not a very high number, especially given the current quality bar set by mobile games.</p>
+<p>Looking at other markets with slower average internet connection speeds, this number gets significantly worse. For example in Brazil, 10MB corresponds to a Conversion To Play of about 0.7. In Egypt (<a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/q1-2017-state-of-the-internet-connectivity-report.pdf">bottom 5 globally in terms of average internet connection speed</a>), Conversion To Play is below 0.6 for a 10MB game.</p>
+<strong>This means that in a country like Egypt, you will lose almost half your players, just from the loading screen, for a game that is "only" 10MB in Initial Download Size.</strong>
+
+<h2>Opportunities</h2>
+
+<h3>Educating Game Developers</h3>
+<p>
+	Especially for games above the 10MB Initial Download Size mark, it's key to educate game developers.
+</p>
+
+<p>
+	Subjects of importance include:
+	<ul>
+		<li><strong>Post-loading</strong>: Not downloading all assets at the start, but loading assets right before they are needed. Most games above 10MB (especially above 40MB) have lots to gain here.</li>
+		<li><strong>Building games web-first</strong>: Building and designing a game from the ground up to be web-first allows a developer to take Initial Download Size in consideration from the start, and can be a very effective way to end up with a small game. Remaking existing games is also an option, however a more complicated and potentially expensive one.</li>
+		<li><strong>Testing in real world conditions</strong>: Very important in any case is to get a grip on the size of the problem. We highly recommend developers to try opening their games with network throttling set to Slow 3G in Chrome, to notice how bad the experience can get.</li>
+	</ul>
+</p>
+
+<h3>Improving the Web</h3>
+<p>
+	The good news is that below ±10MB, every MB really counts. This is the place where Web Game Platforms, Game Engine Developers and Browser Vendors can really make a difference.
+</p>
+<p>
+	Subjects of importance include:
+	<ul>
+		<li><strong>Asset optimization</strong>: Compressing game assets as part of the engine build step or platform deployment step is key for easy size wins</li>
+		<li><strong>Re-using engine code</strong>: When a player will play two games from the same engine, there is no reason to have to re-download this engine code for both games. Game Engine Developers could make sure their engine code is split from the game code, which allows Web Game Platforms to serve this code separately to their users.</li>
+		<li><strong>Improved protocols</strong>: Any improvement on loading times will have a positive impact on Conversion to Play, new protocols like <a href="https://en.wikipedia.org/wiki/QUIC">QUIC</a> that can be rolled out at scale are therefore very interesting.</li>
+	</ul>
+</p>
+
+<hr>
+
+<h2>Reference</h2>
+
+<strong>Conversion To Play</strong>: Percentage of players that finish loading a game, of the amount of players that started loading a game.<br/>
+<strong>Initial Download Size</strong>: Amount of megabytes that needs to be downloaded to get through a game's initial load into the main screen.<br/>
+<br/>
+<i>Note: Both above metrics are purely based on the initial loading screen, and exclude things like game onboarding or pre-loader drop-off.</i>
+
+<h2>About Poki</h2>
+<p><a href="https://poki.com">Poki</a> is an Amsterdam based company working with a team of 30 on a mission to create the ultimate online playground: a platform for play where kids of all ages and game developers come together to play and create.</p>
+<p>More info: <a href="https://about.poki.com">About Poki</a></p>
+
