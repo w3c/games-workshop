@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Workshop on Web Games - Breakout session on WebAssembly -- 28 June 2019</title>
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/base.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/public.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/2004/02/minutes-style.css">
+  <meta content="Workshop on Web Games - Breakout session on threads" name="Title">  
+  <meta charset="utf-8">
+</head>
+
+<body>
+<p><a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" border="0"
+height="48" width="72"></a> 
+</p>
+<h1>Workshop on Web Game
+<br/><span style="font-size: smaller">Breakout session on WebAssembly</span></h1>
+<h2>28 June 2019</h2>
+
+<p><em>This breakout session was part of the <a href="https://www.w3.org/2018/12/games-workshop">Workshop on Web games</a>. Notes taken by Mathias Westerdahl.</em></p>
+
+<ul>
+  <li>Suggestion to create new APIs with wasm in mind
+    <ul>
+      <li>be mindful with object creation</li>
+      <li>suggest more C style functions like "generateData(view)" and it creates into that preallocated buffer</li>
+    </ul>
+  </li>
+  <li>Discussed memory mapping in WASM
+    <ul>
+      <li>nothing going on in this area just yet</li>
+    </ul>
+  </li>
+
+  <li>Discussion about deobfuscation and protecting assets
+    <ul>
+      <li>WASM doesn't add any protection here</li>
+      <li>We talked about WebCrypto to protect assets, which might be something for game developers</li>
+      <li>Also loading some "runtime key" to avoid "simple ripping off a game"</li>
+    </ul>
+  </li>
+
+  <li>Are there any resources for "regular" web developers to start using WASM?
+    <ul>
+      <li>going from "C" to WASM is easier</li>
+      <li>coming from JS to WASM is harder to understand</li>
+      <li>Rust -> WASM is an example of one way to go, perhaps interesting for JS too</li>
+      <li>Luke mentioned AssemblyScript for writing WASM close code</li>
+    </ul>
+  </li>
+
+  <li>Exception handling coming in WASM</li>
+
+  <li>Discussion about SharedArrayBuffer and atomics
+    <ul>
+      <li>is there feature detection for this?</li>
+      <li>there is some, will likely change in the future</li>
+    </ul>
+  </li>
+
+  <li>Loading time/efficiency discussion
+    <ul>
+      <li>Where is WASM currently in regards to loading shared libraries?</li>
+      <li>Recent changes pave the way for load time dynamic linking (ES6 module imports)</li>
+      <li>How to do cross origin sharing?</li>
+      <li>Can save loading time on game portals</li>
+    </ul>
+  </li>
+
+  <li>Discussion about caching
+    <ul>
+      <li>Luke mentioned a new suggested function "cache tput"</li>
+      <li>Talked about caching into subdomain buckets</li>
+    </ul>
+  </li>
+
+  <li>Is there a difference in cost going from JS <-> WASM?</li>
+  <li>Luke mentions a blog post with some performance numbers</li>
+</ul>
+
+<hr>
+
+<address>
+  Minutes manually created (not a transcript), formatted by David Booth's 
+  <a href="http://dev.w3.org/cvsweb/~checkout~/2002/scribe/scribedoc.htm">scribe.perl</a> version  (<a href="http://dev.w3.org/cvsweb/2002/scribe/">CVS log</a>)<br>
+  $Date: 2019/07/03 14:46:02 $ 
+</address>
+</body>
+</html>

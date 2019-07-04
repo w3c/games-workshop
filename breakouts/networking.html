@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Workshop on Web Games - Breakout session on Networking -- 28 June 2019</title>
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/base.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/public.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/2004/02/minutes-style.css">
+  <meta content="Workshop on Web Games - Breakout session on threads" name="Title">  
+  <meta charset="utf-8">
+</head>
+
+<body>
+<p><a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" border="0"
+height="48" width="72"></a> 
+</p>
+<h1>Workshop on Web Game
+<br/><span style="font-size: smaller">Breakout session on Networking in games</span></h1>
+<h2>28 June 2019</h2>
+
+<p><em>This breakout session was part of the <a href="https://www.w3.org/2018/12/games-workshop">Workshop on Web games</a>. Minutes taken by Seth Hampson.</em></p>
+
+<h2>People</h2>
+<ul>
+  <li>Jessie (Microsoft) - Casual games online games (Solitaire, etc.)</li>
+  <li>Bernard Aboba (Microsoft) - Skype &amp; Media Group also Xbox. Hear a lot about wanting UDP on the web and syncing data with media. Also developers not liking WebRTC data channel.</li>
+  <li>Ted (W3C)</li>
+  <li>Geoff (Intel) - On web team and works on open webrtc tool kit.</li>
+  <li>Domenic (WebRTC WG) - Looking to see how things can be improved</li>
+  <li>Edgar - Common studio to visual pieces, mainly around retail experience. Visualization of spaces, also AR &amp; VR. Looking to see where technology is going.</li>
+  <li>Kris Johnson (Jampack)- Game designer &amp; engineer. Use WebSocket right now for virtual world but would be very interested in QUIC data channel. Also would love to use it for loading assets.</li>
+  <li>Steve Anton - WebRTC - worked on RTCQuicTransport that&rsquo;s available in origin trial and working on prototyping WebCodecs.</li>
+  <li>Seth Hampson - WebRTC - worked on RTCQuicTransport that&rsquo;s available in origin trial.</li>
+</ul>
+
+<h2>Minutes</h2>
+<p class="phone"><cite>Kris:</cite> Limits on WebSocket are painful.</p>
+<p class="phone"><cite>Peter:</cite> What things?</p>
+<p class="phone"><cite>Kris:</cite> Reliability &amp; packet ordering. Big delay then a big batch comes in and it&rsquo;s hard to time sync it. Currently use a timestamp and estimate what every client&rsquo;s time is. Is this being prototyped?</p>
+<p class="phone"><cite>Peter:</cite> No, best we can do is when data arrived. We don&rsquo;t solve clock synchronization.</p>
+<p class="phone"><cite>Kris:</cite> I haven&rsquo;t used WebRTC data channel</p>
+<p class="phone"><cite>Peter:</cite> Hope is over time as support for QUIC becomes more widespread and we build the client/server version of the API it will be easy to deploy a server that speaks to the browser QUIC API.</p>
+<p class="phone"><cite>Kris:</cite> What&rsquo;s held us back with WebRTC data channel is cross platform support. I know there were problems with iOS.</p>
+<p class="phone"><cite>Dom:</cite> Can you use&hellip;?</p>
+<p class="phone"><cite>Peter:</cite> You&rsquo;re limited on the data protocol you&rsquo;re using. That&rsquo;s good to know about client library support being important across platforms.</p>
+<p class="phone"><cite>Dom:</cite> Curious about fallback for using the WebTransport.</p>
+<p class="phone"><cite>Victor:</cite> I have a plan for simulating QUIC over WebSockets. This API is fully compatible, and in some cases you might want to use WebSocket because UDP is blocked by firewalls.</p>
+<p class="phone"><cite>Bernard:</cite> Problem is that SCTP transport can&rsquo;t be polyfilled because you can&rsquo;t solve the backpressure problem.</p>
+<p class="phone"><cite>Peter:</cite> You&rsquo;d have to do what the plan is for WebSockets with your own framing down below.</p>
+<p class="phone"><cite>Dom:</cite> Reason I&rdquo;m asking is because you have a catch 22 where you need both client and server deployment. So having this fallback allows deploying the client API with server support.</p>
+<p class="phone"><cite>Peter:</cite> One way is to make a polyfill fallback for WebSocket in JS. If you want to change it to use the WebTransport API it would help for the actual API implementing the fallback. This way your code is capable of taking advantage of unreliability even if the API isn&rsquo;t implementing this.</p>
+<p class="phone"><cite>Victor:</cite> The fallback currently isn&rsquo;t public and there&rsquo;s two ways to fallback and this is being discussed (TBD).</p>
+<p class="phone"><cite>Edgar:</cite> My use case is I want to understand if this can be used for VR streaming. We need a certain level of believability from the consumers and this is where we start looking at streaming. This is similar to Stadia and I&rsquo;d like to get inputs from you if this is something we should start toying with. For discoverability the web can be the best platform for us. We are focused more on content than development. We probably wouldn&rsquo;t do a custom solution for our use case, we are looking to reuse what other people use. We are early adopters of tools but not core technologies. We have a 2nd use case of virtual experience in VR where we need to synchronize different pieces. We&rsquo;re having trouble with downloads, performance in the canvas and also synchronizing videos.</p>
+<p class="phone"><cite>Peter:</cite> I don&rsquo;t know how suitable this is for VR.</p>
+<p class="phone"><cite>Bernard:</cite> In the retail context people are more tolerant with delay.</p>
+<p class="phone"><cite>Victor:</cite> What type of delay are we talking about?</p>
+<p class="phone"><cite>Perspective </rendering is local, transport delay not as important.</cite>
+<p class="phone"><cite>Peter:</cite> For inputs you need unreliable &amp; you have two options. WebTransport or WebRTC data channel. The WebTransport will eventually be easier to deploy. For synchronizing I&rsquo;m not sure of the solution.</cite>
+<p class="phone">&hellip;</p>
+<p class="phone"><cite>Bernard:</cite> Basic issue is you need metadata with the video itself. You could do this with QUIC by just adding this additional metadata.</p>
+<p class="phone"><cite>Peter:</cite> With WebCodecs you&rsquo;re the one choosing your synchronization. If you want to synchronize multiple things you could do that.</p>
+<p class="phone"><cite>Edgar:</cite> So I have access to these multiple pieces and can just control this myself?</p>
+<p class="phone"><cite>Peter:</cite> Yes.</p>
+<p class="phone"><cite>Bernard:</cite> This is a very common VR/AR use case so it should get solved.</p>
+<p class="phone"><cite>Peter:</cite> Also for the low latency streaming this is very common.<br/>*Worth noting a benefit of WebCodecs is synchronizing multiple things*</p>
+<p class="phone"><cite>Edgar:</cite> When we have product customization which can expose things like the cut of the fabric we don&rsquo;t want people to easily download these things. Could this help with asset obfuscation?</p>
+<p class="phone"><cite>Peter:</cite> Not clear. If you were pushing them down in a custom way this might be more difficult than otherwise.</p>
+<p class="phone"><cite>Victor:</cite> Usual Web obfuscation model. Ultimately the browser gets hit.</p>
+<p class="phone"><cite>Bernard:</cite> If the issue is protecting the video itself not the asset then you could do some content protection (encryption). Depends on how assets at getting stolen.</p>
+<p class="phone"><cite>Edgar:</cite> Downloading 3d models, and also doing dynamic things like how we render patterns. Font files are also proprietary and don&rsquo;t want to make this easily accessible.</p>
+<p class="phone"><cite>Peter:</cite> Any talk P2P interest?</p>
+<p class="phone"><cite>&hellip;</cite>.</p>
+<p class="phone"><cite>Ted:</cite> Web fonts do have some licensing and protection built into the browser.</p>
+<p class="phone"><cite>Edgar:</cite> We&rsquo;re doing our own custom font handling.</p>
+<p class="phone"><cite>Peter:</cite> What about voice during games?</p>
+<p class="phone"><cite>Kris:</cite> We would absolutely be interested in this.</p>
+<p class="phone"><cite>Peter:</cite> Voice &amp; video?</p>
+<p class="phone"><cite>Kris:</cite> Just voice with a group. Possibly using a server due to amount 30-50 people.</p>
+<p class="phone"><cite>Edgar:</cite> Toying with the idea with locally two people seeing each other.</p>
+<p class="phone"><cite>Peter:</cite> Position data is a lot like audio data where you want it very low latency. WebRTC problem is audio/video &amp; data is in two separate worlds including different congestion control contexts and speaking different protocols. We&rsquo;re addressing this by using QUIC to send all 3.</p>
+<p class="phone"><cite>Bernard:</cite> Natively this is solved by shoving everything in the RTP stream.</p>
+<p class="phone"><cite>Bernard:</cite> We&rsquo;ve had a question about a stream with partial reliability. Would anybody be interested in this?</p>
+<p class="phone"><cite>Kris:</cite> What we care more about is just unreliability with datagrams. Our messages are lightweight so in our use case unreliable messages aren&rsquo;t as important. </p>
+<p class="phone"><cite>Kris:</cite> Anything specific about faster asset streaming?</p>
+<p class="phone"><cite>Peter:</cite> I mentioned HTTP/3 over QUIC by itself would make things much faster. There isn&rsquo;t really any good server push API in the web. WebSockets works but then it has other performance issues. One of the versions of the WebTransport is built on top of HTTP/3Transport. Connection you already have to your server on HTTP. </p>
+<p class="phone"><cite>Victor:</cite> Since this is multi streamed you can have your WebTransport API on top of this. Also worth pointing out that you don&rsquo;t have to pay any setup cost.</p>
+<p class="phone"><cite>Bernard:</cite> Question - What are thoughts on prioritization between streams/datagrams/etc.? Is this important to you?</p>
+<p class="phone"><cite>Edgar:</cite> I could see using this to prioritize transmission of different data in VR.</p>
+<p class="phone"><cite>Steve:</cite> But if you added audio to your game it would change this.</p>
+<p class="phone"><cite>Bernard:</cite> + pulling assets.</p>
+<p class="phone"><cite>Dom:</cite> Is this there right now?</p>
+<p class="phone"><cite>Peter:</cite> Not yet</p>
+<p class="phone"><cite>Victor:</cite> Priorities are a difficult problem. You have to find a way to express them declaratively and there are a lot of strong opinions on how this should be done. This was debated for HTTP/3 and had issues.</p>
+<p class="phone"><cite>Steve:</cite> This comes up in WebRTC where you have multiple streams and you at least want to get your low quality streams.</p>
+<p class="phone"><cite>Peter:</cite> We would likely create something that prioritizes across streams &amp; datagrams.</p>
+<p class="phone"><cite>Dom:</cite> What about pluggable congestion control?</p>
+<p class="phone"><cite>Peter:</cite> There&rsquo;s a discussion on github about this right now. There&rsquo;s alternatives that can be used for different use cases - BBR, GCC, etc. One solution is you choose which congestion control you want. Another solution is browser has some top threshold you can&rsquo;t exceed, but you can do your own congestion control, for example, keeping your congestion control low. This gives the application the ability to run your own congestion control but you can never fully trust the application to do this, so there&rsquo;s still a top cap. This is advanced but some people are interested in having a tight control over media upload. For client/server this is only for client side sending (server can do what it wants). The reason we can do this is because the algorithm is running in user space.</p>
+<p class="phone"><cite>Kris:</cite> More information on rollout of QUIC?</p>
+<p class="phone"><cite>Victor:</cite> QUIC library is almost read. November 2019 is current goal but expectation is more towards 2020 for a Chrome origin trial on the client/server WebTransport API. </p>
+<p class="phone"><cite>Seth:</cite> P2P (RTCQuicTransport) Chrome origin trial out now until the end of July (until version 76).</p>
+
+<hr>
+
+<address>
+  Minutes manually created (not a transcript), formatted by David Booth's 
+  <a href="http://dev.w3.org/cvsweb/~checkout~/2002/scribe/scribedoc.htm">scribe.perl</a> version  (<a href="http://dev.w3.org/cvsweb/2002/scribe/">CVS log</a>)<br>
+  $Date: 2019/07/03 14:46:02 $ 
+</address>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Workshop on Web Games - Breakout session on threads -- 28 June 2019</title>
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/base.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/public.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/2004/02/minutes-style.css">
+  <meta content="Workshop on Web Games - Breakout session on threads" name="Title">  
+  <meta charset="utf-8">
+</head>
+
+<body>
+<p><a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" border="0"
+height="48" width="72"></a> 
+</p>
+<h1>Workshop on Web Game
+<br/><span style="font-size: smaller">Breakout session on Threads</span></h1>
+<h2>28 June 2019</h2>
+
+<p><em>This breakout session was part of the <a href="https://www.w3.org/2018/12/games-workshop">Workshop on Web games</a>. Minutes taken by Dominique Hazaël-Massieux.</em></p>
+
+<p class='phone'><cite>David:</cite> got some ideas shared by
+email after our discussion yesterday<br />
+... initially, I thought that Web workers are painful to
+start<br />
+... the serialization/deserialization needed to communicate
+among workers is also costly when you need to constantly share
+info across threads<br />
+... for instance, synchronizing scene graphs across workers is
+costly<br />
+... SharedArrayBuffer is useful but not enough<br />
+... someone shared the idea of a Task concept which captures
+and freezes a context<br />
+... the task starts on a new thread and has read-only access to
+the starting context<br />
+... this would work very well for my scene graph case, physics,
+or collision detection<br />
+... more difficult for particles, but still probably
+usable<br />
+... this would solve quite a few problems</p>
+<p class='phone'><cite>@@@:</cite> with a readonly context, you probably
+need to have very light threads because you would likely need
+to start many of them rapidly for a short time</p>
+<p class='phone'><cite>David:</cite> there is a similar
+approach in C# with a pool of threads that get recycled<br />
+... very cheap to start</p>
+<p class='phone'><cite>Myles:</cite> the worker in this model
+would see a read-only view of the model<br />
+... what about the main thread then?</p>
+<p class='phone'><cite>Rafael:</cite> it would have to be
+read-only</p>
+<p class='phone'><cite>David:</cite> I think the main thread
+should be kept out of the equation to simplify the model</p>
+<p class='phone'><cite>Myles:</cite> what is the status of rAF
+in workers?</p>
+<p class='phone'><cite>David:</cite> it works<br />
+... I have rAF in a worker, OffscreenCanvas in a worker, soon
+user input<br />
+... the last thing I need is to be able to separate the work in
+that thread</p>
+<p class='phone'><cite>Myles:</cite> OffscreenCanvas still needs
+to hands off its results to the main thread<br />
+... this could be done here as well</p>
+<p class='phone'><cite>@@@:</cite> you will still need some form of blocking
+for read-only state management, so we need to keep this
+thread-spawning off the main thread</p>
+<p class='phone'><cite>david:</cite> that's what the proposal
+is indeed</p>
+<p class='phone'><cite>Navid:</cite> I believe there is work
+under way to use OffscreenCanvas without interfering with the
+main thread at all<br />
+... workers don't have access to the DOM currently; there is a
+project to enable DOM-splitting with some defined CSS property
+to indicate that a part of the DOM needs to be composited
+differently<br />
+... similar to cross- vs same-origin iframes<br />
+... this would allow to hand off part of the DOM to a specific
+worker<br />
+... this would enable to render different part of the pages at
+different frame rates</p>
+<p class='phone'><cite>Ricardo:</cite> OffscreenCanvas has
+indeed that feature with "transferControl"</p>
+<p class='phone'><cite>David:</cite> the constraint right now
+is how workers get started<br />
+... to start a worker, I have to re-import all my libraries in
+a worker<br />
+... it would be great to be able to spawn a worker with the
+same set of loaded libraries<br />
+... (not mentioning that all of these need to be managed as
+different files, which isn't good wrt webpack-ing)</p>
+<p class='phone'><cite>Myles:</cite> let's say there was way to
+tell this function runs into a separate worker<br />
+... how does this work with the global scope?</p>
+<p class='phone'><cite>Luke:</cite> Jonas Sicking looked into
+this a few years ago; it's pretty difficult, would need to
+convince quite a few people<br />
+... we had a separate project called parallel JS that
+investigated this, was presented to TC39 but not well received
+and created challenges in implementations<br />
+... the closest thing was "FunctionPromise" (?)<br />
+... which made it easy to create cheap-to-instantiate
+string-defined functions that could be transfered to a
+worker</p>
+<p class='phone'><cite>David:</cite> I could see that working,
+but that leaves the problem of imported scripts - we would need
+an API to include these in the pack</p>
+<p class='phone'><cite>@@@:</cite> how would that work with the various
+optimization processes?</p>
+<p class='phone'><cite>Luke:</cite> there would be
+opportunities for sharing machine code across these threads</p>
+<p class='phone'><cite>David:</cite> the lack of multithreading
+in JS is unique in the world of programming languages</p>
+<p class='phone'><cite>Myles:</cite> one fundamental difference
+is that this prevents multi-thread race crashes</p>
+<p class='phone'><cite>Ryan:</cite> being able to cache
+pre-compiled or JITed code would be useful for game engines</p>
+<p class='phone'><cite>Andrew:</cite> the one hope for that is
+the cache API with ServiceWorker - cloned copies of responses
+can make use of pre-JITed code</p>
+<p class='phone'><cite>Dom:</cite> is that feature of the Cache
+API a well-known aspect?</p>
+<p class='phone'><cite>Andrew:</cite> not sure - there will
+probably be an info box in the spec<br />
+... in any case, it won't be a guaranteed behavior<br />
+... we would also want to avoid heuristics being abused</p>
+<p class='phone'><cite>Luke:</cite> parsed-but-not-instianted
+code I was alluding to is what WASM provide</p>
+<p class='phone'><cite>Ryan:</cite> that's interesting, but
+will we lose this ability in JS?</p>
+<p class='phone'><cite>David:</cite> +1 - let's not make JS a
+poor child of the Web<br />
+... let's make sure all these new cool features remain
+available to JS devs</p>
+<p class='phone'><cite>Dave:</cite> from our experience,
+running WASM on low-end android is impossible from a
+performance perspective<br />
+... because the code is too big</p>
+<p class='phone'><cite>Nick_Hulu:</cite> embedded devices,
+low-end devices don't have access to JIT; it would be great to
+be able to parallelize<br />
+... threads would be our only way to keep performance in this
+constrained environment</p>
+<p class='phone'><cite>Ryan:</cite> there are more or more use
+cases that don't have JIT<br />
+... e.g. in cars</p>
+<p class='phone'><cite>David:</cite> I hear consensus on the
+user-side - threading is needed<br />
+... but I hear lots of frinction from browser devs</p>
+<p class='phone'><cite>Andrew:</cite> you mentioned there was 2
+separate execution environments which creates deployment
+challenges<br />
+... do ES6 module help?<br />
+... it doesn't solve all the packaging issues</p>
+<p class='phone'><cite>David:</cite> the challenge is as a
+framework developer, asking my users to deal with that
+complexity is something I would prefer avoid<br />
+... I also can't tell which modules my users have imported
+before I start a new worker</p>
+<p class='phone'><cite>Ryan:</cite> I'm curious about this
+duplicate concept - what would that cover?</p>
+<p class='phone'><cite>David:</cite> just the code</p>
+<p class='phone'><cite>@@@:</cite> but what about e.g. dynamically generated
+functions?</p>
+<p class='phone'><cite>Dave:</cite> this can be solved by a
+nice import function</p>
+<p class='phone'><cite>David:</cite> but that still creates
+complexity</p>
+<p class='phone'><cite>Myles:</cite> do you have a helper
+library that deals with this importing? how do you manage
+it?</p>
+<p class='phone'><cite>David:</cite> right now I have to
+manually import the scripts, finding the right paths<br />
+... I have to create a URL object to manage my workers</p>
+<p class='phone'><cite>Myles:</cite> maybe we should start by
+optimizing your current approach instead of doing a broader
+redesign</p>
+<p class='phone'><cite>Dave:</cite> the issues that were
+summarized yesterday: the split file issue is one (but there is
+a workaround), shared memory will be helped by
+SharedArrayBuffer but doesn't solve the cases where you need
+object that get serialized/deserialized<br />
+... not sure how your read-only model would help with e.g.
+Physics Engine</p>
+<p class='phone'><cite>Luke:</cite> a challenge with JS objects
+is that they're very complex<br />
+... there is a proposal for a TypedObject in JS that may help -
+it brings an immutable structure<br />
+... part of the idea would be be able to mark them as shareable
+- in which case they can only point at shareable objects<br />
+... this could help with multi-threading<br />
+... this would also help with gc-support in WASM<br />
+... TypedObject would be the reflection of gc-objects</p>
+<p class='phone'><cite>Dom:</cite> this is in TC 39?</p>
+<p class='phone'><cite>Luke:</cite> yes, at Stage 0 (there is
+an explainer)</p>
+<p class='phone'><cite>Andrew:</cite> would it have similar
+shared semantics as sharedarraybuffer?</p>
+<p class='phone'><cite>Luke:</cite> roughly</p>
+<p class='phone'><cite>Ryan:</cite> what are structural
+limitations?</p>
+<p class='phone'><cite>Luke:</cite> it has a weak memory
+model</p>
+<p class='phone'><cite>Rafael:</cite> even in a mono thread
+this would go a long way to help with David's problem</p>
+<p class='phone'><cite>David:</cite> it would indeed solve some
+(but not all) use cases</p>
+<p class='phone'><cite>Dom:</cite> in summary?</p>
+<p class='phone'><cite>David:</cite> worker initiialization and
+scripts imports could be simplified<br />
+... TypedObject provide nice opportunities for memory
+management for Games</p>
+<p class='phone'><cite>Nick:</cite> I liked Luke's idea about
+cached-JITed code</p>
+<p class='phone'><cite>Luke:</cite> see FunctionPromise in TC
+39</p>
+<p class='phone'><cite>@@@_King:</cite> coming from a C++ background - will
+emscripten manage this directly?</p>
+<p class='phone'><cite>Luke:</cite> WASM takes care of it</p>
+<hr>
+
+<address>
+  Minutes manually created (not a transcript), formatted by David Booth's 
+  <a href="http://dev.w3.org/cvsweb/~checkout~/2002/scribe/scribedoc.htm">scribe.perl</a> version  (<a href="http://dev.w3.org/cvsweb/2002/scribe/">CVS log</a>)<br>
+  $Date: 2019/07/03 14:46:02 $ 
+</address>
+</body>
+</html>
