@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Workshop on Web Games - Breakout session on threads -- 28 June 2019</title>
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/base.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/StyleSheets/public.css">
+  <link type="text/css" rel="STYLESHEET" href="https://www.w3.org/2004/02/minutes-style.css">
+  <meta content="Workshop on Web Games - Breakout session on Web games in hosted apps" name="Title">  
+  <meta charset="utf-8">
+</head>
+
+<body>
+<p><a href="http://www.w3.org/"><img src="https://www.w3.org/Icons/w3c_home" alt="W3C" border="0"
+height="48" width="72"></a> 
+</p>
+<h1>Workshop on Web Game
+<br/><span style="font-size: smaller">Breakout session on Web games in hosted apps</span></h1>
+<h2>28 June 2019</h2>
+
+<p><em>This breakout session was part of the <a href="https://www.w3.org/2018/12/games-workshop">Workshop on Web games</a>. Minutes taken by Xiaoqian Wu.</em></p>
+
+<p class='phone'><cite>Ping:</cite> today I would like to introduce a new type of web games, Baidu smart games, we launched this project two years ago<br/>
+… Baidu is a leading Chinese search engine<br/>
+… Baidu App is serving 180 million users per day<br/>
+… one goal is to increase the consumable resource<br/>
+… another goal is to set up an mini game ecosystem, which can be easily deployed for the devs<br/>
+… we created a runtime kernel, a pure JS execution and native rendering environment for 2D and 3D<br/>
+… developers are still writing web coding languages<br/>
+… we are using the runtime to enable more features and improve the performance<br/>
+… JS binding  framework<br/>
+… lifecycle, no window or document tree<br/>
+… no native binding in the runtime<br/>
+… can only include Java objects<br/>
+… performance metrics 200x improvement<br/>
+… need an efficient JS execution engine<br/>
+… [demo of the IO latence]<br/>
+… minimize parsing and compiling time<br/>
+… it’s based on a lightweight native rendering engine<br/>
+… we would like to make the most of the GPU computation<br/>
+… JS execution and rendering engine are in the same thread<br/>
+… currently a very simple threading model<br/>
+… provide key functions by modules<br/>
+… for example: file system, audio and network models<br/>
+… optimisation with partial native computation<br/>
+… benchmark of the runtime, measure the performance for different 
+components<br/>
+… [3d demo of the benchmark]<br/>
+… now we have 60,000 developers working on this platform<br/>
+… 150,000 smart prgrames<br/>
+… it’s an opensource runtime<br/>
+… it also provide support for the developers during the whole process of 
+the developing the games<br/>
+… it can integrate with other game engines, like Cocos, Unity<br/>
+… still has performance limitation compared to the native<br/>
+… future improvement with cloud gaming, and third party technical 
+service provider<br/>
+… we offer an AI Framework for this program<br/>
+… to provide AI capability to the developers<br/>
+… most developers have difficulties using the AI library directly<br/>
+… architecture of the AI framework of this program<br/>
+… developers can take advantage of the face detection<br/>
+… camera matrix, anchor matrix, ambient<br/>
+… it’s using a JS framework, so developers can use WebAPIs like WebXR<br/>
+… we provide many other AI APIs<br/>
+… like face API<br/>
+… [demo of a interactive face game]<br/>
+… [another emoji face game demo]<br/>
+… [AR demo to color a 3D car model]<br/>
+… we will also provide WebML and Paddle.js APIs to allow the developers 
+to customise their games<br/>
+… future work provide more AI APIs for the developers</p>
+
+<p class='phone'><cite>Justin:</cite> is this AI model only work on Baidu Apps?</p>
+<p class='phone'><cite>Ping:</cite> We’ve opensourced  the runtime</p>
+<p class='phone'><cite>@@2:</cite> is the back end also open source?</p>
+<p class='phone'><cite>Ping:</cite> yes</p>
+<p class='phone'><cite>Chris:</cite> it's interesting you are taking advantage of the GPU with native apps</p>
+<p class='phone'><cite>@@3:</cite> why do you develop your own rendering engine?</p>
+<p class='phone'><cite>ping:</cite> due to the limitation of flexibility of the AI APIs and performance, it became a must to us</p>
+<p class='phone'><cite>Chris:</cite> same for us</p>
+<p class='phone'><cite>Tom:</cite> does it work the same on IOS?</p>
+<p class='phone'><cite>Ping:</cite> we do have difficulties to make it work in IOS, we tried talking to Apple</p>
+<p class='phone'><cite>Tom:</cite> do you use the web view in IOS?</p>
+<p class='phone'><cite>Ping:</cite> the JS core</p>
+<p class='phone'><cite>Chris:</cite> we use JS core, but native rendering<br/>
+… but we haven’t got to this level</p>
+<p class='phone'><cite>Chris:</cite> would like to understand how can we do progressing games in browsers</p>
+<p class='phone'><cite>Ping:</cite> this experience of smart games can contribute to APIs in the browsers</p>
+<p class='phone'><cite>Tom:</cite>  how many small programs?</p>
+<p class='phone'><cite>Ping:</cite> 150,000<br/>
+… 20,000 online, but mini games is just part of them<br/>
+… we also provide quality review</p>
+<p class='phone'><cite>Tom:</cite> does the regulation of the government for games also apply to this kind of mini games?</p>
+<p class='phone'><cite>Ping:</cite> mini games don’t need license</p>
+<p class='phone'><cite>Francois:</cite> what’s the blockers for the web view?<br/>
+… is there anything we can do to fix the problem?<br/>
+… some APIs are missing the in web view due to security or privacy reasons<br/>
+… what’s the gap?</p>
+<p class='phone'><cite>Chris:</cite> this design is trying to address problems more than for the browsers or for the web view</p>
+<p class='phone'><cite>@@3:</cite> the camera is also one reason</p>
+<p class='phone'><cite>Ping:</cite> all the UI/device related APIs have limitation</p>
+<p class='phone'><cite>Chris:</cite> camera access stuffs are interesting, hope the WebXR API can fix some of the problems<br/>
+… if we can get access to the native level permission</p>
+<p class='phone'><cite>@@3:</cite> 3D computation is difficult for lots of developers</p>
+<p class='phone'><cite>Eden:</cite> we do care about the privacy when we design these APIs<br/>
+… access to camera or geolocation needs permissions</p>
+<p class='phone'><cite>Chris:</cite> there are a few reasons that we are going out of the web view, but using the same technology, it’s good that your API can work with GPU</p>
+<p class='phone'><cite>@@3:</cite> how about DOM?</p>
+<p class='phone'><cite>Ping:</cite> we don't have DOM, it’s transformed</p>
+<p class='phone'><cite>Eden:</cite> we provide APIs for developers to export their program into HTML5 games or Baidu smart apps</p>
+<p class='phone'><cite>Francois:</cite> I’m curious to know which part of these APIs are missing from the Web<br/>
+… we’ll have a workshop on WebML soon<br/>
+… hope these can be directly an Web API instead of something above of the Web</p>
+<p class='phone'><cite>Ping:</cite> we are working closely with the WebML community group</p>
+<p class='phone'><cite>Francois:</cite> [explains the WebML API]</p>
+<p class='phone'><cite>Ping:</cite> we love the Web technologies, as it’s more friendly to the developers
+<p class='phone'><cite>Francois:</cite> most of the APIs seems valuable to web community, would like to learn more details<br/>
+… guess you will further the discussion in the Chinese IG<br/>
+… hope the outcome of the discussion will come back to the global community soon</p>
+</body>
+</html>
