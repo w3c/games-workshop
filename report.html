@@ -178,7 +178,14 @@
 
         <section id="3D">
           <h4>3D rendering</h4>
-          <p class="box">See also: <a href="agenda.html#3D">Presentations</a> and <a href="https://www.w3.org/2019/06/27-games-minutes.html#session-3d">Minutes</a></p>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#3D">Presentations</a></li>
+              <li><a href="https://www.w3.org/2019/06/27-games-minutes.html#session-3d">Minutes of the presentations</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item11">Summary of the breakout session</a></li>
+            </ul>
+          </div>
           <p>@@</p>
         </section>
 
@@ -221,25 +228,61 @@
 
         <section id="audio">
           <h4>Audio &amp; Games</h4>
-          <p class="box">See also: <a href="agenda.html#audio">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#session-audio">Minutes</a></p>
-          <p></p>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#audio">Presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#session-audio">Minutes of the presentations</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item14-3">Summary of the breakout session</a></li>
+            </ul>
+          </div>
+          <p>Michel Buffa demonstrates the power of the Web Audio API as it exists today, notably how it is possible to create an open plugin standard for audio on the Web using JavaScript and/or an <code>AudioWorklet</code> that runs code in WebAssembly, allowing to run audio plugins on the Web written in specialized languages such as FAUST. Michel points out that latency issues with audio I/O on some platforms. The <code>outputLatency</code> property of <code>AudioContext</code> is not implemented for now. This is more an implementation (and driver) issue than an issue with the Web Audio API.</p>
+          <p>Philippe Milot reports on AudioKinetics's journey to have the Wwise sound engine run on the Web, and points out the limits of the <code>AudioWorkled</code> approach for audio engines such as Wwise that need to integrate closer to the hardware and that rely on threading support. Threading needs overlap with those discussed in the <a href="#threads">sessions on threading</a>.</p>
+          <p>Hongchan Choi presents the <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client</a> (ADC) proposal, under incubation in the Web Audio Community Group, which aims at solving the issues encountered by Philippe and other companies in the pro-audio space by providing a truly low-level audio I/O. Key features of the proposal include:</p>
+          <ul>
+            <li>A dedicated global scope in a separate thread (at the right priority) for audio processing to avoid complex plumbing and workarounds that some libraries need to resort to today</li>
+            <li>A low-level audio I/O, just a callback with input and output buffers, which makes it a perfect fit for WebAssembly-powered audio processing</li>
+            <li>Configurable render block size (not locked to the 128 sample-frames of the Web Audio API)</li>
+            <li>Ability to select audio I/O devices via a <code>MediaTrackConstraints</code> pattern</li>
+            <li>Implicit sample rate conversion when needed</li>
+          </ul>
+          <p>There is general support in the room for the ADC approach presented which would go a long way toward addressing audio needs in games. There are tons of audio-processing code written in C/C++ that could be ported to the Web easily if ADC gets adopted.</p>
+          <p>During the breakout session on audio, workshop participants re-iterate the request for a low-level approach from pro-audio vendors, investigate how the WebCodecs proposal could integrate with ADC, talk about positional audio for immersive scenarios. The Web Audio Working Group is gathering use cases for the next iteration of the Web Audio API.</p>
         </section>
 
         <section id="gamepad">
           <h4>Gamepad support</h4>
           <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item05">Minutes</a></p>
-          <p></p>
+          <p>The Gamepad API has been on the Recommendation track for a number of years already. It provides support for basic gamepad functionality and has been implemented across browsers. However, its development has stalled since 2014 for lack of momentum. And yet Kelvin Yong explains that the current limitations of the Gamepad API make it impossible for game companies to rely on Web technologies for user interfaces. Main changes required:</p>
+          <ul>
+            <li>A standardization of gamepad inputs: controller buttons may be exposed differently to applications. This is all the more so problematic than the variation exists both across controllers <em>and</em> across browsers for the same controller! There may also be a need for remapping buttons for accessibility purpose.</li>
+            <li>Support for modern controller features: touch surfaces, light indicators, haptics, accelerometer, gyroscope, etc.</li>
+          </ul>
+          <p>Current plan is to bring the current Gamepad specification to Recommendation, and to start working on a second iteration that would add support for modern gamepad features, starting with touchpad support (which covers various shapes and single/multi-touch) and light indicators, which is both more complex and more important than meets the eye: it is key to guide users to the active controller. A proposal for haptics is also in the works, from Google.</p>
+          <p>Some controllers are event-based, others are poll-based. The Gamepad API is poll-based for now but adding an event-based mechanism is envisioned but would require active contributions. The user agent may have to align polling and eventing to keep the event loop aligned with the display framerate, especially in WebXR scenarios.</p>
+          <p>Talking about WebXR, Nell Waliczek provides an update on where it is heading with regards to controllers. WebXR has the notion of input sources, which can be hands, controllers, tracked or untracked. The Gamepad API is exposed as part of <code>XRInputSource</code>. One challenge in VR is that form factors of controllers are much more diverse. Discussions on WebXR have converged toward a shared model with a hierarchy of interaction profiles. The WebXR community is also building a registry of controllers.
+          <p>There is overwhelming support across game developers in the room for progressing the Gamepad API. More engagement from the games community towards finalizing the current specification and contributing to new proposals would greatly help.</p>
         </section>
 
         <section id="latency">
           <h4>Inputs latency</h4>
           <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item06">Minutes</a></p>
-          <p></p>
+          <p>Navid Zolghadr reviews different sources of latency for inputs on the Web, either due to developers running long tasks or to design choices such as the decision to align user inputs with <code>requestAnimationFrame</code> (rAF). A major bottleneck today is that all input events have to go through the main thread, which is suboptimal for some use cases: local gaming in a worker, cloud gaming, low-latency drawing taking advantage of <code>OffscreenCanvas</code> or interactive animations based on user inputs (e.g. scroll-based animations).</p>
+          <p>Navid presents a <a href="https://github.com/NavidZ/input-for-workers">proposal for exposing user input events to workers</a>. The API would allow to delegate specific user input events on a given target to a worker, which would completely avoid having to block the main thread. The API, still at early design stages, would make it possible to push input events to the network at no cost.</p>
+          <p>Another proposal for non-rAF-aligned events (again useful for cloud gaming) is also being investigated, using new <em>raw</em> events. By definition, these events may impact performance, hence the need to evaluate their suitability in practice.</p>
         </section>
 
         <section id="webtransport">
           <h4>WebTransport &amp; WebCodecs</h4>
-          <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item07">Minutes</a></p>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#cloud-gaming">Presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item07">Minutes of the presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item14-2">Summary of the breakout session</a></li>
+              <li><a href="breakouts/networking.html">Minutes of the breakout session</a></li>
+            </ul>
+          </div>
           <p></p>
         </section>
 
