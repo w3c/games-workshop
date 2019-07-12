@@ -20,7 +20,7 @@
     };
 
     window.addEventListener("load", function () {
-        Array.prototype.forEach.call(document.querySelectorAll("#main h1[id], #main h2[id], #main h3[id], #main h4[id], #main h5[id]"), function (el) {
+        Array.prototype.forEach.call(document.querySelectorAll("#main h1[id], #main h2[id], #main h3[id], #main h4[id], #main h5[id], #main section[id]>h2, #main section[id]>h3, #main section[id]>h4"), function (el) {
             var a = createAnchorFromHeading(el);
             el.classList.add("has-ref");
             el.addEventListener("click", function () {

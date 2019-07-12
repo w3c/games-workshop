@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Report on W3C Workshop on Web Games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="W3C Workshop on Web Games, June 27-28 2019 in #Seattle 🇺🇸 ">
+    <meta property="og:description" content="The primary goal of the workshop is to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games.">
+    <meta property="og:image" content="media/webgames-thin-sm.jpg">
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a href="agenda.html">Agenda</a>
+          </li>
+          <li>
+            <a href="papers.html">Position statements</a>
+          </li>
+          <li>
+            <a href="participants.html">Participants</a>
+          </li>
+          <li>
+            <a class="active-tab">Report</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          Platinum Sponsors
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>Workshop Report</h2>
+
+      <section id="toc">
+        <h3>Table of contents</h3>
+
+        <ul>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#context">Setting the context</a></li>
+          <li><a href="#needs">Expressing the needs</a></li>
+          <li><a href="#topics">Topics</a></li>
+          <li><a href="#next">Next steps</a></li>
+        </ul>
+        <p>See also:</p>
+        <ul>
+          <li>the <a href="https://www.w3.org/2019/06/27-games-minutes.html">minutes of day 1</a></li>
+          <li>the <a href="https://www.w3.org/2019/06/28-games-minutes.html">minutes of day 2</a></li>
+        </ul>
+      </section>
+
+      <section id="summary">
+        <h3>Summary</h3>
+        <p>W3C held a two day workshop on Web Games in Redmond on 27-28 June, 2018, hosted by Microsoft. Main goal of the workshop was to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games. The workshop convened a diverse group of participants representing different facets of the industry, in total 101 registered participants. Discussions covered a wide range of topics as well, from discoverability and monetization issues down to specific technical issues such as threading and latency.</p>
+      </section>
+
+      <section id="context">
+        <h3>Setting the context</h3>
+        <p class="box">See also: <a href="agenda.html#opening-remarks">Presentations</a> and <a href="https://www.w3.org/2019/06/27-games-minutes.html#item01">Minutes</a></p>
+        <p>First session sets the context for the rest of the workshop, raising an initial set of priorities and obstacles for games on the Web. In his keynote, David Catuhe, author of the Babylon.js game engine at Microsoft, shares his love for the Web and his frustration for some of its limitations when compared to native. These limitations are precisely what the workshop needs to tackle: assets management, threading support, code performance in WebAssembly, cloud gaming, gamepad support, etc.</p>
+
+        <p>Chris Hawkins reports on Facebook's experience with Instant Games, HTML5 games that run in a WebView within Facebook's app. Christian Rudnick and Gili Zeevi detail recurring issues they encounter with Web games they develop or that get published on Softgames' platform. Andrzej Mazur reviews the history of Web games for indie developers, starting with the <a href="https://www.w3.org/2011/09/games/">first workshop on Web games</a> that W3C organized in 2011. The technical landscape for games developers is much better in 2019, most pressing technologies have been developed and implemented in the meantime (Workers, Pointer Lock, Gamepad, etc.) and the Web games ecosystem has grown exponentially in the past few years.</p>
+
+        <p><cite>“All you had to do [in 2011] was just make a game [...] and it would be everywhere, and it just worked. A few years later we have a situation in which some developers are claiming that they made 500 games in a few years, and we have hundreds, if not thousands of developers like these. It's super easy to create an HTML5 game compared to a few years ago.” - Andrzej Mazur</cite></p>
+
+        <p>With so many developers and so many games being developed, discoverability has become a key issue for games on the Web. Coupled with the difficulty to monetize content on the Web, this makes it difficult to develop games for the Web, all the more so than it is easy to clone an entire Web game or to re-create casual Web games in just a few days, even if code is obfuscated. How can Web games be protected? Yet the potential for business is enormous when one compares with the native world.</p>
+
+        <p><cite>“The simplicity and the immediacy of in-app purchases [in native games] is driving 60 billion dollars revenue on a yearly basis. This is a dream for us to achieve the same thing on Web games.” - Gili Zeevi</cite></p>
+        
+        <p>The importance and difficulty to keep players engaged in a game is also pointed out. Web games do not need to be installed which alleviates some of the initial friction, but games need to load a bunch of assets before they can run, which can take time, whereas players expect games to start in a snap. Long starting times are a sure guarantee to lose players, with as much as 12% of players dropping for every second taken to load the game. Push notifications help re-engage players into a game. They are possible on the Web but conversion rates are much higher with native notifications.</p>
+
+        <p><cite>“The Web is everywhere and the Web is even in places where network is not that good.” - David Catuhe</cite></p>
+
+        <p>The difficulty to infer device capabilities makes it hard to evaluate what 3D textures can be loaded without running into memory and similar issues that can crash the game. This is obviously problematic for a user experience perspective and, in the case of hosted apps, crashing the game actually means crashing the entire app. The lack of feature parity between regular browsers and WebView is also challenging to run games in hosted apps.</p>
+
+        <p><cite>“It's difficult to infer device capabilities and what sort of device you're operating on. This is a challenge for a lot of our developers who tend to load up texture memory and then end up crashing the WebView.” - Chris Hawkins</cite></p>
+
+        <p>Other issues that complete the landscape for the workshop include the difficulty to run a game completely offline, the fact that the "Add to home screen" feature is sometimes hard to find, the need to transition game sessions from one device to another seamlessly, and the need for better development tools.</p>
+      </section>
+
+
+      <section id="needs">
+        <h3>Expressing the needs</h3>
+      </section>
+
+
+      <section id="topics">
+        <h3>Topics</h3>
+
+
+        <section id="threads">
+          <h4>Threading support on the Web</h4>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#runtime">Presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/27-games-minutes.html#item07">Minutes of the presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item14">Summary of the breakout session</a></li>
+              <li><a href="breakouts/threads.html">Minutes of the breakout session</a></li>
+            </ul>
+          </div>
+
+          <p>Game engines need to maintain complex structures in memory such as the scene graph. Various algorithms need to be applied to the scene graph before a frame can be rendered, for instance frustum culling to evict objects that do not need to be rendered or particles computations. These operations can be run in parallel, but they need access to the scene graph.</p>
+
+          <p>Workers provide some support for threads on the Web. However, communication between workers on the Web is only possible through <code>postMessage</code>, which allows one to pass strings across workers, and through unstructured shared memory buffers using <code>SharedArrayBuffer</code>. None of these is satisfactory for the problem at hand:</p>
+          <ul>
+            <li>Using <code>postMessage</code> means having to serialize/deserialize objects, which is too costly for a scene that needs to be exchanged between workers 60 times per second.</li>
+            <li>Web browsers dropped support for <code>SharedArrayBuffer</code> due to Spectre and Meltdown and are only progressively re-introducing it. Luke Wagner reports that browser vendors recently reached consensus on a mechanism that would allow pages to opt-in to <code>SharedArrayBuffer</code>, provided relevant HTTP headers are set. This should boost the reappearance of <code>SharedArrayBuffer</code> on the Web, across browsers and devices. However, <code>SharedArrayBuffer</code> is not a good fit for the problem at hand since we want to share a complex graph structure, and not an unstructured buffer.</li>
+          </ul>
+
+          <p>David Catuhe champions the idea of a real threading mechanism on the Web that would allow to share <b>structured memory</b> across threads. David also questions the design choice for that led to workers taking a file as input, and not a function. Game engines handle the threading logic on behalf of underlying applications. Having to pass a file to a worker means that game engines need to keep track of modules that these applications may import, which requires some help from the application itself. If workers could start from a function, they would gain access to code (even though they wouldn't share memory with the initial thread).</p>
+
+          <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure. David takes an action to flesh out a concrete proposal.</p>
+        </section>
+
+
+        <section id="wasm">
+          <h4>WebAssembly</h4>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#runtime">Presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/27-games-minutes.html#item08">Minutes of the presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item15">Summary of the breakout session</a></li>
+              <li><a href="breakouts/wasm.html">Notes of the breakout session</a></li>
+            </ul>
+          </div>
+
+          <p>Luke Wagner describes the status of WebAssembly in 2019, and details the WebIDL Bindings proposal that will make WebAssembly bindings from/to WebIDL APIs more efficient. Initial proposal used WebAssembly tables and indexes maps to convert between JavaScript and WebAssembly, which was suboptimal. The new proposal refines reference types in WebAssembly.</p>
+
+          <p>The WebIDL Bindings proposal opens the door for tighter integration of Web APIs into game engines written in C++ et al. Matthew Atkinson notes the potential to use these bindings to map native code to Web accessibility interfaces such as those defined in the <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model</a>, under incubation in the <abbr title="Web Platform Incubator Group">WICG</abbr>. This would provide a useful mechanism to alleviate the opacity of games developed in native code with regards to accessibility when they are run on the Web.</p>
+
+          <p>Debugging C++ code can of course be done using native debuggers, but there is always Web-specific code in applications compiled to WebAssembly. Björn Ritzl pleads for better debugging tools there. Renewed activity on the <a href="https://yurydelendik.github.io/webassembly-dwarf/">DWARF for WebAssembly</a> proposal in the WebAssembly Community Group looks promising in that regard.</p>
+
+          <p>During the breakout session on WebAssembly on day 2, participants discuss:</p>
+          <ul>
+            <li>The need to keep WebAssembly in mind when designing new Web APIs</li>
+            <li>The fact that WebAssembly does not provide any extra protection for game assets. Web Cryptography might be a better choice for game developers.</li>
+            <li>Ways for JavaScript developers not to miss the WebAssembly wagon, e.g. with <a href="https://github.com/AssemblyScript/assemblyscript#-assemblyscript">AssemblyScript</a></li>
+            <li>Performances of module loading, caching and cost of calls from JavaScript to WebAssembly</li>
+          </ul>
+        </section>
+
+
+        <section id="3D">
+          <h4>3D rendering</h4>
+          <p class="box">See also: <a href="agenda.html#3D">Presentations</a> and <a href="https://www.w3.org/2019/06/27-games-minutes.html#session-3d">Minutes</a></p>
+          <p>@@</p>
+        </section>
+
+
+        <section id="loading">
+          <h4>Assets loading &amp; storage</h4>
+          <p class="box">See also: <a href="agenda.html#packaging">Presentations</a> and <a href="https://www.w3.org/2019/06/27-games-minutes.html#session-storage">Minutes</a></p>
+          <p>As stressed out in <a href="#context">context setting</a>, starting times are a sure guarantee to lose players before they even start to play. Kasper Mol shares statistics from the Poki game platform that show how the conversion to actual play time falls with the initial download size of a game: 20% of potential players disappear before the game starts for a 10MB download in countries where users have good connections, up to 40% when connection is poor.</p>
+          <p>On top of compression techniques, it seems that the problem is mostly not technical but rather educational: substantive gains can be achieved by bundling things differently and only loading core assets when the game starts. However most game developers are used to the native world, where games are installed and all assets get fetched upfront. A best practices document would help raise the issue across developers.</p>
+
+          <p>Andrew Sutherland reviews the different technologies available for storage of game assets: cookies, localStorage, IndexedDB, and the Cache API. Andrew emphasizes the cost of serialization/deserialization, which had already been pointed out during the discussion on <a href="#threads">threading</a>. More importantly, he explains quota and bucket restrictions (per TLD+1 or origin) and how browsers evict content, making it hard to rely on persistent storage in practice.</p>
+
+          <p>Feedback from participants shows support for having <b>multiple buckets per origin</b> (e.g. to distinguish between permanent resources and those that can be downloaded again when needed), although the exact semantics of how this can be achieved, so that users can understand what they're committing to, are hard to get right. One possible option could be through the <a href="https://wicg.github.io/background-fetch/">Background Fetch</a> proposal, which connects with the download manager, making it easier for users to grasp what is going on behind the scenes.</p>
+        </section>
+
+        <section id="a11y">
+          <h4>Games accessibility</h4>
+          <div class="box compact">
+            <p>See also:</p>
+            <ul>
+              <li><a href="agenda.html#ux-a11y">Presentation</a></li>
+              <li><a href="https://www.w3.org/2019/06/27-games-minutes.html#session-a11y">Minutes of the presentations</a></li>
+              <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item16">Summary of the breakout session</a></li>
+            </ul>
+          </div>
+          <p>During the session on accessibility, Luis Rodriguez details the landscape for users with motor impairment, reviewing different types of motor impairment conditions such cerebral palsy, neural tube defects, and trauma incidents, and their implication in terms of accessibility needs, and of ability switches (sip and puff headsets, wands, etc.) that users may use to control a game. Matthew Atkinson describes how these needs can be mapped to concrete design choices and assistive technologies. Practical challenges remain, but it is quite positive to note the progression of awareness around accessibility. Question is no longer "What is it?" but "How do I do it?".</p>
+
+          <p><cite>“Games are meant to be challenging [...] If it's not challenging, it's not fun! But the challenge varies from game to game, so the way that you make a game accessible varies from game to game.” - Matthew Atkinson</cite></p>
+
+          <p>There are lots of improvements that can be made to the actual contents of a game to improve its accessibility, such as increasing the size of target areas, using spatialized audio or visual indications to mark the origin of some game event, or providing subtitles, which turn out to be heavily used in games by all users. On top of that, the best approach to make a game accessible is to integrate with assistive technologies through APIs, as these APIs were designed to provide accessibility support for free. In a DOM world, assistive technologies build on top of an accessibility tree, which is associated with the DOM. HTML elements provide base semantics, WAI-ARIA defines additional roles and attributes. However, many games are rendered in a canvas, maybe because they were compiled to WebAssembly or just generally render things pictorially. There is no standard mechanism to provide the required semantic information to assistive technologies in Web browsers when there is no DOM. However, that is precisely the goal of the <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model</a> (AOM) proposal, under incubation in the <abbr title="Web Platform Incubator Group">WICG</abbr>.</p>
+
+          <p>One question that arises is: how can games compiled to WebAssembly take advantage of these new Web APIs? Calling Web APIs from WebAssembly code is slow and convoluted today, but the WebIDL Bindings proposal, discussed in the <a href="#wasm">WebAssemby session</a> would provide an efficient mechanism for game engines that compile games into WebAssembly to integrate support for the AOM APIs.</p>
+
+          <p>Luis champions the idea that games should integrate voice capability, meaning real voice conversation capabilities and not only text-to-speech or voice recognition. There are a lot of new developments in what is known as the voice UX ecosystem. Voice assistants are a good illustration of that trend.</p>
+          
+          <p><cite>“Will people want to talk to your web game? I venture to say yes because in the case of users with disability there's that escapism, that coping strategy that our games can provide.” - Luis Rodriguez</cite></p>
+
+          <p>Ian Hamilton introduces the 21st Century Communications and Video Accessibility Act (CVAA) that now video games now need to comply with. The act provides additional incentives to integrate accessibility consideration into the design of a game. While compliance can be relatively easy to achieve, the difficult part is to make accessible features enjoyable. General recommendation is to sit down with people as early as possible during the design process.</p>
+        </section>
+
+        <section id="audio">
+          <h4>Audio &amp; Games</h4>
+          <p class="box">See also: <a href="agenda.html#audio">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#session-audio">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="gamepad">
+          <h4>Gamepad support</h4>
+          <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item05">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="latency">
+          <h4>Inputs latency</h4>
+          <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item06">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="webtransport">
+          <h4>WebTransport &amp; WebCodecs</h4>
+          <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item07">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="diversity">
+          <h4>Diversity &amp; Localization</h4>
+          <p class="box">See also: <a href="agenda.html#diversity">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item08">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="hosted-apps">
+          <h4>Web games in hosted apps</h4>
+          <p class="box">See also: <a href="https://www.w3.org/2019/06/28-games-minutes.html#item13">Summary</a> and <a href="breakouts/hosted-apps.html">Minutes</a></p>
+          <p></p>
+        </section>
+
+        <section id="discoverability">
+          <h4>Discoverability &amp; Monetization</h4>
+          <p class="box">See also: <a href="https://www.w3.org/2019/06/28-games-minutes.html#item12">Summary</a> and <a href="breakouts/monetization.html">Minutes</a></p>
+          <p></p>
+        </section>
+      </section>
+
+      <section id="next">
+        <h3>Next steps</h3>
+      </section>
+
+      <section id="thanks">
+        <h3>Thank you!</h3>
+        <p>The organizers express deep gratitude to those who helped with the organization and execution of the workshop, starting with the members of the <a href="index.html#committee">Program Committee</a> who provided initial support and helped shape the workshop. Huge kudos to <a href="participants.html#p11">David Catuhe</a> for his enthusiasm and smooth chairing of the workshop, to Microsoft for hosting the event is so good conditions, and to Facebook gaming for sponsoring. Many thanks to those who took an active role under the hood, notably scribes, events teams at W3C and Microsoft, and Microsoft's A/V team. And finally, a big thank you to the <a href="participants.html">speakers and participants</a> without whom the workshop wouldn't have been such a productive and inspiring event. Congratulations to all, level 1 completed, on to level 2!</p>
+      </section>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard.
+      </p>
+      <p>
+        Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="script.js">
+    </script>
+  </body>
+</html>

@@ -116,12 +116,9 @@ a.ref {
   float: right;
   font-size: 1rem;
   margin-left: 3rem;
+  margin-bottom: 2rem;
   padding: 1em;
   width: 19em;
-}
-
-.box + .box {
-  margin-top: 2rem;
 }
 
 .box h2 {
@@ -132,6 +129,14 @@ a.ref {
 
 .box *:last-child {
   margin-bottom: 0;
+}
+
+.box.compact p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.box.compact ul {
+  margin-top: 0;
 }
 
 .image-paragraph-host {
@@ -628,7 +633,12 @@ details[open] summary {
   }
 }
 
-cite { font-weight: bold;}
+cite {
+  display: inline-block;
+  padding-left: 1em;
+  margin-right: 1em;
+  border-left: thin solid #005a9c;
+}
 
 ol ol { margin: 1.5rem;}
 
