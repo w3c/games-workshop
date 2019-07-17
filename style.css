@@ -635,6 +635,7 @@ details[open] summary {
 
 cite {
   display: inline-block;
+  margin-left: 2em;
   padding-left: 1em;
   margin-right: 1em;
   border-left: thin solid #005a9c;

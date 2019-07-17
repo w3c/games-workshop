@@ -115,6 +115,7 @@
 
       <section id="needs">
         <h3>Expressing the needs</h3>
+        <p>@@Integrate Indira's report</p>
       </section>
 
 
@@ -160,7 +161,9 @@
             </ul>
           </div>
 
-          <p>Luke Wagner describes the status of WebAssembly in 2019, and details the WebIDL Bindings proposal that will make WebAssembly bindings from/to WebIDL APIs more efficient. Initial proposal used WebAssembly tables and indexes maps to convert between JavaScript and WebAssembly, which was suboptimal. The new proposal refines reference types in WebAssembly.</p>
+          <p>Luke Wagner describes the history and status of WebAssembly in 2019, and details the WebIDL Bindings proposal that will make WebAssembly bindings from/to WebIDL APIs more efficient. Initial proposal used WebAssembly tables and indexes maps to convert between JavaScript and WebAssembly, which was suboptimal. The new proposal refines reference types in WebAssembly.</p>
+
+          <p><cite>“The goal [of the Mozilla Games program] at the time was: if we make the web platform better for games, then in addition to allowing games to run, which is really cool, we'll be making it better for all sorts of use cases.” - Luke Wagner</cite></p>
 
           <p>The WebIDL Bindings proposal opens the door for tighter integration of Web APIs into game engines written in C++ et al. Matthew Atkinson notes the potential to use these bindings to map native code to Web accessibility interfaces such as those defined in the <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model</a>, under incubation in the <abbr title="Web Platform Incubator Group">WICG</abbr>. This would provide a useful mechanism to alleviate the opacity of games developed in native code with regards to accessibility when they are run on the Web.</p>
 
@@ -299,7 +302,7 @@
           <p class="box">See also: <a href="agenda.html#diversity">Presentations</a> and <a href="https://www.w3.org/2019/06/28-games-minutes.html#item08">Minutes</a></p>
           <p>Elina Bytskevich and Gabriel Tutone explain genderization, the act of making distinctions according to gender, which can create an unequal representation of society. Some games manage to avoid gender biases: there is no notion of gender in the Sims 4, Fallen London proposes a gender-less option, Sunless Sea refers to one character using both male and female pronouns, etc. However, this is hard to get right.</p>
           <p>People often end up doing genderization without noticing it as part of language. Languages may be non-gendered (like English or Finnish), have common or neuter gender (like Dutch and Danish), masculine and feminine (like Spanish, French, Italian), or masculine, feminine and neuter gender (like German and Russian). Some languages also distinguish between animate and inanimate objects (like Basque).</p>
-          <p>Inclusive language is a form of language that is not biased toward a particular sex or social representation of gender. Using inclusive language is a challenge in English. It is even more complicated in gendered languages where highgly convoluted sentences may be needed to create neutral structures. Languages themselves have started to evolve to provide better support for inclusivity, with new pronouns and forms to blend masculine and feminine. These forms are more in more in use in written articles, as in French, German, Spanish or Italian.</p>
+          <p>Inclusive language is a form of language that is not biased toward a particular sex or social representation of gender. Using inclusive language is a challenge in English. It is even more complicated in gendered languages where highly convoluted sentences may be needed to create neutral structures. Languages themselves have started to evolve to provide better support for inclusivity, with new pronouns and forms to blend masculine and feminine. These forms are more in more in use in written articles, as in French, German, Spanish or Italian.</p>
           <p><cite>“In French, "Cher.e.s ami.e.s" refers to both male and female friends. In German, [...] an asterisk [may be used] to indicate that there are more variations than just the ones displayed, for example "der*die Priester*in" to indicate that this refers both to male and female” - Elina Bytskevich</cite></p>
           <p>Interestingly, these new forms often cannot be pronounced, and screen readers, voice assistants, and other text-to-speech tools may choke on them. The Pronunciation Task Force of the Accessible Platform Architecture (APA) Working Group seems the right recipient for a discussions on pronunciation of new gender-inclusive forms.</p>
         </section>
@@ -307,13 +310,21 @@
         <section id="hosted-apps">
           <h4>Web games in hosted apps</h4>
           <p class="box">See also: <a href="https://www.w3.org/2019/06/28-games-minutes.html#item13">Summary</a> and <a href="breakouts/hosted-apps.html">Minutes</a></p>
-          <p></p>
+          <p>The Web games in hosted apps breakout discusses the specific (but common) case where games built using Web technologies get run in a native wrapper. Examples include Baidu Smart Games, Facebook Instant Games, Tencent's WeChat Mini games. Wu Ping details the Baidu Smart Games platform.</p>
+          <p>The combination of a native shell with Web content creates an extensible environment where specific APIs can be exposed to ease integration with the hosting application, for instance a social graph API to interact with the user's social network. Running games in such an environment is challenging though: the <code>WebView</code> that native applications may use to render Web content may not be in par with the Web environment that runs in real Web browsers. Some Web APIs are also not available in a <code>WebView</code> for security reasons. In practice, some of these hosted environments are re-implementing Web APIs and ship with limited support for Web APIs that are not seen as critical for games (such as the DOM).</p>
+          <p>Conversely, some of the additional APIs that applications may have access to in hosted environments may be useful in a broader context. In practice, some hosted environments re-implement Web APIs and ship without DOM support, providing only a rendering canvas to applications.</p>
+          <p>This suggests further exploration would be useful to clarify restrictions that running Web application in a hosted structure trigger, and to study how such environments and the Web at large may converge longer term.</p>
         </section>
 
         <section id="discoverability">
           <h4>Discoverability &amp; Monetization</h4>
           <p class="box">See also: <a href="https://www.w3.org/2019/06/28-games-minutes.html#item12">Summary</a> and <a href="breakouts/monetization.html">Minutes</a></p>
-          <p></p>
+          <p>Discoverability and monetization were mentioned in the context setting session as key issues for Web games: as opposed to hosted game platforms, the Web is an open ecosystem where it's easier for games to disappear among other types of content, and harder to monetize content. Tom Greenaway runs a breakout session on the topic to assess ways to improve the situation.</p>
+          <p>One idea to improve discoverability is to extend metadata formats, notably the notion of <code>VideoGame</code> in <a href="https://schema.org">schema.org</a> to allow developers to describe and declare the capabilities of their games. Current schema allow to detail the game's director, the composer of the soundtrack, and cheat codes, but it does not help with categorizing games. An extended metadata format could also help specify what type(s) of input controller(s) the game supports or requires (e.g. keyboard/mouse, game controller, touch screen), whether the game can be played offline, and the monetization schemes that it proposes.</p>
+          <p>On a different front, deep linking into games can help leverage the essence of the games: sharing links that immediately get users to the right content.</p>
+          <p>All in all, improving discoverability would also improve re-discoverability, as some players complain that they have a hard time finding a game again after playing once... which also explains why they may not be ready to invest in a game.</p>
+          <p>Talking about monetization, games seem to be progressively moving out of a purchasing model and towards subscription models or free-toplay. Rewarded video ads are mentioned as an efficient mechanism to monetize games and increase retention. Microtransactions, more or less transparent and integrated to the browser and Web application, could also help.</p>
+          <p>Beware of kids playing games though. Parental controls are moderately effective to prevent kids from overspending in games. However, one key difference between the Web and native here is that the user often resist logging in on the Web (for good reasons).</p>
         </section>
       </section>
 
