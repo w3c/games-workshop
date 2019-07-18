@@ -8,11 +8,12 @@
     };
 
     var createAnchorFromHeading = function (headingEl) {
+        let href = '#' + (headingEl.id || headingEl.parentNode.id);
         return createEl(
             "a",
             {
                 className: "ref",
-                href: "#" + headingEl.id,
+                href: href,
                 textContent: "#",
                 title: headingEl.textContent
             }
