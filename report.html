@@ -131,8 +131,8 @@
       <section id="needs">
         <h3>Expressing the needs</h3>
         <p class="box">See also: <a href="breakouts/needs.html">Report on mapping needs</a></p>
-        <p>The “mapping games users and designers needs to technologies” session was designed to get participants to think about specific users needs and how they could be fulfilled with web games technologies. The user groups were touch/haptics researchers, UX designers, gamers, hardware developers and serious games designers (educational and therapeutic applications), all groups who could be using web game technologies. The outputs of the workshop are a matrix, and series of speculative design ideas. The matrix shows the user groups and ideas that could help them. The speculative design looked at how these groups could be using the web in the future, and what would need to be implemented for this to happen.</p>
-        <p>Themes have been identified from the outputs of the session. One of the biggest themes was around APIs with suggestions for new APIs or extending existing ones for example the Gamepad API. Social/collaborative was another large theme with suggestions such as creating an open source social graph, permission based access for friends and a proximity API. Other themes include metadata, standards, latency, documentation and UI.</p>
+        <p>The “mapping games users and designers needs to technologies” session was designed to get participants to think about specific users needs and how they could be fulfilled with web games technologies. The user groups were touch/haptics researchers, UX designers, gamers, hardware developers and serious games designers (educational and therapeutic applications), all groups who could be using web game technologies. The outputs of the workshop are a <a href="breakouts/needs.html#matrix">matrix</a>, and series of <a href="breakouts/needs.html#speculation">speculative design ideas</a>. The matrix shows the user groups and ideas that could help them. The speculative design looked at how these groups could be using the web in the future, and what would need to be implemented for this to happen.</p>
+        <p><a href="breakouts/needs.html#list">Themes</a> have been identified from the outputs of the session. One of the biggest themes was around APIs with suggestions for new APIs or extending existing ones for example the Gamepad API. Social/collaborative was another large theme with suggestions such as creating an open source social graph, permission based access for friends and a proximity API. Other themes include metadata, standards, latency, documentation and UI.</p>
         <p>The speculative design ideas are varied but there were a few that would give the user more agency. For example being able to easily disconnect from touch, and having an open source natural language processing. There were also ideas around having 3D model texture and temperature as material properties, native support for 3D in the browser, and expanding the access to instrumentation and tooling for performing UX studies in the browser. The <a href="breakouts/needs.html">documents produced from this session</a> can be analysed further to find practical solutions that fulfill these user groups needs.</p>
       </section>
 
@@ -161,9 +161,9 @@
             <li>Web browsers dropped support for <code>SharedArrayBuffer</code> due to Spectre and Meltdown and are only progressively re-introducing it. Luke Wagner reports that browser vendors recently reached consensus on a mechanism that would allow pages to opt-in to <code>SharedArrayBuffer</code>, provided relevant HTTP headers are set. This should boost the reappearance of <code>SharedArrayBuffer</code> on the Web, across browsers and devices. However, <code>SharedArrayBuffer</code> is not a good fit for the problem at hand since we want to share a complex graph structure, and not an unstructured buffer.</li>
           </ul>
 
-          <p>David Catuhe champions the idea of a real threading mechanism on the Web that would allow to share <b>structured memory</b> across threads. David also questions the design choice for that led to workers taking a file as input, and not a function. Game engines handle the threading logic on behalf of underlying applications. Having to pass a file to a worker means that game engines need to keep track of modules that these applications may import, which requires some help from the application itself. If workers could start from a function, they would gain access to code (even though they wouldn't share memory with the initial thread).</p>
+          <p>David Catuhe champions the idea of a real threading mechanism on the Web that would allow to share <b>structured memory</b> across threads. David also questions the design choice that led to workers taking a file as input, and not a function. Game engines handle the threading logic on behalf of underlying applications. Having to pass a file to a worker means that game engines need to keep track of modules that these applications may import, which requires some help from the application itself. If workers could start from a function, they would gain access to code (even though they wouldn't share memory with the initial thread).</p>
 
-          <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure. David takes an action to flesh out a concrete proposal.</p>
+          <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke Wagner notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure. David takes an action to flesh out a concrete proposal.</p>
         </section>
 
 
@@ -179,7 +179,7 @@
             </ul>
           </div>
 
-          <p>Luke Wagner describes the history and status of WebAssembly in 2019, and details the WebIDL Bindings proposal that will make WebAssembly bindings from/to WebIDL APIs more efficient. Initial proposal used WebAssembly tables and indexes maps to convert between JavaScript and WebAssembly, which was suboptimal. The new proposal refines reference types in WebAssembly.</p>
+          <p>Luke Wagner describes the history and status of WebAssembly in 2019, and details the <a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebIDL Bindings proposal</a> that will make WebAssembly bindings from/to WebIDL APIs more efficient. Initial proposal used WebAssembly tables and indexes maps to convert between JavaScript and WebAssembly, which was suboptimal. The new proposal refines reference types in WebAssembly.</p>
 
           <p><cite>“The goal [of the Mozilla Games program] at the time was: if we make the web platform better for games, then in addition to allowing games to run, which is really cool, we'll be making it better for all sorts of use cases.” - Luke Wagner</cite></p>
 
@@ -230,6 +230,8 @@
 
           <p>Andrew Sutherland reviews the different technologies available for storage of game assets: cookies, localStorage, IndexedDB, and the Cache API. Andrew emphasizes the cost of serialization/deserialization, which had already been pointed out during the discussion on <a href="#threads">threading</a>. More importantly, he explains quota and bucket restrictions (per TLD+1 or origin) and how browsers evict content, making it hard to rely on persistent storage in practice.</p>
 
+          <p><cite>“Buckets are the spec standard for eviction. We'll wipe out all of your site's data if we wipe you out. The interesting stuff going forward spec-wise is we would like to have multiple buckets. For instance the emails the user has composed are something that probably you would want to keep but things that are just cache could possibly be evicted.” - Andrew Sutherland</cite></p>
+
           <p>Feedback from participants shows support for having <b>multiple buckets per origin</b> (e.g. to distinguish between permanent resources and those that can be downloaded again when needed), although the exact semantics of how this can be achieved, so that users can understand what they're committing to, are hard to get right. One possible option could be through the <a href="https://wicg.github.io/background-fetch/">Background Fetch</a> proposal, which connects with the download manager, making it easier for users to grasp what is going on behind the scenes.</p>
         </section>
 
@@ -238,7 +240,7 @@
           <div class="box compact">
             <p>See also:</p>
             <ul>
-              <li><a href="agenda.html#ux-a11y">Presentation</a></li>
+              <li><a href="agenda.html#ux-a11y">Presentations</a></li>
               <li><a href="minutes/27-games-minutes.html#session-a11y">Minutes of the presentations</a></li>
               <li><a href="minutes/28-games-minutes.html#item16">Summary of the breakout session</a></li>
             </ul>
@@ -255,7 +257,7 @@
           
           <p><cite>“Will people want to talk to your web game? I venture to say yes because in the case of users with disability there's that escapism, that coping strategy that our games can provide.” - Luis Rodriguez</cite></p>
 
-          <p>Ian Hamilton introduces the 21st Century Communications and Video Accessibility Act (CVAA) that now video games now need to comply with. The act provides additional incentives to integrate accessibility consideration into the design of a game. While compliance can be relatively easy to achieve, the difficult part is to make accessible features enjoyable. General recommendation is to sit down with people as early as possible during the design process.</p>
+          <p>Ian Hamilton introduces the 21st Century Communications and Video Accessibility Act (CVAA) that video games now need to comply with. The act provides additional incentives to integrate accessibility consideration into the design of a game. While compliance can be relatively easy to achieve, the difficult part is to make accessible features enjoyable. General recommendation is to sit down with people as early as possible during the design process.</p>
         </section>
 
         <section id="audio">
@@ -269,8 +271,8 @@
               <li><a href="breakouts/audio.html">Notes of the breakout session</a></li>
             </ul>
           </div>
-          <p>Michel Buffa demonstrates the power of the Web Audio API as it exists today, notably how it is possible to create an open plugin standard for audio on the Web using JavaScript and/or an <code>AudioWorklet</code> that runs code in WebAssembly, allowing to run audio plugins on the Web written in specialized languages such as FAUST. Michel points out that latency issues with audio I/O on some platforms. The <code>outputLatency</code> property of <code>AudioContext</code> is not implemented for now. This is more an implementation (and driver) issue than an issue with the Web Audio API.</p>
-          <p>Philippe Milot reports on AudioKinetics's journey to have the Wwise sound engine run on the Web, and points out the limits of the <code>AudioWorkled</code> approach for audio engines such as Wwise that need to integrate closer to the hardware and that rely on threading support. Threading needs overlap with those discussed in the <a href="#threads">sessions on threading</a>.</p>
+          <p>Michel Buffa demonstrates the power of the Web Audio API as it exists today, notably showing how it is possible to create an open plugin standard for audio on the Web using JavaScript and/or an <code>AudioWorklet</code> that runs code in WebAssembly, allowing to run audio plugins on the Web written in specialized languages such as FAUST. Michel points out that latency issues with audio I/O on some platforms. The <code>outputLatency</code> property of <code>AudioContext</code> is not implemented for now. This is more an implementation (and driver) issue than an issue with the Web Audio API.</p>
+          <p>Philippe Milot reports on AudioKinetics's journey to have the Wwise sound engine run on the Web, and points out the limits of the <code>AudioWorklet</code> approach for audio engines such as Wwise that need to integrate closer to the hardware and that rely on threading support. Threading needs overlap with those discussed in the <a href="#threads">sessions on threading</a>.</p>
           <p>Hongchan Choi presents the <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client</a> (ADC) proposal, under incubation in the Web Audio Community Group, which aims at solving the issues encountered by Philippe and other companies in the pro-audio space by providing a truly low-level audio I/O. Key features of the proposal include:</p>
           <ul>
             <li>A dedicated global scope in a separate thread (at the right priority) for audio processing to avoid complex plumbing and workarounds that some libraries need to resort to today</li>
@@ -279,6 +281,7 @@
             <li>Ability to select audio I/O devices via a <code>MediaTrackConstraints</code> pattern</li>
             <li>Implicit sample rate conversion when needed</li>
           </ul>
+          <p><cite>“[ADC] is meant to be the lowest layer in the web platform: no built-in building blocks or infrastructure, no redundant overhead. Just a callback function with input and output buffers, perfect for WASM-heavy approach. Also, it is the close to hardware layer, so it allows you to configure a device client in different ways without exposing users' privacy.” - Hongchan Choi</cite></p>
           <p>There is general support in the room for the ADC approach presented which would go a long way toward addressing audio needs in games. There are tons of audio-processing code written in C/C++ that could be ported to the Web easily if ADC gets adopted.</p>
           <p>During the breakout session on audio, workshop participants re-iterate the request for a low-level approach from pro-audio vendors, investigate how the WebCodecs proposal could integrate with ADC, and talk about positional audio for immersive scenarios. The Web Audio Working Group is gathering use cases for the next iteration of the Web Audio API.</p>
         </section>
@@ -329,7 +332,7 @@
 
         <section id="inclusivity">
           <h4>Gender-inclusive languages in games</h4>
-          <p class="box">See also: <a href="agenda.html#diversity">Presentations</a> and <a href="minutes/28-games-minutes.html#item08">Minutes</a></p>
+          <p class="box">See also: <a href="agenda.html#diversity">Presentation</a> and <a href="minutes/28-games-minutes.html#item08">Minutes</a></p>
           <p>Elina Bytskevich and Gabriel Tutone explain genderization, the act of making distinctions according to gender, which can create an unequal representation of society. Some games manage to avoid gender biases: there is no notion of gender in the Sims 4, Fallen London proposes a gender-less option, Sunless Sea refers to one character using both male and female pronouns, etc. However, this is hard to get right.</p>
           <p>People often end up doing genderization without noticing it as part of language. Languages may be non-gendered (like English or Finnish), have common or neuter gender (like Dutch and Danish), masculine and feminine (like Spanish, French, Italian), or masculine, feminine and neuter gender (like German and Russian). Some languages also distinguish between animate and inanimate objects (like Basque).</p>
           <p>Inclusive language is a form of language that is not biased toward a particular sex or social representation of gender. Using inclusive language is a challenge in English. It is even more complicated in gendered languages where highly convoluted sentences may be needed to create neutral structures. Languages themselves have started to evolve to provide better support for inclusivity, with new pronouns and forms to blend masculine and feminine. These forms are more in more in use in written articles, as in French, German, Spanish or Italian.</p>
@@ -360,6 +363,7 @@
 
       <section id="next">
         <h3>Next steps</h3>
+        <p>@@Compile list of next steps</p>
       </section>
 
       <section id="thanks">
