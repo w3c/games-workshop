@@ -47,6 +47,10 @@ ol {
   margin: 1.5rem 0;
 }
 
+ol {
+  margin-left: 1.1em;
+}
+
 a,
 h1,
 h2,
@@ -662,7 +666,24 @@ cite {
   font-weight: bold;
 }
 
-ol ol { margin: 1.5rem;}
+.irc {
+  padding: 0.3em;
+  background-color: #eee;
+}
+
+.irc cite {
+  padding: 3px 0;
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
+  font-weight: bold;
+}
+
+ol ol {
+  margin: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .warning {
   box-shadow: 10px 5px 3px 0px gray;

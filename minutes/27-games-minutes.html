@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minutes - Day 1/2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "../media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="../index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a href="../agenda.html">Agenda</a>
+          </li>
+          <li>
+            <a href="../papers.html">Position statements</a>
+          </li>
+          <li>
+            <a href="../participants.html">Participants</a>
+          </li>
+          <li>
+            <a href="../report.html">Report</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="../media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          Platinum Sponsors
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="../media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>Minutes - Day 1/2</h2>
+      <p>Minutes taken by Karen Myers, Dominique Hazaël-Massieux, Ted Guild, Xiaoqian Wu and Atsushi Shimono. Many thanks to them!</p>
+      <p>See also <a href="28-games-minutes.html">minutes of day 2</a></p>
+
+      <h3 id="toc">Topics</h3>
+      <ol>
+        <li>
+          <a href="#item01">Keynote by David Catuhe (Microsoft /
+          Babylon.js)</a>
+        </li>
+        <li>
+          <a href="#session-context">Setting the context: Web games
+          development</a>
+          <ol>
+            <li>
+              <a href="#item02">Instant Games developer feedback</a>
+            </li>
+            <li>
+              <a href="#item03">Report from the trenches of an HTML5
+              game provider</a>
+            </li>
+            <li>
+              <a href="#item04">Indie Perspective on Web Games</a>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="#item05">The future of the web runtime for
+          games</a>
+          <ol>
+            <li>
+              <a href="#item06">Debugging tools, by Bjorn Ritzl,
+              King</a>
+            </li>
+            <li>
+              <a href="#item07">Enable fast and efficient threading on
+              the web, by David Catuhe, Microsoft / babylon.js</a>
+            </li>
+            <li>
+              <a href="#item08">WebAssembly: status, Web IDL bindings,
+              and roadmap, by Luke Wagner, Mozilla</a>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="#session-3d">3D rendering roadmap</a>
+          <ol>
+            <li>
+              <a href="#item09">glTF roadmap: CTTF Universal Textures
+              and 2nd generation PBR</a>
+            </li>
+            <li>
+              <a href="#item10">WebGPU</a>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="#item11">Mapping games users &amp; designers
+          needs to technologies</a>
+        </li>
+        <li>
+          <a href="#session-storage">Packaging / Asset loading &amp; storage</a>
+          <ol>
+            <li>
+              <a href="#item12">Size matters: How loading is losing you
+              players, Kasper Mol, Poki</a>
+            </li>
+            <li>
+              <a href="#item13">Browser Storage, Andrew Sutherland,
+              Mozilla</a>
+            </li>
+          </ol>
+        </li>
+        <li>
+          <a href="#session-a11y">Towards accessible games</a>
+          <ol>
+            <li>
+              <a href="#item14">Turning on "accessible mode" for users with motor impairments</a>
+            </li>
+            <li>
+              <a href="#item15">Adaptive Accessibility</a>
+            </li>
+          </ol>
+        </li>
+      </ol>        
+      <hr />
+      <div class="meeting">
+        <h3 id="item01">Keynote by David Catuhe (Microsoft /
+        Babylon.js)</h3>
+        <p class='phone'><cite>David:</cite> I ♥ the Web - I created
+        babylon.js, which is used by many to build other projects, an
+        idea I ♥<br />
+        ... We used to have Flash games, and Flash died, for the
+        better<br />
+        ... Web on games have improved a lot since then<br />
+        ... I've been able to play Minecraft in my browser<br />
+        ... we did wonders!<br />
+        ... I ♥ the Web, but it also drives me crazy<br />
+        ... it has so many limitations<br />
+        ... lots of my friends use native tools, such as Unity,
+        Unreal<br />
+        ... they have access to so many tools and toys, I'm jealous of
+        them<br />
+        ... The agenda will cover many of the problems faced by game
+        developers on the Web<br />
+        ... one of them is Asset Management - in particular the extent
+        to which they get made available without protection<br />
+        ... Performance is a core of the business of my tool<br />
+        ... Cloud support is another important direction the industry
+        is going to<br />
+        ... IP protection, file size, compression, Web GPU, threading,
+        Web Assembly, new codecs, gamepad support<br />
+        ... A lot of interesting topics to discuss - let's change the
+        Web together<br />
+        ... We can make it better<br />
+        ... I'm impressed by the many organizations in the room,
+        including many that are otherwise competitors<br />
+        ... We're all friends today, with a shared goal</p>
+
+
+        <h3 id="session-context">Setting the context: Web games development</h3>
+        <p class='phone'><cite>Francois:</cite> this session is about
+        feedback from developers of building games on the Web, from
+        different perspectives, starting with Chris from Facebook
+        Instant Games</p>
+
+        <h4 id="item02">Instant Games developer feedback</h4>
+        <p class='phone'><cite>Chris:</cite> I work as an engineer at
+        Facebook around Instant Games, helping developers to build
+        games for our platform<br />
+        ... Instant Games is where we are at now<br />
+        ... I'm here to listen and learn but wanted to highlight some of
+        the perspectives we've heard<br />
+        ... first, introducing Instant Games<br />
+        ... Instant Games is an HTML5 games platform running in a
+        WebView<br />
+        ... The WebView is responsible for the game, where the Facebook
+        app deals with platform integration (e.g. authentication, ads,
+        etc)<br />
+        ... WebView handles all the graphics, input, audio<br />
+        ... the games get hosted on our CDNs<br />
+        ... there are 2 sets of problems that we have: some are purely
+        on us, e.g. monetization, social gaming (for which we're very
+        well positioned as a social network), and keep the platform
+        trustworthy<br />
+        ... but some problems we need help with: getting high fidelity
+        games is challenging due to restrictions,<br />
+        ... battery life and temperature are problematic<br />
+        ... esp. in lower end devices<br />
+        ... and finally, the need to protect games asset<br />
+        ... It's great that the Web is such an open platform, but it
+        isn't great when it means developers get ripped off of their
+        assets<br />
+        ... Some specific issues from Instant Games developers: device
+        capabilities detection; getting out of memory is particularly
+        problematic since it crashes not only the game, but also the
+        Facebook app<br />
+        ... we see higher rate of crashes when Instant Games are in
+        use<br />
+        ... Another issue is having webviews at feature parity with
+        browsers<br />
+        ... and IP protection for Games developers<br />
+        ... Caching and loading - delay in getting a game starting has
+        a strong impact on engagement<br />
+        ... And WebAssembly is an important element of changes</p>
+        <p class='phone'><cite>Bernard:</cite> about asset protection -
+        what are the key thing you're looking to protect?</p>
+        <p class='phone'><cite>Chris:</cite> people basically clone
+        some games, re-upload them with ads<br />
+        ... the first level of protection would to be avoid cloning
+        whole games<br />
+        ... next level might be protecting specific 3D assets, but
+        getting the first level done would already go a long way</p>
+        
+        <h4 id="item03">Report from the trenches of an HTML5 game
+        provider</h4>
+        <p class='phone'><cite>Christian:</cite> Christian Rudnick, CTO,
+        Softgames<br />
+        ... We want to
+        share our challenges as a game developer and publisher<br />
+        ... We all know challenges of loading and storage<br />
+        ... platform should deliver first bits within second<br />
+        ... challenging but it's quite hard to get there<br />
+        ... casual game developers tend to load everything up
+        front<br />
+        ... don't think about background loading, so it's hard to
+        achieve 3 seconds<br />
+        ... when games are more valuable, meta, graphics, etc.<br />
+        ... one of the issues we have<br />
+        ... The loading and storage leads to issue of offline
+        play<br />
+        ... native games<br />
+        ... once loaded on your mobile phone, you can play it
+        everywhere<br />
+        ... web game not so much<br />
+        ... conflict between fast loading a good game and @
+        preparation<br />
+        ... what about games with monetization?<br />
+        ... how to present for offline?<br />
+        ... I very much like what Google did for search engine, provide
+        mini-game<br />
+        ... in afternoon there will be a session on loading and
+        storage<br />
+        ... I will attend and see what we can do<br />
+        ... we also have issue of piracy<br />
+        ... we make it easy to steal the game; there is no way to
+        protect our games on the web<br />
+        ... there are tools to make them beautiful and de-obfuscate
+        it<br />
+        ... when it comes to older games<br />
+        ... we only have the code anymore<br />
+        ... one of ideas was 'runtime code'<br />
+        ... deliver a web service<br />
+        ... we have another problem<br />
+        ... for now we gave up; not really a chance<br />
+        ... one you get your user playing a game<br />
+        ... maybe stealing as well, there is an issue of multiple
+        devices<br />
+        ... we played with finger printing the user<br />
+        ... mobile devices...no way for 100% hit rate<br />
+        ... and that is insufficient<br />
+        ... you get user, we want to get millions of users<br />
+        ... then it comes to problem of discovery<br />
+        ... my colleague will talk about this now</p>
+        <p class='phone'><cite>Gili:</cite> Gili Zeevi. I will talk about
+        discovery<br />
+        ... in past had choice of talking about discovery in web
+        games<br />
+        ... there are tons of games on the web<br />
+        ... it is a challenge to push traffic on these games<br />
+        ... this would continue to be challenging for us<br />
+        ... also a challenge to get a player to play again, the
+        retention<br />
+        ... some effects in native<br />
+        ... push notifications<br />
+        ... opt-in rate<br />
+        ... push notification and ability to engage users and get back
+        to game<br />
+        ... like to have opt-in when user accepts notification<br />
+        ... this is not solved in the best way for the user
+        experience<br />
+        ... in some cases users may not be aware they can opt in<br />
+        ... Chrome solved it better; maybe direction to go in where
+        user acknowledges it<br />
+        ... Maybe look at shortcuts and bookmarks<br />
+        ... users might not be aware they can add to the home
+        screen<br />
+        ... having opportunity to show something like the notification
+        would be a good thing<br />
+        ... enter the game consistently<br />
+        ... on FB instant games we can create these shortcuts<br />
+        ... and we see users doing it and their retention is
+        significantly higher<br />
+        ... Monetization<br />
+        ... we create games for fun but also to make money<br />
+        ... the revenue is 60 billion on native, like to see same on web
+        games<br />
+        ... making API standard, make experience...users to trust this
+        kind of feature<br />
+        ... do it the same way as native<br />
+        ... but have a solid solution for rewarded ads<br />
+        ... huge opp for monetization<br />
+        ... that is a summary of our major issues and challenges<br />
+        ... not everything as Christian said<br />
+        ... and looking forward to tackling these things during this
+        workshop</p>
+        <p class='phone'><cite>Francois:</cite> What are rewarded ads?</p>
+        <p class='phone'>Gili: A way for a user to watch and ad and get
+        rewarded to replay a level by watching the ad for example</p>
+        <p class='phone'><cite>Francois:</cite> Why is game stealing specific to the web<br />
+        ... what makes piracy more problematic on the Web?</p>
+        <p class='phone'><cite>Christian:</cite> you can crack the
+        code<br />
+        ... store on local browser</p>
+        <p class='phone'><cite>Francois:</cite> Thank you<br />
+        ... we will go into details later; we are currently setting the
+        context during these talks<br />
+        ... we will dig into them during the main sessions today and
+        tomorrow</p>
+
+        <h4 id="item04">Indie Perspective on Web Games</h4>
+        <p class='phone'><cite>Andrzej:</cite> Andrzej Mazur. I am excited to be
+        here<br />
+        ... this is my own experience<br />
+        ... you can call me Ender<br />
+        ... I am founder of Enclave Games<br />
+        ... huge team of me and my wife<br />
+        ... also curator of JS13K Games competition<br />
+        ... we do meet-ups<br />
+        ... and also with Gamesdev.js<br />
+        ... thank you W3C for inviting me, and Mozilla for sending me
+        here<br />
+        ... progressive web apps<br />
+        ... I want to start by going back to 2011<br />
+        ... wayback machine<br />
+        ... there was a W3C workshop in Warsaw that sparked cool
+        conversations<br />
+        ... it made me prepare a presentation for a conference in
+        2012<br />
+        ... and I wondered if it was possible to create HTML
+        games<br />
+        ... it was a struggle<br />
+        ... it was really hard, very challenging<br />
+        ... the performance was not the best, to say the least<br />
+        ... most of the games<br />
+        ... just did not work<br />
+        ... we could not fight with all the features<br />
+        ... working offline was only in theory; did not work too well
+        in practice<br />
+        ... there were not many APIs, just drafts<br />
+        ... cutting edge, but not working well<br />
+        ... very experimental; play with a gamepad<br />
+        ... hard to have pointer lock and fullscreen<br />
+        ... hard to build with that technology<br />
+        ... it was also hard because there were not many tools<br />
+        ... I remember the first games I was building JQuery<br />
+        ... many front-end developers used tools they already
+        knew<br />
+        ... Monetization was non-existant<br />
+        ... it was a topic that we were building games for fun and
+        seeing if it was technically possible<br />
+        ... not many developers were thinking about having a business
+        around that<br />
+        ... Good news is that most of the stuff in 2019 now works<br />
+        ... you don't have to be a developer to create games<br />
+        ... it's not about struggling with the tech; I can build a
+        game<br />
+        ... but main question is what is next<br />
+        ... I built the game, so what now?<br />
+        ... We still have discussions comparing web to native<br />
+        ... you can choose native, even though you are building with
+        open web technologies<br />
+        ... but you are competing with developers using native
+        tools<br />
+        ... they have more years of experience<br />
+        ... and forgetting about important features; the URL<br />
+        ... you can stay with web<br />
+        ... instead of going native<br />
+        ... work with publishers and platforms<br />
+        ... work with publishers<br />
+        ... development focus is on the mobile web right now more<br />
+        ... that is where most of traffic is going<br />
+        ... developers are finding progressive web apps to be
+        useful<br />
+        ... you can load assets after the initial load, etc.<br />
+        ... you can also distinct single devs vs small and bigger
+        studios<br />
+        ... small indies usually create hyper-casual experiences that
+        you can play on the toilet or commuting to work<br />
+        ... bigger studies push the boundaries<br />
+        ... IndieDevs are looking into the new technologies<br />
+        ... it is easy to build hyper-casuals<br />
+        ... but maybe it will be easy to use WebXR in future<br />
+        ... and is there a way to monetize it<br />
+        ... how do you show the games to the public?<br />
+        ... these are things I see in the community<br />
+        ... but I also decided to ask the community and get their
+        feedback; what are their struggles?<br />
+        ... Interesting to see that we don't have a specific big issue
+        any more<br />
+        ... rather it's a whole lot of small things<br />
+        ... things like we have too many packages, should I package it
+        with a grant or @<br />
+        ... too many things to choose from<br />
+        ... we need tools to debug the games<br />
+        ... be nice to debug Canvas<br />
+        ... with devtools or something<br />
+        ... we need more materials<br />
+        ... there is information on the web<br />
+        ... video tutorials<br />
+        ... about the different technologies, but we need more<br />
+        ... also situation with new platforms<br />
+        ... you can build games quickly<br />
+        ... but developers are not getting support from the platform or
+        the publishers<br />
+        ... reaching to send games to the platform<br />
+        ... when there are so many games submitted, it is hard to get
+        feedback, hard to get updates<br />
+        ... wait a month or more<br />
+        ... something we could actively work on<br />
+        ... Also more technical questions in this survey<br />
+        ... can we have native 2D and 3D math modules?<br />
+        ... they could be built into the browser<br />
+        ... what about shared array buffers<br />
+        ... can we get back to SAB; is it safe?<br />
+        ... two more important things mentioned that you also saw on
+        the other two presentations is discoverability and
+        monetization<br />
+        ... Going back to 2011<br />
+        ... I built a game<br />
+        ... about shooting to IE6<br />
+        ... it was interesting to see that the game was built only for
+        the conference; I published it on my blog<br />
+        ... then it started to appear on other sites</p>
+        <p class='phone'>[reads funny headlines]</p>
+        <p class='phone'><cite>Andrzej:</cite> there were 50 articles
+        and they just copy/pasted<br />
+        ... make a game and someone would copy it and it would be
+        everywhere<br />
+        ... a few years later<br />
+        ... some developers are making 500 games<br />
+        ... and have hundreds or thousands of developers like
+        these<br />
+        ... super easy to create an HTML5 game today<br />
+        ... in a week for a hyper-casual game<br />
+        ... easy to look at game and make the same one in just a few
+        days<br />
+        ... securing the source code is important<br />
+        ... but working with publishers and platforms to track down
+        stolen games and not wait three months to take it down is
+        important<br />
+        ... So discoverability is one things and also
+        monetization<br />
+        ... We had a thing were developers were selling licenses to
+        publishers<br />
+        ... fixed fee<br />
+        ... worked nice<br />
+        ... and over the years it evolved into the subscription
+        model<br />
+        ... paid a small fee to publish game every month<br />
+        ... Now most popular approach is revenue share<br />
+        ... and split earnings out of the advertisements<br />
+        ... it is hard to predict this<br />
+        ... not as good for developers<br />
+        ... fixed fee I knew how many licenses I could sell<br />
+        ... with revenue share<br />
+        ... it was like, 'ok, we have tens of billions of users' but
+        game earned $1 per month<br />
+        ... and you cannot live off of that<br />
+        ... developers were free-lancing<br />
+        ... revenue share is really tricky<br />
+        ... of course every publisher and platform will show a specific
+        success story of developer X<br />
+        ... but most of the developers are struggling to make a living
+        making games<br />
+        ... hard to focus only the games and make money<br />
+        ... I mentioned that protecting the source code and assets is
+        important<br />
+        ... but having an ordinary clone of your game taken down is
+        also important<br />
+        ... from the developer point of view<br />
+        ... to fight with such things<br />
+        ... To summarize<br />
+        ... the technology is good enough, compared especially to a few
+        years ago<br />
+        ... no big issues, but a lot of small issues we can work
+        on<br />
+        ... Discoverability is definitely a problem<br />
+        ... with so many games, it's hard to stand out, and be visible
+        with your games<br />
+        ... harder and hard to have a business around making
+        hyper-casual games<br />
+        ... have to find other opportunities to make money<br />
+        ... those are the most important things from the IndieDev
+        perspective<br />
+        ... really hope we will have more discussions and talk with
+        many of you over the next two days<br />
+        ... thank you</p>
+        <p class='phone'>[applause]</p>
+        <p class='phone'><cite>Bernard Aboba:</cite> If W3C could solve one problem
+        for you, what would it be?</p>
+        <p class='phone'><cite>Andrzej:</cite> I have to think as there
+        are a few<br />
+        ... many small things to be improved<br />
+        ... how to advance with WebXR<br />
+        ... is the Gamepad API working?<br />
+        ... WebAssembly...can we have some tools to work on WebAssembly<br />
+        ... and have the communication between JS and WebAssembly be usable<br />
+        ... many small things to be discussed<br />
+        ... Fortunately or unfortunately, not one major issue</p>
+        <p class='phone'><cite>Edgar Simson:</cite> Playing devil's advocate here,
+          if markets are already saturated... why
+        should there be more small games which can be hidden
+        somewhere for someone to discover?</p>
+        <p class='phone'><cite>Andrzej:</cite> I love to make games and
+        I love to make money out of it<br />
+        ... I like my games; and I want to show you they are the best
+        games<br />
+        ... the market is over-saturated<br />
+        ... but there are more and more new opportunities opening every
+        month<br />
+        ... not that it is done<br />
+        ... it is not possible to make more games because there are
+        more players<br />
+        ... more about quickly adjusting to the situation<br />
+        ... from safely betting on licensing to subscriptions; some
+        publishers offer online purchases, but you need millions of
+        users to make it work<br />
+        ... still needs to be some research<br />
+        ... if you have ten million users, why is it not working;
+        why?<br />
+        ... needs to be some research on that</p>
+        <p class='phone'><cite>Tom Greenaway:</cite> You mentioned at one
+        point that PWA is interesting tech<br />
+        ... have you tested what metrics improve...and then did or did
+        not implement a game with PWA standards</p>
+        <p class='phone'><cite>Andrzej:</cite> I know there is research;
+        I did not do it myself<br />
+        ... from my POV, it was awesome to experiment with game; call
+        it lazy loading<br />
+        ... while player is looking at main menu; initial load is
+        pretty quick so publishers and platform are happy<br />
+        ... we are still able to load in the background<br />
+        ... I did not do research, but it feels like it should add a
+        lot of value<br />
+        ... I researched PWA for selling stuff and web site support<br />
+        ... and it was improving the
+        sales in hundreds of percents<br />
+        ... that worked for applications<br />
+        ... and I think it should work for games, but I have not
+        checked that myself<br />
+        ... and I have not heard about research</p>
+        <p class='phone'><cite>Tom Greenaway:</cite> I also hear about new
+        platforms<br />
+        ... did you mean generally there is over-saturation?</p>
+        <p class='phone'><cite>Andrzej:</cite> I think both<br />
+        ... usually players have @; now there are other options<br />
+        ... starting to look similar<br />
+        ... FB instant games are most popular<br />
+        ... so many other things<br />
+        ... @ started experiments to allow a streamer to allow others
+        to watch<br />
+        ... and see if you can earn money on them playing<br />
+        ... or they pay the streamer<br />
+        ... still something that needs research<br />
+        ... so many new platforms that can appear<br />
+        ... already getting feedback<br />
+        ... when reaching to developers it was smooth, but now it is
+        taking much more time to get the feedback<br />
+        ... of course, it's a problem<br />
+        ... of having a successful platform<br />
+        ... have to handle if people say the game was stolen</p>
+        <p class='phone'><cite>Tom Greenaway:</cite> an earlier question was if
+        there were one thing W3C could do to help<br />
+        ... were you restricting to tech answers or are monetization
+        and discoverability still the biggest problems?</p>
+        <p class='phone'><cite>Andrzej:</cite> yes, those are the
+        challenges<br />
+        ... Web Assembly sounds like an easier question to answer;
+        rather than monetization which sounds like a harder question to
+        solve</p>
+        <p class='phone'><cite>Francois:</cite> Thank you. We are right
+        on time. We will be discussing monetization tomorrow, breakout
+        session that Tom will be leading<br />
+        ... we will break for 30 minutes now<br />
+        ... and then start on first technical session<br />
+        ... Also want to apologize for the badges; name shuffle<br />
+        ... we'll regroup in 30 minutes; coffee outside</p>
+
+
+        <h3 id="item05">The future of the web runtime for games</h3>
+
+        <h4 id="item06">Debugging tools, by Bjorn Ritzl, King</h4>
+        <p class='phone'><cite>Bjorn:</cite> from Stockholm office at KING, will talk about debugging <br>
+        ... our game engine and how to debug html5 apps <br>
+        ... King has released 200 games over the year, starting from Flash to facebook and mobile games <br>
+        ... in the app stores <br>
+        ... the most popular one is Candy Crush <br>
+        ... 268 000 000 users <br>
+        ... 2 game engines at King - one of them is Defold <br>
+        ... Defold is a game engine and editor, cross-platform <br>
+        ... published to native on mobile, desktop apps and HTML5 <br>
+        ... it's a C engine, with Lua for game logic <br>
+        ... 3D with 2D focus <br>
+        ... component based, small and modular <br>
+        ... used in Google Play Instant, Facebook Instant Games, playable ads <br>
+        ... Defold was released for free in GDC 2016, available to anyone <br>
+        ... with an organically growing active community of develoeprs <br>
+        ... couple of King games released with it <br>
+        ... and a few major indie games built on it as well <br>
+        ... Our C++ engine is completed by a bunch of platform specific code to adapt to each target <br>
+        ... JS for HTML5 - the ratio between shared and platform-specific is around 20:1 <br>
+        ... debugging is a must; usually enough to debug on host platform <br>
+        ... but what about HTML5-specific problems? these require a different set of tools <br>
+        ... the game engine is transpiled to JS with emscripten <br>
+        ... we use Web Assembly with source maps that help with debugging <br>
+        ... that's nice, but coming from our background of C developers, we would prefer to use our existing debugging tools in this context too <br>
+        ... How do you debug problems specific with Web Assembly? <br>
+        ... Debugging graphics is also important for us <br>
+        ... we would like to be able to inspect the textures uploaded to the GPU, shaders, draw calls, composition <br>
+        ... we use WebGL and OpenGL <br>
+        ... on desktop and mobile we get powerful tools (renderdoc) <br>
+        ... but what about WebGL? we have spector.js which is great, but can we get better integrated support in browser dev tools?
+        </p>
+
+        <h4 id="item07">Enable fast and efficient threading on the web, by David Catuhe, Microsoft / babylon.js</h4>
+
+        <p class='phone'>
+        <cite>David:</cite> with my babylon.js hat on, I'm going to write my letter to Santa Claus.<br>
+        ... today, doing Multithread on the Web is done with a very process-oriented way <br>
+        ... it's tough to compete with native when you can't use multi-threading across multiple cores <br>
+        ... Why isn't web workers enough? they're not easy to work with <br>
+        ... in a 3D engine, we have lots of things to do in // <br>
+        ... Frustum culling can be done in // - but in a Web workers, this requires copying and passing with serialization <br>
+        ... Lacking a shared memory structure is a big gap for the Web <br>
+        ... this would apply likewise for particles <br>
+        ... many of my colleagues (e.g. at SharePoint) would love this as well <br>
+        ... a better threading support would go a long way <br>
+        ... Web workers can't run a worker in the same context - it has to be run in separate file, communicating with string based messages <br>
+        ... the only thing they can work with ArrayBuffers - they work like processes more than thread <br>
+        ... here is a my santa claus wishlist <br>
+        ... Could we have a PromiseTask that would run a different thread? <br>
+        ... Feedback from the MS browser team was that it wasn't easy or possible <br>
+        ... including some friction from TC39 <br>
+        ... JS engines are optimized for thread isolation <br>
+        ... this means changing this would be complicated <br>
+        ... Apple experimented this two years ago - not sure where this has gone <br>
+        ... Assuming my PromiseTask can't work, can we at least improve Web workers? <br>
+        ... allow to share structure objects would go a long way <br>
+        ... let's extend the idea of SharedArrayBuffer with a SharedObjectGraph that could only be spinned from Web workers <br>
+        ... that would allow 3D engines to run on a specific thread that would spawn new workers without touching the main thread <br>
+        ... with OffscreenCanvas, this would work well <br>
+        ... this would leave DOM &amp; WebGL access out of scope, but still removes a lot of the serialization cost <br>
+        ... Again, it makes no sense to have this requirement to keep Web workers defined in a separate file <br>
+        ... Let's discuss - these needs matter for games, but not just for games <br>
+        ... any kind of expensive experience on the Web will need that <br>
+        ... audio, input, etc <br>
+        ... my Word colleagues would love to use separate thread for spell checking
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> would this PromiseTask be callable only from Workers, or also main threads? <br>
+        ... how would the timing work?
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> this idea is inspired from C# <br>
+        ... Promises have already synchronization semantics <br>
+        ... the main thread would wait till the resolution of the PromiseTask, stalling the main thread
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> so a PromiseTask would be different from a Promise <br>
+        ... the main thread would be blocked, and only the PromiseTasks would be executed during that
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> correct
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> my worry is what happens with queued operations (events, promises)
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> I don't want to block the main thread <br>
+        ... the continuation of the PromiseTask would happen in the main thread <br>
+        ... the continuation would be queued in the task queue of the main thread
+        </p>
+
+        <p class='phone'>
+        <cite>Ricardo_ThreeJS:</cite> I'm not a browser person - I'm on your side :) <br>
+        ... what about having a threaded requestAnimationFrame <br>
+        ... promises are complicated, but the animation frame loop may be simpler
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> our 3D engines use rAF for our rendering <br>
+        ... some of that work can be parallelized <br>
+        ... having a parallelized rAF wouldn't help here <br>
+        ... [clarification]
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> this relates to my point about returning control to the rAF
+        </p>
+
+        <p class='phone'>
+        <cite>Will_Google:</cite> one model that might help overcoming some of the negative pushback from browser devs might be to use read-only memory [?]
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> the problem is the cost of serialization <br>
+        ... I want to be able to run things in parallel, wait until all the threads are done, and then render <br>
+        ... and to avoid blocking the main thread, this would happen in a dedicated Web workers
+        </p>
+
+        <p class='phone'>
+        <cite>David_Playcanvas:</cite> sharedarraybuffer in Web workers has been disabled due to Spectre <br>
+        ... if that existed or some equivalent, or had the ability to have Web workers not in a separate file - would that resolve the problem?
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> with SharedArrayBuffers, I lose the structure of my objects <br>
+        ... that's not much an issue in Web Assembly, but for JS libraries, this require serialization/deserialization <br>
+        ... we could use index in a sharedarraybuffer, but then our API has to be slower to map between that index and the exposed property to the developer <br>
+        ... keeping a sharedarraybuffer synchronized will cost a lot in performance <br>
+        ... TransferableObjects allow sharing objects across workers - could we extend this to fit this?
+        </p>
+
+        <p class='phone'>
+        <cite>David_Playcanvas:</cite> I see how that would help
+        </p>
+
+        <p class='phone'>
+        <cite>Andrew_Mozilla:</cite> my understanding is that we've reached consensus with other browsers to let pages opt-in to SharedArrayBuffer by disabling cors <br>
+        ... so sharedarraybuffer should be coming back soon <br>
+        ... the problem with multiple threads is that it changes the execution model and creates reentrancy issues <br>
+        ... I agree the problem of serialization is real <br>
+        ... but having shared JS objects would go against JIT magic and wouldn't work with multiple globals
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> I agree these are hard problems <br>
+        ... but I can't imagine the Web staying with working on a single core in the future
+        </p>
+
+        <p class='phone'>
+        <cite>@@@:</cite> will there be breakout sessions to discuss web workers / multithreading in more details?
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> we can plan one
+        </p>
+
+        <p class='phone'>
+        <cite>@@@:</cite> I think quite a few of us think this a major problem
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> we probably won't solve the problem during the workshop, but even highlighting this as a priority goals would already be useful <br>
+        ... can definitely have a breakout session
+        </p>
+
+        <p class='phone'>
+        <cite>Liu:</cite> how about worklet as defined in CSS Animation?
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> I've never used it
+        </p>
+
+        <p class='phone'>
+        <cite>Liu:</cite> I wonder if using a Worklet could help with your problem space
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> I'll check it out and will report in the break out session
+        </p>
+
+        <h4 id="item08">WebAssembly: status, Web IDL bindings, and roadmap, by Luke Wagner, Mozilla</h4>
+
+        <p class='phone'>
+        <cite>Luke:</cite> I started at Mozilla 10 years ago during the Javascript performance wars <br>
+        ... I got involved in the Games platform project, which was aimed at helping both games and Web apps in general <br>
+        ... at the time, emscripten had emerged as a platform to compile C codebase to JS <br>
+        ... asm.js emerged out the desire to make the resulting code run smoothly <br>
+        ... it started gaining adoption in lots of game platforms <br>
+        ... this made it clear there was a need that could be addressed with more collaboration <br>
+        ... which lead to the emergence of Web Assembly <br>
+        ... in 2017, we shipped the initial version of Web Assembly in 4 browsers, just 2 years after the creation of the Web Assembly CG <br>
+        ... right after that, we started looking at what we should add <br>
+        ... we took inspiration from the TC39 stages process (from early idea to shipped feature) <br>
+        ... We have a roadmap that my colleague Lin Clark detailed in a blog post accompanied by a useful cartoon illustration <br>
+        ... lots of great objectives, both in and outside of the browsers - checkout the blog post to learn more about it
+        </p>
+
+        <p class='phone'>
+        <a href="https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/">WebAssembly’s post-MVP future: A cartoon skill tree</a>
+        </p>
+
+        <p class='phone'>
+        <a href="https://github.com/webassembly/proposals">WebAssembly proposals</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> [reviewing Web Assembly proposals] <br>
+        ... I'll spend most of my time talking today about what I feel is the most relevant to the workshop <br>
+        ... how do make all of our Web APIs available in Web assembly? <br>
+        ... this about Bindings <br>
+        ... in the Web Assembly MVP, there are basically 4 types: 2 integer types, and 2 float types <br>
+        ... how would we map this to the much richer set of types in Web APIs? <br>
+        ... our first take in 2017 on this was the notion of "Host bindings" <br>
+        ... the notion was to use wasm tables (typedarrays) to convert between JS Types and WASM code, via indexes map <br>
+        ... but it turned out very awkward as we went in more depth
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> also, not clear how it would impact performance <br>
+        ... in 2018, we came up with this idea of Reference Types <br>
+        ... using a type hierarchy - that's what has been implemented in Chrome and Firefox, available experimentally
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> the generic type is anyref that can map to any JS value; we're now looking at more specific types e.g. funcref <br>
+        ... this gives wasm first-class host values <br>
+        ... this is leading to our current (2019) effort towards Web IDL bindings <br>
+        ... basically refining reference types to make binding to WebIDL APIs more efficient <br>
+        ... since we can focus on a well-defined subsets of types <br>
+        ... [in the mvp slide] <br>
+        ... Currently, in the MVP, calling a Web APIs require lots of conversions and glue (WASM -&gt; JS, JS -&gt; WebIDL, WebIDL-&gt;C++), creating costs and complexity <br>
+        ... With WebIDL bindings, we will simplify this greatly, making it possible to program and extend how the conversions happen in and out of the Web IDL Bindings wrapper using a set of defined operators <br>
+        ... We have an explainer that details this proposal <br>
+        ... [Binding Types/Values sketch] <br>
+        ... Starting from reftype and signed numbers (numtype), we build up mappings to WebIDL defined types <br>
+        ... [Beinding Expressions sampler] <br>
+        ... there are multiple ways to represent strings in that model - we define different operators that enable this different repreentations (e.g. utf8-mem-str vs utf8-gc-str vs an opaque ref type) <br>
+        ... likewise, a record (Dictionary in WebIDL) can be represented in multiple ways <br>
+        ... these operators can be composed together <br>
+        ... We want direct access to WebIDL from WASM - what do we mean by that? <br>
+        ... this means both when importing WASM code, and when calling it <br>
+        ... currently, you need some JS code to expose Web APIs to WASM <br>
+        ... likewise, lots of glue code needed when calling code <br>
+        ... WebIDL binding would help when calling code <br>
+        ... the importing facing will be managed by separate proposals: WebAssembly ESM-integration and Built-in modules and import-maps <br>
+        ... and get-originals which expose Web APIs as built-in modules <br>
+        ... [C++ Prototype] <br>
+        ... we've done some prototype toward that <br>
+        ... wasm-bindgen in Rust <br>
+        ... A Google enginer has developed on a cool benchmark to demonstrate the value of this binding approach <br>
+        ... around the use of WebGL <br>
+        ... and this is pointing at very promising results <br>
+        ... Debugging was mentioned earlier <br>
+        ... This was discussed recently at the Web Assembly CG <br>
+        ... Everybody agrees this is an important problem <br>
+        ... there is a renewed interest in exposing a common interface for WASM to be included in Web browser dev tools <br>
+        ... We have a debugging subgroup in the CG which is resuming its activities
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> do you plan to somehow let TypeScript compile to WASM?
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> I've had that conversation with the TypeScript team a number of times <br>
+        ... it's a real difficult problem <br>
+        ... because the type system cannot be sound, they can't be relied on for compilation <br>
+        ... we've looked at using stronger type annotations "this-is-the-type-and-I-mean-it", which would allow marshalling in an efficient manner <br>
+        ... but this is a long term plan
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew_PacielloGroup:</cite> in terms of accessibility, one of the problems with Game Accessibility is that you may have a bitmap of a UI without exposed semantics <br>
+        ... the challenge is to bridge between the world of semantics and map <br>
+        ... I wonder if what you show with the rust example, you could help bring semantics into the original code
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> very good thoughts <br>
+        ... one thing we want to avoid is people moving away from the DOM and its semantics <br>
+        ... WebIDL bindings aim at avoiding this, by making the DOM available to WASM developers <br>
+        ... this helps with accessibility and all the other benefits from the DOM
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew:</cite> interesting to imagine bringing the Accessibility Object Model, a new proposal under consideration, in this picture
+        </p>
+
+        <p class='phone'>
+        <cite>Will:</cite> one gap in WASM in my understanding is a non-linear control flow <br>
+        ... is the exception proposal going to help with that?
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> this has been an idea for a while <br>
+        ... but there is a new approach, algebraic effects, that encompasses exceptions and co-routine, which, if constrained properly, would likely work better <br>
+        ... but this still needs more research <br>
+        ... and will need more time
+        </p>
+
+        <p class='phone'>
+        <cite>Will:</cite> Inferno, a successor of Plane9, @@@
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> at the moment, we have an abstract CPU - but you also need an abstract system interface <br>
+        ... there is a proposal in this space - WASI <br>
+        ... then you need the notion of programs, processes <br>
+        ... this requires revisiting some of the POSIX design decisions
+        </p>
+
+        <p class='phone'><cite>fernandojsg_ (through IRC):</cite> What is the status of weakref, I believe it will be very useful for working on WASM API with bindings on JS, like having your data on WASM heap and object references on JS but you can deallocate it when the object is removed. That was one of my main pain points when trying to integrate wasm piece of code on an already existing js framework without adding overhead marshaling back and forth
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> we're looking into capabilities-based design <br>
+        ... weakref would be definitely useful <br>
+        ... they've been discussed in JS for a decade
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> we considered doing them for WASM, but this triggered renewed interest in TC39 <br>
+        ... with proposals with momentum
+        </p>
+
+        <p class='phone'>
+        <cite>Dave_Evans:</cite> WASM usually goes along with emscripten - is that a hard dependency? are there other toolchains?
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> emscripten goes back even before asm.js <br>
+        ... when we started the WASM CG, we looked at how getting it brought to more toolchains <br>
+        ... there is now a WASM branch for LLVM <br>
+        ... WASI (system interfaces for WASM) will enable a portable libc, that would work both on and off the Web <br>
+        ... rust can use the LVM backend to use the WASI ecosystem on top of that <br>
+        ... the static linker for WASM objects is also part of the shared toolchain <br>
+        ... with gc languages, you have to also compile your GC manager in WASM <br>
+        ... we're looking at improving that, but this will require a whole new set of toolchains
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> when we get back to WASM tomorrow, it would be good to have a list of priorities to bring to the WASM CG from a games perspective
+        </p>
+
+        <h3 id="session-3d">3D rendering roadmap</h3>
+
+        <h4 id="item09">glTF roadmap: CTTF Universal Textures and 2nd
+        generation PBR</h4>
+        <p class='phone'><cite>Francois:</cite> we will be going into
+        topics on 3D rendering</p>
+        <p class='phone'><cite>Neil:</cite> I work for NVidia and by
+        night I work for Khronos group<br />
+        ... Khronos has a good working relationship with W3C, we are
+        similar in creating open, RF standards<br />
+        ... looking to bring silicon acceleration to graphics<br />
+        ... there is potential for further collaboration between the
+        two orgs<br />
+        ... I want to highlight a few of our standards, 3D is what we
+        are known most for. we took over OpenGL, there is Vulcan,
+        WebGL<br />
+        ... SPIR is a a graphic shader and could be useful for
+        WebGPU<br />
+        ... we have OpenXR which is around VR and AR, need to
+        coordinate with Nell on WebXR<br />
+        ... reason we are here is to discuss glTF<br />
+        ... all the media types had the equivalent of JPEG, small,
+        compact and supported by most platforms<br />
+        ... we make it independent from runtime, it is open and
+        extensible. WebGL was the first use case<br />
+        ... glTF has support from Microsoft, it is more than glsl for
+        shaders<br />
+        ... this is a glTF model running within PowerPoint<br />
+        ... we have had astounding levels of adoption (slide of
+        implementer logos)<br />
+        ... wide number of authoring tools<br />
+        ... quite a few game engines are using it. all the AR/VR
+        engines. you can post a glTF picture on Facebook<br />
+        ... Uber just did a blog post on how they are using it to
+        visualize driver data<br />
+        ... if you haven't come across glTF yet it is rather simple,
+        descriptor in JSON and multiple payloads<br />
+        ... PBR textures<br />
+        ... supporting binary for main payload helps keep it
+        compact<br />
+        ... as we are driving this ecosystem there are three main
+        things we focus on, tools, consistency and functionality<br />
+        ... for tools we started with Blender since it is open
+        source<br />
+        ... there are a bunch of other tools now following<br />
+        ... we had painful learning lessons from Calada(sp?)<br />
+        ... we have a number of models we encourage people to try out,
+        a validator and unit tests<br />
+        ... people always want more functionality. we were constantly
+        balancing functionality with desire to keep the spec
+        simplistic<br />
+        ... we are being very careful before we add mandatory
+        functionality to glTF in the core. it is extensible<br />
+        ... we want people to create extensions first and if it is
+        widely used consider it for inclusion in the core spec<br />
+        ... one of the key extensions probably soon destined for that
+        is mesh compression<br />
+        ... we have a mesh compression engine using Draco that gives
+        considerable performance<br />
+        ... what I want to get feedback on is about texture compression
+        as a large asset<br />
+        ... we are still confounded by myriad of GPU accelerated
+        formats<br />
+        ... game vendors as a result are shipping multiple solutions
+        which is not desirable on the web<br />
+        ... we think we can achieve this with CTTF spec<br />
+        ... it is based on a contribution by Binomial based on their
+        open sourced Basis Universal<br />
+        ... CTTF is cunningly designed so you can convert easily from
+        CTTF to any GPU accelerator on the fly as needed<br />
+        ... it has less overhead on processing texturing<br />
+        ... we are looking at ways to stream textures<br />
+        ... KTX2 is a container format that includes super compression
+        technology<br />
+        ... Binomial and Google have a deal on transcoders<br />
+        ... you can try this out in a browser now<br />
+        ... from 3D commerce folks but unsure if it is relevant to
+        gaming community, please let us know on github if this is
+        useful for you<br />
+        ... we are learning of veriticals wanting to use glTF. VRM just
+        incorporated, humanoid avatars in VR environment<br />
+        ... Khronos just established a 3D Commerce Exploratory Group.
+        we want to be able to allow merchants to represent their
+        products in glTF<br />
+        ... we are working on complex animation beyond keyframes and
+        skinning<br />
+        ... Draco has already offered their point cloud
+        technologies</p>
+        <p class='phone'><cite>Will_Google:</cite> have you considered
+        something like Blender, it can make mesh easier. mirroring is
+        something that is nice, as are subdivision surfaces<br />
+        ... how do you decide where to draw the line on what is
+        separable</p>
+        <p class='phone'><cite>Neil:</cite> we are trying to get tool
+        vendors to define what makes sense. let us know what isn't
+        fitting<br />
+        ... we do not want to become an authoring interchange
+        format<br />
+        ... we need to keep glTF as simple and compact as possible and
+        resist that temptation</p>
+
+        <h4 id="item10">WebGPU</h4>
+        <p class='phone'><cite>Myles:</cite> we are trying to let
+        developers use full capability of the hardware<br />
+        ... Microsoft created DirectX, we have Metal and Vulkan. they
+        all have similar concepts<br />
+        ... because these three platform level frameworks we should be
+        able take this functionality and expose it to the web<br />
+        ... WebGPU sits on top of these three frameworks<br />
+        ... there is only one Web and having this common abstraction on
+        top of them is very exciting<br />
+        ... you can use the GPU card for other things beyond rendering
+        graphics, AI computing etc<br />
+        ... when designing this API we could not expose all the card's
+        capability and let them leverage it all without a security
+        model<br />
+        ... we have to do things in a safe manner when uploading and
+        downloading content<br />
+        ... we cannot have any facilities that are not portable. we
+        have an extensions model but focused on core API implemented
+        everywhere<br />
+        ... last design principle of ours is performance. if our new
+        API is not faster than what you are doing already, there is no
+        reason to use it<br />
+        ... what you are looking at is Safari and Chrome showing a
+        textured cube<br />
+        ... we are still in early days and using the various nouns and
+        verbs of the API<br />
+        ... when we designed this API there are a few things different
+        in WebGPU<br />
+        ... in looking at a textured cube like there, there is a
+        surprising amount of information needed to represent it<br />
+        ... all of those things (colors, corners...) can be batched up
+        into an opaque object rather than sending each piece of
+        configuration separately<br />
+        ... this is powerful as there may be hardware specific op
+        codes<br />
+        ... it is very fast to switch between different sets of
+        configurations and something WebGPU is very good t<br />
+        ... in this scene we have enough complex vertices that would
+        make it onerous to describe via a JS API<br />
+        ... we are currently trying to decide what shading language
+        should be used<br />
+        ... there are two competing proposals, a dialect of SPIRv and
+        another hlsl<br />
+        ... where the direction the community group is going is to
+        select one instead of expecting browser engines to support
+        both<br />
+        ... we are on github, anyone and everyone can come by and
+        provide use cases, input on what we should be doing<br />
+        ... we have many companies involved and several big
+        contributors</p>
+        <p class='phone'><cite>Francois:</cite> anything the audience
+        can do to influence this decision on choosing shading?</p>
+        <p class='phone'><cite>Myles:</cite> we do not want to impose
+        our beliefs on the community and would welcome feedback</p>
+        <p class='phone'><cite>Francois:</cite> what might influence
+        this, you mentioned pros and cons but maybe some use cases
+        could influence it</p>
+        <p class='phone'><cite>Myles:</cite> the languages are pretty
+        similar, difference is in the workflow in how you create
+        them<br />
+        ... human writes these in the beginning<br />
+        ... SPIRv gets compiled whereas with a web high level shading
+        language, your source code can be used out of the box</p>
+        <p class='irc'>&lt;<cite>fernandojsg_</cite>&gt; currently we
+        must include the wasm for the shader compiler and it's pretty
+        big already, is the plan to include that directly on the
+        browser?</p>
+        <p class='phone'><cite>Myles:</cite> SPIRv has a head start
+        compared to hlsl</p>
+        <p class='phone'><cite>DavidCatuhe:</cite> we keep the same
+        shader as the base and can compile down, do you see same option
+        with web hlsl</p>
+        <p class='phone'><cite>Myles:</cite> we call it whistle for
+        short<br />
+        ... it should be easy to create a convertion compiler</p>
+        <p class='phone'><cite>DavidCatuhe:</cite> we are trying to
+        reduce the download tax</p>
+        <p class='phone'><cite>Myles:</cite> hlsl is the most popular
+        and we are trying to solve [many of] the various concerns</p>
+        <p class='phone'><cite>NeilT:</cite> in the old days you chose
+        an API and were stuck with its shading language. Spir-V can
+        offer choice<br />
+        ... we do not force them to choose. the compilation step could
+        be lower and the tools aren't perfect</p>
+        <p class='phone'><cite>NeilT:</cite> we have had quite a few
+        developers prefer the abstraction</p>
+        <p class='phone'><cite>Myles:</cite> you can obfuscate whistle
+        as you can js</p>
+        <p class='phone'><cite>Francois:</cite> the choice of the
+        shading language is a requisite then in advancing the
+        spec<br />
+        ... unless you support multiple</p>
+        <p class='phone'>@@4: does it have target source mapping?</p>
+        <p class='phone'><cite>scribe:</cite> how do we enable browser
+        developer tools to unpack</p>
+        <p class='phone'><cite>Myles:</cite> that hasn't been discussed
+        much in the WG</p>
+        <p class='phone'>Francois describes upcoming breakout
+        session</p>
+
+
+        <h3 id="item11">Mapping games users &amp; designers needs to
+        technologies</h3>
+        <p class='phone'><cite>Indira:</cite> [talking about previous
+        user research done]<br />
+        ... Looking at how users and designers needs can be
+        implemented.<br />
+        ... I have been interacting with people working on touch and
+        haptics, which seems relevant for games.<br />
+        ... They talked about: Body position, environment, smart
+        clothing is quite a long way off. Bio sensors.<br />
+        ... Area where they are looking at new controllers and how they
+        can be used in games.<br />
+        ... I also talked with a UX designer. All about the
+        transactional experience. Getting the information on a Web site
+        as quickly as possible.<br />
+        ... Going from 2D content to 3D content, what are the
+        implications of doing VR experiences?<br />
+        ... Then I talked with 3 gamers. None of them had used Web
+        games before.<br />
+        ... Age group between late 20s and early 30s.<br />
+        ... Asked them about how they felt about the games I pointed
+        them out.<br />
+        ... Games are about narrative.<br />
+        ... Really important part for them.<br />
+        ... Hardware developer: interaction with AR. They're not using
+        Web technologies, but they'd like to.<br />
+        ... Access to phone sensors is what they needed, motion
+        tracking as well.<br />
+        ... They also felt that the Web was evolving too slowly.<br />
+        ... This gets us to what I've been doing around serious
+        games.<br />
+        ... I thought that we should really have been using Web
+        technologies. But we knew how to find material for Unity, so we
+        just used that instead.<br />
+        ... The workshop today is to split into 3 groups, look at users
+        needs. What would you need to be in place to fulfill these
+        needs.<br />
+        ... How could things work in 5 years from now and then walk
+        back to see what we need to do now.<br />
+        ... Dom and Diego will help me animate the groups.</p>
+        <p class='phone'>[audience splits into 3 groups]</p>
+
+        <h3 id="session-storage">Packaging / Asset loading &amp; storage</h3>
+        <h4 id="item12">Size matters: How loading is losing you
+        players, Kasper Mol, Poki</h4>
+        <p class='phone'><cite>Kasper:</cite> I guess most of us
+        understand loading materials are bad for user experience<br />
+        ... working at Poki which is web gaming platform, aggregating
+        system from things like flash to web<br />
+        ... help developers make things on the web<br />
+        ... size matters, two specific things, exploring loading data,
+        opportunities<br />
+        ... on exploring loading data, two concepts - conversion to
+        play, initial download size<br />
+        ... conversion is how many players remains after loading
+        screen<br />
+        ... initial download size is just an amount of size to be
+        downloaded<br />
+        ... mobile games has small size of asset, analysis is on
+        desktop games<br />
+        ... [graph] conversion to play vs. initial download size in
+        US<br />
+        ... first impression from this chart is conversion rate drop
+        quickly for icrease of initial size<br />
+        ... 10MB has only 80% even in US<br />
+        ... problem get bigger for other places, like Brazil - 70% or
+        Egypt - 60% for 10MB<br />
+        ... two main things we can do, one is to educate
+        developers<br />
+        ... secondaly, teaching people to check local
+        environments<br />
+        ... improving the web for small size assets and high
+        conversion<br />
+        ... so, size matters on the web</p>
+        <p class='phone'><cite>Bernard:</cite> do you have any data for
+        improvements by HTTP/2 or HTTP/3</p>
+        <p class='phone'><cite>Kasper:</cite> not having particular
+        data, do you have any?</p>
+        <p class='phone'><cite>Bernard:</cite> loading speed will get
+        improved by using these connections</p>
+        <p class='phone'><cite>Francois:</cite> what could do practically speaking to help with asset loading?</p>
+        <p class='phone'><cite>Kasper:</cite> would be great if shared
+        libraries (e.g. game engines) could be shared across sessions
+        &amp; games</p>
+        <p class='phone'><cite>Francois:</cite> W3C has published best
+        practices documents, we may have such document out on this
+        topic for teaching</p>
+        <p class='phone'><cite>Dave_Evans_PlayCanvas:</cite> better
+        compression would get conversion rate up?</p>
+        <p class='phone'><cite>Kasper:</cite> not sure how much
+        improvements from low level compression</p>
+
+        <h4 id="item13">Browser Storage, Andrew Sutherland,
+        Mozilla</h4>
+        <p class='phone'><cite>Andrew:</cite> I am Andrew Sutherland, I work at Mozilla on the DOM Team, specifically the Workers and Storage sub team that is dealing with service workers as well as the workers that do not do what people want right now and all of the related storage APIs.<br/>
+    ... I wanna go over what our current, the Cross-Browser Storage API story is. There obviously exits Web SQL Database which we will not speak of further.<br/>
+    ... We have number one, cookies. It's a synchronous storage API, it stores only strings and there's a Hard Storage Cap. The cap is in fact so hard that if you try and use too many cookies on your domain, we'll just start evicting them. So you really don't want to be using this for game storage at all, only for network authentication and such.<br/>
+    ... Next, we have LocalStorage which is a synchronous API as well. Also only stores strings, also Hard Storage Cap. Five megabytes, I think is pretty much the universal cap and it has the interesting wrinkle that at least for legacy purposes in Firefox, it's shared among your entire eTLD+1, e.g. for example.com if you have foo.example.com and bar.example.com, you're all sharing a five megabyte limit which has caused problems for sites like Wikipedia that tried to cache their JavaScript there and because Wikipedia shards by language, they ended up running out of quota so that on some languages, you wouldn't have any storage accessible at all.<br/>
+    ... LocalStorage is also interesting because if you go to access LocalStorage when your site is loading and we don't already have the data available, we are effectively compelled to block the main thread until we have the data available. Which means that we've also optimized it a lot. I would recommend, if you're really concerned about time to interactive, LocalStorage might not be a bad thing to use but you need to be careful and coordinate with other people on your origin...<br/>
+    ... I think a very common thing we see is sites will have a auto-appending log, like it's fun to gather telemetry and such but people will just constantly write to LocalStorage with additional, like just all of the JSON that they wanted to post to the server. Generates very high I/O writes for the user and it actually delays your startup next time because when we go to load your origin, we have to potentially load four and a half megabytes of data for you when you really only want a 100k of it.<br/>
+    ... IndexedDB, which gets a lot of bad press. It is fully promise compatible now across all browsers. That was a problem for a while. It is no longer a problem. You can use promises and I recommend Jake Archibald's promised IndexedDB wrapper, it's a good one. It is fully asynchronous, it stores pretty much anything you want because we use the structured serialization API that postMessage uses. That means, like objects graphs, even if you have cycles in them or something like that, they will go to disk and they will come out of disk. It's also aware of blobs and files with some magic and I will get to that a little later. IndexedDB uses the quota storage cap which I'll also get to later as well.<br/>
+    ... Last, we have the Cache API, which is technically part of these service workers spec. It is asynchronous and it's basically like a map for Fetch request and Response objects. Interestingly, it does implement the cache-vary header abstraction, so you can put in something that's JSON and you can put in something that's HTML and based on what you match for your request, we'll give you the correct thing based on all of the headers.<br/>
+    ... It does not store POST requests at this point, like if you wanna cache your POST requests for submission later, we do not support doing that yet. There's actually some talk of augmenting IndexedDB to be able to store these requests and response objects so that you could do something like that or if you had a very clever eviction scheme in mind for your cache data. Right now, with the cache API, if you want to perform eviction, you either do something like, I think Google's Workbox team does which is, they use indexedDB to actually track how recent something is or there's a single API right now, Keys which lets you enumerate the entire contents of your cache and then you can manually evict things. It's not super efficient and in some cases, like I think in Chrome for a while, if you put too much data in your cache and then you called Keys, Chrome would crash or rather, your origin would crash.<br/>
+    ... What's extra probably of interest to people here using Wasm, if you're dealing with responses, this is where the browser is able to do things like cache, the JS, AST caching, if we've derived something from it or for Wasm, if we've done additional compilation steps, we are able to tie it to the response. At least in Firefox, there's still ongoing optimization work here but it is like you're making it easier for the browser to help you if you're dealing with response objects.<br/>
+    ... Okay so, I think structured serialization is not free, it's something we captured earlier today. Like postMessaging to a worker, it's not, like if you have a complex object graph, you're gonna pay for that because, we write it to a byte stream and then when it gets to the worker, we read it back out of the byte stream and create the objects. An issue we've had internally in Mozilla is, we actually have had people try and move something that was on the main thread API to a worker and they were surprised when it still took the exact same amount of time as it did before, 'cause what they were actually doing was doing IndexedDB from the main thread. The cost of using IndexedDB is the same on the worker and the main thread and it's also pretty much the same cost you're paying when you postMessage it.<br/>
+    ... And this is something where it's hard for us and to improve on this, via the spec, especially because we actually need to invoke getters on any objects you might have for side effects and your getters are allowed to do crazy stuff like, mutate the object that we're serializing as you do it. Please avoid doing that because, we will possibly be able to optimize that more going forward if your object looks like a plain object.<br/>
+    ... Related to this, IndexedDB allows you to create indices on your data and these indices are based on traversing your object graph for the same reasons that we need to, it's hard to optimize put an add in the first place for the structured serialization of your actual payload. It's expensive for us or it's at least, the cost is proportional to how many indices you have and how much of the your objects structure we need to traverse. It would be very interesting if there are ways we can help optimize this going forward, but again, it's a little bit hard per spec.<br/>
+    ... But, there are things you can do to make postMessage less expensive and to make IndexedDB storage less expensive. Hopefully everyone is familiar with the fact that, on your Global's in JavaScript, we have blob and file. File is just a blob with a name attached to it. Blob can be constructed from other blobs, from strings, from ArrayBuffer stuff and basically, it creates an immutable handle on data that is now because it's a handle, we're dealing with things by reference instead of by value.<br/>
+    ... So if you're postMessaging a four megabyte blob from the main thread to the worker, the cost for us is just to say, this pointer address and it's a blob. If you were to postMessage a four mega byte ArrayBuffer, if you're not transferring it, we have to actually write out all four megabytes of payload. So is a very handy thing to do, if you don't need to synchronous access to the data. With a blob, you still need to asynchronously get the data via either the FileReader API or the Fetch API or some other upcoming APIs.<br/>
+    ... And also interestingly in a multi-process world, it's even better, because if you're dealing with blobs and they're going between processes and it's possible they will be further messaged around, we can lazily stream the data when it's actually needed. For example, if you have a service worker and you're responding with a blob, we don't actually consume the blob until the data get streamed, if it gets streamed.<br/>
+    ... Also, if you put these into IndexedDB and you get them back out again at least on Firefox and I think on all the browsers, it ends up being disk-backed.<br/>
+    ... One quick question I have about the previous presentation is, how much user losses are just due to the browser crashing? At some point, you can cause an out of memory event for your tab, or the browser or just the process you're in and it'll go away and that is especially possible on 32-bit platforms. Like on Windows, Firefox has seen this be a serious issue especially because, we have to allocate so much address space to video drivers or that, the video drivers need it. So if you put a blob in IndexedDB, pull it out, it's disk-backed and it's magically reference counted in the sense that, that blob is still valid even if you delete the object that's holding the blob from IndexedDB. You can keep using it and the browser will, assuming no bugs, cleanup all the disk usage for you when the time comes.<br/>
+    ... All right, quota. There's basically two real APIs that expose the realities of how browsers manage quota for service workers, IndexedDB and the cache API. The first, is navigator.storage.estimate, and it tells you how much you're using and it tells you how much you're allowed to use before we'll throw exceptions. How much you're using can actually be somewhat of a lie. For privacy reasons, service workers are allowed to request data from third-party sites and because we don't want to allow side-channel attacks on extracting the actual size of the resources, we will lie about how big the resources are to you.<br/>
+    ... So, if you use third-party resources and store them in the cache API, you can actually burn through your quota a little bit faster than you would expect. The big problem with quota is that, browsers don't really know what's the right amount of storage space for your site. So, speaking strictly for Firefox, we just guess, okay well, as the browser and we're probably the only browser the user uses, we're gonna take half of your free disk space and say that, that's for quota storage and we count any existing usage of browser storage as part of that and then we'll say, okay your group, which again is eTLD+1, so foo.example.com, bar.example.com, are all limited by the same group storage. We will give you 1/5th of 1/2 of the users free disk space up to two gigabytes.<br/>
+    ... Just the fact that we're willing to let you use that storage, doesn't mean that it's necessarily a good idea because, we have eviction all right. At some point, Firefox says oh, I went over my limit for all of the storage for all of the origins and I should go evict that data and then, we just currently do a least recently used eviction.<br/>
+    ... If you call navigator.storage.persist, we basically exempt you from that. We prompt the user and then your site is protected but it still doesn't fix the problem. So, buckets are the spec standard for eviction, we'll wipe out all of your site's data, if we wipe you out. So, the interesting stuff going forward spec-wise is, we would like to have multiple buckets, we would like you to be able to say, these are different pieces of data, this is the emails the user has composed are something that probably you would want to keep, like Gmail would want to keep drafts but things that are just cache could possibly be evicted.<br/>
+    ... And there's really the big issue of how do we make this something that the user can understand? The background-fetch spec is a thing that's happening, being proposed that it let your app say, all right I'm gonna download like a 10 megabyte video, it's made up of these individual fetches and the browser will do that for you without your service worker needing to be active.<br/>
+    ... It also interestingly expect to be exposed by the download manager and this is like the best hope I've seen for being able to explain to the user what's happening with storage. It's to say okay, well this is level one of this game, this is level two of this game and it would be my hope that we could also then, if we have these buckets, start with a more reasonable quota. So instead of saying, you get two gigabytes but spend it wisely, we could say, you get 100 megabytes and if you want more than that, you're gonna need to be able to explain to the user what these hunks of data are and then we will also be allowed to nuke them based on how recently you've used them.<br/>
+    ... And then I guess, I'm out of time but there is a lot of interesting stuff happening now with third-party origins and iframes and I'll certainly be interested in discussing that with people because, at least, one of the things relative to the previous talk as well is that, if you're downloading resources from another site, as a third party origin, it's very likely that we will partition that data and any caching of the Wasm or something like that will not actually be cached and reused because, privacy reasons.</p>
+        <p class='phone'><cite>Kasper Mol:</cite> if we are running game in iframe,
+        no way to be optimized</p>
+        <p class='phone'><cite>Andrew:</cite> top level key is origin,
+        if iframe is another source, storage access api will give
+        another place</p>
+        <p class='phone'><cite>Francois:</cite> issue on quota or
+        background-fetch</p>
+        <p class='phone'><cite>Andrew:</cite> I'm hearing need to have multiple buckets on background-fetch, if
+        user want to play offline, game need to know how much space can be used</p>
+        
+        <h3 id="session-a11y">Towards accessible games</h3>
+        
+        <h4 id="item14">Turning on "accessible mode" for users with motor impairments</h4>
+        <p class='phone'><cite>luis:</cite> nice progressing
+        consideration for the users<br />
+        ... first part is about cerebral palsy and neural-tube
+        defects<br />
+        ... introduce of myself<br />
+        ... 13% of the people of US are with disability<br />
+        ... our goal is to make games as accessible as possible for
+        more people<br />
+        ... by turning on "accessible" mode<br />
+        ... use more than a keyboard<br />
+        ... especially people with limited movements<br />
+        ... targeting at special keys on the keyboard<br />
+        ... x-box controller enable who suffer from cerebral to enjoy
+        the games, which is awesome<br />
+        ... these are more than millions of people<br />
+        ... giving human touch for the community<br />
+        ... ability switches<br />
+        ... for those who suffer for limitation of movements<br />
+        ... voice enabled<br />
+        ... for conversation design<br />
+        ... really personal UE, be really sensible<br />
+        ... a few different kinds of motor impairments<br />
+        ... image a pain in movement<br />
+        ... these are also users<br />
+        ... Anxiety<br />
+        ... stresses from interaction with the community, family and
+        friends<br />
+        ... [3D demo for those with anxiety with space or
+        darkness]<br />
+        ... sounds that cause confusion<br />
+        ... American Psychological Association is working on a few
+        experiments to feel and to see from the user's
+        perspectives<br />
+        ... small targets creates difficulty in the interactions during
+        playing the games<br />
+        ... flick-on examples<br />
+        ... rethink about the input and output for those with
+        difficulties<br />
+        ... rethink about movement -- selecting text requires better
+        UIs<br />
+        ... rethink about engagement<br />
+        ... in the accessibility mode, consider easy interactions<br />
+        ... rethink impact, think about users with disabilities, think
+        about the limitations of the platform<br />
+        ... do early testing for accessibility<br />
+        ... building voice capability<br />
+        ... there is lots of opportunities to help someone with
+        disability<br />
+        ... when people want to talk to the game<br />
+        ... say yes<br />
+        ... use voice command to help complete tasks<br />
+        ... we need to understand accessible by the guidelines,
+        standards, to turn into solutions<br />
+        ... with help of AI<br />
+        ... focusing on users research<br />
+        ... future of meeting the user's need in the web games</p>
+        <h4 id="item15">Adaptive Accessibility</h4>
+        <p class='phone'><cite>Matthew:</cite> please read the paper
+        for more information<br />
+        ... a couple of acknowledgement<br />
+        ... Active Game Accessibility by the APA group<br />
+        ... game accessibility is important because of human benefits
+        from culture, recreation, social, and education<br />
+        ... games have to be challenge<br />
+        ... content accessilibity<br />
+        ... content is important, with colours, with specialised
+        audio<br />
+        ... Odyseey provided subtitles and 95% people keep them
+        on<br />
+        ... Division 75% people are using subtitles<br />
+        ... if you struggle to hear sound, you can benefit<br />
+        ... game accessibility guideline provides very useful
+        suggestions for these use cases<br />
+        ... FAST and MAUR are also guidelines worth reading<br />
+        ... people with accessibility have their own preference with
+        tools or techs they are comfortable with<br />
+        ... we need to provide assistive tech integrating with these
+        preferences<br />
+        ... provide personalisation assistance with different tools,
+        languages<br />
+        ... UI Accessibility<br />
+        ... already good technology provided by the OS<br />
+        ... please use the right elements<br />
+        ... provide semantics information if not<br />
+        ... this needs support from DOM<br />
+        ... we need a bridge for web games<br />
+        ... another example, authoring tools<br />
+        ... XML file<br />
+        ... figure out how to build the bridge<br />
+        ... find adaptations at different levels, OS, users,
+        engine<br />
+        ... how to improve the existing specs<br />
+        ... how to make authoring more accessible<br />
+        ... perhaps make it machine level<br />
+        ... UI to help testing<br />
+        ... more open questions in the paper</p>
+        <p class='phone'><cite>NellWaliczek:</cite> is there any work
+        being done at the gltf level?<br />
+        ... Anyone investigating an extension to glTF for accessibility metadata?<br />
+        ... to make the engine more friendly to accessibility</p>
+        <p class='phone'><cite>NeilT:</cite> if user can determine
+        metadata, that may help</p>
+        <p class='phone'><cite>Francois:</cite> provide semantics
+        information for the items</p>
+        <p class='phone'><cite>dom:</cite> when you talk about switch,
+        is it binary? according to user's need?</p>
+        <p class='phone'><cite>luis:</cite> it's not 100%</p>
+        <p class='phone'><cite>luis:</cite> some of them are
+        conditional<br />
+        ... no perfect answer for this questions yet</p>
+        <p class='phone'><cite>Matthew:</cite> how many of you knows
+        accessibility?</p>
+        <p class='phone'>[most of the people in the room]</p>
+        <p class='phone'><cite>Matthew:</cite> how many of you are
+        working to fix the accessibility problems?</p>
+        <p class='phone'>[some of the people in the room]</p>
+        <p class='phone'><cite>scribe:</cite> games can teach us about
+        the balance</p>
+        <p class='phone'><cite>Geoff:</cite> will music with semantics
+        help?</p>
+        <p class='phone'><cite>Matthew:</cite> user needs to
+        personalise the voice, speed<br />
+        ... semantics is important</p>
+        <p class='phone'><cite>IanHamilton:</cite> a11y specialist,
+        CVAA<br />
+        ... [introduce different sessions of the guildline]</p>
+        <p class='phone'><cite>Luis:</cite> goal for think about
+        accibility?<br />
+        ... compile to laws, business needs?<br />
+        ... what would help to find the balance?</p>
+        <p class='phone'><cite>Brannon:</cite> A11y manager in MS<br />
+        ... it's a huge difference<br />
+        ... it's easy to mark accessible in the title<br />
+        ... the difficult part is to make it enjoyable, design the
+        features<br />
+        ... sit down with people as early as possible during the design
+        process</p>
+        <p class='phone'><cite>Matthew:</cite> agree<br />
+        ... the paper covers a few UI requirements<br />
+        ... UI with the game style needs balance</p>
+        <p class='phone'>@@4: how much options for small
+        developers?<br />
+        ... is there any dev tools to help testing?<br />
+        ... how it works?</p>
+        <p class='phone'><cite>Brannon:</cite> Ian may have other
+        suggestion outside the MS's<br />
+        ... there is a tool to help test the websites<br />
+        ... it's more for productive websites<br />
+        ... we are working hard to make it more useful for games<br />
+        ... for foreground colours<br />
+        ... there is a lot of space to grow</p>
+        <p class='phone'><cite>Ian:</cite> there is tools and guideline
+        to help<br />
+        ... CVAA provides recommendations<br />
+        ... most of them are cheap and easy</p>
+        <p class='phone'><cite>Brannon:</cite> #a11y hashtag will help you
+        find a lot of useful information in this area<br />
+        ... highly recommend to reach out to that community</p>
+        <p class='phone'><cite>Luis:</cite> accessibility people are
+        working on more than a checklist</p>
+        <p class='phone'><cite>Matthew:</cite> there are a few things
+        that are easy but with great help<br />
+        ... button in the mobile<br />
+        ... many such good examples</p>
+        <p class='phone'><cite>Binh_Bui:</cite> from BBC<br />
+        ... web games often comes with iframes<br />
+        ... pop-ups<br />
+        ... how to make these things accessible?</p>
+        <p class='phone'><cite>Matthew:</cite> there are a lot of
+        suggestions for pop-ups in the Web<br />
+        ... notifications, text in a big map can be difficult<br />
+        ... bridge the gap with the UI<br />
+        ... handle the customised keys carefully<br />
+        ... audiogames.next provides lots of good examples</p>
+        <p class='phone'><cite>Ian:</cite> make it broader<br />
+        ... testing with your users is important</p>
+        <p class='phone'><cite>Bjorn:</cite> simulating the
+        interactions with dev tools is interesting</p>
+        <p class='phone'><cite>Matthew:</cite> happy to provide more
+        suggestions or examples with Luis or Ian, or anyone in the
+        community<br />
+        ... there are lots of information in the websites of the
+        community</p>
+        <p class='phone'>[Ian &amp; Luis provides more information]</p>
+        <p class='phone'><cite>Brannon:</cite> make sure you document
+        your accessibility features in detail in your products</p>
+        <p class='phone'><cite>Francois:</cite> there are lots of
+        supporting APIs<br />
+        ... AOM is one example</p>
+        <p>[End of minutes]</p>
+      </div>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard. Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

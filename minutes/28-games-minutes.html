@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minutes - Day 2/2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "../media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="../index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a href="../agenda.html">Agenda</a>
+          </li>
+          <li>
+            <a href="../papers.html">Position statements</a>
+          </li>
+          <li>
+            <a href="../participants.html">Participants</a>
+          </li>
+          <li>
+            <a href="../report.html">Report</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="../media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          Platinum Sponsors
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="../media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>Minutes - Day 2/2</h2>
+      <p>Minutes taken by Karen Myers, Dominique Hazaël-Massieux and Chris Needham. Many thanks to them!</p>
+      <p>See also <a href="27-games-minutes.html">minutes of day 1</a></p>
+
+      <h3 id="toc">Topics</h3>            
+      <ol>
+        <li>
+          <a href="#session-audio">Audio &amp; games</a>
+          <ol>
+            <li><a href="#item01">Interoperability/Reusability of high level WebAudio components</a></li>
+            <li><a href="#item02">Porting Wwise to the web</a></li>
+            <li><a href="#item03">Audio Device Client, Better and faster audio I/O on the web</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#item04">Cloud Gaming</a>
+          <ol>
+            <li><a href="#item05">Advancing the Gamepad specification</a></li>
+            <li><a href="#item06">Reducing the latency of inputs on the Web</a></li>
+            <li><a href="#item07">WebCodecs &amp; WebTransport</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#item08">Gender inclusiveness in localization</a>
+        </li>
+        <li>
+          <a href="#item09">Breakout Sessions</a>
+          <ol>
+            <li><a href="#item11">More 3D Controls</a></li>
+            <li><a href="#item12">Discoverability and Monetization</a></li>
+            <li><a href="#item13">Web Games in Hosted Apps</a></li>
+            <li><a href="#item14">Threads</a></li>
+            <li><a href="#item14-2">Networking and Games</a></li>
+            <li><a href="#item14-3">Audio</a></li>
+            <li><a href="#item15">Web Assembly</a></li>
+            <li><a href="#item16">Accessibility Clinic</a></li>
+          </ol>
+        </li>
+        <li><a href="#item17">Next steps for standardization</a></li>
+        <li><a href="#item18">Wrap Up</a></li>
+      </ol>
+      <hr>
+      <div class="meeting">
+        <h3 id="session-audio">Audio &amp; games</h3>
+
+        <h4 id="item01">Interoperability/Reusability of high level WebAudio components</h4>
+
+        <p class='phone'><cite>Michel:</cite> I'm from University of Nice <br>
+        ... I'm the national coordinator of a big research project, dealing with musicians, composers <br>
+        ... [Example of guitar music] <br>
+        ... Everything here is done on the web <br>
+        ... This was a guitar amplifier simulation, multi-track player <br>
+        ... Everything is real-time <br>
+        ... Some impressive WebAudio developments, synthesizers, vocoders, written in JavaScript or WASM <br>
+        ... Building a Web Audio graph to process the sound <br>
+        ... So far, no standard for reusing existing code, except for copy/paste or including a library <br>
+        ... [Picture of a native DAW] <br>
+        ... Four competing standards for plugins, complicated for developers to port <br>
+        ... In early 2018, we started working on an open plugin standard for Web Audio <br>
+        ... We wanted to bring native developers and low-level DSP developers <br>
+        ... Some low level languages for DSP <br>
+        ... We noticed that the existing standards are not web aware <br>
+        ... Use URIs, dealing with async events, packaging, web components, JS modules <br>
+        ... Guidelines for publishing and reusing components <br>
+        ... Example of virtual pedal board for guitar effects <br>
+        ... Some are coded in Faust, cross compiled to WASM <br>
+        ... C++ synthesizers cross compiled to WASM <br>
+        ... [Shows PedalBoard demo] <br>
+        ... We designed a Web Audio plugin standard, using a toolchain for C and C++ <br>
+        ... Extending to other languages such as MAX MSP, used by audio developers <br>
+        ... For web aware distributing and packaging <br>
+        ... Connect to your web audio graph <br>
+        ... These are loaded on demand <br>
+        ... It's easy to load then, here's Amped Studio, uses the same web component <br>
+        ... Another commercial DAW managed to load our plugins in a few minutes <br>
+        ... There's a Faust compiler, compiles to WASM, write and run DSP code, run directly in the browser <br>
+        ... We embedded a GUI builder for creating components <br>
+        ... Apply styling, then publish on a remote server <br>
+        ... It generated a web component, with a page for loading and testing it <br>
+        ... We'll automate this to publish on a public web server, provide documentation etc <br>
+        ... Once published, you can try it in other hosts <br>
+        ... The host scans remote repositories, can drag and drop plugins <br>
+        ... [Demo of a synthesizer connected to a guitar amplifier] <br>
+        ... You can plug in MIDI controllers and your electric guitar <br>
+        ... We have a free SDK on GitHub <br>
+        ... Unit tests to help developers test their plugins <br>
+        ... We have developers, a first online IDE for making low level DSP algorithms in WASM <br>
+        ... You can develop using classic web development tools <br>
+        ... Can we make a Rocksmith game, like guitar hero but with a real guitar? <br>
+        ... Yes, we have efficient effects, pitch detection <br>
+        ... Problem with latency, recording live audio is OK on Mac OS, 12-23ms <br>
+        ... Higher in Firefox, but should be the same <br>
+        ... It's not playable on Windows, 81 to 100 ms <br>
+        ... The Web Audio WG said there's a solution that should be shipped <br>
+        ... You need the right OS level driver <br>
+        ... The Web Audio API has an OutputLatency property, but not implemented yet <br>
+        ... Some work is needed to make this more consistent <br>
+        ... I work with online music schools, customers using Windows
+        </p>
+
+        <h4 id="item02">Porting Wwise to the web</h4>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> I'm a developer at Audiokinetic in Montreal <br>
+        ... I'll talk about out attempt to make Wwise run on the web <br>
+        ... The process of porting a big C++ game will be similar <br>
+        ... Wwise is an authoring tool for Mac and Windows, used by sound designers to create game audio <br>
+        ... Mixing, advanced effects, LPF, everything <br>
+        ... It creates sound banks that need to be packaged with the game <br>
+        ... There's an SDK that's integrated into the game, or via Unreal or Unity <br>
+        ... This can read the sound banks and execute the audio in the game <br>
+        ... If we want the web to become a major gaming platform, middleware is important <br>
+        ... We have indie and AAA games launching with Wwise <br>
+        ... Wwise is popular because it's cross platform, we support mobile OSs to high powered consoles and PCs, VR <br>
+        ... The web can become another major gaming platform, we want to help get there <br>
+        ... Getting stared, just make a sound, C++ code, port to the Web <br>
+        ... Started with a Linux port, Emscripten provides a POSIX environment <br>
+        ... WASM is an architecture that's neither x86 or ARM, some of our code paths rely on those <br>
+        ... SSE emulation for SIMD, we couldn't get working <br>
+        ... Wwise has an abstraction layer for atomics. We used some compiler intrinsics that produced linker errors <br>
+        ... We replaced with Enscripten specific functions <br>
+        ... pthreads, used workers instead, by far our biggest blocker <br>
+        ... First attempt resulted in lots of deadlocks <br>
+        ... An event manager thread that reads game events from a queue, updates game state, produces audio samples into a ring buffer <br>
+        ... The thread can be woken up in many ways. Usually there's a separate audio thread that works differently on every platform <br>
+        ... Takes the audio data and copies it to the hardware <br>
+        ... It's a heartbeat for the system, keeps it alive <br>
+        ... It was problematic for Emscripten, as that was based on the old ScriptProcessorNode in Web Audio, so on the same thread <br>
+        ... The Wwise SDK comes with some blocking API calls for loading/unloading bank files <br>
+        ... This was an exercise to see how much friction C++ developers will encounter when porting to the web <br>
+        ... It was important to do better than that <br>
+        ... We ended up disabling threading, do all on the main thread, to avoid deadlocks <br>
+        ... Makes it impossible for the game to run, can't do advanced effects <br>
+        ... Second attempt, replace SDL dependency with something based on Web Audio API and AudioWorklet <br>
+        ... Worklet is separate from the main application. How to share the ring buffer with the processor program? <br>
+        ... We looked at how emscripten does it for pthreads. We saw their worker imports the main app module <br>
+        ... The app module detects which environment it's in <br>
+        ... From our processor program, we imported the main game module, didn't work <br>
+        ... The main JS file used APIs not supported in the audio worklet global scope, but took a long time to figure out due to lack of error information <br>
+        ... If we compile as a self contained ES6 module, AudioWorklet can imported it <br>
+        ... But, the worker global scope doesn't support importing ES6 module <br>
+        ... We ended up with initialising the processor program using postMessage, with pointers to the audio buffers <br>
+        ... This works as long as the WASM heap doesn't change during execution <br>
+        ... We were able to reenable threading. It works <br>
+        ... AudioWorklet is an improvement over ScriptProcessorNode <br>
+        ... Threading is difficult to get right. The pthread is so different, it's hard to get working <br>
+        ... Debugging was difficult, hard to get source maps <br>
+        ... Could have done more if we'd had access to a proper debugger <br>
+        ... We wish there were a lower level API for controlling number of samples per frame, channel interleaving, final channel downmix <br>
+        ... Not possible with AudioWorklet, but could be optimised <br>
+        ... SharedArrayBuffer - we need this, if you want C++ games to run on the web, need to fix this. If there's no threading, there's no AAA games on the web <br>
+        ... Excited to hear Mozilla has a solution coming, what about Safari, mobile browsers? <br>
+        ... We want to support the web platform, not just Chrome. Don't want to go back to "works on browser X"
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Is audio for games solved now?
+        </p>
+
+        <p class='phone'>
+        <cite>Preston:</cite> Some engines that use Wwise have web targets, what do they currently use for web export?
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> Games using Unity can use the web right now, currently the Wwise plugin doesn't work with it <br>
+        ... The Unity and Unreal engine plugins are done in-house, we're working on the web effort now
+        </p>
+
+        <h4 id="item03">Audio Device Client, Better and faster audio I/O on the web</h4>
+
+        <p class='phone'>
+        <cite>Hongchan:</cite> I'm a spec editor for the Web Audio API <br>
+        ... ADC is a proposal, working on the design in the CG <br>
+        ... Want to collect feedback from industry experts <br>
+        ... ADC offers low level I/O, better access to the audio hardware, a dedicated scope that runs on a real time priority thread <br>
+        ... Why have a new API for audio? <br>
+        ... We want to close the app gap for audio <br>
+        ... All native platforms have low level audio APIs. What do we have on the web? <br>
+        ... Does Web Audio serve as a low level audio API? <br>
+        ... We're getting to a v1 Recommendation now <br>
+        ... When it was reviewed by TAG in 2013, feedback was around lack of extensibility <br>
+        ... You can't extend an AudioNode, also ScriptProcessorNode was broken <br>
+        ... So we came up with AudioWorklet, where you can write JS code for custom audio processing <br>
+        ... The most crucial improvement, we have isolation of audio processing code from the main JS thread <br>
+        ... Now seeing exciting things on the web, can easily use WASM code as well <br>
+        ... Developers now asking how to port to AudioWorklet <br>
+        ... Put WASM code into AudioWorklet and AudioWorkletNode <br>
+        ... This is a building block, part of the audio graph <br>
+        ... The limitation of the Web Audio API still applies, the render buffer size is 128 sample frames, less than 3ms at 44.1kHz <br>
+        ... Sensible for small building blocks like oscillators or filters, but not for an entire application such as a DAW <br>
+        ... Audio developers take advantage of AudioWorklet, SharedArrayBuffer, and ? <br>
+        ... The AudioWorklet is limited to 128 sample frames, so want to use Worker, can set up your own rendering, use the AW as an audio callback, and use a SAB <br>
+        ... The audio thread is higher priority, but the worker thread is low priority <br>
+        ... ADC is supposed to be the lowest layer, no redundant overhead, perfect for a WASM approach <br>
+        ... Gives you better access to hardware without affecting user privacy, free from Audio API limitations of fixed buffer size <br>
+        ... Layering of Web Audio on top of ADC <br>
+        ... We'll push for the idea of a real time priority thread for JS audio processing <br>
+        ... Game engines can take advantage of ADC for their audio code <br>
+        ... Unlocks many new large scale applications for audio <br>
+        ... You can configure hardware related properties, hardware delay, head mounted devices <br>
+        ... Also useful if you have custom WASM decoder for teleconferencing app <br>
+        ... Here's how to set up constraints (using capability an constraint pattern) <br>
+        ... You can set up sample rate, channel count, callback buffer size <br>
+        ... Pass to the capability function <br>
+        ... use addModule() to launch your processing code <br>
+        ... You can import an ES6 module, use it to process input and output buffers, from the audio hardware <br>
+        ... You can register your processing function, using setDeviceCallback() <br>
+        ... Core design issues discussed in the CG now, we want to discuss integration plans with WASM, Web Audio, WebRTC <br>
+        ... I talked with Chrome security team. Real-time thread doesn't introduce a problem <br>
+        ... Enabled via a flag in Chrome, want to collect feedback <br>
+        ... Initial feedback from testing is positive <br>
+        ... Mitigate by only allowing ADC to be enabled from a top level document <br>
+        ... <a href="https://github.com/WebAudio/web-audio-cg">https://github.com/WebAudio/web-audio-cg</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Navid:</cite> In Philippe's slides, there was an event loop with a queue. Do you have to ?
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> Where should the algorithm run? It's in a Web Worker generated by Emscripten, generated by the pthread emulation <br>
+        ... You could suffer from audio starvation. Still an issue, no clear answer
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Can you create Web Audio on top of ADC?
+        </p>
+
+        <p class='phone'>
+        <cite>Hongchan:</cite> Yes. We have some ideas there. Currently the AudioContext constructor doesn't have an option to set the ? <br>
+        ... Another idea is to have a getContext method
+        </p>
+
+        <p class='phone'>
+        <cite>Dave_Evans:</cite> Was there a reason that the ADC code uses a JavaScript file URL?
+        </p>
+
+        <p class='phone'>
+        <cite>Hongchan:</cite> We used the established pattern, may want to revisit that
+        </p>
+
+        <p class='phone'>
+        <cite>Dave_Evans:</cite> Preferable not to have to do as files, some kind of object
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> Important to isolate from the global scope, can do with files
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> Doing that, we're not trusting the web developer, shouldn't be too protective <br>
+        ... A lot of people share the pain, using createObjectURL from a Blob
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> As middleware developers, it's hard to ask clients to put a JS file on their server
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> People using bundlers to package their code, except one tiny file for the worker
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> SharedArrayBuffer is a common requirement
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> There's a cross browser plan, two new HTTP headers, cross origin embedding policy <br>
+        ... Opt in for subresources <br>
+        ... When both headers are set, we can enable SAB, so no hazard for spectre attack <br>
+        ... Had lots of cross browser iteration, implementations in Firefox nearing completion <br>
+        ... We'll enable in Nightly to get feedback
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Also enabling on mobile?
+        </p>
+
+        <p class='phone'>
+        <cite>Luke:</cite> Mobile has extra limits on number of processes you can create <br>
+        ... Could allow it to be enabled on mobile
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> Someone said web games are most popular on mobile right now
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> What are the plans for ADC?
+        </p>
+
+        <p class='phone'>
+        <cite>Hongchan:</cite> I want to talk about integration, it'll be useful for audio, but we want to talk about how to integrate with other parts of the web platform
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> To summarise, it seems audio is going in the right direction, from a gaming perspective. There are ongoing plans to solve some more advanced issues.
+        </p>
+
+        <h3 id="item04">Cloud Gaming</h3>
+
+        <h4 id="item05">Advancing the Gamepad specification</h4>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> director at Sony in PlayStation Division; PlayStation Now is our game streaming service <br>
+        ... will focus on gamepad as it relates to games on the Web <br>
+        ... How many of you have worked with the Gamepad API?
+        </p>
+
+        <p class='phone'>
+        [quite a few hands go up]
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> how many are satisfied with it?
+        </p>
+
+        <p class='phone'>
+        [one hand goes up]
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> that matches our own experience! <br>
+        ... we want to share some of the ideas we have to improve the situation <br>
+        ... Initially we tried to get our whole UI done through the Web layer - but the UI is controlled via a gamepad, and it turned out the gamepad API limitations prevented us from going that way <br>
+        ... when we realized that, we worked with other teams and consoles to see if there was interest in fixing this <br>
+        ... on the other side, we heard from the gamepad api creators that there wasn't enough demand to bring changes / momentum to the API <br>
+        ... we concluded we needed to help with the spec <br>
+        ... the Gamepad API in 2014 provided some basic gamepad functionality <br>
+        ... nothing has chanced since then <br>
+        ... it is still a WD, never made it to CR <br>
+        ... as we surveyed the group of users, we heard interest in the following changes: <br>
+        ... - standardize gamepad inputs <br>
+        ... there is variation both across controllers AND across browsers <br>
+        ... which makes it very complicated to use it <br>
+        ... - support for modern controller features, e.G. touch surfaces, light indicators, haptics, accelerometer, gyroscope <br>
+        ... We divided our work into 2 work streams: v1 is about finishing the current gamepad spec by bringing to Rec after bringing clarfiications and fixing privacy &amp; security aspects
+        </p>
+
+        <p class='phone'>
+        <a href="https://github.com/w3c/gamepad/issues">Issues on Gamepad API</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> v2 is about adding support for modern gamepad features <br>
+        ... for touchpad support, there is variation in shapes of the surfaces, support for single/multi-touch <br>
+        ... we have a proposal that is planned for implementation in Chrome and Firefox soon <br>
+        ... Another addition is for Light indicator <br>
+        ... this is more complicated than it may looked at first, and is key to guide users in how they detect active controllers <br>
+        ... we have a proposal <a href="https://github.com/w3c/gamepad/issues/67">https://github.com/w3c/gamepad/issues/67</a> <br>
+        ... planned for implementation in Chrome and Firefox <br>
+        ... I'm interested in feedback - is this the right direction? <br>
+        ... Thank you!
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> what about eventing?
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> we looked into it - some controllers are events-based, others are poll-based <br>
+        ... we aren't actively working in it - interesting in getting contributors
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> there are lots of ongoing conversation in WebXR around controller input <br>
+        ... What about round vs square pad? is that looked at in a different issue?
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> no, this is part of the proposal in issue 67 - please bring your input
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> what about haptics? it didn't appear in your v2 description?
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> Google is working on a proposal for haptics - will appear in the same repo
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> what about controller identification? user id? device id? <br>
+        ... how do you manage it in the gamepad api?
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> it's not clearly defined at the moment; the default is the first gamepad plugged is assigned to user 1, the second to player 2, <br>
+        ... what's less clear is what to do when a gamepad gets unplugged <br>
+        ... that isn't clearly defined yet in v1
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> but the identification is bound to the player number?
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> correct
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew:</cite> from an accessibility perspective, we would need button remapping, or use 2 controllers instead of 1 for ease of usage <br>
+        ... there is also the need to recognize other type of input as controllers, or consider new controllers such as the Xbox accessible controller
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> we looked at this at the product level, but haven't addressed this at the API level <br>
+        ... it's a bit tricky to manage button remapping at the gamepad API level - we still need to put more thoughts into this
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew:</cite> ideally, we wouldn't have to ask the game developers to have to deal with it, but be managed transparently
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> you mentioned light indicators - any work for controllers that include screens
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> not aware of this
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> a quick update on where WebXR is heading on this <br>
+        ... we have the notion of input source <br>
+        ... which can be a hand, a controller, etc <br>
+        ... we distinguish tracked and untracked input sources <br>
+        ... we expose the gamepad API as part of this input source <br>
+        ... one challenge is that VR controllers have a lot more diversity in their form factors <br>
+        ... we've converged toward a shared model with a hierarchy of interaction profiles, from most to least specific to enable fallback <br>
+        ... the InputSource object has a selectstart and selectend event <br>
+        ... we have an open issue about whether other buttons should trigger events - want to collaborate with the gamepad crew <br>
+        ... we're also building a registry of controller inputs
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> how dependent are you on the gamepad API?
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> we're using the interface and exposing it in the InputSource object - not as navigator.gamepads <br>
+        ... the way we structured it, we knew about changes coming to the gamepad API <br>
+        ... we can add additional properties to the InputSource as the gamepad API evolve and requires it
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> our controllers tend to be poll-based - how will you manage that?
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> data on controllers need to be bound to the particular pose of the player and its devices - sync is key <br>
+        ... so we need to align to an event model, and ask the UA to deal with polling to keep the event loop aligned with the display framerate
+        </p>
+
+        <h4 id="item06">Reducing the latency of inputs on the Web</h4>
+
+        <p class='phone'>
+        <cite>Navid:</cite> I'm about to talk about input latency in general, and how we're looking at reducing it <br>
+        ... it's particularly important in Cloud Gaming for which we want to reduce client side latency as much as possible
+        </p>
+
+        <p class='phone'>
+        <a href="https://docs.google.com/presentation/d/1MDAvEzBnllE9KYKGOTQyvCd55w2MlVMVW_tgHAfKakE/edit#slide=id.p">Reducing input latency on the web</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Navid:</cite> I'm part of the Chromium input dev team <br>
+        ... we're looking at making user interaction as smooth as possible, bringing new capabilities, and reducing developer pain points <br>
+        ... Today, I'll focus on latency of input but touch a bit on the 2 other aspects <br>
+        ... there are lots of sources of latency <br>
+        ... some come from how developers write their code e.g. long running tasks <br>
+        ... some come from how browsers work - either for architectural reasons, some for security or privacy reasons <br>
+        ... To help with developers-induced latency, we have guidelines on how to avoid these problems - e.g. requestIdleCallback, workers, or the new proposal isInputPending <br>
+        ... But I'm particularly interested in browser-induced latency <br>
+        ... for instance, browsers suppress touch events if you do screen touch in a small region (called slop region) because they need to detect whether this is a gesture or a scroll <br>
+        ... there are efforts to align user inputs with requestAnimationFrame <br>
+        ... efforts to move processing off the main thread eg. with worklets <br>
+        ... One source of latency is having workers and worklets but not having access to input events <br>
+        ... Workers have a very limited API surface <br>
+        ... you can delegate work off the main thread with workers and worklets <br>
+        ... but there is still the bottleneck that all the input still goes through the main thread <br>
+        ... Some animations aren't based on user input (e.g. time-based animations or scrolling) - I'll focus on those that depend on user input <br>
+        ... A few use cases: purely local gaming with offloading off the main thread, network-based streaming of games <br>
+        ... low-latency drawing, taking advantage of the offscreen canvas API that helps with rendering <br>
+        ... low-latency interactive audio - e.g. when playing audio based on user input <br>
+        ... or interactive animations based on user input <br>
+        ... [showing video] <br>
+        ... our goal is that when the main thread is under pressure, user input in a separate worker would still keep good performance <br>
+        ... so we want to duplicate or mirror user input into separate workers <br>
+        ... we have a proposed API - it focus on user input that are limited to a given target <br>
+        ... in that case, we could delegate events of a specific target to a separate worker <br>
+        ... with that approach, we can completely avoid blokcing the main thread thanks to the usage of the compositor <br>
+        ... as a result, we can push events to the network at no cost <br>
+        ... it's fully polyfillable from a functionality perspective (but of course not from a performance perspective) <br>
+        ... we are at the early stages of the design - we have an explainer on which we would like to get feedback <br>
+        ... we already had one question about gamepad - we may have to deal with it differently <br>
+        ... please get in touch if you're interested <br>
+        ... This was one of the topic - input on workers <br>
+        ... The other one is non-rAF aligned events <br>
+        ... today, browsers delay events until requestAnimationFrame - the assumption is that events only matter when display get updated <br>
+        ... as an optimization <br>
+        ... some apps may be sensitive to the more precise timeline, e.g. when shipping events to the network <br>
+        ... this has lead to this notion of high frequency update - available behind a flag in Chrome <br>
+        ... it's a potential performance footgun - we're using different event names to make clear of its potential impact <br>
+        ... I'm happy to hear about more sources of potential latency latency
+        </p>
+
+        <p class='irc'>
+        &lt;<cite>leonie</cite>&gt; <a href="http://bit.ly/reduce-input-latency">http://bit.ly/reduce-input-latency</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Kasper:</cite> if we get input in the worker with offscreencanvas, can we run the whole game engine out of the main thread?
+        </p>
+
+        <p class='phone'>
+        <cite>Navid:</cite> yes, that's the point
+        </p>
+
+        <p class='phone'>
+        <cite>Kasper:</cite> that's cool
+        </p>
+
+        <p class='phone'>
+        <cite>Myles:</cite> will that work on all Chrome platforms?
+        </p>
+
+        <p class='phone'>
+        <cite>Navid:</cite> in the Chrome architecture, our browser thread is always independent from individual renderer used by Web sites, which should help with dealing with that approach <br>
+        ... one more thing <br>
+        ... a couple of new input capabilities we're looking at <br>
+        ... Pointer Events v2 for better drawing features <br>
+        ... an addition to pointerlock to remove OS-accelerated events <br>
+        ... fancy mouse (e.g. 3D buttons) <br>
+        ... we really need feedback to justify these additions <br>
+        ... On developer points, we're working on reducing inconsistencies across browsers <br>
+        ... Gamepad is poll-based so has to be handled separately, incl for security reasons <br>
+        ... one problem with that is that you may easily miss a button press with that approach <br>
+        ... I also gave input to the sensor APIs
+        </p>
+
+        <h4 id="item07">WebCodecs &amp; WebTransport</h4>
+
+        <p class='phone'>
+        <cite>Peter:</cite> I work at Google on Chrome and have been involved in WebRTC <br>
+        ... want to talk about WebCodecs &amp; WebTransport that can help with cloud gaming <br>
+        ... 1st issue is that WebRTC is not a great fit for cloud gaming (although it can be used) <br>
+        ... likelwise, MSE is not great for cloud gaming <br>
+        ... Web sockets or RTC Data channels aren't a good fit either <br>
+        ... this has led to the design of these 2 new primitives I'll present <br>
+        ... you can think of WebRTC and MSE has two high-level APIs well suited for their use cases <br>
+        ... for cloud gaming, these high level APIs aren't goo enough of a fit; we could look at a dedicated cloud gaming API, but we thought going at low level APIs that would serve the purpose <br>
+        ... we've seen lots of feedback that a UDP-like API for client-server would go a long way <br>
+        ... Likewise, getting MSE to fulfill always-more-advanced codecs needs is going to be difficult <br>
+        ... this leads to the notion of looking at WebCodecs and WebTransports - similar to some of the primitives in OS (e.g. android) <br>
+        ... no particular challenge for Codecs <br>
+        ... for UDP, there are security challenges <br>
+        ... but QUIC to the rescue - QUIC is a new protocol that gives security, low latency congestion control, reliable and unreliable transport, serves as a basis of http3 and has already good library support <br>
+        ... It benefits games: faster loading, and more network resilient <br>
+        ... In the context of cloud gaming, HTTP3 is too high level - that's where Web Transport comes into play <br>
+        ... Streaming today can be done: <br>
+        ... - with WebRTC (ICE, DTLS, SRTP) - all the depacketizing/buffering/decoding/rendering is done entirely by the browser <br>
+        ... that makes it hard to use in a number of contexts and is limited by RTP <br>
+        ... one work around is to transmit it via the RTC data channel <br>
+        ... it remains hard to use in a client-server architecture, is not consistent across browsers <br>
+        ... Another approach is to use WASM to deal with the encoding and decoding, and transmit over WebSocket <br>
+        ... that's not ideal from a battery/CPU perspective - no access to hardware encoder/decoder <br>
+        ... We can do better <br>
+        ... WebTransport is based on QUIC, combines the advantages of datachannels and websockets with other benefits <br>
+        ... including ease of use in client/server architecture, with pluggable congestion control and a better API <br>
+        ... likewise, for codecs, with WebCodecs we can expose the features implicitly provided by MSE and WebRTC and expose them to the Web in a Web friendly way <br>
+        ... WebTransport is in origin-trial - we're looking for customers <br>
+        ... WebCodecs is less advanced - want to find interested parties to prioritize the work <br>
+        ... We're looking for customers and want to learn more about applicable use cases, and constraints of their use <br>
+        ... this isn't just applicable to Cloud Gaming, but applicable to gaming more broadly: low latency game state push, low latency game assets streaming, in-game comms, low-latency server-based machine learning, transcoding <br>
+        ... get new codecs support faster without waiting for browser implementations
+        </p>
+
+        <p class='phone'>
+        <cite>Steve:</cite> we (Sony) are definitely interested in both
+        </p>
+
+        <p class='phone'>
+        <cite>Chris:</cite> strong support from BBC as well <br>
+        ... what about synchronized events along your media stream
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> the metadata could be transmitted in whatever format you want <br>
+        ... and the app could control the synchronization when rendering via WebCodec
+        </p>
+
+        <p class='phone'>
+        <cite>Chris:</cite> we're working on a DataCue API - event messages delivered in a media container <br>
+        ... I'd like to be able to carry forward these requirements in that API
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> right now, the WebCodec API is below containers <br>
+        ... but all of this would be in the control of the application - they can implement these additions without having to wait for browser implementations
+        </p>
+
+        <p class='phone'>
+        <cite>Kelvin:</cite> for client-server, how far is the implementation on that? <br>
+        ... interest from other browser vendors?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> client-server: work hasn't started yet; you can emulate it with the current P2P implementation <br>
+        ... I have an almost-working demo for client/server <br>
+        ... wrt other browser vendors - Microsoft is very involved in WebTransport <br>
+        ... on WebCodecs, Paul from Mozilla is involved in the work
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> is transport a bottleneck in multi-user today?
+        </p>
+
+        <p class='phone'>
+        <cite>DaveEvans:</cite> have been desperate for UDP support - this looks very interesting
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> WebCodecs looks very interesting for us <br>
+        ... what about caching?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> this would not integrate with browser cache at all
+        </p>
+
+        <p class='phone'>
+        <cite>Bernard:</cite> but with HTTP3+QUIC, you get that for free
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> but not with WebTransport
+        </p>
+
+        <p class='phone'>
+        <cite>Philippe:</cite> I think it's important to keep the two API separate - we're interested in WebCodecs without necessiraly using WebTransports
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> would this be only in the main thread?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> for both of these is that they would work off the main thread <br>
+        ... that's a current limitation of WebRTC Data channel <br>
+        ... making these new APIs transferable should not be too much of an issue
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> how do you render the output of a WebCodec?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> one output is a MediaStreamTrack <br>
+        ... it could also be tied to WebAudio <br>
+        ... for video, it's more challenging for performance reasons
+        </p>
+
+        <p class='phone'>
+        <cite>Yang_Tencent:</cite> I'm wondering what's the difference with WebRTC from a gamer perspective?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> are you referring to media or data channel?
+        </p>
+
+        <p class='phone'>
+        <cite>Yang:</cite> both
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> for data channel (the closest thing to WebTransport), the differences are: <br>
+        ... - the protocol is QUIC rather than SCTP, which is easier to deploy on services and requires fewer RTT in establishment and has improved congestion control <br>
+        ... and it can be used off the main thread <br>
+        ... Compared to WebRTC media stack, all the media/transport is tightly coupled <br>
+        ... with WebTransprot and WebCodec we decouple this and provide a lot more flexibility, which is needed for Cloud Gaming <br>
+        ... this work started in the context of WebRTC NV (Next Version)
+        </p>
+
+        <p class='phone'>
+        <cite>Yang:</cite> is this used in Stadia?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> [no comment] <br>
+        ... WebTransport is incubated in the WICG <br>
+        ... WebCodecs is looking for expression of support - might land in the MediaWG
+        </p>
+
+
+        <h3 id="item08">Gender inclusiveness in localization</h3>
+
+        <p class='phone'>
+        <cite>Francois:</cite> We are going to talk about localization <br>
+        ... and diversity and inclusion; two topics in one <br>
+        ... how you localize your games and how do you adapt an inclusive perspective <br>
+        ... we are going to talk about that, have a short discussion, and then break for lunch
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> Gabriel Tutone. We are with Keywords Studios <br>
+        ... we supply many support needs
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> Elina Bytskevich. Our goal is to raise awareness and have an educated debate <br>
+        ... we want to make sure we reach everyone, and that everyone is reflected <br>
+        ... What does "genderize" mean? <br>
+        ... dictionary definition vs. other systems in practice
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> 6,900 languages; different grammatical gender
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> What is gender inclusive language? <br>
+        ... gender neutrality should be used when gender is unknown or indeterminable <br>
+        ... in gender languages, the male gender language was the default <br>
+        ... but more recently academics are using gender neutral language <br>
+        ... There have always been female gaming players <br>
+        ... Let's see what developers have done
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> First example is The Sims <br>
+        ... in Sims 4 they removed binary gender descriptions <br>
+        ... characters can choose how to dress, and how characters behave <br>
+        ... Fallen London has a new approach for choosing gender <br>
+        ... instead of option to use gender, they asked for address <br>
+        ... which may not match how they want to address <br>
+        ... Sunelss Sea <br>
+        ... use of neutrality in gender <br>
+        ... how do we introduce 'gender-inclusive' language? <br>
+        ... In English there are some options; but not so much in other languages when there are gender-specific names <br>
+        ... Some solutions would be duplicating gender structures in the source files <br>
+        ... this adds more strings <br>
+        ... could also consider using different sentence structures <br>
+        ... to avoid gender-specific references
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> Let's see how languages are doing with inclusivity <br>
+        ... In French, gender-inclusive nouns have been created <br>
+        ... a more popular solution from what I see online <br>
+        ... is people add an agenda ending between two full stops <br>
+        ... such as cher.e.s ami.e.s <br>
+        ... In German you can use an asterisk <br>
+        ... In Russian, it becomes more complicated <br>
+        ... we have three genders: masculine, feminine and neutral <br>
+        ... it is challenging to work around <br>
+        ... linguists typically use second person plural <br>
+        ... If I translate the sentence, 'yesterday I found a nice cake recipe' <br>
+        ... it is difficult to translate into Russian in a neutral way <br>
+        ... professional names may refer to women <br>
+        ... but in Russian it would only be masculine or feminine
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> In Spanish, masculine refers to groups <br>
+        ... the characters cannot be pronounced or reproduced in text to speech which is problematic for people with disabilities <br>
+        ... In LGBT in Italian it is common use to replace the a and o in some words <br>
+        ... I have not seen this much in common language, but it is used in LBGT and hopefully its usage will expand <br>
+        ... Like Spanish there is the possibility to use @ to indicate plural <br>
+        ... but if it's used for every word, the text would be full of symbols
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> Using non-gender terms is not inclusive <br>
+        ... for developers, adding strings is more time consuming <br>
+        ... gender inclusive language is not supported in text to speech
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> We have not overcome challenges to localization <br>
+        ... we would like to find some solutions for gender localization <br>
+        ... some companies have programs to actively avoid gender biases <br>
+        ... with more women and non-binary people, we need to be more reflective <br>
+        ... thank you
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Many thanks for the presentation. Any feedback from people who have had experience in localization?
+        </p>
+
+        <p class='phone'>
+        <cite>Christian:</cite> It's more about use of the language <br>
+        ... when I talk to you, I wonder why this is really necessary? <br>
+        ... sometimes, it's annoying in German <br>
+        ... when you use not the asterisks but use both words <br>
+        ... then text to speech becomes unlistenable to me
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> you are mentioning that it feels unnatural to read the language and official documents <br>
+        ... You want to make sure that the player feels included in the game <br>
+        ... good to start to advance in language and localized text <br>
+        ... make sure the player feels like player is part of being the protagonist
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> Thank you for this eye-opening presentation <br>
+        ... there is an interesting tension between gender inclusiveness and accessibility, particularly with pronunciations <br>
+        ... that is way beyond games and the web <br>
+        ... I wonder if you know of any local or global effort in turning this written form into pronounceable one <br>
+        ... there is a W3C effort to make certain words more pronounceable <br>
+        ... I guess it could be a way to broaden the useag <br>
+        ... but they need to exist. Is anything happening?
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> The language is not right there <br>
+        ... we need time before the language catches up <br>
+        ... discussions about gender inclusiveness <br>
+        ... traditionally, there have been forums and web discussions <br>
+        ... and how the written language evolved <br>
+        ... a couple days ago I read an interesting article on how to represent the written language in the speech <br>
+        ... there was no way in Russian <br>
+        ... unfortunately it sounds bizarre <br>
+        ... need to say the actor and the actress <br>
+        ... need to say both for inclusiveness
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> A lot of formal academic languages are dictated by academies <br>
+        ... and some of them are behind <br>
+        ... the modern day thinking and cultural age <br>
+        ... I don't know of any particular associations that are trying to push it through <br>
+        ... languages are always evolving <br>
+        ... will be interesting to see how language evolve to include gender neutral options
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> Discussions have been happening in small, marginal groups, but today people are becoming more and more familiar <br>
+        ... I think it's a matter of time <br>
+        ... Russian is dated by 1968 <br>
+        ... it has not changed, but it's time
+        </p>
+
+        <p class='phone'>
+        <cite>Bjorn, King:</cite> Add to inclusiveness and diversity in games
+        </p>
+
+        <p class='phone'>
+        <cite>scribe:</cite> good that we care and think about this actively <br>
+        ... at Kind we are very conscious about this <br>
+        ... we collaborated with MIT game lab <br>
+        ... and identified diversity in avatars <br>
+        ... and Activision Blizzard and we found blind spots in the diversity of the characters <br>
+        ... it si more challenging with text to speech <br>
+        ... we should not ignore it
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> We see this happening
+        </p>
+
+        <p class='phone'>
+        <cite>Indira:</cite> back to '80s sounding strange <br>
+        ... like chairman to chair <br>
+        ... have to start somewhere, and games is good place to start
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> My Mom teaches English and she asked me why this is important <br>
+        ... they don't understand why this is an important topic <br>
+        ... this is an important moment so that people will be more aware and learn to be more inclusive
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> I expect there are some folks who may be uncomfortable with this topic <br>
+        ... this feeling of feeling uncomfortable may be similar to the feeling of those who do not feel included <br>
+        ... challenge to put forth <br>
+        ... is that you express a reaction that you don't like it <br>
+        ... but maybe there would be people willing to speak up if your reaction is not to shut down those conversations
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> Follow-up to question I asked earlier <br>
+        ... the web has played a role in getting more understanding in the needs of gender-less communities <br>
+        ... LGBTQA communities <br>
+        ... wonder if there is an opportunity for the technical world to help by making it easier to distribute new language, localization patterns <br>
+        ... idea of how to promote the adoption of these new conventions <br>
+        ... I don't have a specific proposal <br>
+        ... but seed I am trying to plant is whether this approach could help to simplify this <br>
+        ... fuzzy but pointing at a direction
+        </p>
+
+        <p class='phone'>
+        <cite>Elina:</cite> What I can think of <br>
+        ... on any given webform <br>
+        ... you are asked to mention your gender or not <br>
+        ... a good point for languages to start to use phrasing that is accurate for the gender chosen <br>
+        ... If there is a question, 'have you ever been to a tropical country?' this would refer to me as a woman
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> Many languages use masculine as the default <br>
+        ... we are more focused on the localization aspects; make it gender-neutral in translation
+         <br>
+        ... cannot think of anything on the technological side
+        <p class='phone'>
+        <cite>Elina:</cite> Add more variables and more strings <br>
+        ... so the proper forms are used dependent upon the contexts <br>
+        ... first pronunciations
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> we don't know how to pronounce these forms
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew, Paciello Group:</cite> This has been very enlightening<br>
+        ... in terms of accessibility <br>
+        ... I know W3C is doing something in pronunciation <br>
+        ... I think one of the specs has gone into consensus <br>
+        ... but I will definitely look into it
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> someone just took an action <br>
+        ... One thing I forgot to say: when I was researching the topic on localization <br>
+        ... I chatted with i18n people at W3C and they pointed me to the editors of the Multilingual magazine<br>
+        ... whom had just published an issue on games.<br>
+        ... They put me in touch with several authors, including Keyword Studios. Thanks for that!<br>
+        ... They also sent some copies of the magazines, which you'll find at the back of the room. Please help yourself.
+        </p>
+
+        <p class='phone'>
+        <cite>Gabriel:</cite> If you want to read further
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> yes, the article is there
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> many thanks for this talk and for the discussion
+        </p>
+
+        <h3 id="item09">Breakout Sessions</h3>
+
+        <p class='phone'>
+        <cite>Francois:</cite> We have eight topics and three rooms <br>
+        ... we will divide this main meeting room into two; two groups in parallel <br>
+        ... you can move tables around <br>
+        ... Here's how it's going to work <br>
+        ... You will have 50 minutes per break-out sessions <br>
+        ... and 10 minutes in between to switch rooms <br>
+        ... I will ask each breakout session to take notes <br>
+        ... you can create a channel on irc, such as #games-@ <br>
+        ... or if you want to use another system, Google docs, and Office document is fine <br>
+        ... you have to take notes so that we know what you have been talking about <br>
+        ... Eight topics <br>
+        ... First one is 3D controls <br>
+        ... Three rooms: Stinger is this room to be divided into two <br>
+        ... Origami is room we had yesterday <br>
+        ... Discoverability and Monetizaiton clinic; two in one <br>
+        ... Second on networking and games, web assembly Q&amp;A in this room <br>
+        ... Gandolf <br>
+        ... threats is first session; web games in hosted apps, such as Facebook instant games, Baidu <br>
+        ... what it means <br>
+        ... third room is session on audio and 3D controls on the web <br>
+        ... possibility of a 3D element <br>
+        ... take a photo <br>
+        ... First session starts five minutes from now 1:05 to 1:55 <br>
+        ... second session 2:05 to 2:55 <br>
+        ... and then we come back to this room <br>
+        ... and each individual session reports outcomes of their discussions for two minutes each <br>
+        ... is that clear for everyone <br>
+        ... Ready, set, go
+        </p>
+
+        <h4 id="item11">More 3D Controls</h4>
+
+        <p class='phone'>
+        <cite>Yasushi:</cite> Want a way to have 3D on the web be declarative <br>
+        ... to know what models look like <br>
+        ... explore how using web components how to do <br>
+        ... augemented reality; see what are next steps to do tag that is native in the browser <br>
+        ... browser rendering not JS <br>
+        ... run natively and run as many <br>
+        ... see where the benefits are <br>
+        ... this was first time we started to see what approach... <br>
+        ... seeing and comparing <br>
+        ... to the 3D elements <br>
+        ... how to go from there <br>
+        ... what we did not know <br>
+        ... there was not a W3C person; not sure what the next steps are <br>
+        ... Khronos also was there...how to make the models look the same <br>
+        ... some other groups discussing <br>
+        ... how a tag should look; features it should have <br>
+        ... next steps were not clear
+        </p>
+
+        <p class='phone'>
+        <cite>Neil:</cite> we wondered if a liaison might be interesting <br>
+        ... super open to collaboration with W3C <br>
+        ... our processes are pretty open <br>
+        ... have. a common discussion with web case and standard glTF
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> W3C is usually pretty open to that; usually constraints come from the other side, e.g. because we work in public.
+        </p>
+
+        <h4 id="item12">Discoverability and Monetization</h4>
+
+        <p>See the <a href="https://www.w3.org/2018/12/games-workshop/breakouts/monetization.html">minutes of the breakout session</a>.</p>
+
+        <p class='phone'>
+        <cite>Tom Greenaway:</cite> The idea was to think about ways that the open web can take inspiration from the closed ecosystems like WeChat and Baidu<br/>
+        ... and improve monetization and discoverability of games <br>
+        ... we discussed embedded metadata formats <br>
+        ... to allow developers to describe and declare the capabilities of their games <br>
+        ... or an open web cataglogue of games, to filter, etc. <br>
+        ... or maybe metadata to communicate what that game is about, a video or gif <br>
+        ... almost like a trailer for the game <br>
+        ... on the monetization front
+        </p>
+
+        <p class='phone'>
+        <cite>Tom Greenaway:</cite> a few different sides <br>
+        ... limiting the spending of users <br>
+        ... parents can spend money on credit card to have funds put aside <br>
+        ... limit how much money they can spend <br>
+        ... gaps with different advertising models <br>
+        ... like rewarded video ads <br>
+        ... and rediscoverability of ads and the trust users have in games <br>
+        ... that user trust determines whether they are wiling to spend or not <br>
+        ... anything else anyone from group wants to raise?
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> On discoverability <br>
+        ... what the video games and schema.org discussed? <a href="https://schema.org/VideoGame">https://schema.org/VideoGame</a>
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> yes, existing discovery on schema.org was discussed <br>
+        ... it's more about a game, the facts related to any sort of game and the properties that exist <br>
+        ... but don't describe the input times; more about game director, who made the music <br>
+        ... but won't help with filtering or categorizing games <br>
+        ... game genre is not included
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> capabilities as well
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> yes, input types <br>
+        ... you could declare this game requires touch or keyboard and mouse <br>
+        ... device, an open web catalogue could filter
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> And monetization schemes as well?
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> yes, the scheme could say which monetization is available
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> And are there things that already exist, like in App Stores?
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> Do App stores have a common vocab? <br>
+        ... yes, AppStore, Google Play Store have existing vocabularies <br>
+        ... someone raised that maybe those are too restricted; be more extensible <br>
+        ... many more ways to describe a game; maybe a tagging model <br>
+        ... whether game requires connectivity; monetization more straight forward
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Thank you
+        </p>
+
+        <h4 id="item13">Web Games in Hosted Apps</h4>
+
+        <p>See the <a href="https://www.w3.org/2018/12/games-workshop/breakouts/hosted-apps.html">minutes of the breakout session</a>.</p>
+
+        <p class='phone'>
+        <cite>Ping:</cite> Baidu Smart Game is a new kind of game emerging <br>
+        ... with standard programming language <br>
+        ... power is rendering provided by the super apps<br>
+        ... new kind of game emerging in mobile ecosystems<br>
+        ... special but very common; has special details <br>
+        ... we discussed the design and implementation part of this native rendering of this JS binding <br>
+        ... and also audio files system <br>
+        ... we discussed with Facebook about the rendering <br>
+        ... how to get better @ <br>
+        ... and provide flexible, programmable APIs with developers <br>
+        ... today we don't get out many new inputs <br>
+        ... for this specification <br>
+        ... but we wil summarize more and get more <br>
+        ... our experience in this run-time implementation <br>
+        ... and new needs from our end users <br>
+        ... such as record audio, service workers and web assembly <br>
+        ... we also support distribution of native apps <br>
+        ... and support <br>
+        ... and new AI framework was discussed <br>
+        ... we proposed a new web AR <br>
+        ... much to do with this kind of APIs, implementations and user scenarios <br>
+        ... this was today's discussion
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Anyone want to add something <br>
+        ... I attended part of this session <br>
+        ... the games run in a hosted app <br>
+        ... there are things you cannot do there that you can do in the web environment <br>
+        ... and converserly <br>
+        ... some of the new [super] APIs could be brought to the web; that could be interesting
+        </p>
+
+        <p class='phone'>
+        <cite>Ping:</cite> We are compatible with web specifications <br>
+        ... run time, JS execution, binding framework <br>
+        </p>
+
+        <h4 id="item14">Threads</h4>
+
+        <p>See the <a href="https://www.w3.org/2018/12/games-workshop/breakouts/threads.html">minutes of the breakout session</a>.</p>
+
+        <p class='phone'>
+        <cite>David:</cite> complexity of web worker <br>
+        ... may be stuff we can use <br>
+        ... web assembly <br>
+        ... inimitable <br>
+        ... sharable <br>
+        ... using it from the thread <br>
+        ... discussed idea <br>
+        ... if we can make a web worker without making a file <br>
+        ... and use the coding thread <br>
+        ... import, like library from main thread <br>
+        ... that is the discussion we had; pretty interesting <br>
+        ... see what's next <br>
+        ... questions?
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> what are the next steps?
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> I don't know <br>
+        ... we have a lot of motivation
+        </p>
+
+        <h4 id="item14-2">Networking and Games</h4>
+
+        <p>See the <a href="https://www.w3.org/2018/12/games-workshop/breakouts/networking.html">minutes of the breakout session</a>.</p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> We discussed if the web transport API is useful <br>
+        ... discussion that it would be, mainly in a client/server context <br>
+        ... both for @ and cloud gaming <br>
+        ... VR <br>
+        ... discussion on how to transition from web sockets to web transport and what polyfils could look like there <br>
+        ... some advanced discussion on congestion control <br>
+        ... how web app can customize that <br>
+        ... web codecs <br>
+        ... use it more easily synchronize it <br>
+        ... with video things
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Any ideas in mind?
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> control over when things render <br>
+        ... specify when things render at the same times
+        </p>
+
+        <h4 id="item14-3">Audio</h4>
+
+        <p class='phone'>
+        <cite>Paul:</cite> For audio we started talking about <br>
+        ... device clients <br>
+        ... lots of control on audio processing <br>
+        ... pipeline <br>
+        ... explain where context is not the fastest way to do things <br>
+        ... talked about why and how we will make it work with WASM <br>
+        ... such a big request from vendors <br>
+        ... we then continued to engage with web transport and web codecs people <br>
+        ... how those three APIs would be used together to form a coherent solution <br>
+        ... such as @ network, games, reimplement <br>
+        ... emphasis was on performance <br>
+        ... then we talked about needs for XR, VR <br>
+        ... mostly about positional audio <br>
+        ... talks about whether or not it is feasible to create a credible solution for high fidelity solution for <br>
+        ... Omnitone <br>
+        ... and various things about input <br>
+        ... real immersion <br>
+        ... also talked a bit about solution to offload parts of the processing to hardware <br>
+        ... specialized for audio ore more general purpose <br>
+        ... I think that's it <br>
+        ... take-away is <br>
+        ... at the end of the web API, now we are gathering use cases and figuring out solutions <br>
+        ... make sure all APIs play nice with others out there
+        </p>
+
+        <h4 id="item15">Web Assembly</h4>
+
+        <p>See <a href="https://www.w3.org/2018/12/games-workshop/breakouts/wasm.html">notes taken during the breakout session</a>.</p>
+
+        <p class='phone'>
+        <cite>Mathias:</cite> we talked about Web Assembly <br>
+        ... and we talked about suggestion to when we create new APis, we create with Web Assembly in mind <br>
+        ... @ and object management <br>
+        ... user can keep control over memory <br>
+        ... talked about memory mapping Web Assembly <br>
+        ... nothing got on yet <br>
+        ... talked about the obfuscation and protection of assets; WA doesn't do anything here <br>
+        ... web crypto might be something for game devs to use <br>
+        ... run time <br>
+        ... code being able to unlock resources to protect assets <br>
+        ... nothing WA specific <br>
+        ... are there resources for 'regular' web developers to start using Web Assembly <br>
+        ... example was going through C <br>
+        ... how do regular JS coders jump into it <br>
+        ... Assembly Script was a suggestion <br>
+        ... exceptionality is coming in WA <br>
+        ... discussion about shared array buffer <br>
+        ... and is there feature detection <br>
+        ... some currently, but might change <br>
+        ... load and time or efficiency for the modules <br>
+        ... question where is WA assembly in loading and shared libraries <br>
+        ... recent changes have paved the way for load time dynamically <br>
+        ... @6 module <br>
+        ... another question how to do cross-origin sharing to save loading time <br>
+        ... slight discussion on caching <br>
+        ... recap from yesterday's talks <br>
+        ... lastly, there was a question if there is a different cost calling from JS to WA <br>
+        ... blog post with recent benchmark numbers; should be very fast. Hope to provide link to that blog post <br>
+        ... that covers it
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Thank you <br>
+        ... interesting that it's in your session that you discussed asset protection, which was raised yesterday <br>
+        ... I don't see any solution proposals <br>
+        ... more about using tools you have
+        </p>
+
+        <p class='phone'>
+        <cite>Mathias:</cite> Current state of things I guess
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> and some thinking ahead <br>
+        ... thank you for this summary
+        </p>
+
+        <h4 id="item16">Accessibility Clinic</h4>
+
+        <p class='phone'>
+        <cite>Matthew:</cite> We did not do much of a clinic <br>
+        ... but we discussed a few different things <br>
+        ... Some general questions how blind people play beat 'em up games <br>
+        ... talked about authoring tool access <br>
+        ... consuming of content is great but creating is better <br>
+        ... work going on in that respect, last week, the Unity team conveyed how to make games more accessible <br>
+        ... some big interest in authoring tool access which is great <br>
+        ... we talked about things that came up yesterday <br>
+        ... how to provide some form of accessibility, UI focus <br>
+        ... how we might look into that <br>
+        ... note the issues and opps arising from inclusive language talk earlier today <br>
+        ... Acess people may already be aware of those things <br>
+        ... there is work going on that might be helpful there <br>
+        ... we talked about interesting, innovative projects in XR <br>
+        ... MS produced Seeing VR <br>
+        ... allows to do some forms of accessibility for XR <br>
+        ... things like processing that just work <br>
+        ... color filters <br>
+        ... post processing effects <br>
+        ... as developer, more in way of semantics <br>
+        ... in scenes you can guide users around... <br>
+        ... outline things of interest, use higher contrast, use a line to guide people to the right place <br>
+        ... loads of stuff being done in XR that is very exciting <br>
+        ... also talked about progression of awareness of accessibility; gone from 'what is it' to 'how do I do it' <br>
+        ... and many console games have at least one accessibility feature, from changing text <br>
+        ... to use audio, spacial audio, higher contrast features like taht <br>
+        ... a lot of progress being made <br>
+        ... even cloud streaming games, cross device, XR <br>
+        ... real opportunities there <br>
+        ... plenty of things that I have learned from this workshop over the past two days <br>
+        ... thanks for everybody <br>
+        ... all the talks were very interesting <br>
+        ... if anyone has questions about accessibility, please contact me via my Twitter account
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> thank you for the report <br>
+        ... that concludes the break-out sessions <br>
+        ... we will break for 15 minutes and then we will conclude the workshop <br>
+        ... and we will ask you what we do now; different options.. <br>
+        ... see if there is agreement, and see if there are people who are interested to do the letter <br>
+        ... and writing a letter to Santa Claus... <br>
+        ... then we will wrap up <br>
+        ... short break; back at 3:55
+        </p>
+
+        <h3 id="item17">Next steps for standardization</h3>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Different types of groups at W3C.<br>
+        ... CGs are open to all, for preliminary technical work <br>
+        ... BGs are open to all, for business requirements<br>
+        ... IG are for W3C members, set roadmaps for a technology space (Media &amp; Entertainment, Payments)<br>
+        ... Could we have a Games IG? <br>
+        ... Actual standardisation happens in WGs, strong royalty free policy <br>
+        ... We'll review the topics from the workshop. Options:<br>
+        ... 1. do nothing, if we don't have the right people, or if it's already covered <br>
+        ... 2. want to refine scope, could happen in a BG or IG to look at use cases and requirements <br>
+        ... 3. For an understood technical problem, incubate in a CG, new or existing <br>
+        ... 4. when there's a solution with some support, move to standardisation, charter a WG <br>
+        ... Who's willing to support, drive the work, participate? <br>
+        ... First topic: Threading, e.g., PromiseTask proposal, sharing objects between threads, worker creation that takes a function
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> Useful to write up typed objects proposal, problem in WASM for GC language support, useful primitives
+        </p>
+
+        <p class='phone'>
+        <cite>David:</cite> Where to take worker creation with a function?
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> likely WHATWG, but useful to write it up first, then we can determine where it goes <br>
+        ... could bring to a Game IG or CG?
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> That makes us jump directly to the last thing I wanted to cover<br>
+        ... What do we do next with games per se? Do we want to create a community around game for use cases and requirements at W3C?<br>
+        ... There's an inactive games CG, we could make a games IG, if people are willing to participate <br>
+        ... That could be a natural home for writing such proposals, then take to WHATWG, TC39, W3C, etc.<br>
+        ... Show of interest in a games activity at W3C? <br>
+        ... [20 or so] <br>
+        ... That's a good score. Interesting. I'll reach out to you after the workshop to evaluate that possibility then.<br>
+        ... Web Assembly: Debugging, DWARF proposal. There's already a CG and WG, so no need for more structure, just want to input to those <br>
+        ... DWARF: Please contribute to the CG <br>
+        ... Garbage collection? <br>
+        ... everything covered already <br>
+        ... 3D rendering: universal textures, second-gen PBR <br>
+        ... Interest in glTF and how it integrates to the Web <br>
+        ... Semantic level for glTF, have dialog between Khronos group and W3C <br>
+        ... Then, the 3D model viewer
+        </p>
+
+        <p class='phone'>
+        <cite>Neil:</cite> An action is to set up a simple liaison between Khronos and W3C
+        </p>
+
+        <p class='phone'>
+        <cite>Nell:</cite> File an issue in the Immersive Web repo to start discussion on the web side <br>
+        ... There's people already interested in that, in the CG, so makes sense to start there
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> WebGPU, going in the right direction, it's needed. Discussed shading language, can we usefully say something?
+        </p>
+
+        <p class='phone'>
+        <cite>Myles:</cite> Useful to gather evidence, use cases, bring to the WebGPU CG <br>
+        ... We're already gathering use cases in the CG, individual input welcome <br>
+        ... Universal support for a WG/CG model, similar to Immersive Web
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> So the workshop can voice our general support <br>
+        ... Asset loading. Status of background fetch?
+        </p>
+
+        <p class='phone'>
+        <cite>Andrew:</cite> It's in WICG, Google actively working on it, don't know if other intents to implement yet
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Useful to flag our support for background fetch <br>
+        ... Caching of common libraries. No solution there, there are privacy issues. What needs to be discussed further?
+        </p>
+
+        <p class='phone'>
+        <cite>Kasper:</cite> It's straightforward on our platform, needs engine support. Discussion among engines on how to support <br>
+        ... If engine code isn't coupled to game code, can optimise by reusing
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> So nothing to do there <br>
+        ... Best practice for games developers. A games IG could do that. Who's interested? <br>
+        ... [2 or 3] <br>
+        ... It's doable, but needs a lot of investment
+        </p>
+
+        <p class='phone'>
+        <cite>@@4:</cite> A lot of it is engine specific
+        </p>
+
+        <p class='phone'>
+        <cite>Diego:</cite> Also include MDN people, the place developers would go
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Storage
+        </p>
+
+        <p class='phone'>
+        <cite>Andrew:</cite> Game developers are interested in defining mulitple buckets. No API proposals yet <br>
+        ... It's a mishmash of WHATWG and Service Workers. IndexedDB in Web Apps WG? <br>
+        ... I'll take this and raise the issues with people. Need to figure out how to expose the buckets
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Accessibilty. Mapping between native assistive APIs and AOM <br>
+        ... Alignment already exists. When rendering content in a canvas, AOM the equivalent of ARIA for non-DOM content <br>
+        ... Educating developers <br>
+        ... Web IDL bindings from native code to AOM. The take away is we have some things already in place, but needs further exploration
+        </p>
+
+        <p class='phone'>
+        <cite>Matthew:</cite> Early prototyping could be done using Rust, which has the bindings <br>
+        ... Looks to be the most concrete thing to do first, then I'll send suggestions to the APA WG, which reviews specs and give advice to other groups <br>
+        ... The issue of pronunciation is more W3C, there's a Task Force, may be in there, I can raise it there
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Audio. OutputLatency mentioned as not supported
+        </p>
+
+        <p class='phone'>
+        <cite>Raymond:</cite> It's in the spec, not implemented yet
+        </p>
+
+        <p class='phone'>
+        <cite>Michel:</cite> Audio driver selection, on Windows, can have multiple drivers in the OS. Some applications need low latency driver <br>
+        ... Not necessarily related to the Web Audio spec, useful to have a way to know if the right driver is installed for low latency
+        </p>
+
+        <p class='phone'>
+        <cite>Raymond:</cite> Audio Device Client is in the Audio CG, people active on it
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> People can join the CG to help it progress
+        </p>
+
+        <p class='phone'>
+        <cite>Raymond:</cite> We have a proposed solution, but need input from participants to tell us if it meets the needs for a low level audio interface
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> SharedArrayBuffer support. There's an agreed path to a solution. Our report can emphasise the need for SAB <br>
+        ... High priority threads. Anything to capture?
+        </p>
+
+        <p class='phone'>
+        <cite>Raymond:</cite> May not need to be standardised, could be a quality of implementation issue. It just need to be made safe <br>
+        ... This will be in Web Worker spec, not part of audio spec
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Gamepad inputs. The gamepad spec hasn't evolved, but help needed, in Web Apps WG <br>
+        ... Call to action, to give support, or contribute to get additional features <br>
+        ... Alignment with WebXR, need communication between the two groups <br>
+        ... Input latency. Allow inputs in workers: addEventTarget(), also non-rAF aligned input events
+        </p>
+
+        <p class='phone'>
+        <cite>Navid:</cite> pointerrawupdate is already being discussed <br>
+        ... Input in workers, WICG incubation, we need partners, first users to give feedback, can use origin trial
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Streaming
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> WebTransport is in WICG, the p2p version is in an origin trial in Chrome, if people want to experiment
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> We had expressions of support, people more interested in client/server than peer to peer <br>
+        ... WebCodecs, synchronisation.
+        </p>
+
+        <p class='phone'>
+        <cite>Peter:</cite> There's a <a href="https://discourse.wicg.io/t/webcodecs-proposal/3662">Discourse post on WebCodecs</a>, show support there to get it to WICG
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Localisation. We discussed pronunciation, Matthew following up <br>
+        ... Discoverability and monetisation: a vocabulary or schema?
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> I'd really like to expore that <br>
+        ... Could resurrect the video game schema CG, not active
+        </p>
+
+        <p class='phone'>
+        <cite>Dom:</cite> Rewarded ads are missing?
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> The payments WG is focused on checkout and transactions, maybe for another group
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> There's a payments BG <br>
+        ... could be a natural home for that topic
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> I can look into that
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> 3D controls, a possible 3d model viewer element. The immersive Web CG would be a good first home for that <br>
+        ... Set up a lightweight liaison with Khronos group <br>
+        ... Web games in hosted apps. A game activity in W3C could be useful, there's already discussion on hosted apps in the Chinese IG <br>
+        ... They'll bring that discussion to wider W3C <br>
+        ... We have some support for creation of a game activity. I'll contact some of you to see who's willing to drive this, we'd need a Chair <br>
+        ... This takes time, drafting a Charter, getting approval to create an IG <br>
+        ... Should we have future events? Generally we have workshops as one-off events <br>
+        ... Interest in meeting again? <br>
+        ... [about 25] <br>
+        ... What didn't we cover? <br>
+        ... Asset protection? Can discuss in a game activity
+        </p>
+
+        <p class='phone'>
+        <cite>Ricardo:</cite> Platforms such as Steam provide multi-user, peer to peer, if you want to do a multi-user game you need WebRTC, hard to set up servers etc. Want this provided as a service, so you can focus on making the game
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> What does that require?
+        </p>
+
+        <p class='phone'>
+        <cite>Ricardo:</cite> Main issue is with WebRTC you can make a p2p connection, but doesn't work between home and corporate. Needs infrastructure, TURN <br>
+        ... Playstation and Steam ecosystems provide this, so you don't have to do it yourself
+        </p>
+
+        <p class='phone'>
+        <cite>Tom:</cite> Is this a standardisation issue, or a service that needs providing?
+        </p>
+
+        <p class='phone'>
+        <cite>Ricardo:</cite> More about having a service, it's a big missing piece
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Any other topics?
+        </p>
+
+        <p class='phone'>
+        <cite>Binh:</cite> We make games for children, in Europe we have GDPR, requires consent, but children can't give consent <br>
+        ... Useful to discuss more
+        </p>
+
+        <p class='phone'>
+        <cite>Edgar:</cite> Experiences will be VR and AR, need to keep this in mind. Maybe not ready yet
+        </p>
+
+        <p class='phone'>
+        <cite>Francois:</cite> Good point. We didn't emphasize XR in this workshop because we already ran other workshops on XR.<br>
+        ... Please use your contacts to build the community
+        </p>
+
+        <h3 id="item18">Wrap Up</h3>
+
+        <p class='phone'>
+        <cite>David:</cite> Thank you very much for coming. I'm proud of what we've done here
+        <p>[End of minutes]</p>
+      </p>
+      </div>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard. Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
