@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mapping games users and designers needs to technologies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "../media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="../index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a href="../agenda.html">Agenda</a>
+          </li>
+          <li>
+            <a href="../papers.html">Position statements</a>
+          </li>
+          <li>
+            <a href="../participants.html">Participants</a>
+          </li>
+          <li>
+            <a href="../report.html">Report</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="../media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          Platinum Sponsors
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="../media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>Mapping games users and designers needs to technologies</h2>
+
+<p><em>This workshop session was part of the <a href="../report.html">Workshop on Web games</a>. Report written by Indira Knight.</em></p>
+
+<section>
+  <h3 id="summary">Summary</h3>
+  <p>The “mapping games users and designers needs to technologies” workshop was designed to get participants to think about specific users needs and how they could be fulfilled with web games technologies. The user groups were touch/haptics researchers, UX designers, gamers, hardware developers and serious games designers(educational and therapeutic applications), all groups who could be using web game technologies. The outputs of the workshop are a matrix, and series of speculative design ideas. The matrix shows the user groups and ideas that could help them. The speculative design looked at how these groups could be using the web in the future, and what would need to be implemented for this to happen.</p>
+
+  <p>Themes have been identified from the outputs of the workshop. One of the biggest themes was around APIs with suggestions for new APIs or extending existing ones for example the Gamepad API. Social/collaborative was another large theme with suggestions such as creating an open source social graph, permission based access for friends and a proximity API. Other themes include metadata, standards, latency, documentation and UI.</p>
+
+  <p>The speculative design ideas are varied but there were a few that would give the user more agency. For example being able to easily disconnect from touch, and having an open source natural language processing. There were also ideas around having 3D model texture and temperature as material properties, native support for 3D in the browser, and expanding the access to instrumentation and tooling for performing UX studies in the browser. The documents produced from this workshop can be analysed further to find practical solutions that fulfil these user groups needs.</p>
+</section>
+
+<section>
+  <h3 id="workshop">The Workshop</h3>
+  <p>The workshop was run in three groups and had two parts. The first part was to create the matrix. This was done by giving participants 2 minutes per user group to solo brainstorm solutions for that user. For the second part of the workshop, participants chose which user group they wanted to work on and in groups discussed how that user would be using the web in 3 years time. They thought about the use but also what would need to be in place to get there. There was time at the end of the workshop to feedback their groups solutions to the whole group.</p>
+
+  <p>The analysis of the workshop is in three sections. Section one is the speculation on future uses. The second section is the thematic analysis of the solo brainstorming of users needs to technologies. The third section is a matrix of the solo brainstorming.</p>
+
+  <h3 id="speculation">Speculation on future uses</h3>
+  <p>This was the final part of the workshop, participants chose which user group they wanted to work on and those groups discussed how the user would be using the web in 3 years time. They thought about the use but also what would need to be in place to get there.</p>
+
+  <section>
+    <h4 id="touch">Touch/Haptics</h4>
+
+    <section>
+      <h5>Idea</h5>
+      <p>Thought about full body haptics and the need for parental/safety controls. There could be an API for this, so you could choose a body part and send a signal to describe the touch. There should be a kill switch, so the person can abort the touch, disconnect from it.</p>
+    </section>
+
+    <section>
+      <h5>Idea</h5>
+      <p>Higher level APIs (3D model tog) 3D model texture and temperature as material properties. WebXR extensions, VR controller gloves vibrate at positions, could heat up if hardware supported it. Vibration vest - like audio channel? Custom hardware of hid (usb/bluetooth)</p>
+    </section>
+  </section>
+
+  <section>
+    <h4 id="ux">UX design</h4>
+
+    <section>
+      <h5>Idea</h5>
+      <p>Web XR is like the early days of mobile web, it was initially hard to prototype for the mobile web, there needs to be a sketch for the VR experience. There needs to be a way to edit in AR and VR, drag and drop, tooling will need to change. There needs to be a polyfill approach to explore different ideas, then turn that into solid tooling</p>
+    </section>
+
+    <section>
+      <h5>Idea</h5>
+      <ul>
+        <li>Stylus/touch/voice interface - natural behaviours -> digital objects</li>
+        <li>Native support for 3D in the browser</li>
+        <li>Visual programming king/libraries for creation, easy (non-programmers), consistent across platforms</li>
+        <li>Open source library of objects/pre-fabs</li>
+        <li>Visual “language” for creating/assigning behaviours</li>
+        <li>Common/central repository - github equivalent + standards</li>
+      </ul>
+    </section>
+
+    <section>
+      <h5>Idea</h5>
+      <p>Future Designer Needs:</p>
+      <ul>
+        <li>Near future: Expanding Speech APIs to include the ability to give the browser commands.  This would give the Designer the ability to quickly map phrases to actions in a game.</li>
+        <li>Near future: Expanding the access to instrumentation and tooling for performing UX studies in the browser.  Designers need the ability to capture and analyze massive amounts of input data while a player tests a game.  This would require the browser to expand the permission model for accessing and storing data that could fingerprint a user. This would need to be behind a launch flag or something that a user would have to take direct action to turn on. Tooling should include eye tracking via the webcam, cursor tracking, touch tracking, game pad input tracking, etc etc.</li>
+        <li>Somewhere between now and the near future: Give designers the ability to prototype and test new interfaces via a declarative interaction model similar to A-Frame. The UX designer would be able to declare which objects are interactive and which aren’t. Declare if an object can be grabbed, touched, picked up, static, etc etc. (This led to a discussion about the SMIL 3.0 spec and how we could borrow from it)</li>
+        <li>New future: Rethink text inputs and standardize mobile inputs in web games.</li>
+      </ul>
+    </section>
+  </section>
+
+  <section>
+    <h4 id="gamers">Gamers</h4>
+
+    <section>
+      <h5>Idea</h5>
+      <p>There is already the technology available for the wants of the gamers. The gamers want better content so there needs to be incentives to build better games.</p>
+
+      <p>The strength of the web is that is is a good place for a social experience. At the moment social graphs are proprietary (e.g. Facebook). For web games there would need to be an open source social graph for gamers to be able to play with friends.</p>
+    </section>
+
+    <section>
+      <h5>Idea</h5>
+      <ul>
+        <li>Webassembly - bridging the gap to streaming “cloud gaming”</li>
+        <li>Open XR - breaking walls down between traditional gaming “20” “side scroller” “30” “VR”, could be the same game with different forms of deployment</li>
+      </ul>
+    </section>
+  </section>
+
+  <section>
+    <h4 id="hardware">Hardware developer</h4>
+
+    <section>
+      <h5>Idea</h5>
+      <p>Need low level access exposed in the browser and device level interfaces. It would be good to have a standard so different devices can be linked, so people using a hololens can interact with people using a phone. A way of mapping values between devices</p>
+    </section>
+  </section>
+
+  <section>
+    <h4 id="serious">Serious games (educational, therapies and treatments)</h4>
+
+    <section>
+      <h5>Idea</h5>
+
+      <p>Be able to get virtual hugs in the future or have adaptive early learning tools. The developer community and the public should be made more aware of this area and the potential for development in this area. There needs to be machine learning API’s, Open speak API’s (natural language processing NLP). Currently NLP is controlled by big companies such as Google or Microsoft, there is space for an open version that can be easily used in web projects</p>
+    </section>
+  </section>
+</section>
+
+<section>
+  <h3 id="themes">Themes</h3>
+  <p>While putting ideas from the brainstorming into the matrix themes started to appear. There is a short write up of some of these themes below, followed by a full list of themes. Some of the ideas overlap between themes, so they have been added were they are more specific.</p>
+
+  <section>
+    <h4 id="haptics">Haptics</h4>
+    <p>One of the main themes for haptics was having a standard format for the different touch experiences from the hardware, so there can be standards for remapping touch. Another theme was around meta data  for example 3D file formats could include data about how haptics should feel for an object, and also a data format or schema for consensual interactions.</p>
+    <p>There were a lot of suggestions for haptics API’s, either looking to extend existing API’s such at the Gamepad API or WebXR or creating a new haptics API, or a generic sensor API that can be used for rapid prototyping with pressure, vibration etc.</p>
+  </section>
+
+  <section>
+    <h4 id="social">Social and collaborative games</h4>
+    <p>There were thoughts on how gamers could play with friends, a couple of the suggestions were an open source social graph or accessing phone contacts go make social gaming possible without the need for interaction with social network.</p>
+  </section>
+
+  <section>
+    <h4 id="machinelearning">Machine Learning</h4>
+    <p>There were a lot of suggestions on API’s, there are a couple of larger sub themes in the API theme which are connected , a machine learning API and a speech API, which could include machine learning.</p>
+  </section>
+
+  <section>
+    <h4 id="networks">Networks</h4>
+    <p>Peer to Peer and WebRTC mentioned a few times. Frictionless login/single sign on across browsers/devices also mentioned.</p>
+  </section>
+
+  <section>
+    <h4 id="testing">Testing</h4>
+    <p>There were some ideas around testing including creating unique URLs for each game level/location(for quick debugging. It was suggested that web game platforms would have to provide more QA to ensure quality.</p>
+  </section>
+
+  <section>
+    <h4 id="list">Theme list</h4>
+
+    <dl>
+      <dt>Haptic API</dt>
+      <dd>A haptic API that can send a signal and describe a touch:
+        <ul>
+          <li>Intent oriented actions API</li>
+          <li>How to translate sensor data into a specific type of haptic event? Need for haptic definitions, e.g. light touch, rapid movement, squeeze/pinch</li>
+          <li>API for haptics support with standardized interface to selectively enable/disable remap body zones</li>
+          <li>Extension to WebXR device API</li>
+          <li>Need for generic sensor API for rapid prototyping, pressure, vibration, IR</li>
+          <li>Flexible abstraction of app intents to available physical devices
+            <ul>
+              <li>Portable to different systems</li>
+              <li>Future proof</li>
+              <li>Implemented/defined in OpenXR</li>
+              <li>Vibration API window.navigator.vibration Haptics.js</li>
+              <li>API to drive touch/feeling hardware</li>
+              <li>API to get sensor readings of hand position</li>
+              <li>Google’s vibration extension for gamepad API</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+
+      <dt>Other API’s</dt>
+      <dd>
+        <ul>
+          <li>Touchscreen API</li>
+          <li>Projection mapping API support. Let browsers expose depth mapped surface</li>
+          <li>Cache API’s for speed up shader and JIT runs</li>
+          <li>PWA Really just need a better supported gamepad API no room for AAA exp</li>
+          <li>Create events API emulating hardware events to JS</li>
+          <li>Generic Web <-> IOT device interaction API/protocol that can work with any device long term</li>
+          <li>Standardised phone sensor API</li>
+          <li>Scalability APIs make it simple to scale from 10s of players to 10,000s of players</li>
+          <li>Web Proximity API</li>
+          <li>Virtual controls portability API</li>
+        </ul>
+      </dd>
+
+      <dt>Bluetooth</dt>
+      <dd>
+        <ul>
+          <li>Bluetooth/wireless protocols access (expand WebUSB) (haptics)</li>
+          <li>Make USB and bluetooth available in browsers. Maybe other devices via I2C, I2A etc</li>
+          <li>Bluetooth API + WebXR</li>
+        </ul>
+      </dd>
+
+      <dt>Social/collaborative</dt>
+      <dd>
+        <ul>
+          <li>An open source social graph (currently available through social networks)</li>
+          <li>API to access phone contacts go make social gaming possible without the need for interaction with social network</li>
+          <li>Interactive design of VR app in VR ‘Tiltbrush for experiences’ multi user over the web</li>
+          <li>Design tools that supports moving, resizing, locking, text, action linking for collaborative design</li>
+          <li>Quickly implementing shared states between instances of the game basically multiplayer with IPFS
+            <ul>
+              <li>P2P data channel</li>
+            </ul>
+          </li>
+          <li>Use WebRTC data channels</li>
+          <li>Permission based access for  friends, list to invite others to games</li>
+          <li>P2P networking w/discovery</li>
+          <li>Open social graph</li>
+          <li>QUIC support for webRTC</li>
+          <li>Proximity API?</li>
+        </ul>
+      </dd>
+
+      <dt>Speed</dt>
+      <dd>
+        <ul>
+          <li>Fast content delivery</li>
+          <li>Layered caching system</li>
+          <li>Proper threading for AAA experience</li>
+        </ul>
+      </dd>
+
+      <dt>Machine Learning</dt>
+      <dd>
+        <ul>
+          <li>Open source NLP
+            <ul>
+              <li>Better voice activation for VR</li>
+            </ul>
+          </li>
+          <li>Use machine learning to read design sketches and convert to DIVs</li>
+          <li>Expand the ability to utilize on device machine learning. ML without a library</li>
+          <li>Shared machine learning models</li>
+          <li>Speech recognition and speech synthesis API
+            <ul>
+              <li>Speech recognition API</li>
+              <li>Open speech API’s</li>
+              <li>NLP on the web, would need device level access to NLP API’s</li>
+            </ul>
+          </li>
+          <li>Web API’s to encode and upload media to a server for ML processing and then download + decode + play
+            <ul>
+              <li>ML API’s</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+
+      <dt>Prototyping</dt>
+      <dd>
+        <ul>
+          <li>VR/AR - Tooling needs to change, start with polyfill approach to explore ways to create prototypes, then turn that into solid tooling</li>
+          <li>A declarative behavior standard
+            <ul>
+              <li>High level declarative 3D language</li>
+            </ul>
+          </li>
+          <li>Sharing environments</li>
+          <li>Scratch like editor</li>
+          <li>Open database of 3D positioning data for AR</li>
+          <li>Modular event system with custom controls</li>
+          <li>File format for UX that could be integrated into content creation tools with 2D &amp; 3D support</li>
+          <li>Draw pictures and it turns into HTML</li>
+          <li>A-Frame gesture/voice to 3D object</li>
+          <li>Primitive toolkit</li>
+        </ul>
+      </dd>
+
+      <dt>Metadata</dt>
+      <dd>
+        <ul>
+          <li>Description of touch</li>
+          <li>Metadata to declare hardware requirements for a web game</li>
+          <li>Meta data to declare what inputs a game needs to be playable?</li>
+          <li>Data format or schema for consensual interactions</li>
+          <li>Haptic cloud</li>
+        </ul>
+      </dd>
+
+      <dt>Sensors</dt>
+      <dd>
+        <ul>
+          <li>Smell sensors</li>
+          <li>Low cost facial expression sensors</li>
+          <li>Communication with personal health devices (fitbit etc)</li>
+          <li>Communication with IoT devices</li>
+        </ul>
+      </dd>
+
+      <dt>Interactions</dt>
+      <dd>
+        <ul>
+          <li>Voice UI</li>
+          <li>Neural UI</li>
+        </ul>
+      </dd>
+
+      <dt>Controllers</dt>
+      <dd>
+        <ul>
+          <li>Physical objects that serve as a bridge between reality and VR</li>
+          <li>Warmth from controllers</li>
+        </ul>
+      </dd>
+
+      <dt>Game Engines</dt>
+      <dd>
+        <ul>
+          <li>Export to web xr from engines/tools</li>
+        </ul>
+      </dd>
+
+      <dt>Testing</dt>
+      <dd>
+        <ul>
+          <li>Instrumentation for real time play testing feedbacks i.e. eye tracking, cursor tracking, input tracking</li>
+          <li>Unique URLs for each game level/location (for quick debugging)</li>
+          <li>Game platform would have to provide more QA to ensure quality (similar to console development)</li>
+          <li>Tools and distribution system built into the browser or VR</li>
+        </ul>
+      </dd>
+
+      <dt>Standardization</dt>
+      <dd>
+        <ul>
+          <li>Standardized virtual avatars</li>
+          <li>Standardize the way web games are packaged</li>
+          <li>Standardized texture format</li>
+          <li>Open standard for social multiplayer games? I.e. data format that can describe a turn in a game?</li>
+          <li>3D avatar file format (VRM?)</li>
+          <li>Voice interaction language for a given app (voice xml?)</li>
+          <li>3D file formats could include data about how haptics should feel for an object?</li>
+          <li>Standards on inspector/debug exposed to lib/engine/tool</li>
+          <li>Standardised volume controls</li>
+          <li>Real emphasis on standardizing mobile device APIs</li>
+          <li>Security concerns vs service PWA is the solution, external sensor GPIO like standard API (pi/?)</li>
+        </ul>
+      </dd>
+
+      <dt>Ease of use</dt>
+      <dd>
+        <ul>
+          <li>Add icon to home screen pop up on first visit
+            <ul>
+              <li>Better web support for “downloading an app to your homescreen</li>
+            </ul>
+          </li>
+          <li>Improve wireless technology to support greater freedom of movement</li>
+          <li>Localized
+            <ul>
+              <li>Browser level cross device progress saving</li>
+            </ul>
+          </li>
+          <li>Persistence and storage improvements</li>
+          <li>Easy cloud save for cross device game portability</li>
+          <li>Frictionless login/single sign on across browsers/devices
+            <ul>
+              <li>Login/sign in as fast as platform</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+
+      <dt>Development</dt>
+      <dd>
+        <ul>
+          <li>Tools to simulate old device tech</li>
+        </ul>
+      </dd>
+
+      <dt>Offline</dt>
+      <dd>
+        <ul>
+          <li>Offline, spec to declare all files necessary i.e. a manifest</li>
+          <li>Use service workers for offline gaming</li>
+          <li>PWA offline caching of game assets</li>
+        </ul>
+      </dd>
+
+      <dt>Audio</dt>
+      <dd>
+        <ul>
+          <li>Music composition tools targeting web audio</li>
+          <li>Audio feedback</li>
+          <li>Accurate sound to reinforce haptics - iPhone clack on keyboard</li>
+        </ul>
+      </dd>
+
+      <dt>Models/3D</dt>
+      <dd>
+        <ul>
+          <li>Enable automatic reconstruction of actual locations using existing street view databases</li>
+          <li>Work with WebML CG</li>
+          <li>Need 3D library of assets to supply creators with to be able to create environments quickly and for custom situations</li>
+          <li>Procedurally generated environments from simple input but detailed enough for believability</li>
+          <li>Figma like 3D canvas rather than artboard
+            <ul>
+              <li>Figma plugin for VR to design HUDs</li>
+            </ul>
+          </li>
+          <li>Real time mesh reconstruction is an issue on low end devices</li>
+          <li>Could you leverage existing web/graphics APIs to deliver customisable “prefabs” (house, cafe, etc)</li>
+          <li>Higher level asset/3D model/3D CSS for client-side customization</li>
+          <li>Asset database for rapid prototyping</li>
+        </ul>
+      </dd>
+
+      <dt>Frameworks</dt>
+      <dd>
+        <ul>
+          <li>Rewriting input class of most popular frameworks</li>
+        </ul>
+      </dd>
+
+      <dt>Latency</dt>
+      <dd>
+        <ul>
+          <li>Low latency device communicating</li>
+          <li>High bandwidth/low latency, high frequency communication protocol for full body haptic feedback in WebXR: I.E. 100+ channels of haptic control</li>
+          <li>Low latency network API</li>
+          <li>Web API for low-latency transmission of touch data “I tickle you at location x”</li>
+        </ul>
+      </dd>
+
+      <dt>Protocols</dt>
+      <dd>
+        <ul>
+          <li>Portability: Standard format for hardware to describe its inputs/outputs for haptics, therefore allowing standard remapping</li>
+          <li>Haptic web platform. Expose “mapping” functionality for arbitrary events/hardware, like game keyboard mapping.</li>
+        </ul>
+      </dd>
+
+      <dt>User</dt>
+      <dd>
+        <ul>
+          <li>Open source documentation of the user requirements</li>
+          <li>Opt in on the web platform (output haptics)</li>
+          <li>Ownership of virtual objects</li>
+        </ul>
+      </dd>
+
+      <dt>Machine Learning</dt>
+      <dd>
+        <ul>
+          <li>On device speech recognition</li>
+          <li>Local ML models</li>
+          <li>ML for character models to give users agency</li>
+          <li>ML via WebGPU or Web ML</li>
+        </ul>
+      </dd>
+
+      <dt>Designing</dt>
+      <dd>
+        <ul>
+          <li>VR UX sandbox sketch like</li>
+          <li>Maquette - 3D UI using blobs</li>
+        </ul>
+      </dd>
+
+      <dt>Monetization</dt>
+      <dd>
+        <ul>
+          <li>Make them pay for the production costs of making good games</li>
+          <li>Monetization API</li>
+          <li>Web payments API - micro transactions</li>
+        </ul>
+      </dd>
+
+      <dt>Documentation</dt>
+      <dd>
+        <ul>
+          <li>A clear timeline for specs
+            <ul>
+              <li>When will specs be stable</li>
+              <li>When will them be impl-ed</li>
+              <li>What is the commitment of the vendors so far</li>
+              <li>Easier to make plan/investment</li>
+            </ul>
+          </li>
+          <li>Provide a mapping of the user iterations and the existing APIs, find out whats missing, whats possible and what is not</li>
+        </ul>
+      </dd>
+
+      <dt>Accessibility</dt>
+      <dd>
+        <ul>
+          <li>Debugging accessibility inspecting contrast/font size</li>
+          <li>A11Y</li>
+        </ul>
+      </dd>
+
+      <dt>Data</dt>
+      <dd>
+        <ul>
+          <li>Easy integration of real-life data sources</li>
+          <li>Data API</li>
+        </ul>
+      </dd>
+
+      <dt>Privacy/Security</dt>
+      <dd>
+        <ul>
+          <li>Account management authorization user IO</li>
+          <li>Auth and ID services?</li>
+          <li>Granular storage controls with user involvement</li>
+        </ul>
+      </dd>
+    </dl>
+  </section>
+</section>
+
+<section>
+  <h3 id="matrix">Matrix</h3>
+
+  <dl>
+    <dt>Existing APIs/technologies</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Integration with haptic feedback in game pad</li>
+              <li>Google’s vibration extension for gamepad API</li>
+              <li>Further extension to gamepad API</li>
+              <li>Generic sensor API</li>
+              <li>Flexible abstraction of app intents to available physical devices</li>
+              <li>Portable to different systems</li>
+              <li>Future proof</li>
+              <li>Implemented/defined in OpenXR</li>
+              <li>3D file formats could include data about how haptics should feel for an object?</li>
+              <li>Gamepad API extended to include haptics</li>
+              <li>Vibration API window.navigator.vibration Haptics.jsPhone vibrations on touching interactive dom objects</li>
+              <li>Web RTCExisting web audio as a means to generate signals over timeWeb USB, HID standoutBluetooth, web bluetooth</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Use A-Frame entity component system it’s HTML-ish too!</li>
+              <li>Instrumentation for real time play testing feedbacks i.e. eye tracking, cursor tracking, input tracking</li>
+              <li>Better voice activation for VR</li>
+              <li>Cooperation in web</li>
+              <li>High level declarative 3D language&nbsp;</li>
+              <li>Figma plugin for VR to design HUDs</li>
+              <li>Recognition API speechBetter use case desci</li>
+              <li>Better classify games - mini game, cloud gaming, highly IA games</li>
+              <li>Middleware for ? in 3D space</li>
+              <li>Self consciousness proprioperception&nbsp;</li>
+              <li>Use gamepad APIs</li>
+              <li>Audio feedbackVR </li>
+              <li>UX sandbox sketch like</li>
+              <li>Amazon Sumerian - how to create fast mock-ups in VR</li>
+              <li>Unique URLs for each game level/location(for quick debuggingUnity and A-FrameBabylon.jsDomain of toolsLive edit REPL</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td>
+            <ul>
+              <li>PWA</li>
+              <li>Quickly implementing shared states between instances of the game basically multiplayer with IPFS</li>
+              <li>Add icon to home screen pop up on first visit</li>
+              <li>WASM threads</li>
+              <li>Use WebRTC data channels</li>
+              <li>Use service workers</li>
+              <li>Social platform abstraction</li>
+              <li>P2P data channel&nbsp;Low latency network API</li>
+              <li>Better home screen support</li>
+              <li>Easy to access immersive gaming on mobile web</li>
+              <li>PWA</li>
+              <li>Make them pay for the production costs of making good games</li>
+              <li>Send gamers to appropriate category and quality of games through discoverability</li>
+              <li>Web payments API - micro transactions&nbsp;</li>
+              <li>Granular storage controls with user involvement</li>
+              <li>Federated Auth/IDUDP support?</li>
+              <li>WebRTC peer to peer coms</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>Expand WebUSB</li>
+              <li>Expand and standardize mobile sensor access</li>
+              <li>All for greater access to low level devices with low latent connections</li>
+              <li>Allow low level integration with microcontrollers (WebUSB, Web Serial)WebRTC</li>
+              <li>Presentation API</li>
+              <li>Bluetooth API + WebXR</li>
+              <li>Just give them bluetooth access</li>
+              <li>Generic Web &lt;-&gt; IOT device interaction API/protocol that can work with any device long term</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td>
+            <ul>
+              <li>Voice interaction language for a given app (voice xml?)</li>
+              <li>Speech interaction as default way</li>
+              <li>Conversational design</li>
+              <li>Associate musical tones with numbers and letters to help young children learn current tech</li>
+              <li>Speech recognition and speech synthesis API</li>
+              <li>User avatar for browsers</li>
+              <li>Medical students learning how to perform surgeries through AR environments</li>
+              <li>Universal design</li>
+              <li>On device speech recognition</li>
+              <li>Local ML modelsVR UX sandbox sketch likeWeb RTC</li>
+              <li>Could you leverage existing web/graphics APIs to deliver customisable “prefabs” (house, cafe, etc)</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table></dd>
+    <dt>Desired APIs/technologies</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Bluetooth/wireless protocols access (expand WebUSB)</li>
+              <li>High bandwidth/low latency, high frequency communication protocol for full body haptic feedback in WebXR: I.E. 100+ channels of haptic control</li>
+              <li>Portability: Standard format for hardware to describe its inputs/outputs for haptics, therefore allowing standard remapping&nbsp;</li>
+              <li>Real Time feedback visualization with graphical representation</li>
+              <li>Neural UIAPI for haptics support with standardized interface to selectively enable/disable remap body zones</li>
+              <li>Low level game input API</li>
+              <li>Haptic web platform. Expose “mapping” functionality for arbitrary events/hardware, like game keyboard mapping.</li>
+              <li>Haptics controller vibration based on audio signal</li>
+              <li>API to drive touch/feeling hardwareAPI to get sensor readings of hand position</li>
+              <li>Web API for low-latency transmission of touch data “I tickle you at location x”</li>
+              <li>Provide a mapping of the user iterations and the existing APIs, find out whats missing, whats possible and what is not</li>
+              <li>Extension to WebXR device API</li>
+              <li>Introduce higher level API for animated haptics eventsUniversal haptics API</li>
+              <li>Universal 6DoF controller Web API</li>
+              <li>Bluetooth API + driver registry</li>
+              <li>Vibration API, fake forceNeed for generic sensor API for rapid prototyping, pressure, vibration, IR</li>
+              <li>Minimum interaction requirementHaptics portablility device to device</li>
+              <li>Opt in on the web platform (output haptics)</li>
+              <li>Abstracted definitions of a ‘touch’Identifying devices - commercial devices XBox controller, custom devices, API for input devices</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Modular event system with custom controls</li>
+              <li>AI</li>
+              <li>File format for UX that could be integrated into content creation tools with 2D &amp; 3D support</li>
+              <li>Design tools that supports moving, resizing, locking, text, action linking for collaborative design</li>
+              <li>Improve keyboard interaction on mobile games</li>
+              <li>Improve augmented reality out of screen (hologram)</li>
+              <li>Interactive design of VR app in VR ‘Tiltbrush for experiences’ multi user over the web</li>
+              <li>Use machine learning to read design sketches and convert to DIVs</li>
+              <li>Figma like 3D canvas rather than artboard</li>
+              <li>Standards on inspector/debug exposed to lib/engine/toolNode graphs</li>
+              <li>Maquette - 3D UI using blobs</li>
+              <li>Primitive toolkitVisual programming e.g. Twine, scratch</li>
+              <li>Front-end GameUI prototyping tool</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td>
+            <ul>
+              <li>Low level game input API</li>
+              <li>Voice UI</li>
+              <li>Hardware store for easy discovery</li>
+              <li>Easy interaction</li>
+              <li>Permission based access for&nbsp; friends, list to invite others to games</li>
+              <li>Test responsive websites to view across many devices</li>
+              <li>PWA offline caching of game assets</li>
+              <li>Standardized texture format</li>
+              <li>Web GPU</li>
+              <li>Meta data to declare what inputs a game needs to be playable?</li>
+              <li>Offline, spec to declare all files necessary i.e. a manifestOpen standard for social multiplayer games? I.e. data format that can describe a turn in a game?</li>
+              <li>Music composition tools targeting web audio
+              </li><li>Cache API’s for speed up shader and JIT runs</li>
+              <li>Browser level cross device progress saving</li>
+              <li>P2p networking w/discovery</li>
+              <li>Proper threading for AAA experience</li>
+              <li>Better web support for “downloading an app to your homescreen</li>
+              <li>Standardised volume controls</li>
+              <li>PWA </li>
+              <li>Really just need a better supported gamepad API </li>
+              <li>no room for AAA exp</li>
+              <li>PWA + easy p2p (webRTC) service</li>
+              <li>Devs provide better more clearly timelines for the exisitng tech f.ex, gamepad API, webGPU touch events API</li>
+              <li>PWA - game engine a la Unity3D sounds + UX should be dealt by the game engine</li>
+              <li>Gamers don’t play on phones?</li>
+              <li>Need better locomotion rather than teleport</li>
+              <li>Web Proximity API</li>
+              <li>Invisible links</li>
+              <li>Virtual controls portability API</li>
+              <li>Monetization</li>
+              <li>Monetization API</li>
+              <li>Ownership of virtual objects</li>
+              <li>Account mgmt authorization user IO</li>
+              <li>security/privacy</li>
+              <li>Fingerprinting can infer a lot of potentially private user data</li>
+              <li>Easy cloud save for cross device game portability&nbsp;</li>
+              <li>Open social graphAuth and ID services?</li>
+              <li>Frictionless login/single sign on across browsers/devicesLogin/sign in as fast as platform</li>
+              <li>QUIC support for webRCTPWA offline</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>A11Y</li>
+              <li>Web GP10 API</li>
+              <li>Metadata to declare hardware requirements for a web game</li>
+              <li>Smell sensors in games</li>
+              <li>Low cost facial expression sensor, probably AI driven making VR video conferencing actually productive, read reactions</li>
+              <li>Create events API emulating hardware events to JS</li>
+              <li>Make USB and bluetooth available in browsers. Maybe other devices via I2C, I2A etcPWA + multiuser + standard hardware</li>
+              <li>Proximity API?Standardised phone sensor API</li>
+              <li>Enhanced permissions when installed native</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td></td>
+        </tr>
+      </tbody>
+    </table></dd>
+    <dt>Game engines</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Represent new interaction in game</li>
+              <li>Intent oriented actions API</li>
+              <li>Rewriting input class of most popular frameworks</li>
+              <li>How to translate sensor data into a specific type of haptic event? Need for haptic definitions, e.g. light touch, rapid movement, squeeze/pinch</li>
+              <li>Visual programming through game engine (Unity?) editor</li>
+              <li>Accurate sound to reinforce haptics - iPhone clack on keyboard</li>
+              <li>Warmth from controller</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Export to web xr from engines/tools</li>
+              <li>Declarative behaviour standard</li>
+              <li>Geocached</li>
+              <li>Sharing of environments</li>
+              <li>Engine or library fits needsNiche tools for each use case</li>
+              <li>Sketching interactive patterns</li>
+              <li>Sketching interaction using sketching to create interactive prototype</li>
+              <li>Draw pictures and it turns into HTML</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td>
+            <ul>
+              <li>Tools to simulate old device tech</li>
+              <li>Demo games</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>A clear timeline for specs</li>
+              <li>When will specs be stable</li>
+              <li>When will them be implmented</li>
+              <li>What is the commitment of the vendors so far</li>
+              <li>Easier to make plan/investment</li>
+              <li>Input === output</li>
+              <li>Tracking precision will be different between devices - hololens vs mobile phone</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td>
+            <ul>
+              <li>Speech -&gt; WebMLRemote server</li>
+              <li>Local ML</li>
+              <li>Work with WebML CG</li>
+              <li>Open source documentation of the user requirements</li>
+              <li>Hardware limitations drives game design</li>
+              <li>Tethered vs untetheredInside out tracking vs outside In</li>
+              <li>Optimization is key - Frame drops &amp; hitches could increase anxiety</li>
+              <li>ML Models for interactions need to be created to allow users to have agency in approaching a situation</li>
+              <li>PrefabsCross platform game design for variable hardware access</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table></dd>
+    <dt>Game platforms</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Haptic cloud</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Scratch like editor</li>
+              <li>Open database of 3D positioning data for AR</li>
+              <li>Do it all in tools</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td>
+            <ul>
+              <li>Fast and easy logging in and authenticating</li>
+              <li>Blockchain</li>
+              <li>Cloud gaming</li>
+              <li>Fast content deliver</li>
+              <li>Layered caching system</li>
+              <li>Standardization of virtual avatars</li>
+              <li>Facial expression detection and remote avatar expressions on twitch like multi user experiences</li>
+              <li>API to access phone contacts go make social gaming possible without the need for interaction with social network</li>
+              <li>Standardize the way web games are packaged</li>
+              <li>Game platform would have to provide more QA to ensure quality (similar to console development)</li>
+              <li>Shared context content</li>
+              <li>Art asset portability, game to game</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>Real emphasis on standardizing mobile device APIs actually too slow</li>
+              <li>Security concerns vs service PWA is the solution, external sensor GPIO like standard API (pi/?)</li>
+              <li>Real time mesh reconstruction is an issue on low end devices</li>
+              <li>Sensor differences between web enabled devices needs custom calibration for tracking</li>
+              <li>Web compatibility vs specific capability vs privacy</li>
+              <li>Low level hardware port access for design</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td>
+            <ul>
+              <li>Big enough library of recorded words for text-to-speech</li>
+              <li>localized</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table></dd>
+    <dt>Additional hardware</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Air puff</li>
+              <li>User can “read” content on the page using haptic feedback, letter, images, translate into vibrations</li>
+              <li>Low latency device communicating</li>
+              <li>Gloves</li>
+              <li>Sensors within a baby’s crib to monitor vitals</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Physical objects that serve as a bridge between reality and VR</li>
+              <li>VR prototypes</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>Hardware API standardisation - H/W manufacturers conform to USB-HID standard</li>
+              <li>Optical user interfaces</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td>
+            <ul>
+              <li>Improve wireless technology to support greater freedom of movement</li>
+              <li>Chip implants/biotech</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table></dd>
+    <dt>Other</dt>
+    <dd><table>
+      <thead>
+        <tr>
+          <th>User group</th>
+          <th>Needs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Touch/Haptics research</th>
+          <td>
+            <ul>
+              <li>Controllers</li>
+              <li>Images</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>UX designers</th>
+          <td>
+            <ul>
+              <li>Physical objects that serve as a bridge between reality and VR</li>
+              <li>VR prototypes</li>
+              <li>3D model viewer with places you can “tap” and it will change to another model (like 2D tools)</li>
+              <li>Use mouse inside VR for fast and precise interactions</li>
+              <li>Easy showing and previewing of prototypes</li>
+              <li>A-Frame gesture/voice to 3D object</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Gamers</th>
+          <td>
+            <ul>
+              <li>Make platform more attractive to AAA devsPersistence and storage improvements</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Hardware developers</th>
+          <td>
+            <ul>
+              <li>iOS broke the trust</li>
+              <li>Push for exp. Only the web can do to help entice browser makers</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Serious games designers</th>
+          <td>
+            <ul>
+              <li>Need 3D library of assets to supply creators with to be able to create environments quickly and for custom situations</li>
+              <li>Need to be 1:1 representative visually ot allow user to practice coping skills</li>
+              <li>Procedurally generated environments from simple input but detailed enough for believability</li>
+              <li>Regulation thing to ensure people don’t get triggered</li>
+              <li>Debugging accessibility inspecting contrast/font size</li>
+              <li>K-12 Education distribution pipeline</li>
+              <li>Asset management localisation</li>
+              <li>AI/ML for natural language response, are there existing web focused AI/ML models?</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table></dd>
+  </dl>
+</section>
+
+</main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard. Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

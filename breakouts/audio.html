@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Breakout session on WebAssembly</title>
+    <title>Breakout session on Web Audio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../style.css" />
   </head>
@@ -59,68 +59,33 @@
       </section>
     </aside>
     <main id="main" class="main">
-      <h2>Breakout session on WebAssembly</h2>
+      <h2>Breakout session on Web Audio</h2>
 
-      <p><em>This breakout session was part of the <a href="../report.html">Workshop on Web games</a>. Notes taken by Mathias Westerdahl.</em></p>
+      <p><em>This breakout session was part of the <a href="../report.html">Workshop on Web games</a>. Notes taken by Raymond Toy and Paul Adenot.</em></p>
 
+      <h3 id="webxr">WebXR and Social VR</h3>
+      <p>Not much said about WebXR. For Social VR, WebRTC + WebAudio kind of works if you’re careful. WebCodec will help.</p>
+
+      <h3 id="spatialization">Spatialization Support/Ambisonics</h3>
+      <p>Opus works really well here to support all the channels and modes needed. Paul Adenot mentions that, if there is interest, an updating to PannerNode with a new type could be envisioned to provide a middle-ground between equalpower and HRTF: higher fidelity than equalpower, but lower cost than HRTF.</p>
+
+      <h3 id="hardware">Hardware Acceleration for Audio</h3>
+      <p>Intended to support raytracing, occlusion, etc. for audio, like how graphics is done. Probably not ready for any kind of standardization. Neil Trevett mentions the fact that this could be done efficiently in hardware. Paul Adenot points out that a general GPGPU approach would be best.</p>
+
+      <h3 id="webrtc">WebRTC</h3>
+      <p>WASM support for WebCodec should be designed in. This means at least having views into the WASM heap so that no copying is required.</p>
+      <p>Don’t use promises; use callbacks instead for tighter control.</p>
+      <p>API should use buffer views (regular buffers or WASM heap).</p>
+      <p>Some questions on how this would work:</p>
       <ul>
-        <li>Suggestion to create new APIs with wasm in mind
-          <ul>
-            <li>be mindful with object creation</li>
-            <li>suggest more C style functions like "generateData(view)" and it creates into that preallocated buffer</li>
-          </ul>
-        </li>
-        <li>Discussed memory mapping in WASM
-          <ul>
-            <li>nothing going on in this area just yet</li>
-          </ul>
-        </li>
-
-        <li>Discussion about deobfuscation and protecting assets
-          <ul>
-            <li>WASM doesn't add any protection here</li>
-            <li>We talked about WebCrypto to protect assets, which might be something for game developers</li>
-            <li>Also loading some "runtime key" to avoid "simple ripping off a game"</li>
-          </ul>
-        </li>
-
-        <li>Are there any resources for "regular" web developers to start using WASM?
-          <ul>
-            <li>going from "C" to WASM is easier</li>
-            <li>coming from JS to WASM is harder to understand</li>
-            <li>Rust -> WASM is an example of one way to go, perhaps interesting for JS too</li>
-            <li>Luke mentioned AssemblyScript for writing WASM close code</li>
-          </ul>
-        </li>
-
-        <li>Exception handling coming in WASM</li>
-
-        <li>Discussion about SharedArrayBuffer and atomics
-          <ul>
-            <li>is there feature detection for this?</li>
-            <li>there is some, will likely change in the future</li>
-          </ul>
-        </li>
-
-        <li>Loading time/efficiency discussion
-          <ul>
-            <li>Where is WASM currently in regards to loading shared libraries?</li>
-            <li>Recent changes pave the way for load time dynamic linking (ES6 module imports)</li>
-            <li>How to do cross origin sharing?</li>
-            <li>Can save loading time on game portals</li>
-          </ul>
-        </li>
-
-        <li>Discussion about caching
-          <ul>
-            <li>Luke mentioned a new suggested function "cache tput"</li>
-            <li>Talked about caching into subdomain buckets</li>
-          </ul>
-        </li>
-
-        <li>Is there a difference in cost going from JS <-> WASM?</li>
-        <li>Luke mentions a blog post with some performance numbers</li>
+        <li>Who reports errors?</li>
+        <li>What’s the permission model?</li>
+        <li>What’s the input/output?</li>
+        <li>Realtime thread issues?</li>
       </ul>
+
+      <h3 id="webcodec">WebCodec</h3>
+      <p>Some discussion about WebCodec was discussed, better covered in the <a href="networking.html">Networking in games</a> breakout session.</p>
     </main>
     <footer class="footer" id="footer">
       <p>
@@ -138,7 +103,6 @@
         "mailto:fd@w3.org">fd@w3.org</a>&gt;.
       </p>
     </footer>
-    <script src="../script.js">
-    </script>
+    <script src="../script.js"></script>
   </body>
 </html>

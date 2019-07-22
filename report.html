@@ -73,7 +73,22 @@
           <li><a href="#summary">Summary</a></li>
           <li><a href="#context">Setting the context</a></li>
           <li><a href="#needs">Expressing the needs</a></li>
-          <li><a href="#topics">Topics</a></li>
+          <li><a href="#topics">Topics</a>
+            <ul>
+              <li><a href="#threads">Threading support on the Web</a></li>
+              <li><a href="#wasm">WebAssembly</a></li>
+              <li><a href="#3D">3D rendering</a></li>
+              <li><a href="#loading">Assets loading &amp; storage</a></li>
+              <li><a href="#a11y">Games accessibility</a></li>
+              <li><a href="#audio">Audio &amp; games</a></li>
+              <li><a href="#gamepad">Gamepad support</a></li>
+              <li><a href="#latency">Inputs latency</a></li>
+              <li><a href="#webtransport">WebTransport &amp; WebCodecs</a></li>
+              <li><a href="#inclusivity">Gender-inclusive languages in games</a></li>
+              <li><a href="#hosted-apps">Web games in hosted apps</a></li>
+              <li><a href="#discoverability">Discoverability &amp; Monetization</a></li>
+            </ul>
+          </li>
           <li><a href="#next">Next steps</a></li>
         </ul>
         <p>See also:</p>
@@ -85,7 +100,7 @@
 
       <section id="summary">
         <h3>Summary</h3>
-        <p>W3C held a two day workshop on Web Games in Redmond on 27-28 June, 2018, hosted by Microsoft. Main goal of the workshop was to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games. The workshop convened a diverse group of participants representing different facets of the industry, in total 101 registered participants. Discussions covered a wide range of topics as well, from discoverability and monetization issues down to specific technical issues such as threading and latency.</p>
+        <p>W3C held a two day workshop on Web Games in Redmond on 27-28 June 2019, hosted by Microsoft. Main goal of the workshop was to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games. The workshop convened a diverse group of participants representing different facets of the industry, in total 101 registered participants. Discussions covered a wide range of topics as well, from discoverability and monetization issues down to specific technical issues such as threading and latency.</p>
       </section>
 
       <section id="context">
@@ -115,7 +130,10 @@
 
       <section id="needs">
         <h3>Expressing the needs</h3>
-        <p>@@Integrate Indira's report</p>
+        <p class="box">See also: <a href="breakouts/needs.html">Report on mapping needs</a></p>
+        <p>The “mapping games users and designers needs to technologies” session was designed to get participants to think about specific users needs and how they could be fulfilled with web games technologies. The user groups were touch/haptics researchers, UX designers, gamers, hardware developers and serious games designers (educational and therapeutic applications), all groups who could be using web game technologies. The outputs of the workshop are a matrix, and series of speculative design ideas. The matrix shows the user groups and ideas that could help them. The speculative design looked at how these groups could be using the web in the future, and what would need to be implemented for this to happen.</p>
+        <p>Themes have been identified from the outputs of the session. One of the biggest themes was around APIs with suggestions for new APIs or extending existing ones for example the Gamepad API. Social/collaborative was another large theme with suggestions such as creating an open source social graph, permission based access for friends and a proximity API. Other themes include metadata, standards, latency, documentation and UI.</p>
+        <p>The speculative design ideas are varied but there were a few that would give the user more agency. For example being able to easily disconnect from touch, and having an open source natural language processing. There were also ideas around having 3D model texture and temperature as material properties, native support for 3D in the browser, and expanding the access to instrumentation and tooling for performing UX studies in the browser. The <a href="breakouts/needs.html">documents produced from this session</a> can be analysed further to find practical solutions that fulfill these user groups needs.</p>
       </section>
 
 
@@ -187,6 +205,7 @@
               <li><a href="agenda.html#3D">Presentations</a></li>
               <li><a href="https://www.w3.org/2019/06/27-games-minutes.html#session-3d">Minutes of the presentations</a></li>
               <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item11">Summary of the breakout session</a></li>
+              <li><a href="breakouts/3d.html">Notes of the breakout session</a></li>
             </ul>
           </div>
           <p>The Khronos Group publishes royalty-free 3D standards to bring silicon acceleration to graphics such as OpenGl/WebGL, Vulkan, OpenXR, SPIR. WebGL triggered work on glTF, a compact file format for 3D models suitable for transmission across a network. Neil Trevett reviews glTF features, including support for up-to-date 3D, animations, Physically Based Rendered (PBR) materials. glTF is independent from the run time and most environments now render glTF content (game engines, XR engines, Facebook, Microsoft Office, Adobe tools, Blender, etc.).</p>
@@ -194,12 +213,12 @@
           <p><cite>“It's the 21st century [and] we're still confounded by this diverse set of GPU native texture formats, and every platform seems to support a different set of GPU-accelerated formats. There's PVRTC, ASTC on the desktop. It's different to mobile [...] In the native space, very often, game developers actually end up shipping multiple versions of their texture assets.” - Neil Trevett</cite></p>
           <p>On top of compression, a key issue with textures is that platforms support different GPU native texture formats. The Khronos Group is working with Binomial and Google to integrate Binomial's Basis Universal format into glTF. This feature, known as Compressed Texture Transmission Format (CTTF) would provide a suitable texture format for transmission that can easily be transcoded into any of the GPU formats actually supported by the platform at low processing costs and on the fly, without having to unpack the entire textures first.</p>
           <p>Another potential new feature for glTF is support for next generation of Physically Based Rendering (PBR), primarily pushed by 3D commerce folks. Additional features could be integrated down the road but need to be prioritized, for instance facial animation for avatars' body animation or point clouds technologies. Neil notes that vertical activities are starting to build on top of glTF too, such as the <a href="https://vrm.dev/en/">VRM format</a> for human avatars developed in Japan.</p>
-          <p>Discussions suggest that it would be useful to consider metadata definitions for glTF to expose semantics of 3D assets, especially for accessibility purpose. A liaison between the Khronos Group and relevant W3C groups (the Accessible Platform Architecture and the Immersive Web Working Groups) would help converge on suitable solutions in that space.</p>
+          <p>Discussions suggest that it would be useful to consider metadata definitions for glTF to expose semantics of 3D assets, especially for accessibility purpose. A liaison between the Khronos Group and the Accessible Platform Architecture Working Group would help converge on suitable solutions in that space.</p>
           <p>Switching to actual 3D rendering, Myles C. Maxfield presents the current status of the WebGPU proposal. WebGPU exposes a common abstraction on top of different hardware (DirectX, Metal and Vulkan). This would allow developers to leverage the full capabilities of the hardware, and would also let developers take advantage of computing capabilities of graphic cards, e.g. for artificial intelligence (AI) scenarios.</p>
           <p>Core WebGPU features include a security model compatible with the Web, portability across platforms and performance. WebGPU is also designed to allow batching context parameters into an opaque object that can be reused across calls, making WebGPU very good at switching between different sets of configurations.</p>
           <p>The definition of a suitable shading language for WebGPU is still under discussion, with two competing proposals on the table: a dialect of SPIR-V and a solution based on HLSL. The languages are similar but the workflow to create code is different: SPIR-V gets compiled, whereas WHLSL can be used out of the box. Goal is to converge on one language.</p>
           <p>The WebGPU proposal is being incubated in the <a href="https://www.w3.org/community/gpu/">GPU for the Web Community Group</a>. The group is considering transitioning to a Working Group.</p>
-          <p>@@3D breakout report</p>
+          <p>On the second day, some workshop participants discuss the possibility to create a 3D element for the Web, which could be particularly useful for 3D commerce use cases, leading to the creation of an <a href="https://github.com/immersive-web/proposals/issues/52">issue on Native glTF support</a> on the incubation repository of the Immersive Web CG. Here as well, a liaison between the Khronos Group and the Immersive Web groups would help continue the discussion.</p>
         </section>
 
 
@@ -247,6 +266,7 @@
               <li><a href="agenda.html#audio">Presentation</a></li>
               <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#session-audio">Minutes of the presentations</a></li>
               <li><a href="https://www.w3.org/2019/06/28-games-minutes.html#item14-3">Summary of the breakout session</a></li>
+              <li><a href="breakouts/audio.html">Notes of the breakout session</a></li>
             </ul>
           </div>
           <p>Michel Buffa demonstrates the power of the Web Audio API as it exists today, notably how it is possible to create an open plugin standard for audio on the Web using JavaScript and/or an <code>AudioWorklet</code> that runs code in WebAssembly, allowing to run audio plugins on the Web written in specialized languages such as FAUST. Michel points out that latency issues with audio I/O on some platforms. The <code>outputLatency</code> property of <code>AudioContext</code> is not implemented for now. This is more an implementation (and driver) issue than an issue with the Web Audio API.</p>
@@ -260,7 +280,7 @@
             <li>Implicit sample rate conversion when needed</li>
           </ul>
           <p>There is general support in the room for the ADC approach presented which would go a long way toward addressing audio needs in games. There are tons of audio-processing code written in C/C++ that could be ported to the Web easily if ADC gets adopted.</p>
-          <p>During the breakout session on audio, workshop participants re-iterate the request for a low-level approach from pro-audio vendors, investigate how the WebCodecs proposal could integrate with ADC, talk about positional audio for immersive scenarios. The Web Audio Working Group is gathering use cases for the next iteration of the Web Audio API.</p>
+          <p>During the breakout session on audio, workshop participants re-iterate the request for a low-level approach from pro-audio vendors, investigate how the WebCodecs proposal could integrate with ADC, and talk about positional audio for immersive scenarios. The Web Audio Working Group is gathering use cases for the next iteration of the Web Audio API.</p>
         </section>
 
         <section id="gamepad">
@@ -352,10 +372,7 @@
         W3C is proud to be an open and inclusive organization, focused on
         productive discussions and actions. Our <a href=
         "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
-        Conduct</a> ensures that all voices can be heard.
-      </p>
-      <p>
-        Questions? Contact François Daoust &lt;<a href=
+        Conduct</a> ensures that all voices can be heard. Questions? Contact François Daoust &lt;<a href=
         "mailto:fd@w3.org">fd@w3.org</a>&gt;.
       </p>
       <p>

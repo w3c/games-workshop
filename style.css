@@ -107,6 +107,7 @@ a.ref {
 .type {
   box-shadow: .3em .3em 0 rgba(0,0,0,.1);
   border: 1px solid #ccc;
+  margin-top: 0;
 }
 
 /* If you rather clip than squeeze the image, remove `height: 100%`. */
@@ -226,6 +227,11 @@ ul {
   list-style: square;
   margin-left: 0;
   padding-left: 1em;
+  margin-top: 0;
+}
+
+ul ul {
+  margin-bottom: 0;
 }
 
 blockquote {
@@ -641,6 +647,21 @@ cite {
   border-left: thin solid #005a9c;
 }
 
+.phone {
+  text-indent: -1em;
+  margin-left: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.phone cite {
+  padding: 3px 0;
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
+  font-weight: bold;
+}
+
 ol ol { margin: 1.5rem;}
 
 .warning {
@@ -757,4 +778,23 @@ ul.detailed dt {
 
 ul.detailed details {
   opacity: 1;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: thin solid #00365C;
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+th:nth-child(1) {
+  width: 150px;
+}
+
+th {
+  background-color: #005a9c;
+  color: white;
 }

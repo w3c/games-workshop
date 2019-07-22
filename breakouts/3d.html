@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Breakout session on 3D controls</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "../media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Workshop on Web Games
+          </h1>
+          <p>27-28 June 2019; Redmond, WA, USA</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="../index.html">Call for Participation</a>
+          </li>
+          <li>
+            <a href="../agenda.html">Agenda</a>
+          </li>
+          <li>
+            <a href="../papers.html">Position statements</a>
+          </li>
+          <li>
+            <a href="../participants.html">Participants</a>
+          </li>
+          <li>
+            <a href="../report.html">Report</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        Host
+      </h2>
+      <p>W3C gratefully acknowledges Microsoft for hosting this workshop.</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="../media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        Sponsors
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          Platinum Sponsors
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="../media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>Breakout session on 3D controls</h2>
+
+      <p><em>This breakout session was part of the <a href="../report.html">Workshop on Web games</a>. Notes taken by Atsushi Shimono.</em></p>
+
+      <p>The session starts with a presentation by Yasushi Ando from Kabuku of his <a href="papers/new-html-3D-element.txt">position paper</a>, which suggests the creation of a 3D element to be natively supported by Web browsers. The group discusses reasons why a new element may be needed, as opposed to using polyfills and libraries such as Babylon.js. One of these reasons is performance: native rendering will be more performant than having to render the content through JavaScript and WebGL/WebGPU. As glTF becomes the 3D format for the Web, native support for glTF rendering could also be warranted.</p>
+      <p>Specific use cases for a 3D element include 3D commerce. There exist guidelines for display, e.g. which line should come to face. 3D rendering is not like 2D video on a screen. There needs to be environment mappings of some sort. Similar conversations on display models occurred on glTF for rendering, which could perhaps be done as an extension.</p>
+      <p>glTF is not the only 3D format. Various Web sites use other format/models: we cannot assume the same set of format will be supported across browsers. Some incubation needs to happen before possible standardization, being careful about performance of rendering</p>
+      <p>On top of pure rendering issues, various use cases create different needs, like the ability to change colors or scenes. These needs exist in 3D commerce sites as well, and could perhaps be achieved through some metadata approach instead of through extensions. However, keeping specs smaller makes it easier to agree on features.</p>
+      <p>Incubation could usefully describe higher level needs, as was done for video format specs, where different level of use cases resulted in different specs.</p>
+      <p>Neil points out that glTF is on GitHub and is 90% open. There is no barrier for adding more inputs.</p>
+      <p>For a working group, an important point to agree on is which open format to choose. We may be able to agree on a common format, but other formats need to be allowed.</p>
+      <p>One possible point for discussion is scene data, such as the position of the light sources, or the line of light.</p>
+      <p>Accessibility could also be a reason to come up with a standardized 3D element for the Web.</p>
+      <p>An extensible simple 3D viewer is valuable for many areas, including debugging, performance, content protection, etc... User agents could have capability to add JavaScript for control. Also, the browser can tell what is visible on screen like one from microsoft which renders items around you, browser could do similar things on the web.</p>
+      <p>Some lightweight liaison between gltf group and the immersive web group could be setup to continue the discussion.</p>
+      <p>An immediate next step is to post an issue on a 3D model element to the incubation repository of the Immersive Web CG.</p>
+    </main>
+    <footer class="footer" id="footer">
+      <p>
+        W3C is proud to be an open and inclusive organization, focused on
+        productive discussions and actions. Our <a href=
+        "https://www.w3.org/Consortium/cepc/">Code of Ethics and Professional
+        Conduct</a> ensures that all voices can be heard. Questions? Contact François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        Suggestions for improving this workshop page, such as fixing typos or
+        adding specific topics, can be made by opening a <a href=
+        "https://github.com/w3c/games-workshop/">pull request on GitHub</a>, or by
+        emailing François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
