@@ -819,3 +819,10 @@ th {
   background-color: #005a9c;
   color: white;
 }
+
+figure {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

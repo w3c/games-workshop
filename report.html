@@ -114,7 +114,7 @@
 
         <p>With so many developers and so many games being developed, discoverability has become a key issue for games on the Web. Coupled with the difficulty to monetize content on the Web, this makes it difficult to develop games for the Web, all the more so than it is easy to clone an entire Web game or to re-create casual Web games in just a few days, even if code is obfuscated. How can Web games be protected? Yet the potential for business is enormous when one compares with the native world.</p>
 
-        <p><cite>“The simplicity and the immediacy of in-app purchases [in native games] is driving 60 billion dollars revenue on a yearly basis. This is a dream for us to achieve the same thing on Web games.” - Gili Zeevi</cite></p>
+        <p><cite>“The simplicity and the immediacy of in-app purchases [in native games] is driving 60 billion dollars revenue on a yearly basis. This is a dream for us to achieve the same thing in Web games.” - Gili Zeevi</cite></p>
         
         <p>The importance and difficulty to keep players engaged in a game is also pointed out. Web games do not need to be installed which alleviates some of the initial friction, but games need to load a bunch of assets before they can run, which can take time, whereas players expect games to start in a snap. Long starting times are a sure guarantee to lose players, with as much as 12% of players dropping for every second taken to load the game. Push notifications help re-engage players into a game. They are possible on the Web but conversion rates are much higher with native notifications.</p>
 
@@ -132,6 +132,10 @@
         <h3>Expressing the needs</h3>
         <p class="box">See also: <a href="breakouts/needs.html">Report on mapping needs</a></p>
         <p>The “mapping games users and designers needs to technologies” session was designed to get participants to think about specific users needs and how they could be fulfilled with web games technologies. The user groups were touch/haptics researchers, UX designers, gamers, hardware developers and serious games designers (educational and therapeutic applications), all groups who could be using web game technologies. The outputs of the workshop are a <a href="breakouts/needs.html#matrix">matrix</a>, and series of <a href="breakouts/needs.html#speculation">speculative design ideas</a>. The matrix shows the user groups and ideas that could help them. The speculative design looked at how these groups could be using the web in the future, and what would need to be implemented for this to happen.</p>
+        <figure>
+          <img src="media/needs.jpg" alt="Participants discuss needs per user group and collect them on a whiteboard through post-it notes" />
+          <figcaption>Workshop participants create a matrix of needs per user group</figcaption>
+        </figure>
         <p><a href="breakouts/needs.html#list">Themes</a> have been identified from the outputs of the session. One of the biggest themes was around APIs with suggestions for new APIs or extending existing ones for example the Gamepad API. Social/collaborative was another large theme with suggestions such as creating an open source social graph, permission based access for friends and a proximity API. Other themes include metadata, standards, latency, documentation and UI.</p>
         <p>The speculative design ideas are varied but there were a few that would give the user more agency. For example being able to easily disconnect from touch, and having an open source natural language processing. There were also ideas around having 3D model texture and temperature as material properties, native support for 3D in the browser, and expanding the access to instrumentation and tooling for performing UX studies in the browser. The <a href="breakouts/needs.html">documents produced from this session</a> can be analysed further to find practical solutions that fulfill these user groups needs.</p>
       </section>
@@ -162,6 +166,11 @@
           </ul>
 
           <p>David Catuhe champions the idea of a real threading mechanism on the Web that would allow to share <b>structured memory</b> across threads. David also questions the design choice that led to workers taking a file as input, and not a function. Game engines handle the threading logic on behalf of underlying applications. Having to pass a file to a worker means that game engines need to keep track of modules that these applications may import, which requires some help from the application itself. If workers could start from a function, they would gain access to code (even though they wouldn't share memory with the initial thread).</p>
+
+          <figure>
+            <img src="media/threads.jpg" alt="Developers and browser vendors discuss possible ways to improve threading support on the Web during a breakout session" />
+            <figcaption>Breakout session on threading support on the Web</figcaption>
+          </figure>
 
           <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke Wagner notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure. David takes an action to flesh out a concrete proposal.</p>
         </section>
@@ -213,6 +222,10 @@
           <p><cite>“It's the 21st century [and] we're still confounded by this diverse set of GPU native texture formats, and every platform seems to support a different set of GPU-accelerated formats. There's PVRTC, ASTC on the desktop. It's different to mobile [...] In the native space, very often, game developers actually end up shipping multiple versions of their texture assets.” - Neil Trevett</cite></p>
           <p>On top of compression, a key issue with textures is that platforms support different GPU native texture formats. The Khronos Group is working with Binomial and Google to integrate Binomial's Basis Universal format into glTF. This feature, known as Compressed Texture Transmission Format (CTTF) would provide a suitable texture format for transmission that can easily be transcoded into any of the GPU formats actually supported by the platform at low processing costs and on the fly, without having to unpack the entire textures first.</p>
           <p>Another potential new feature for glTF is support for next generation of Physically Based Rendering (PBR), primarily pushed by 3D commerce folks. Additional features could be integrated down the road but need to be prioritized, for instance facial animation for avatars' body animation or point clouds technologies. Neil notes that vertical activities are starting to build on top of glTF too, such as the <a href="https://vrm.dev/en/">VRM format</a> for human avatars developed in Japan.</p>
+          <figure>
+            <img src="media/vrm.jpg" alt="Neil mentions the VRM format, which builds on top of glTF 2.0 to describe humanoid avatars" />
+            <figcaption>VRM builds on top of glTF 2.0 to describe humanoid avatars</figcaption>
+          </figure>
           <p>Discussions suggest that it would be useful to consider metadata definitions for glTF to expose semantics of 3D assets, especially for accessibility purpose. A liaison between the Khronos Group and the Accessible Platform Architecture Working Group would help converge on suitable solutions in that space.</p>
           <p>Switching to actual 3D rendering, Myles C. Maxfield presents the current status of the WebGPU proposal. WebGPU exposes a common abstraction on top of different hardware (DirectX, Metal and Vulkan). This would allow developers to leverage the full capabilities of the hardware, and would also let developers take advantage of computing capabilities of graphic cards, e.g. for artificial intelligence (AI) scenarios.</p>
           <p>Core WebGPU features include a security model compatible with the Web, portability across platforms and performance. WebGPU is also designed to allow batching context parameters into an opaque object that can be reused across calls, making WebGPU very good at switching between different sets of configurations.</p>
@@ -305,6 +318,10 @@
           <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="minutes/28-games-minutes.html#item06">Minutes</a></p>
           <p>Navid Zolghadr reviews sources of latency for inputs on the Web, either due to developers running long tasks or to design choices such as the decision to align user inputs with <code>requestAnimationFrame</code> (rAF). A major bottleneck today is that all input events have to go through the main thread, which is suboptimal for some use cases: local gaming in a worker, cloud gaming, low-latency drawing taking advantage of <code>OffscreenCanvas</code> or interactive animations based on user inputs (e.g. scroll-based animations).</p>
           <p>Navid presents a <a href="https://github.com/NavidZ/input-for-workers">proposal for exposing user input events to workers</a>. The API would allow to delegate specific user input events on a given target to a worker, which would completely avoid having to block the main thread. The API, still at early design stages, would make it possible to push input events to the network at no cost.</p>
+          <figure style="max-width: 800px">
+            <img src="media/input-latency.png" alt="Goal of the user input events to workers proposal is to expose user input events to workers that need it without having to go through the main thread" />
+            <figcaption>Exposing user input events to workers</figcaption>
+          </figure>
           <p>Another proposal for non-rAF-aligned events (again useful for cloud gaming) is also being investigated, using new <em>raw</em> events. By definition, these events may impact performance, hence the need to evaluate their suitability in practice.</p>
         </section>
 
@@ -354,6 +371,10 @@
           <p class="box">See also: <a href="minutes/28-games-minutes.html#item12">Summary</a> and <a href="breakouts/monetization.html">Minutes</a></p>
           <p>Discoverability and monetization were mentioned in the context setting session as key issues for Web games: as opposed to hosted game platforms, the Web is an open ecosystem where it's easier for games to disappear among other types of content, and harder to monetize content. Tom Greenaway runs a breakout session on the topic to assess ways to improve the situation.</p>
           <p>One idea to improve discoverability is to extend metadata formats, notably the notion of <code>VideoGame</code> in <a href="https://schema.org">schema.org</a> to allow developers to describe and declare the capabilities of their games. Current schema allow to detail the game's director, the composer of the soundtrack, and cheat codes, but it does not help with categorizing games. An extended metadata format could also help specify what type(s) of input controller(s) the game supports or requires (e.g. keyboard/mouse, game controller, touch screen), whether the game can be played offline, and the monetization schemes that it proposes.</p>
+          <figure>
+            <img src="media/discoverability.jpg" alt="About 15 workshop participants exchange on discoverability &amp; monetization during a breakout session" />
+            <figcaption>Breakout session on discoverability &amp; monetization</figcaption>
+          </figure>
           <p>On a different front, deep linking into games can help leverage the essence of the games: sharing links that immediately get users to the right content.</p>
           <p>All in all, improving discoverability would also improve re-discoverability, as some players complain that they have a hard time finding a game again after playing once... which also explains why they may not be ready to invest in a game.</p>
           <p>Talking about monetization, games seem to be progressively moving out of a purchasing model and towards subscription models or free-toplay. Rewarded video ads are mentioned as an efficient mechanism to monetize games and increase retention. Microtransactions, more or less transparent and integrated to the browser and Web application, could also help.</p>
