@@ -89,7 +89,14 @@
               <li><a href="#discoverability">Discoverability &amp; Monetization</a></li>
             </ul>
           </li>
-          <li><a href="#next">Next steps</a></li>
+          <li><a href="#next">Next steps</a>
+            <ul>
+              <li><a href="#next-existing">Technologies in progress</a></li>
+              <li><a href="#next-exploratory">Exploratory work</a></li>
+              <li><a href="#next-new">New technical proposals</a></li>
+              <li><a href="#next-other">Other proposals</a></li>
+            </ul>
+          </li>
         </ul>
         <p>See also:</p>
         <ul>
@@ -99,8 +106,10 @@
       </section>
 
       <section id="summary">
-        <h3>Summary</h3>
-        <p>W3C held a two day workshop on Web Games in Redmond on 27-28 June 2019, hosted by Microsoft. Main goal of the workshop was to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games. The workshop convened a diverse group of participants representing different facets of the industry, in total 101 registered participants. Discussions covered a wide range of topics as well, from discoverability and monetization issues down to specific technical issues such as threading and latency.</p>
+        <h3>Executive summary</h3>
+        <p>W3C held a two day workshop on Web Games in Redmond on 27-28 June 2019, hosted by Microsoft, bringing together browser vendors, game engines developers, games developers, game distributors, and device manufacturers (100 participants in total) to enrich the Open Web Platform with additional technologies for games.</p>
+        <p>Workshop participants acknowledged progress in Web technologies over the past few years, which continues today for example with <a href="https://webassembly.org/">WebAssembly</a> and <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a>. They highlighted <strong>support for <em>real</em> threading on the Web</strong> for 3D rendering and advanced audio processing as a core need to address to run AAA content on the Web. They also discussed proposals to improve support for <strong>cloud gaming scenarios</strong>, including proposals to reduce I/O latency (such as the <code>pointerrawupdate</code> event or the <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client</a> proposal) and improve communication in real-time between clients and servers (the <a href="https://wicg.github.io/web-transport/">WebTransport</a> proposal). They also identified technical updates that would benefit the Web games ecosystem as a whole, for instance more efficient bindings between WebAssembly and Web APIs defined using WebIDL, a stable and complete <a href="https://w3c.github.io/gamepad/">Gamepad</a> specification, or the possibility to specify multiple storage buckets per origin.</p>
+        <p>Broader discussions took place on discoverability, monetization, hosted Web runtimes and accessibility (for instance on efficient mechanisms to expose Web accessibility hooks to games compiled to WebAssembly). Some participants supported the <strong>creation of a games activity</strong> at W3C to coordinate inputs from the games community and steer standardization discussions in that space.</p>
       </section>
 
       <section id="context">
@@ -172,7 +181,9 @@
             <figcaption>Breakout session on threading support on the Web</figcaption>
           </figure>
 
-          <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke Wagner notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure. David takes an action to flesh out a concrete proposal.</p>
+          <p>Game developers in the room are generally supportive of the idea but note the challenge of adding support for real threading in JavaScript. Workshop participants refine the proposal during a breakout session on the topic on the second day. During that session, Luke Wagner notes that the proposed notion of <code>TypedObject</code> in JavaScript, which is surfacing in WebAssembly as well, would make it possible to have immutable objects that could then be shared across workers. Although this solution would not address general threading scenarios, it could provide a good middle-ground solution for game engines: most algorithms that need to run on a scene graph only need read-only access to the structure.</p>
+
+          <p>David takes an action to flesh out a concrete proposal. Down the road, support for <code>TypedObject</code> should be discussed within EcmaScript's TC39 and adjustments to workers within WHATWG. Discussions with the WebAssembly community might also help align needs and proposed solutions.</p>
         </section>
 
 
@@ -227,7 +238,7 @@
             <figcaption>VRM builds on top of glTF 2.0 to describe humanoid avatars</figcaption>
           </figure>
           <p>Discussions suggest that it would be useful to consider metadata definitions for glTF to expose semantics of 3D assets, especially for accessibility purpose. A liaison between the Khronos Group and the Accessible Platform Architecture Working Group would help converge on suitable solutions in that space.</p>
-          <p>Switching to actual 3D rendering, Myles C. Maxfield presents the current status of the WebGPU proposal. WebGPU exposes a common abstraction on top of different hardware (DirectX, Metal and Vulkan). This would allow developers to leverage the full capabilities of the hardware, and would also let developers take advantage of computing capabilities of graphic cards, e.g. for artificial intelligence (AI) scenarios.</p>
+          <p>Switching to actual 3D rendering, Myles C. Maxfield presents the current status of the <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> proposal. WebGPU exposes a common abstraction on top of different hardware (DirectX, Metal and Vulkan). This would allow developers to leverage the full capabilities of the hardware, and would also let developers take advantage of computing capabilities of graphic cards, e.g. for artificial intelligence (AI) scenarios.</p>
           <p>Core WebGPU features include a security model compatible with the Web, portability across platforms and performance. WebGPU is also designed to allow batching context parameters into an opaque object that can be reused across calls, making WebGPU very good at switching between different sets of configurations.</p>
           <p>The definition of a suitable shading language for WebGPU is still under discussion, with two competing proposals on the table: a dialect of SPIR-V and a solution based on HLSL. The languages are similar but the workflow to create code is different: SPIR-V gets compiled, whereas WHLSL can be used out of the box. Goal is to converge on one language.</p>
           <p>The WebGPU proposal is being incubated in the <a href="https://www.w3.org/community/gpu/">GPU for the Web Community Group</a>. The group is considering transitioning to a Working Group.</p>
@@ -302,7 +313,7 @@
         <section id="gamepad">
           <h4>Gamepad support</h4>
           <p class="box">See also: <a href="agenda.html#cloud-gaming">Presentations</a> and <a href="minutes/28-games-minutes.html#item05">Minutes</a></p>
-          <p>The Gamepad API has been on the Recommendation track for a number of years already. It provides support for basic gamepad functionality and has been implemented across browsers. However, its development has stalled since 2014 for lack of momentum. And yet Kelvin Yong explains that the current limitations of the Gamepad API make it impossible for game companies to rely on Web technologies for user interfaces. Main changes required:</p>
+          <p>The <a href="https://w3c.github.io/gamepad/">Gamepad API</a> has been on the Recommendation track for a number of years already. It provides support for basic gamepad functionality and has been implemented across browsers. However, its development has stalled since 2014 for lack of momentum. And yet Kelvin Yong explains that the current limitations of the Gamepad API make it impossible for game companies to rely on Web technologies for user interfaces. Main changes required:</p>
           <ul>
             <li>A standardization of gamepad inputs: controller buttons may be exposed differently to applications. This is all the more so problematic than the variation exists both across controllers <em>and</em> across browsers for the same controller! There may also be a need for remapping buttons for accessibility purpose.</li>
             <li>Support for modern controller features: touch surfaces, light indicators, haptics, accelerometer, gyroscope, etc.</li>
@@ -384,7 +395,60 @@
 
       <section id="next">
         <h3>Next steps</h3>
-        <p>@@Compile list of next steps</p>
+        <p class="box">See also: <a href="agenda.html#nextsteps">Presentation</a> and <a href="minutes/28-games-minutes.html#item17">Minutes</a></p>
+        <p>In the final session, participants review topics discussed during the workshop to assess possible next steps that could improve the Web ecosystem for games: threads, performance, 3D rendering, storage, accessibility, audio, latency, network, discoverability, etc. Next steps presented in this section received general support from workhop participants. Please note that, even though these steps are formulated as concise action statements, there is no guarantee that these steps will be enacted. Progress on most of them depends on further discussions among implementers and users to assess willingness to work on them and prioritize work items, and on people actually committing time to do the work.</p>
+
+        <p>On top of individual topics, a quick show of hands suggests that it would be useful to gather continuous feedback on Web technologies from the games community, to track on identified needs and to steer standardization efforts to address them. This could be done through the <strong>creation of a games activity at W3C</strong>, which could take the form of a Interest Group (or of a Task Force within an existing group). Participants also encourage running additional workshop-like events around games to gather inputs from other parts of the world.</p>
+
+        <section>
+          <h4 id="next-existing">Technologies in progress</h4>
+          <p>Some suggested steps touch on existing standardization efforts, at various levels of maturity. From a standardization perspective, they can make progress right away, provided interested parties join relevant groups and contribute to the work:</p>
+          <ul>
+            <li>Advance the <a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebAssembly WebIDL Bindings</a> proposal to the <a href="https://www.w3.org/wasm/">WebAssembly Working Group</a> after incubation in the WebAssembly Community Group.</li>
+            <li>Advance the <a href="https://yurydelendik.github.io/webassembly-dwarf/">DWARF for WebAssembly</a> proposal to the <a href="https://www.w3.org/wasm/">WebAssembly Working Group</a> after incubation in the WebAssembly Community Group.</li>
+            <li>Advance the <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client (ADC)</a> proposal to the <a href="https://www.w3.org/2011/audio/">Audio Working Group</a> after incubation in the Web Audio Community Group.</li>
+            <li>Finalize the first version of the <a href="https://w3c.github.io/gamepad/">Gamepad</a> specification within the <a href="https://www.w3.org/2019/webapps/">WebApps Working Group</a>.</li>
+            <li>Start adding support for advanced gamepad features in a second version of the Gamepad specification within the <a href="https://www.w3.org/2019/webapps/">WebApps Working Group</a>.</li>
+            <li>Assess suitability of the <code>pointerrawupdate</code> event to decorrelate input events from <code>requestAnimationFrame</code> and integrate it in the <a href="https://w3c.github.io/pointerevents/">Pointer Events</a> specification in the <a href="https://www.w3.org/2012/pointerevents/">Pointer Events Working Group</a>.</li>
+            <li>Add support for unaccelerated mouse events in <a href="https://w3c.github.io/pointerlock/">Pointer Lock</a> in the <a href="https://www.w3.org/2019/webapps/">WebApps Working Group</a>.</li>
+            <li>Integrate support for Compressed Texture Transmission Format (CTTF) in <a href="https://www.khronos.org/gltf/">glTF</a> in the <a href="https://www.khronos.org/">Khronos Group</a>.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-exploratory">Exploratory work</h4>
+          <p>Other suggested steps touch on technologies that are either being proposed for incubation or at early stages of incubation. Interested parties are encouraged to provide explicit support for the proposals and/or share feedback based on experience and needs:</p>
+          <ul>
+            <li>Advance <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> currently in incubation the <a href="https://www.w3.org/community/gpu">GPU for the Web Community Group</a> to a Working Group.</li>
+            <li>Incubate <a href="https://wicg.github.io/web-transport/">WebTransport</a> in the <abbr title="Web Platform Incubator Group">WICG</abbr>.</li>
+            <li>Support the <a href="https://discourse.wicg.io/t/proposal-exposing-input-events-to-worker-threads/3479">proposal to expose input events to worker threads</a> in the <abbr title="Web Platform Incubator Group">WICG</abbr>.</li>
+            <li>Support the <a href="https://discourse.wicg.io/t/webcodecs-proposal/3662/9">WebCodecs</a> proposal in the <abbr title="Web Platform Incubator Group">WICG</abbr>. Note that, per charter, the <a href="https://www.w3.org/media-wg/">Media Working Group</a> may adopt the proposal after a period of incubation.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-new">New technical proposals</h4>
+          <p>Workshop discussions also pointed out new technical needs that would be beneficial for the games ecosystem on the Web. Proposed work in this category includes:</p>
+          <ul>
+            <li>Improve threading support on the Web and notably <strong>allow sharing of structured objects across workers</strong>. A proposed solution in that space would likely be at the <a href="https://github.com/tc39/ecma262">ECMAScript level</a>. Also <strong>allow workers to start from a function</strong> and inherit their parent's scope (code only, not data). Worker extension proposals should be brought to the <a href="https://whatwg.org/">WHATWG</a>.</li>
+            <li>Raise the idea of a <strong>native 3D element</strong> for the Web in the Immersive Web Community Group [see the <a href="https://github.com/immersive-web/proposals/issues/52">Native glTF issue</a> raised shortly after the workshop].</li>
+            <li>Expose <strong>multiple buckets per origin</strong> to accommodate different permanent/temporary storage scenarios. Investigate suitability of <a href="https://wicg.github.io/background-fetch/">Background Fetch</a> to make such a feature palpable to users.</li>
+            <li>Raise the <strong>pronunciation of gender-inclusive forms</strong> in the <a href="https://www.w3.org/WAI/APA/task-forces/pronunciation/">Pronunciation Task Force</a> of the Accessible Platform Architectures (APA) Working Group.</li>
+            <li>Flesh out a proposal to extend <code>VideoGame</code> in <a href="https://schema.org">schema.org</a> to improve the discoverability of Web games.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-other">Other proposals</h4>
+          <p>Next steps in this category are possibly more generic or abstract in essence. Further discussion on these topics would help refine scope and/or clarify possible standardization needs:</p>
+          <ul>
+            <li>Investigate the suitability of the <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model (AOM) API</a> coupled with <a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebAssembly WebIDL Bindings</a> to <strong>expose accessibility hooks in games cross-compiled to WebAssembly</strong>, and advance AOM, under incubation in the <abbr title="Web Platform Incubator Group">WICG</abbr> to the standardization track. Note accessibility topics are discussed at W3C within the <a href="https://www.w3.org/WAI/APA/">Accessible Platform Architectures (APA) Working Group</a>.</li>
+            <li>Explore <strong>metadata layers for glTF</strong> to carry semantics needed for accessibility and immersive scenarios, through exchanges between the Khronos Group and relevant groups at W3C (APA and Immersive Web groups).</li>
+            <li>Consider developing <strong>guidelines</strong> for game developers, e.g. to promote efficient solutions for assets loading and accessibility.</li>
+            <li>Discuss monetization issues for games on the Web, including support for <strong>rewarded video ads</strong> and mechanisms to mitigate piracy issues.</li>
+            <li>Discuss <strong>specificities of Web environments hosted in native applications</strong> and commonalities with regular Web runtimes. Work on a convergence plan to expose Web APIs to hosted environments where possible and bring some APIs defined in hosted environments to the Web.</li>
+          </ul>
+        </section>
       </section>
 
       <section id="thanks">
