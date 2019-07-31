@@ -488,12 +488,12 @@ span.title {
   order: 1;
 }
 
-summary::-webkit-details-marker {
-  display: none;
+summary {
+  display: block;
 }
 
-summary::-moz-list-bullet {
-  list-style-type: none;
+summary::-webkit-details-marker {
+  display: none;
 }
 
 li:not(.no-details) details summary .desc {
