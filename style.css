@@ -703,6 +703,20 @@ ol ol {
   margin-bottom: 0;
 }
 
+.note {
+  background: #c0d9af;
+  box-shadow: 10px 5px 3px 0px gray;
+  border-width: thin;
+  border-style: thin;
+  border-radius: 3px;
+  max-width: 300px;
+  padding: 1rem;
+}
+
+.note p {
+  margin: 0;
+}
+
 .warning {
   box-shadow: 10px 5px 3px 0px gray;
   border-top-width: thin;
