@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>W3C Web 游戏技术研讨会总结报告</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:site" content="@w3c">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="W3C Workshop on Web Games, June 27-28 2019 in #Seattle 🇺🇸 ">
+    <meta property="og:description" content="The primary goal of the workshop is to bring together browser vendors, game engines developers, games developers, game distributors, and device manufacturers to enrich the Open Web Platform with additional technologies for games.">
+    <meta property="og:image" content="media/webgames-thin-sm.jpg">
+  </head>
+  <body>
+    <header class="header">
+      <div id="banner">
+        <div>
+          <p>
+            <a href="https://www.w3.org/"><img alt="W3C" src=
+            "media/w3c_home_nb-v.svg" height="48" width="72"></a>
+          </p>
+          <h1>
+            W3C Web 游戏技术研讨会
+          </h1>
+          <p>2019年6月27-28日 · 美国华盛顿州雷德蒙德市</p>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <ul>
+          <li>
+            <a href="index.html">参会介绍</a>
+          </li>
+          <li>
+            <a href="agenda.html">日程</a>
+          </li>
+          <li>
+            <a href="papers.html">论文报告</a>
+          </li>
+          <li>
+            <a href="participants.html">参会者</a>
+          </li>
+          <li>
+            <a class="active-tab">总结报告</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="box box-host" id="host">
+      <h2 class="footnote">
+        会议承办方
+      </h2>
+      <p>W3C 衷心感谢微软公司承办本次会议！</p>
+      <p style="margin-top: 1.5em; margin-bottom: 1.5em;"><a href="https://microsoft.com/"><img src="media/microsoft.svg" alt="Microsoft logo" /></a></p>
+    </aside>
+    <aside class="box" id="sponsors">
+      <h2 class="footnote">
+        会议赞助
+      </h2>
+      <section class="sponsors-section sponsors-section--platinum">
+        <h3 id="platinum-sidebar">
+          白金赞助商
+        </h3>
+        <p style="margin-top: 2.5em; margin-bottom: 1.5em;"><a href="https://www.facebook.com/fbgaminghome/developers"><img src="media/facebook.png" alt="Facebook Gaming"></a></p>
+      </section>
+    </aside>
+    <main id="main" class="main">
+      <h2>研讨会总结报告</h2>
+
+      <section id="toc">
+        <h3>内容</h3>
+
+        <ul>
+          <li><a href="#summary">内容提要</a></li>
+          <li><a href="#introduction">介绍</a></li>
+          <li><a href="#context">问题思考</a></li>
+          <li><a href="#needs">需求表达</a></li>
+          <li><a href="#topics">议题</a>
+            <ul>
+              <li><a href="#threads">Web 多线程支持</a></li>
+              <li><a href="#wasm">WebAssembly</a></li>
+              <li><a href="#3D">3D 渲染</a></li>
+              <li><a href="#loading">预加载 &amp; 存储</a></li>
+              <li><a href="#a11y">游戏无障碍访问</a></li>
+              <li><a href="#audio">音频 &amp; 游戏</a></li>
+              <li><a href="#gamepad">Gamepad 支持</a></li>
+              <li><a href="#latency">输入延时</a></li>
+              <li><a href="#webtransport">WebTransport &amp; WebCodecs</a></li>
+              <li><a href="#inclusivity">在游戏中使用性别中性语言</a></li>
+              <li><a href="#hosted-apps">Hosted App 运行小游戏</a></li>
+              <li><a href="#discoverability">分发渠道 &amp; 变现</a></li>
+            </ul>
+          </li>
+          <li><a href="#next">下一步</a>
+            <ul>
+              <li><a href="#next-existing">发展中的技术</a></li>
+              <li><a href="#next-exploratory">探索性工作</a></li>
+              <li><a href="#next-new">新的技术提案</a></li>
+              <li><a href="#next-other">其它提案</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p>欢迎查看:</p>
+        <ul>
+          <li><a href="minutes/27-games-minutes.html">第一天会议记录</a></li>
+          <li><a href="minutes/28-games-minutes.html">第二天会议记录</a></li>
+          <li><a href="agenda.html">日程</a>页面包含大部分技术分享的视频链接</li>
+          <li>参加者的博客: <a href="https://dev.end3r.com/2019/07/w3c-games-workshop-trip-report/">Andrzej Mazur</a>, <a href="http://matatk.agrip.org.uk/articles/w3c-workshop-on-web-games/">Matthew Atkinson</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLfCgUsc2B8DULnyLiN_ThYKJBWiPNf-tM">W3C 开发者开放日游戏技术分享视频</a>，由 W3C 开发者团队与 SeattleJS 合办</li>
+        </ul>
+      </section>
+        </ul>
+      </section>
+
+      <section id="summary">
+        <h3>内容提要</h3>
+        <p>W3C 于2019年6月27-28日在微软的支持下到 Redmond 市举行了一个为期两天的 Web 游戏研讨会，把游戏厂商、游戏引擎开发者、游戏开发者、游戏渠道分发商和设备制造商等（共有100多位<a href="participants.html">参会者</a>）聚集在一起，讨论如何用新的游戏技术去完善 Web 开放平台。</p>
+        <p>研讨会参加者汇报了近几年的游戏技术进展，包括现在还如火如荼发展的 <a href="https://webassembly.org/">WebAssembly</a> 和 <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a>。他们强调<strong>在 Web 里支持 <em>real threading 分线程</em></strong> 3D 渲染和高级音频处理是在 Web 里运行 AAA 内容（高质量游戏）的核心需求。大家还讨论一系列优化对<strong>云游戏场景</strong>的支持的技术提案，包括降低输入/输出的延时（如<code>pointerrawupdate</code>事件，和 <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client</a> 提案），和改进客户端和服务器端的实时通讯能力（如 <a href="https://wicg.github.io/web-transport/">WebTransport</a> 提案）。他们也识别出一些有利于 Web 游戏整体生态发展的技术革新点，如使用 WebIDL进行 WebAssembly 与已有的 Web API 的高效绑定，一个更稳定和更完善的 <a href="https://w3c.github.io/gamepad/">Gamepad</a> 标准实现，和根据 origin 定义多个存储桶的可能性。研讨会还进行了关于游戏渠道分发、变现、小游戏和游戏无障碍访问（譬如在 WebAssembly 游戏提供读屏访问接口的有效机制）的拓展性讨论。</p>
+        <p>基于这些独立的讨论议题，大家探讨了下一步在 <strong>W3C 成立专门的 Web 游戏技术讨论组</strong>的可行性，以此来协调游戏社区的输入、延续关于以上议题的更广泛的技术讨论、并且通过技术去解决这次研讨会里界定的一系列业界需求。</p>
+      </section>
+
+      <section id="introduction">
+        <h3>介绍</h3>
+        <p>W3C 会根据社区的需求为值得在 W3C 或其它地方进行标准化的技术问题举行研讨会，去收集观点和界定需求，并且衡量社区对这个问题的支持度和优先等级。6月27-28日在 Redmond 举行的 Web 游戏研讨会得到了微软的办会支持，共有101位来自游戏厂商、游戏引擎开发者、游戏开发者、游戏渠道分发商和设备制造商的<a href="participants.html">技术分享者和参会者</a>，代表着游戏产业界的各方面意见输入。</p>
+      </section>
+
+      <section id="context">
+        <h3>问题思考</h3>
+        <div class="box compact">
+          <p>详情请看:</p>
+          <ul>
+            <li><a href="agenda.html#opening-remarks">技术分享与录制视频</a></li>
+            <li><a href="minutes/27-games-minutes.html#item01">技术分享的会议记录</a></li>
+          </ul>
+        </div>
+        <p>第一个讨论环节为研讨会的后续技术讨论奠定了基础，提出了对游戏在 Web 里运行的一系列技术的优先级和实现障碍的初步思考。在他的技术分享里，David Catuhe，微软 Babylon.js 游戏引擎的作者，阐述了他对 Web 的热爱，但他经常为 Web 一些短板，尤其是在与 Native 的对比时的差距感到疲倦。这些短板正是这次研讨会希望解决的：存储管理、多线程支持、WebAssembly 编码性能、云游戏、gamepad 支持，等等。</p>
+
+        <p><cite>“Web 无处不在，并且 Web 在网络不佳的环境也能运行。” - David Catuhe</cite></p>
+
+        <p>Chris Hawkins 做了一个关于 Facebook 在 Instant Games——一个运行在 Facebook 应用的 WebView 的 HTML5 游戏平台——的实践经验的报告。而 Christian Rudnick 和 Gili Zeevi 则展示了一些他们在 Softgames 平台上开发和发布 Web 游戏时候反复遇到的问题。Andrzej Mazur 从独立开发者的角度回顾了 Web 游戏的历史，从2011年 W3C 举行的 <a href="https://www.w3.org/2011/09/games/">第一个 Web 游戏研讨会</a> 讲起，他认为对游戏开发者而言，2019年的技术已经全面改进，大部分被开发者急迫需要的技术已经得到发展和实现（Workers, Pointer Lock, Gamepad, 等等）， 而 Web 游戏的生态也在过去几年指数增长。</p>
+
+        <p><cite>“你只要开发了一个游戏（在2011年）[...]它就是个成功，能被各方推广运行。但几年后，我们面临着一个问题，有些开发者已经宣称他们在过去几年里至少开发了500个游戏，没有上千也至少有几百个开发者到达了这个成就。相比于前几年来说开发 HTML5 游戏的门槛大大降低了。” - Andrzej Mazur</cite></p>
+
+        <p>对于这么多的开发者和数量巨大且日益增长的游戏，如何提供发现入口已经成为游戏在 Web 上运行的一个关键问题。与此同时，还有在 Web 里的变现问题，以及雪上加霜的是，在 Web 里，游戏可能刚发布几天就被完全复制或抄袭，哪怕代码经过了模糊处理。怎么保护 Web 游戏的版权？当然，与 Native 比较，这里面的商业潜力也是巨大的。</p>
+
+        <p><cite>“in-app 支付（在 native 游戏里）的便捷性每年带来了600亿美元的营收。我们的梦想是 Web 游戏也能到达同样的成就。” - Gili Zeevi</cite></p>
+        
+        <p>参会者也指出了在游戏里挽留长期用户的重要性和困难度。Web 游戏不需要下载文件，这缓和了一些新增用户成本，但游戏通常需要一些预加载才能跑起来，这些预加载需要时间，但用户总希望游戏能瞬间激活。过长的启动时间绝对会导致用户流失，游戏加载时间每增加1秒会流失多达12%的用户。消息推送有助于重新吸引用户到一个游戏里。推送在 Web 是完全可行的，但 Native 的消息推送成功转化率更高。</p>
+
+        <p>设备能力难以推断，所以在估量 3D 贴图最优加载方案时游戏很容易出现内存或类似问题。这显然是个严重影响用户体验的问题，对运行在 app 的小游戏而言，小游戏的崩溃通常也会导致整个 app 的崩溃。WebView 与常规浏览器对属性接口的支持不同步也为在 app 里运行小游戏带来挑战。</p>
+
+        <p><cite>“推断用户的设备能力和其运行该游戏的设备的种类是很困难的。这对我们很多开发者来说是个难题，尤其是加载纹理存储，经常会导致整个 WebView 的崩溃。” - Chris Hawkins</cite></p>
+
+        <p>这次研讨会谈到的技术难题还包括完全离线地运行一个游戏，“添加到桌面”属性的缺失或不容易发现，把进行中的游戏流畅地转移到另一个设备，以及更好的开发者工具。</p>
+      </section>
+
+
+      <section id="needs">
+        <h3>需求表达</h3>
+        <p class="box">详情请看: <a href="breakouts/needs.html">需求表达环节的分组报告</a></p>
+        <p>“用技术满足游戏玩家与设计师的需求”环节旨在让参会者思考一些特定的用户需求和如何用 Web 游戏技术满足这些需求。用户组包括触屏交互研究员、UX设计师、玩家、硬件开发商和高级游戏设计师（教育与治疗应用），这些用户组都可以使用 Web 游戏技术解决一些问题。这些讨论组的产出包括一个需求<a href="breakouts/needs.html#matrix">矩阵</a>，和一系列的<a href="breakouts/needs.html#speculation">灵活的设计想法</a>。这个矩阵展示了每个用户组的需求和一些可行方案。这些设计想法则展望了各个用户组将来会怎么使用 Web，并且我们需要怎么完善 Web 技术让这些展望变成现实。</p>
+        <figure>
+          <img src="media/needs.jpg" alt="Participants discuss needs per user group and collect them on a whiteboard through post-it notes" />
+          <figcaption>参会者正在根据每个用户组的需求创建矩阵</figcaption>
+        </figure>
+        <p>这个环节还确立了一些<a href="breakouts/needs.html#list">主题</a>。其中最重要的主题之一是创建或优化现有的 Gamepad API。社交/组团也是一个重要话题，如创建一个开源的社交图谱、玩家好友间的权限共享 API 设计等。其它主题还包括 metadata 元数据，标准，延时，文档和 UI。</p>
+        <p>头脑风暴环节产生了各种各样但很有用户代表性的想法，例如用触摸屏时更便捷地中断游戏，更好的开源自然语言处理库等。还有一部分思考是关于 3D 模型贴图以及把温度作为材料属性，浏览器里原生支持 3D 模型，支持多设备接入，UX 分析工具等。<a href="breakouts/needs.html">本环节总结报告</a>记录了一些分析以深化思考这些问题的解决方案</p>
+      </section>
+
+
+      <section id="topics">
+        <h3>议题</h3>
+
+
+        <section id="threads">
+          <h4>Web 多线程支持</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#runtime">分享文稿</a></li>
+              <li><a href="https://vimeo.com/350131739">分享环节的视频</a></li>
+              <li><a href="minutes/27-games-minutes.html#item07">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item14">自由讨论环节的总结</a></li>
+              <li><a href="breakouts/threads.html">自由讨论环节的会议记录</a></li>
+            </ul>
+          </div>
+
+          <p>游戏引擎需要为场景图像等系统维护复杂的内存结构。经常需要使用好几种算法才能渲染出一帧场景，例如在粒子系统里去剔除不需要被渲染或计算的对象。这些算法操作可以并行进行，但它们都需要访问同一个场景图像。</p>
+
+          <p>Workers 可以在 Web 里面提供一些多线程辅助。但，workers 之间的信息交流仅限于通过 <code>postMessage</code> 允许不同 workers 之间的字符串信息传递，和使用 <code>SharedArrayBuffer</code> 非结构性共享缓冲区。这两个机制都不能满足开发中常遇到的一些问题：</p>
+          <ul>
+            <li>使用 <code>postMessage</code> 意味着需要序列化或者解析序列化对象，这对于需要在 workers 中一秒交换60次的场景而言太昂贵了。</li>
+            <li>Web 浏览器因 Spectre 和 Meltdown 漏洞放弃了对 <code>SharedArrayBuffer</code> 的支持，并且只打算渐进地再度引入它。Luke Wagner 告诉大家，浏览器厂商最近达成了共识，决定实现一个新机制，在相关 HTTP headers 被设定为真时，允许页面选择性支持<code>SharedArrayBuffer</code>。这将会推动各大浏览器和设备在 Web 中重新支持 <code>SharedArrayBuffer</code> 。然而，<code>SharedArrayBuffer</code> 并不是我们希望的共享图形结构对象的最优解决方案，而且它不提供非结构化 buffer。</li>
+          </ul>
+
+          <p>David Catuhe 主持了关于在 Web 里实现一个 real threading 真正的多线程机制以在线程间共享 <b>structured memory</b> 的想法的技术讨论。David 也对 workers 选择以文件而非 function 作为输入的设计机制提出疑问。游戏引擎通常会为底层应用处理线程逻辑。如果 worker 只能接收文件，意味着游戏引擎必须持续跟踪保留引入文件的模块，并且需要与这些应用交互寻求帮助。如果 worker 能直接从 function 开始操作，它们就可以直接进行代码处理（哪怕它们不会再与初始线程共享内存）。</p>
+
+          <figure>
+            <img src="media/threads.jpg" alt="Developers and browser vendors discuss possible ways to improve threading support on the Web during a breakout session" />
+            <figcaption>Web 线程支持 的自由讨论环节</figcaption>
+          </figure>
+
+          <p>参会的游戏开发者大体上支持这个想法，但大家也预测在 JavaScript 增加对 real threading 的支持会带来一定的挑战。在第二天的自由讨论环节中，大家重新思考了这个提案。Luke Wagner 提到，提案中建议的 Javascript 中的 <code>TypedObject</code>，在 WebAssembly 也会有应用，它允许不可变对象在 workers 之间被共享。虽然这个提案不能普遍性地实现多线程场景需求，但它能为游戏引擎提供一个很好的妥协方案：在场景图像中被使用的大多数算法其实只需要对结构对象获得 read-only 访问权限。</p>
+
+          <p>David 接受了基于以上讨论意见重写一个可行提案的任务。对 <code>TypedObject</code> 的支持将会在 EcmaScript 的 TC39 继续讨论，并且大家也会和 WHATWG 一起继续思考如何优化 workers。与 WebAssembly 社区的合作会帮助大家整合需求和可行性提案。</p>
+        </section>
+
+
+        <section id="wasm">
+          <h4>WebAssembly</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#runtime">分享文稿与视频</a></li>
+              <li><a href="minutes/27-games-minutes.html#item08">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item15">自由讨论环节总结报告</a></li>
+              <li><a href="breakouts/wasm.html">自由讨论环节会议记录</a></li>
+            </ul>
+          </div>
+
+          <p>Luke Wagner 给大家描绘了 WebAssembly 的历史以及其在 2019 的发展状态，并讲述了一个 <a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebIDL Bindings 提案</a>以更高效地实现 WebAssembly 与 WebIDL API 之间的绑定。最初的提案是使用 WebAssembly 表格和索引进行映射转换 JavaScript 和 WebAssembly，但这并不是好设计。新的提案改进了 WebAssembly 方面的指引类型。</p>
+
+          <p><cite>“在这个阶段，【Mozilla 游戏项目】的目标是：如果我们能为游戏持续完善 Web，让游戏在上面流畅运行，这已然很好，并且，我们能把这些优化技术运用在所有其它的用例上。” - Luke Wagner</cite></p>
+
+          <p>WebIDL Bindings 提案开启了让 Web API 更紧密地与用 C++ 等其它语言编码的游戏引擎结合的大门。Matthew Atkinson 提到，将来可以把类似的绑定方案使用在本地代码与无障碍访问接口如 <abbr title="Web Platform Incubator Group">WICG Web 平台孵化组</abbr> 正在讨论的 <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model</a> 上，这样将更好的提高用本地代码编写的游戏在 Web 运行时候的无障碍可访问性。</p>
+
+          <p>C++ 代码的调试当然是可以通过本地调试工具进行的，但总有一部分 Web-specific 的代码是会被编译为 WebAssembly。Björn Ritzl 强调了为此提供更好的调试工具的重要性。WebAssembly 社区组重新火起来的 <a href="https://yurydelendik.github.io/webassembly-dwarf/">DWARF for WebAssembly</a> 提案很有可能成为这个问题的解法。</p>
+
+          <p>在第二天的 WebAssembly 自由讨论环节中，大家探讨了：</p>
+          <ul>
+            <li>在设计新的 Web API 时候，WebAssembly 应成为考虑角度之一；</li>
+            <li>WebAssembly 并没有为游戏资产提供额外的保护机制。Web Cryptography 可能对开发者来说是个更好的方案；</li>
+            <li>一些让 JavaScript 开发者赶上 WebAssembly 班车的方法，如 <a href="https://github.com/AssemblyScript/assemblyscript#-assemblyscript">AssemblyScript</a>；</li>
+            <li>模块化加载的性能问题，缓存，和从 JavaScript 调用 WebAssembly 的代价消耗。</li>
+          </ul>
+        </section>
+
+
+        <section id="3D">
+          <h4>3D 渲染</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#3D">分享文稿与视频</a></li>
+              <li><a href="minutes/27-games-minutes.html#session-3d">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item11">自由讨论环节总结报告</a></li>
+              <li><a href="breakouts/3d.html">自由讨论环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>The Khronos Group 发布了一份 royalty-free 的 3D 标准，为 OpenGl/WebGL, Vulkan, OpenXR, SPIR 等图形技术带来了硅微加速契机。WebGL 启动了 glTF 方面的探索，以实现一个跨网络传输的 3D 模型文件压缩格式。Neil Trevett 为我们介绍了 glTF 的一些属性，包括支持可持续更新的 3D，动画, 物理基础渲染(PBR)素材等。glTF 是独立于大部分渲染 glTF 内容的 run time 以及运行环境(游戏引擎, XR 引擎, Facebook, Microsoft Office, Adobe tools, Blender, 等等)的。</p>
+          <p>glTF 的一些拓展正在被考虑添加到其核心标准内，一个先例是 mesh compression，它基于 Google 的 Draco mesh compression 技术，以及后续可能添加一些材质压缩机制，这些通常都是 3D 资源进一步考虑的范畴。</p>
+          <p><cite>“现在已经是 21世纪【但】我们还没有理顺这些繁多的 GPU 本地纹理格式，几乎每个平台都有自己一套 GPU-加速格式。例如，台式机上有 PVRTC, ASTC，移动端又是另一套，【...】，在原生应用上，游戏开发者通常不得不为纹理资源开发多套代码。” - Neil Trevett</cite></p>
+          <p>除了压缩，纹理的另一个重要问题是平台对多种 GPU 原生纹理格式的支持。The Khronos Group 正在研究 Binomial ，而 Google 尝试整合 Binomial 的基础通用格式到 glTF。这个属性，也被称为 Compressed Texture Transmission Format (CTTF)，将为传输提供一种合适的纹理格式以低开销轻松实现转码到任何平台所支持的 GPU 格式并且是实时的，不需要提前解压整个纹理资源。</p>
+          <p>另一个很有潜力的 glTF 新属性是下一代的 Physically Based Rendering (PBR)，这是由 3D commerce 提出的。还有很多其它的新属性将被整合，但大家还在讨论其优先级，例如，头像肢体动画的脸部动画和点云技术等。Neil 提到基于 glTF 的纵向应用技术也在发展，例如在日本由为虚拟人物开发的 <a href="https://vrm.dev/en/">VRM 格式</a>。</p>
+          <figure>
+            <img src="media/vrm.jpg" alt="Neil mentions the VRM format, which builds on top of glTF 2.0 to describe humanoid avatars" />
+            <figcaption>VRM 基于 glTF 2.0 开发，用于描述虚拟人物属性</figcaption>
+          </figure>
+          <p>讨论环节有建议考虑在 glTF 用元数据定义来暴露 3D 场景的语义信息，尤其是为无障碍访问服务。The Khronos Group 和 the Accessible Platform Architecture 工作组将共同探讨这方面的可行技术提案。</p>
+          <p>切换到 3D 渲染，Myles C. Maxfield 汇报了 <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> 提案的进展。 WebGPU 旨在于不同的硬件(DirectX, Metal 和 Vulkan)之上提供一个公用的抽象接口。这将允许开发者去最大限度地调度硬件能力，并且让开发者直接利用图形卡的计算能力，例如，用于优化 AI 人工智能场景。</p>
+          <p>核心的 WebGPU 属性包括一个和 Web 匹配的安全模型，跨平台可移植性和性能。 WebGPU 也被设计用于实现批处理可复用的跨调用的不透明对象的上下文参数，使得 WebGPU 十分擅长在不同的参数配置集合中切换。</p>
+          <p>如何为 WebGPU 定义一套合适的 shading 语言还在火热讨论中，现在有两个很具竞争力的提案：一套 SPIR-V 同系语言或一套基于 HLSL 的解决方案。这两套提案的语言相似但创建代码的流程很不一样：SPIR-V 需要编译，而 WHLSL 开箱可用。大家的目标是统一一套语言来覆盖相关需求。</p>
+          <p>WebGPU 提案现在于 <a href="https://www.w3.org/community/gpu/">GPU for the Web 社区组</a>进行孵化。这个社区组在计划转化为 W3C 工作组。</p>
+          <p>在第二天的自由讨论中，一些参会者讨论了在 Web 创建一个 3D 元素的可行性，这个提案对一些特定用例非常有帮助，为此大家创建了一个 <a href="https://github.com/immersive-web/proposals/issues/52">issue on Native glTF support</a> 在 Web 沉浸式体验社区组孵化相关想法。在这方面，the Khronos Group 和 沉浸式体验社区组将结成同盟共同深化讨论。</p>
+        </section>
+
+
+        <section id="loading">
+          <h4>预加载 &amp; 存储</h4>
+          <div class="box compact">
+            <p>详情请看：</p>
+            <ul>
+              <li><a href="agenda.html#packaging">分享文稿与视频</a></li>
+              <li><a href="minutes/27-games-minutes.html#session-storage">本环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>在<a href="#context">问题思考</a>一节有参会者强调，漫长的启动时间绝对会导致玩家流失，哪怕他们还没有真正开始玩这个游戏。Kasper Mol 和大家分享了一些 Poki 游戏平台的分析数据，显示游戏下载包的大小如何直接影响玩家时长：在网络条件好的国家如果游戏启动时需要下载10MB大小的文件，20%的玩家会直接跑掉；这个比例在网络条件差的国家将高达40%。</p>
+          <p>除了压缩技术，这个问题看来更应该通过策略而非技术解决：必要的资源可以通过不同的绑定策略获取，在游戏启动时只加载核心资源。然而，大部分游戏开发者太习惯原生应用，游戏要正式下载启动并且所有资源都要预加载。大家希望通过开发一个最佳实践指南来帮助解决这个问题。</p>
+
+          <p>Andrew Sutherland 回顾了不同的几种可用于游戏预加载的技术：cookies, localStorage, IndexedDB, 和 Cache API. Andrew 还让大家留意在 <a href="#threads">多线程</a> 环节讨论过的 serialization/deserialization 序列化/反序列化 的开销。他还阐述了 quota 以及 bucket 限制（基于 TLD+1 或 origin），导致在实践中很难依赖于持久性存储。</p>
+
+          <p><cite>“Buckets 是规范中标准化的清除方案。一旦你离开我们将清空你所有的网站数据。标准方面比较有意思的一个思路是我们想要多个 buckets。例如用户编写完邮件后可能想保留邮件但其它缓存的东西是可以被清除掉的。” - Andrew Sutherland</cite></p>
+
+          <p>参会者普遍支持<b>基于 origin 提供多个 buckets</b> (例如，用于区分永久性资源和那些不妨在有需要时再度下载的资源)，不过这里如何让用户理解这些资源以怎么样的方式存储的语义需要更精确，否则很容易导致误用。一个可行的想法是 <a href="https://wicg.github.io/background-fetch/">Background Fetch</a> 提案，通过与资源下载管理器的连接，让用户更容易获知背后发生了什么。</p>
+        </section>
+
+        <section id="a11y">
+          <h4>游戏无障碍访问</h4>
+          <div class="box compact">
+            <p>详情请看：</p>
+            <ul>
+              <li><a href="agenda.html#ux-a11y">分享文稿与视频</a></li>
+              <li><a href="minutes/27-games-minutes.html#session-a11y">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item16">自由讨论会议记录</a></li>
+            </ul>
+          </div>
+          <p>在无障碍访问环节里，Luis Rodriguez 详细讲述了辅助有运动障碍的用户的技术蓝图，介绍了不同类别的运动障碍如脑瘫、神经管缺陷、事故创伤等，和针对各种运动障碍用户要操纵游戏所需的辅助以及动作转换（开关耳机、挥动等）。 Matthew Atkinson 给我们讲述了这些需求如何映射到相应的设计和辅助技术上。在实践中我们还面临很多挑战，但随着公众对无障碍需求的认识加深，这方面的技术发展前景还是很乐观的。大家面临的问题已经不再是“这是什么？”而是“如何提供帮助？”</p>
+
+          <p><cite>“游戏本来就是充满挑战的【...】如果没有挑战，就没有破关乐趣！但每个游戏的挑战都是不同的，所以为每个游戏进行无障碍访问设计适配的方式也是各种各样的。” - Matthew Atkinson</cite></p>
+
+          <p>改善一个游戏内容的无障碍访问的方式有很多，包括增大目标的打击范围，使用空间音效和视觉效果标记部分事件，或者提供字幕，游戏字幕的受众其实是出乎意料的广。除此之外，还有一个最佳的整合方式是提供支持辅助技术的 API，这些 API 本来就是经过实践证明的好的辅助设计。在 DOM 的世界里，大部分辅助技术是基于 accessibility tree 的，它依附于 DOM。HTML 元素提供基础语义，WAI-ARIA 定义额外的角色和属性。然而，许多游戏是在 canvas 里面渲染的，大概因为它们是被编译成了 WebAssembly 或者只是进行了通用的渲染绘制。如果没有 DOM，浏览器没有标准化的机制去为辅助技术提供必要的语义信息。不过，这正是 <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model</a> (AOM) 提案所要解决的问题，它正在 <abbr title="Web Platform Incubator Group">WICG</abbr>进行孵化讨论。</p>
+
+          <p>这就带来了一个问题：对于被编译成 WebAssembly 的游戏，怎么利用这些新的 Web APIs？在 WebAssembly 调用 Web APIs 现在还是十分低效而且复杂的，在 <a href="#wasm">WebAssembly 环节</a> 讨论的 WebIDL Bindings 提案将会为游戏引擎提供一个有效的机制在把游戏编译成 WebAssembly 的同时支持 AOM APIs。</p>
+
+          <p>Luis 提出在游戏里整合语言能力的想法， 这里指的是真正的语音对话而非文字转化为语音或语音识别。现在 voice UX 生态有很多新的技术进展。语言辅助是一个展示这个趋势的良好用例</p>
+          
+          <p><cite>“人们想要和他们的 Web 游戏聊天吗？我敢说是需要的，因为对残障人士来说这可以深化幻想，这正是游戏可以提供的欢愉。”” - Luis Rodriguez</cite></p>
+
+          <p>Ian Hamilton 介绍在 21<sup>st</sup> Century Communications and Video Accessibility Act (CVAA) 视频游戏现在需要进行技术革新。这项行动为把无障碍访问需求纳入游戏的对话功能设计提供了额外的动力。提供替代方案是个显然的需求，当无障碍访问不光是简单的替代，开发者应该尽可能地思考如何为他们提供更有趣味的玩家体验。CVAA 希望无障碍需求能在开发早期纳入考量，最好能让残障人士提供顾问意见，这些考量和技术优化将提升整个游戏的无障碍体验，不光是它的对话效果。</p>
+        </section>
+
+        <section id="audio">
+          <h4>音频 &amp; 游戏</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#audio">分享文稿与视频</a></li>
+              <li><a href="minutes/28-games-minutes.html#session-audio">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item14-3">自由讨论环节总结报告</a></li>
+              <li><a href="breakouts/audio.html">自由讨论环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>Michel Buffa 演示了现在 Web Audio API 已经达到的威力，突出展示了如何用这些接口通过 JavaScript 以及运行在 WebAssembly 的 <code>AudioWorklet</code> 打造一个标准化的音频处理插件，从而直接在 Web 里接入音频设备运行专门的音乐语言例如 FAUST。Michel 指出现在音频输入输出在一些平台上还有延时的问题，部分原因是 <code>AudioContext</code> 的 <code>outputLatency</code> 属性没有被支持。这更是个浏览器实现驱动问题而非 Web Audio API 标准设计问题（Firefox 在研讨会过后不久实现了这个属性）。</p>
+          <p>Philippe Milot 汇报了 AudioKinetics 对 Wwise Web 音频引擎 的技术实现历程，他指出声音引擎对 <code>AudioWorklet</code> 的支持需要更好地和硬件结合并且依赖多线程支持。音频多线程的讨论在 <a href="#threads">多线程支持环节</a>也有涉及。</p>
+          <p>Hongchan Choi 介绍了 <a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client</a> (ADC) 提案，这个提案正在 Web Audio 社区组孵化，目标是解决 Philippe 和其它专业音频公司所提到的问题，通过提供一个彻底的底层音频输入输出接口。其核心属性包括：</p>
+          <ul>
+            <li>一个精心设计的全局独立线程（合适的优先级）用于音频处理，来避免现在很多库所面临的复杂的任务调度和管理。</li>
+            <li>一个底层音频输入输出，只包含输出输出 buffer 调用，完美匹配 WebAssembly-powered 的音频处理。</li>
+            <li>可配置的渲染块尺寸 (不再锁死在 Web Audio API 的 128 sample-frames)。</li>
+            <li>可以通过一个 <code>MediaTrackConstraints</code> 模式选择音频 I/O 设备。</li>
+            <li>可根据需求变换 sample rate。</li>
+          </ul>
+          <p><cite>“[ADC] 面向 Web 平台的最底层：没有 built-in 的模块或者设备，没有冗余。只是一个单纯的输出输出 buffer 调用方法，完美匹配重度 WASM 应用。同时，它也贴近硬件层，允许你不泄漏用户隐私地通过各种不同方法配置一些设备端参数。” - Hongchan Choi</cite></p>
+          <p>参会者对 ADC 提案普遍表示支持，并期待它在后面的发展中解决一些游戏音频需求。如果 ADC 被实现，很多 C/C++ 编写的音频处理代码就可以导出到 Web 里。</p>
+          <p>在音频的自由讨论环节，参会者强调了对专业音频公司有必要提供更多的底层接口，同时也探讨了 WebCodecs 提案和 ADC 协作的可能，还探讨了在虚拟环境的音频处理。Web Audio 工作组正在为下一代的 Web Audio API 收集用例。</p>
+        </section>
+
+        <section id="gamepad">
+          <h4>Gamepad 游戏手柄支持</h4>
+          <p class="box">详情请看: <a href="agenda.html#cloud-gaming">分享文稿</a> 和 <a href="minutes/28-games-minutes.html#item05">会议记录</a></p>
+          <p><a href="https://w3c.github.io/gamepad/">Gamepad API</a> 标准的编写已经进行好几年了。它提供了一些对游戏手柄的基础功能的支持并且已经在浏览器里广泛实现。然后，从2014年开始它的发展有点停滞，因为缺乏推动力。Kelvin Yong 介绍了 Gamepad API 现有的一些限制导致游戏公司很难依赖于 Web 技术实现用户交互。Gamepad API 未来的变革包括：</p>
+          <ul>
+            <li>标准化的游戏手柄输入：操作按钮可能以不同的方式接入应用。一个很难处理的问题是差异性是<em>同时</em>存在于操作按钮和浏览器的。为了无障碍访问需求，可能需要重新定义按钮的映射。</li>
+            <li>支持现代化的操作特性：触屏界面、光线指示、触觉技术、加速器、陀螺仪等等。</li>
+          </ul>
+          <p>现在的计划是先把现有的 Gamepad 规范推成正式推荐标准，然后开始第二版本的迭代，去支持现代化的操作特性，去支持触屏操作（包含不同形状以及单/多触屏）以及光线指示，这是非常复杂但又十分重要的视觉交互属性：它可以指示用户激活部分操作。Google 最近也提出了一个陀螺仪提案。</p>
+          <p>有一些操作是基于事件的，有些是 poll-based 基于轮询的。Gamepad API 现在还是 poll-based 但我们正在讨论添加基于事件的机制，期待大家的意见输入。浏览器可能需要整合轮询和事件来保证 event loop 匹配展示帧率，尤其对于虚拟 WebXR 场景。</p>
+          <p>谈到 WebXR, Nell Waliczek 给大家汇报了其在操作输入方面的技术进展。WebXR 有一个输入源的概念，它可以是手、操作器、带跟踪或者无痕的。Gamepad API 是 <code>XRInputSource</code> 接口的一部分。对 VR 来说，一个挑战是操作器的影响因素更多样化。WebXR 正在趋于探讨一个通用的层次化交互偏好模型。WebXR 社区组也在讨论建立一个控制器注册表。
+          <p>Gamepad API 技术革新获得在场参会者的一致支持。大家都希望能现有的标准能尽快定稿，并且共同探讨一系列新提案。</p>
+        </section>
+
+        <section id="latency">
+          <h4>输入延时</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#cloud-gaming">分享文稿</a></li>
+              <li><a href="https://vimeo.com/350906253">本环节视频</a></li>
+              <li><a href="minutes/28-games-minutes.html#item06">本环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>Navid Zolghadr 带来他对 Web 里输入延时的思考，一部分是因为用户正在运行 long tasks，也有部分是设计因素例如同时进行用户输入和 <code>requestAnimationFrame</code> (rAF) 。今天的一个主要技术瓶颈是所有的输入事件都需要通过主线程进行，这对一些用例来说性能特别不好：使用 worker 的本地游戏、云游戏、要求低延时的 <code>OffscreenCanvas</code> 绘制或依赖于用户输入的交互动画（例如，基于滚动的动画）。</p>
+          <p>Navid 展示了 <a href="https://github.com/NavidZ/input-for-workers">对 workers 暴露用户输入的技术提案</a>。这个 API 允许一个 worker 去代理一个特定对象的部分特殊的用户输入事件，从而完全避免因此堵塞主线程。这个 API 还在早期设计阶段，目标是尽可能让网络中的用户输入不耗费额外开销。</p>
+          <figure style="max-width: 800px">
+            <img src="media/input-latency.png" alt="Goal of the user input events to workers proposal is to expose user input events to workers that need it without having to go through the main thread" />
+            <figcaption>对 workers 暴露用户输入</figcaption>
+          </figure>
+          <p>另一个提案 non-rAF-aligned 事件(针对云游戏使用)也引起思考，它提出了一种新的 <em>raw裸</em> 事件。由其命名可见，这些事件将影响到性能，所以需要衡量它们在实际使用中的适合程度。</p>
+        </section>
+
+        <section id="webtransport">
+          <h4>WebTransport &amp; WebCodecs</h4>
+          <div class="box compact">
+            <p>详情请看：</p>
+            <ul>
+              <li><a href="agenda.html#cloud-gaming">分享文稿</a></li>
+              <li><a href="https://vimeo.com/350908362">本环节视频</a></li>
+              <li><a href="minutes/28-games-minutes.html#item07">本环节会议记录</a></li>
+              <li><a href="minutes/28-games-minutes.html#item14-2">自由讨论环节总结报告</a></li>
+              <li><a href="breakouts/networking.html">自由讨论环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>云游戏可能会用到不同的技术进行流媒体的输入和输出。但其中任何一种都还不能完美匹配云游戏需求。WebRTC 理论上很好但在客户端/服务端架构里不太适用。而且，把传输跟编码/解码捆绑在一起意味着应用不能为云游戏调整编码/解码参数。WebSockets 是 TCP-based 但云游戏场景更适用灵活的 UDP。Media Source Extensions (MSE) 没有给应用任何控制权来决定浏览器 buffer 多少帧就开始回放。有些浏览器支持 <em>live</em> 模式但这是基于启发推断的。MSE 可以通过扩展来满足这些需求但最终可能导致它本身变成一个底层接口。</p>
+          <p><cite>“人们说：啊，如果有一个配备 UDP 能力的 WebSockets，那一定会很适合云游戏 [...] 是的！WebTransport 能让你做类似 UDP通信的事情除了不一样的安全机制” - Peter Thatcher</cite></p>
+          <p>Peter Thatcher 展示了两个提案来解决这些问题：</p>
+          <ul>
+            <li><a href="https://wicg.github.io/web-transport/">WebTransport</a>: 一个基于 QUIC 的 API，可以是点对点或者基于客户端/服务器端的。对客户端/服务器端结构，WebTransport 可以提供 Web 里最接近 UDP 版本的 WebSockets 连接而同时规避安全风险。WebTransport 也可以提供可插拔的拥堵机制控制。<a href="https://wicg.github.io/web-transport/">WebTransport</a> 提案现在于 <abbr title="Web Platform Incubator Group">WICG</abbr> 进行孵化。</li>
+            <li><a href="https://github.com/pthatcherg/web-codecs/blob/master/explainer.md">WebCodecs</a>: 一个在浏览器暴露编解码功能的 API。WebCodecs 显著地避免了因为需要支持特定的 codecs 而付出不必要的性能和电池寿命代价运行 WebAssembly 代码。WebCodecs 提案已经 <a href="https://discourse.wicg.io/t/webcodecs-proposal/3662">提交给 WICG</a> 但需要得到各家厂商的支持。</li>
+          </ul>
+          <p>这些提案对很多场景都十分适用，包括：多玩家游戏，低延时要求流式游戏预加载，游戏里的实时通讯，客户端/服务端机器学习或者转码。</p>
+          <p>这两个提案得到参会者的热烈欢迎，部分参会者在分组自由讨论环节进一步讨论里面的实现细节。看来大家更愿意从 WebTransport 的客户端/服务端模式起步。Polyfills 可以帮助开发者从 WebSockets 切换到 WebTransport。WebCodecs 可能也将会用来实现更便捷的不同类型媒体同步。</p>
+        </section>
+
+        <section id="inclusivity">
+          <h4>在游戏中使用性别中性语言</h4>
+          <div class="box compact">
+            <p>详情请看:</p>
+            <ul>
+              <li><a href="agenda.html#diversity">分享文稿</a></li>
+              <li><a href="https://vimeo.com/350909020">本环节视频</a></li>
+              <li><a href="minutes/28-games-minutes.html#item08">本环节会议记录</a></li>
+            </ul>
+          </div>
+          <p>Elina Bytskevich 和 Gabriel Tutone 剖析了性别化，即根据性别进行参数配置，可能导致不合理的社会代表性。有些游戏做到了避免性别偏差：在 Sims 4 没有性别偏差的概念，Fallen London 提出了 gender-less 的选项，Sunless Sea 同时使用男性或者女性语言去引用角色，等等。但这些，也很难做得精确。</p>
+          <p>人们经常忽略了语言里面的性别偏差。语言可能是无性别的（例如英语和芬兰语），可能是可提供中性引用的（例如荷兰语和丹麦语），也可能是有阳性和阴性区分的（例如西班牙语，法语，意大利语），或者是有中性、阳性、阴性三种区别的（例如德语和俄罗斯语）。有些语言会区分生物和死物（例如巴斯克语）。</p>
+          <p>包容性语言是指一种不带性别或者性别社会意义色彩的语言。在英语中实现包容性语言是一种挑战。在有性别差异的语言中它更是复杂，因为可能需要重新创造一个中性结构。语言本身需要变革去变得更具有包容性，通过新的发音和格式去模糊阳性和阴性。这样的新格式越来越多地在写作中被使用，例如在法语、德语、西班牙语和意大利语。</p>
+          <p><cite>“在法语里，"Cher.e.s ami.e.s" 能同时表示女性朋友和男性朋友。在德语里，[...] 一个星号 [可能被用来] 指代多种类型而不光是后续显示类型，例如 "der*die Priester*in" 表明这里同时有男性和女性” - Elina Bytskevich</cite></p>
+          <p>有意思的是，这些新格式经常不能被发音，所以读屏器、语音助手和其它文本转语音工具经常会卡住。Pronunciation Task Force of the Accessible Platform Architecture (APA) 工作组是讨论新的包容性语言读音问题的合适的地方。</p>
+        </section>
+
+        <section id="hosted-apps">
+          <h4>Hosted App 运行小游戏</h4>
+          <p class="box">详情请看：<a href="minutes/28-games-minutes.html#item13">总结报告</a> 和 <a href="breakouts/hosted-apps.html">会议记录</a></p>
+          <p>Hosted App 运行小游戏分组自由讨论探讨了一种特殊（但通用的）场景，在 native 应用运行使用 Web 技术创建的游戏。流行的用例包括百度智能小游戏，Facebook Instant Games，腾讯的微信小游戏。吴萍给大家介绍了百度智能小游戏的平台架构设计。</p>
+          <p>Native 外壳和 Web 内容的结合创造了一个可扩展的环境使特定的 API 暴露出来实现与 hosted apps 的部分功能融合，例如可以通过社交图谱 API 来与用户的社交网络交互。但在这样的环境下运行游戏也是很有挑战性的：native 应用的 <code>WebView</code> 渲染出来的 Web 内容可能和真实浏览器的渲染效果不一样。有些 Web APIs 因为安全原因在 <code>WebView</code> 上不可用。实际上，有些 hosted app 环境甚至重新实现了一些 Web APIs 或者限制对游戏不重要的 Web APIs 的使用（例如 DOM）。</p>
+          <p>反之，有些为 hosted app 创建的额外的 API 实际上可以有更广泛的应用。在实践中，一些 hosted app 环境重写了部分 Web APIs 并且不提供 DOM 支持，通常只提供在应用里进行 canvas 渲染。</p>
+          <p>大家讨论了在这种 hosted 结构中，理清 Web APIs 的限制边界是很有帮助的，还探讨了长期来说这种结构如何和 Web 进行聚合。</p>
+        </section>
+
+        <section id="discoverability">
+          <h4>分发渠道 &amp; 变现</h4>
+          <p class="box">详情请看: <a href="minutes/28-games-minutes.html#item12">总结</a> 与 <a href="breakouts/monetization.html">会议记录</a></p>
+          <p>分发渠道和变现在问题界定环节被认为是一个 Web 游戏发展的关键因素：不同于 hosted app 平台，Web 是一个开放性的生态，游戏很容易湮没于其它的内容，并且很难去进行游戏变现。Tom Greenaway 主持了一个自由讨论环节来探索改进方案。</p>
+          <p>一个改善分发渠道的想法是扩展元数据格式，尤其是 <a href="https://schema.org">schema.org</a> 里 <code>VideoGame</code> 的概念，从而让开发者在搜索引擎等平台描述和声明他们的游戏信息。现在的 schema 可声明游戏主导方、声轨的合成器、作弊代码等信息的细节，但它不能帮助实现游戏分类。一个扩展思路是允许声明游戏所支持或者需要的输入控制器的类型（例如，键盘，游戏操作手柄，触屏等）、可否离线、支持的变现方式等。</p>
+          <figure>
+            <img src="media/discoverability.jpg" alt="About 15 workshop participants exchange on discoverability &amp; monetization during a breakout session" />
+            <figcaption>分发渠道 &amp; 变现自由讨论环节</figcaption>
+          </figure>
+          <p>另一方面，实现游戏的 deep linking 可以本质上改进游戏体验：分享的链接可以直接把玩家带到正确的关卡。</p>
+          <p>总而言之，改进分发渠道需要优化游戏发现方式，例如有些玩家抱怨他们玩过一次的游戏之后就找不到了... 这也导致大家不愿意往游戏里充值。</p>
+          <p>提到变现，游戏现在慢慢从支付模式转化成订阅模式或者 free-toplay。有人提到奖赏性的视频广告是一种有效的变现机制和挽留用户的方法。微交易，或多或少地融入了浏览器和 Web 应用，也是一种可行方法。</p>
+          <p>要注意的是孩子也在玩游戏。父母监管模式是一种现代化有效的防止孩子在游戏上滥消费的机制。然而，Web 和 Native 的一个重要区别是用户经常不愿意在 Web 里面进行登陆（原因很多啦）。</p>
+        </section>
+      </section>
+
+      <section id="next">
+        <h3>下一步</h3>
+        <p class="box">详情请看: <a href="agenda.html#nextsteps">分享文稿</a> 与 <a href="minutes/28-games-minutes.html#item17">会议记录</a></p>
+        <p>在最后的环节，参会者一起回顾了研讨会的所有话题来思考下一步如何改善整个 Web 游戏生态：线程、性能、3D 渲染、存储、无障碍访问、音频、延时、网络、分发等等。这些下一步行动得到了参会者的普遍支持，但要注意的是，虽然它们是以任务形式声明的，并不能保证会被付诸实践。这里面的很多提案进一步发展需要实现者和用户继续探讨使用意愿以及实现优先级，并且需要大家真正地投入时间推进。</p>
+
+        <p>在这些话题之上，通过现场的举手表决大家表示希望能持续地从游戏社区收集 Web 技术反馈，去跟进已识别的需求和凝聚标准群体的力量去实现这些需求。这些可能会以<strong>创建一个 W3C 游戏标准化领域</strong>的方式进行，通过创建一个兴趣组（或者在已有的工作组兴趣组里创建一个特别任务组）。参会者也希望能在各地举行类似的游戏相关技术研讨会。</p>
+
+        <section>
+          <h4 id="next-existing">发展中的技术</h4>
+          <p>研讨会提到的一些技术建议可以直接在已有的标准里落实，这些标准处于不同的发展阶段。从标准化的角度考虑，只要有足够的各方代表参与到工作组推进或者为相关标准的编写实现做贡献，这些需求就能马上变为现实：</p>
+          <ul>
+            <li><a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebAssembly WebIDL Bindings</a> 提案经过 WebAssembly 社区组的孵化后将落地 <a href="https://www.w3.org/wasm/">WebAssembly 工作组</a>。</li>
+            <li><a href="https://yurydelendik.github.io/webassembly-dwarf/">DWARF for WebAssembly</a> 提案经过 WebAssembly 社区组的孵化后将落地 <a href="https://www.w3.org/wasm/">WebAssembly 工作组</a>。</li>
+            <li><a href="https://github.com/WebAudio/web-audio-cg/blob/master/audio-device-client/explainer.md">Audio Device Client (ADC)</a> 提案经过 Web Audio 社区组的孵化后将落地 <a href="https://www.w3.org/2011/audio/">Audio 工作组</a>。</li>
+            <li><a href="https://w3c.github.io/gamepad/">Gamepad</a> 规范的第一版将在 <a href="https://www.w3.org/2019/webapps/">WebApps 工作组</a> 定稿实现。</li>
+            <li>第二版的 Gamepad 规范将在 <a href="https://www.w3.org/2019/webapps/">WebApps Working Group</a> 持续讨论添加新的支持属性。</li>
+            <li>考量合适的 <code>pointerrawupdate</code> 事件以从 <code>requestAnimationFrame</code> 分离输入事件并将其整合到 <a href="https://w3c.github.io/pointerevents/">Pointer Events</a> 规范的工作将在 <a href="https://www.w3.org/2012/pointerevents/">Pointer Events 工作组</a>进行。</li>
+            <li>为 <a href="https://w3c.github.io/pointerlock/">Pointer Lock</a> 添加延时鼠标事件的工作将在 in the <a href="https://www.w3.org/2019/webapps/">WebApps 工作组</a>进行。</li>
+            <li>在 <a href="https://www.khronos.org/gltf/">glTF</a> 整合支持 Compressed Texture Transmission Format (CTTF) 的技术讨论将在 <a href="https://www.khronos.org/">Khronos Group</a> 进行。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-exploratory">探索性工作</h4>
+          <p>有部分的建议涉及到值得孵化或者处于早期孵化的技术。如果您对这部分感兴趣，请为这些提案投个赞成意见或者根据你的实践经验和需求分享想法：</p>
+          <ul>
+            <li>把现位于 <a href="https://www.w3.org/community/gpu">GPU for the Web 社区组</a> 孵化的 <a href="https://gpuweb.github.io/gpuweb/">WebGPU</a> 方案推进到工作组落地。</li>
+            <li><a href="https://wicg.github.io/web-transport/">WebTransport</a> 正在 <abbr title="Web 平台孵化组">WICG</abbr> 孵化。</li>
+            <li>请为 <abbr title="Web Platform Incubator Group">WICG</abbr> 里的 <a href="https://discourse.wicg.io/t/proposal-exposing-input-events-to-worker-threads/3479">expose input events to worker threads</a> 提案投个支持票。</li>
+            <li>请为 <abbr title="Web Platform Incubator Group">WICG</abbr> 里的 <a href="https://discourse.wicg.io/t/webcodecs-proposal/3662/9">WebCodecs</a> 提案投个支持票。请注意，根据它的章程， <a href="https://www.w3.org/media-wg/">Media 工作组</a> 可能在孵化期结束后接纳这个提案。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-new">新的技术提案</h4>
+          <p>这次研讨会也讨论到一些能帮助优化游戏生态系统的技术需求。这部分的工作包括：</p>
+          <ul>
+            <li>改进 Web 对多线程的支持，尤其是 <strong>允许在 workers 之间共享结构化对象</strong>。这方面可行的建议解决方案应该是 <a href="https://github.com/tc39/ecma262">ECMAScript 层面</a>落实的。另外，<strong>允许 workers 通过 function 来启动</strong>和继承它们的 parent 的 scope(只包括代码，不包括 data)。Worker 方面的扩展提案请放到 <a href="https://whatwg.org/">WHATWG</a>。</li>
+            <li>在 Web 创建 <strong>原生 3D element</strong> 的想法将在 Immersive Web 社区组讨论 [参看研讨会后马上被提出的 <a href="https://github.com/immersive-web/proposals/issues/52">Native glTF issue</a>]。</li>
+            <li>为实现不同的持久化/暂时性存储场景暴露 <strong>multiple buckets per origin</strong>，将在 <a href="https://wicg.github.io/background-fetch/">Background Fetch</a> 探讨合适的方式把这个特性展示给用户。</li>
+            <li><strong>包容性语言的读音</strong> 问题将在 Accessible Platform Architectures (APA) 工作组的 <a href="https://www.w3.org/WAI/APA/task-forces/pronunciation/">Pronunciation 特别任务组</a>继续讨论。</li>
+            <li>撰写一个提案到 <a href="https://schema.org">schema.org</a> 去扩展 <code>VideoGame</code> 语义来改善 Web 游戏的分发。</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4 id="next-other">其它提案</h4>
+          <p>这一个类别的讨论成果下一步大体上是比较概括性或者抽象的。这些话题的深化讨论将定义问题范畴并且理清可行的标准化需求：</p>
+          <ul>
+            <li>思考合适的 <a href="https://wicg.github.io/aom/spec/">Accessibility Object Model (AOM) API</a> 与 <a href="https://github.com/WebAssembly/webidl-bindings/blob/master/proposals/webidl-bindings/Explainer.md#web-idl-bindings-proposal">WebAssembly WebIDL Bindings</a> 协作方式来<strong>为编译成 WebAssembly 的游戏提供无障碍辅助技术访问接口</strong>，并且把现在于 <abbr title="Web Platform Incubator Group">WICG</abbr> 孵化的 AOM 推成正式标准。注意 W3C 无障碍部分的讨论可以放到 <a href="https://www.w3.org/WAI/APA/">Accessible Platform Architectures (APA) 工作组</a>里。</li>
+            <li>探讨 <strong>metadata layers for glTF</strong> 来为无障碍访问和虚拟沉浸式场景提供语义信息，这部分将在 the Khronos Group 和对应的 W3C 工作组(APA 和 Immersive Web groups)继续交流合作。</li>
+            <li>考虑为游戏开发者编写一份 <strong>指南</strong>，例如，来推动资源预加载和无障碍方面的最佳实践。</li>
+            <li>讨论游戏在 Web 的变现方式，包括支持<strong>有奖视频广告</strong> 和有效的机制预防盗版。</li>
+            <li>讨论 <strong>Hosted apps Web 小游戏</strong> 和 Web runtimes 的共性。拟出一个可以向 hosted apps 暴露的 Web APIs 的列表，以及研究哪些自定义 API 可以迁移到 Web。</li>
+          </ul>
+        </section>
+      </section>
+
+      <section id="thanks">
+        <h3>致谢</h3>
+        <p>本次会议的顺利举行得益于组织者和参会者的支持帮助，研讨会的<a href="index.html#committee">顾问委员会成员</a>提供了早期支持和进行技术主题设计。深深感谢 <a href="participants.html#p11">David Catuhe</a> 以巨大的热情和纯熟的技巧主持这次研讨会，感谢 Microsoft 为这次研讨会提供了极好的会议室和设施，感谢 <a href="https://www.facebook.com/fbgaminghome/developers">Facebook gaming</a> 提供赞助。同时也谢谢为会议进行笔录、会务、设备配置、外联沟通、视频剪辑的各团队成员。当然，最重要的是感谢所有的<a href="participants.html">技术分享者和参会者</a>成就了这个硕果累累的充满灵感想法的技术研讨会。恭喜大家，完成了第一步，让我们一起迈入下一步的技术探索！</p>
+      </section>
+    </main>
+    <footer class="footer" id="footer">
+      <p>W3C 是一个开放且包容的组织，专注于高效的讨论以及富有成效的行动。我们的<a href=
+        "https://www.w3.org/Consortium/cepc/">职业道德与行为准则（Code of Ethics and Professional
+        Conduct）</a> 确保我们积极听取来自各方的意见与声音。 有关该研讨会的更多细节，欢迎联系 François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;.
+      </p>
+      <p>
+        对于以上研讨会页面内容的任何建议，例如修正拼写错误或添加具体话题等，欢迎通过 <a href="https://github.com/w3c/games-workshop/">GitHub</a> 提出，或邮件联系 François Daoust &lt;<a href=
+        "mailto:fd@w3.org">fd@w3.org</a>&gt;。
+      </p>
+    </footer>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
